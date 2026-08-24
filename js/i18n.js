@@ -31,6 +31,7 @@ export const DICT = {
     nav_ciudades: 'Ciudades',
     nav_como_funciona: 'Cómo funciona',
     nav_idioma_label: 'Idioma',
+    nav_historias: 'Historias',
 
     // Portada — hero
     hero_eyebrow: 'Escape rooms urbanos al aire libre',
@@ -75,6 +76,9 @@ export const DICT = {
     ciudad_rutas_disponibles: 'Rutas en {ciudad}',
     ciudad_ruta_cta: 'Ver detalles',
     ciudad_otras_titulo: 'Otras ciudades',
+    historias_titulo: 'Historias',
+    historias_subtitulo: 'Curiosidades reales de cada ciudad, antes de pisarla.',
+    historias_volver: 'Todas las historias',
 
     // Ficha de ruta
     ruta_volver: 'Volver a {ciudad}',
@@ -164,6 +168,7 @@ export const DICT = {
     nav_ciudades: 'Cities',
     nav_como_funciona: 'How it works',
     nav_idioma_label: 'Language',
+    nav_historias: 'Stories',
 
     // Homepage — hero
     hero_eyebrow: 'Outdoor urban escape rooms',
@@ -208,6 +213,9 @@ export const DICT = {
     ciudad_rutas_disponibles: 'Trails in {ciudad}',
     ciudad_ruta_cta: 'See details',
     ciudad_otras_titulo: 'Other cities',
+    historias_titulo: 'Stories',
+    historias_subtitulo: 'Real curiosities about each city, before you set foot in it.',
+    historias_volver: 'All stories',
 
     // Trail page
     ruta_volver: 'Back to {ciudad}',
@@ -297,6 +305,7 @@ export const DICT = {
     nav_ciudades: 'Villes',
     nav_como_funciona: 'Comment ça marche',
     nav_idioma_label: 'Langue',
+    nav_historias: 'Histoires',
 
     // Accueil — hero
     hero_eyebrow: 'Escape games urbains en plein air',
@@ -341,6 +350,9 @@ export const DICT = {
     ciudad_rutas_disponibles: 'Parcours à {ciudad}',
     ciudad_ruta_cta: 'Voir les détails',
     ciudad_otras_titulo: 'Autres villes',
+    historias_titulo: 'Histoires',
+    historias_subtitulo: 'Des curiosités réelles sur chaque ville, avant d\'y poser le pied.',
+    historias_volver: 'Toutes les histoires',
 
     // Fiche de parcours
     ruta_volver: 'Retour à {ciudad}',
@@ -430,6 +442,7 @@ export const DICT = {
     nav_ciudades: 'Città',
     nav_como_funciona: 'Come funziona',
     nav_idioma_label: 'Lingua',
+    nav_historias: 'Storie',
 
     // Homepage — hero
     hero_eyebrow: 'Escape room urbani all’aperto',
@@ -474,6 +487,9 @@ export const DICT = {
     ciudad_rutas_disponibles: 'Percorsi a {ciudad}',
     ciudad_ruta_cta: 'Vedi i dettagli',
     ciudad_otras_titulo: 'Altre città',
+    historias_titulo: 'Storie',
+    historias_subtitulo: 'Curiosità reali su ogni città, prima di metterci piede.',
+    historias_volver: 'Tutte le storie',
 
     // Scheda del percorso
     ruta_volver: 'Torna a {ciudad}',
