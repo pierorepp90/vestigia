@@ -5,3 +5,8 @@ worker/.dev.vars
 .playwright-mcp/
 *.log
 .superpowers/
+
+# Contenido pagado: respuestas, pistas e historia de cada ruta. Se
+# despliega al Worker directo desde disco (wrangler deploy), nunca pasa
+# por GitHub — el repo es público y esto rompería el modelo de pago.
+worker/src/contenido/
