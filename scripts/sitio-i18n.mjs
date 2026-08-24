@@ -13,6 +13,8 @@ export function rutaRelativa(tipo, params = {}) {
   if (tipo === 'index') return 'index.html';
   if (tipo === 'ciudad') return `ciudad/${params.slug}.html`;
   if (tipo === 'ruta') return `ruta/${params.id}.html`;
+  if (tipo === 'historia-indice') return 'historias/index.html';
+  if (tipo === 'historia') return `historias/${params.id}.html`;
   throw new Error(`Tipo de página desconocido: ${tipo}`);
 }
 
