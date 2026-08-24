@@ -396,8 +396,8 @@ git commit -m "Añade js/historias.js: render del índice del blog"
 // Ficha de un post individual. Lee `data-historia` del <body>, busca los
 // datos en el catálogo y arma el cuerpo del artículo, incluido el enlace
 // editorial de cierre (sin botón — ver spec, sección "Diseño visual").
-import { ciudadPorSlug, historiaPorSlug, localizar, rutaPorId, urlRecurso } from './catalogo.js';
-import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t } from './i18n.js';
+import { ciudadPorSlug, historiaPorSlug, localizar, rutaPorId } from './catalogo.js';
+import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, urlRecurso } from './i18n.js';
 
 /** Sustituye {ruta1}/{ruta2} en `cierre` por el enlace editorial real a esa ruta. */
 export function cierreConEnlaces(historia, lang) {
