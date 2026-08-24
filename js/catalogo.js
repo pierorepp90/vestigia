@@ -885,3 +885,16 @@ export function ciudadesRelacionadas(slugActual, cantidad = 3) {
   }
   return resultado;
 }
+
+/**
+ * Un post de blog por ciudad — curiosidades reales que enlazan a la ruta
+ * de pago correspondiente. `id` coincide con `ciudadSlug` (un post por
+ * ciudad). `enlacesRutas` son 1 o 2 ids de RUTAS; `cierre` es el párrafo
+ * final con placeholders {ruta1}/{ruta2} que el renderizador sustituye
+ * por el enlace editorial real (ver js/historia.js).
+ */
+export const HISTORIAS = [];
+
+export function historiaPorSlug(slug) {
+  return HISTORIAS.find((h) => h.id === slug) || null;
+}
