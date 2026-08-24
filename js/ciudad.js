@@ -21,7 +21,7 @@ function tarjetaRuta(ruta, lang) {
   return `
   <a class="tarjeta-ruta" href="../ruta/${ruta.id}.html">
     <div class="tarjeta-ruta__foto-envoltorio">
-      <img class="tarjeta-ruta__foto" src="../${ruta.imgCard}" alt="${titulo}" loading="lazy" width="900" height="675">
+      <img class="tarjeta-ruta__foto" src="../${ruta.imgCard}" alt="${titulo}" loading="lazy" width="900" height="600">
     </div>
     <div class="tarjeta-ruta__cuerpo">
       <span class="tarjeta-ruta__zona">${ICONO_MAPA} ${ruta.zona}</span>

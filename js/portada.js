@@ -49,7 +49,7 @@ function tarjetaCiudad(ciudad, indice, lang) {
   <${Tag} class="tarjeta-ciudad ${activa ? 'tarjeta-ciudad--activa' : 'tarjeta-ciudad--inactiva'}"
      style="--retraso:${(indice * 90)}ms" ${href ? `href="${href}"` : ''}>
     <div class="tarjeta-ciudad__marco">
-      <img class="tarjeta-ciudad__foto" src="${ciudad.imgCard}" alt="${nombre}" loading="lazy" width="900" height="675">
+      <img class="tarjeta-ciudad__foto" src="${ciudad.imgCard}" alt="${nombre}" loading="lazy" width="900" height="600">
       ${matasellosSVG(pais, indice)}
       <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
       ${!activa ? `<div class="cinta-proximamente">${t(lang, 'badge_proximamente')}</div>` : ''}
