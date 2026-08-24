@@ -278,7 +278,7 @@ git commit -m "Añade textos de interfaz para el blog de historias"
   text-underline-offset: 3px;
 }
 
-@media (max-width: 860px) {
+@media (max-width: 980px) {
   .grid-historias {
     grid-template-columns: 1fr 1fr;
   }
@@ -287,7 +287,7 @@ git commit -m "Añade textos de interfaz para el blog de historias"
   }
 }
 
-@media (max-width: 560px) {
+@media (max-width: 640px) {
   .grid-historias {
     grid-template-columns: 1fr;
   }
