@@ -179,7 +179,7 @@ botón.
   `headline`, `description`, `image`, `datePublished` (fecha de
   publicación real, fija, no se recalcula en cada build),
   `author`/`publisher` como `Organization` "Vestigia".
-- `sitemap.xml`: pasa de 112 a 156 URLs (11 posts × 4 idiomas más).
+- `sitemap.xml`: pasa de 112 a 160 URLs (índice del blog + 11 posts = 12 páginas nuevas × 4 idiomas).
 - `robots.txt`: sin cambios — `historias/` es contenido público, se
   indexa igual que `ciudad/`/`ruta/`.
 
