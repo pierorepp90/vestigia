@@ -108,9 +108,11 @@ export function historiaPorSlug(slug) {
 
 `{ruta1}`/`{ruta2}` en `cierre` se resuelven igual que `{ciudad}` ya se
 resuelve hoy en `tf()` — el renderizador sustituye el placeholder por
-`<span class="enlace-editorial"><a href="...">{título real de la
-ruta}</a></span>`, así la traducción del cierre es prosa limpia, nunca
-HTML incrustado en el diccionario.
+`<a class="enlace-editorial" href="...">{título real de la ruta}</a>`
+(la clase va directo en el `<a>`, no en un `<span>` envolvente: así el
+`text-decoration-color` propio del enlace no compite con el subrayado por
+defecto del navegador), así la traducción del cierre es prosa limpia,
+nunca HTML incrustado en el diccionario.
 
 ## 3. Páginas y generación
 
@@ -165,7 +167,7 @@ tipografía Fraunces/Archivo/IBM Plex Mono) que ya define `styles.css`.
 introducción, y cada sección de `secciones[]` en un bloque con el mismo
 tratamiento visual que hoy usa `.adelanto` (fondo `--paper`, borde
 izquierdo `--lacre` de 3px, eyebrow en mono). Cierra con el párrafo de
-`cierre`, el enlace a la ruta en `<span class="enlace-editorial">`
+`cierre`, el enlace a la ruta como `<a class="enlace-editorial">`
 (cursiva Fraunces, rojo lacre, subrayado sutil en `--paper-edge`) — sin
 botón.
 

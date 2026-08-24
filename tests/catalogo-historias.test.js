@@ -43,6 +43,24 @@ test('cada historia apunta a una ciudad y a 1-2 rutas que existen de verdad', ()
   }
 });
 
+test('cierre contiene un placeholder {rutaN} por cada entrada de enlacesRutas, en los 4 idiomas', () => {
+  // js/historia.js#cierreConEnlaces() sustituye {ruta1}/{ruta2} por el
+  // enlace real — si el placeholder falta en algún idioma, String.replace
+  // no encuentra nada que sustituir y esa ruta deja de promocionarse en
+  // esa traducción, en silencio. Este test convierte ese despiste de
+  // autoría en un fallo de test, no en un enlace que falta sin avisar.
+  for (const historia of HISTORIAS) {
+    for (const lang of LANGS) {
+      historia.enlacesRutas.forEach((_, i) => {
+        assert.ok(
+          historia.cierre[lang].includes(`{ruta${i + 1}}`),
+          `${historia.id}.cierre.${lang} no contiene el placeholder {ruta${i + 1}}`,
+        );
+      });
+    }
+  }
+});
+
 test('historiaPorSlug() encuentra por id y devuelve null si no existe', () => {
   if (HISTORIAS.length > 0) {
     assert.equal(historiaPorSlug(HISTORIAS[0].id), HISTORIAS[0]);
