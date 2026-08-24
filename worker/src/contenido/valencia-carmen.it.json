@@ -1,0 +1,125 @@
+{
+  "rutaId": "valencia-carmen",
+  "idioma": "it",
+  "titulo": "Il Graal dei mercanti",
+  "intro": "El Carmen è il quartiere più antico di Valencia: crebbe addossato prima alle mura arabe e poi a quelle cristiane, tra mercanti di seta, artigiani delle corporazioni e frati. Da un lato, la Lonja ha eretto un tempio di pietra dedicato al commercio; dall'altro, la Cattedrale custodisce una coppa che alcuni credono usata da Cristo nell'Ultima Cena. Sono circa 3 km, pianeggianti, nel cuore del centro storico.",
+  "puntoPartida": "La Lonja de la Seda (la Borsa della seta), facciata principale, Calle de la Lonja",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La scimmia che veglia sui mercanti",
+      "llegada": "In piedi davanti alla facciata principale della Lonja, con la Torre al centro, costeggiate l'edificio verso sinistra fino all'ala del Consulado del Mar, riconoscibile dai propri merli a gradoni e da una porta indipendente.",
+      "enigma": "Questo edificio non è una chiesa, anche se lo sembra: è un tempio gotico dedicato al commercio della seta, costruito tra il 1482 e il 1548. Le sue pareti esterne sono coperte di doccioni e figure scolpite, circa 28 in totale, tra animali fantastici, frati, soldati e scene quotidiane. Sulla parete del Consulado del Mar, tra due medaglioni, è scolpita un'anziana che tiene in braccio un animale. Che animale è?",
+      "respuestas": ["scimmia", "una scimmia"],
+      "pistas": [
+        "Non è un cane né un gatto: è un animale che può camminare quasi come una persona.",
+        "Vive nella foresta e ha mani molto simili alle nostre.",
+        "È una scimmia."
+      ],
+      "historia": "I doccioni della Lonja non erano solo scarichi per l'acqua: molti storici pensano che servissero anche da monito morale medievale, scolpendo vizi e peccati nella pietra per chi sapesse guardare in alto. Nell'arte gotica, la scimmia rappresentava spesso la lussuria o la stoltezza umana — tutta una lezione scolpita alle porte di un edificio dove circolavano somme di denaro enormi.",
+      "fuente": "Generalitat Valenciana — La Lonja de la Seda; UNESCO, patrimonio dell'umanità (1996)"
+    },
+    {
+      "n": 2,
+      "titulo": "Le colonne che salgono a spirale verso il cielo",
+      "llegada": "Entrate dalla porta principale nella Sala de Contratación, il grande salone sotto l'arco ogivale sormontato dalla Vergine con il Bambino.",
+      "enigma": "Qui i mercanti della seta chiudevano i loro affari, sotto un soffitto alto quasi 17 metri sostenuto da colonne che si attorcigliano come una corda: le famose colonne elicoidali, scolpite con una tecnica di stereotomia costosissima per l'epoca. Contate solo le colonne libere, quelle che si ergono da sole al centro della sala, senza toccare nessun muro. Quante sono?",
+      "respuestas": ["8", "otto"],
+      "pistas": [
+        "Non contate quelle addossate o mezze incassate nel muro, solo quelle completamente libere.",
+        "È un numero pari, inferiore a 10.",
+        "Ci sono 8 colonne libere."
+      ],
+      "historia": "La Lonja fu costruita con il denaro degli stessi mercanti, nell'epoca d'oro del commercio valenciano della seta. E non era solo un luogo d'affari: i due piani superiori della Torre, proprio accanto, servivano da prigione per i mercanti che non pagavano i debiti; il piano terra, invece, era una cappella. Chiudere un cattivo affare qui poteva costare molto più del denaro.",
+      "fuente": "Colegio Territorial de Arquitectos de Valencia; Consorci de Museus de la Comunitat Valenciana"
+    },
+    {
+      "n": 3,
+      "titulo": "La cupola dipinta del colore del cielo",
+      "llegada": "Camminate fino alla Plaza de la Virgen e cercate la Basílica de la Virgen de los Desamparados, accanto alla Cattedrale. Fate qualche passo indietro per vedere bene la cupola.",
+      "enigma": "In una città di pietra dorata e tetti grigi, questa cupola ovale si distingue per un rivestimento molto diverso: è completamente ricoperta di azulejos in ceramica invetriata. Di che colore sono questi azulejos?",
+      "respuestas": ["blu", "azzurro", "azzurri", "blu cobalto"],
+      "pistas": [
+        "È lo stesso colore del mare e del cielo sereno.",
+        "Non è verde né dorato: è un colore freddo.",
+        "Gli azulejos sono blu."
+      ],
+      "historia": "All'interno, la cupola nasconde un'altra sorpresa: gli affreschi dipinti da Antonio Palomino tra il 1701 e il 1704, con una prospettiva che sembra aprirsi verso il cielo. Rimasero nascosti sotto ridipinture successive per generazioni e furono recuperati del tutto solo in un restauro di questo secolo. La Virgen de los Desamparados è la patrona di Valencia, e ogni anno, la domenica dopo Pasqua, migliaia di persone riempiono questa piazza per la sua grande offerta di fiori.",
+      "fuente": "Real Basílica de la Virgen de los Desamparados; Ajuntament de València"
+    },
+    {
+      "n": 4,
+      "titulo": "La torre che impiegò un secolo per salire",
+      "llegada": "Girate intorno alla Cattedrale fino alla Plaza de la Reina, dove si trova il Miguelete, il campanile a pianta ottagonale.",
+      "enigma": "Il Miguelete è il simbolo di Valencia: una torre di pietra che si sale con una stretta scala a chiocciola di oltre 200 gradini. Ci volle così tanto tempo a costruirla che passò per le mani di diversi capomastri. Cercate il pannello informativo vicino alla porta d'ingresso: in che anno iniziò la costruzione della torre?",
+      "respuestas": ["1381"],
+      "pistas": [
+        "È più di un secolo prima che iniziasse la costruzione della Lonja, la prima tappa di questo percorso.",
+        "È una data degli anni 1380.",
+        "La costruzione della torre iniziò nel 1381."
+      ],
+      "historia": "La torre prende il nome dal fatto che le sue campane furono benedette il 29 settembre, festa di San Michele. La sua pianta ottagonale è insolita: la maggior parte dei campanili gotici è quadrata o rotonda. Da lassù, a circa 51 metri d'altezza, si vede tutta la Valencia antica e, nelle giornate limpide, il mare.",
+      "fuente": "Catedral de Valencia — Capítol Catedral; Ajuntament de València"
+    },
+    {
+      "n": 5,
+      "titulo": "I dodici che custodiscono la coppa",
+      "llegada": "Entrate in Cattedrale e cercate la Capilla del Santo Cáliz, ricavata nell'antica sala capitolare, con il suo cancello d'accesso.",
+      "enigma": "In questa cappella si venera una coppa d'agata arrivata a Valencia nel 1437, che alcuni studiosi identificano con il calice dell'Ultima Cena: il Santo Graal. Diversi papi l'hanno usata per celebrare messa proprio qui. Guardate in alto, verso la volta stellata: intorno sono scolpiti gli apostoli, uno per ogni chiave di volta, e al centro una scena diversa con la Vergine. Quanti apostoli contate?",
+      "respuestas": ["12", "dodici"],
+      "pistas": [
+        "Sono gli stessi che sedevano a tavola nell'Ultima Cena, senza contare Gesù.",
+        "È un numero associato anche ai mesi dell'anno.",
+        "Ci sono 12 apostoli scolpiti nella volta."
+      ],
+      "historia": "La parte superiore della coppa, in agata levigata, fu probabilmente scolpita tra il IV secolo a.C. e il I secolo d.C. in una bottega del Vicino Oriente; il piede, in oro e pietre preziose, proviene da un vaso califfale del X o XI secolo e fu aggiunto alla coppa più tardi, verso il XII secolo. L'attuale cappella, con la sua pala d'altare in alabastro scolpita dall'italiano Giuliano Poggibonsi, aprì nel 1916, anche se la coppa si trova a Valencia fin dal XV secolo.",
+      "fuente": "Catedral de Valencia — Santo Cáliz; Archivo de la Catedral de Valencia"
+    },
+    {
+      "n": 6,
+      "titulo": "Le torri che portano ancora le cicatrici",
+      "llegada": "Attraversate il Barrio del Carmen verso ovest, seguendo la calle Caballeros, fino alle Torres de Quart, una delle antiche porte della cinta muraria medievale.",
+      "enigma": "Delle dodici porte che ebbe la cinta muraria cristiana di Valencia, ne sopravvivono solo due, e questa è una di esse. Osservate la pietra della facciata esterna, quella rivolta verso fuori città: è piena di fori tondi e segni irregolari, centinaia, che i restauri hanno conservato apposta invece di coprirli. Cercate il pannello informativo vicino alla porta: in che anno questa torre subì l'attacco che lasciò quei segni?",
+      "respuestas": ["1808"],
+      "pistas": [
+        "Fu durante la guerra contro le truppe di Napoleone, quando Valencia resistette a un assedio.",
+        "È un anno dei primi del XIX secolo, proprio quando iniziava quella guerra in Spagna.",
+        "L'attacco avvenne nel 1808."
+      ],
+      "historia": "Nel giugno 1808, tra 8.000 e 10.000 soldati francesi al comando del maresciallo Moncey attaccarono Valencia da qui. La città resistette, e la pietra rimase con oltre cento impatti di cannone e più di mille segni di moschetto. Con gli anni, la torre servì anche da carcere femminile; oggi alcuni uccelli nidificano negli stessi fori lasciati dagli spari.",
+      "fuente": "Ajuntament de València — Torres de Quart; Guerra d'Indipendenza spagnola (1808)"
+    },
+    {
+      "n": 7,
+      "titulo": "La via di chi cuciva il denaro",
+      "llegada": "Tornate verso il centro del quartiere fino a calle Bolsería, una delle strade più strette e vivaci del Carmen.",
+      "enigma": "Come in quasi tutta Valencia, il nome di questa via è scritto su un azulejo in ceramica tradizionale, bianco e blu, sul muro di un angolo. Il nome viene da una corporazione medievale che lavorava qui. Cercate l'azulejo e pensate: cosa fabbricavano e vendevano gli artigiani che diedero il nome alla via?",
+      "respuestas": ["borse", "borsellini", "borse e borsellini", "borsellini e borse"],
+      "pistas": [
+        "Il nome viene dalla stessa parola che usiamo ancora oggi per l'oggetto dove teniamo monete o chiavi.",
+        "Non tessevano stoffe intere, cucivano qualcosa di più piccolo, da portare addosso.",
+        "I bolseros fabbricavano borse e borsellini di stoffa o di cuoio."
+      ],
+      "historia": "Valencia è, secondo diversi studi, la città spagnola con più strade dedicate a mestieri e corporazioni medievali. Bolsería compare già con questo nome in documenti del XIV secolo, e i suoi artigiani — i bolseros — arrivarono ad avere proprie ordinanze di corporazione nel 1741. Molte di quelle borse si cucivano, non a caso, con filo di seta comprato a due passi da qui, alla Lonja.",
+      "fuente": "Ajuntament de València — nomenclàtor de carrers; Archivo Municipal de Valencia"
+    },
+    {
+      "n": 8,
+      "titulo": "Il pappagallo che non tace mai",
+      "llegada": "Scendete fino alla Plaza del Mercado, dove ritrovate la Lonja: proprio di fronte si trova il Mercado Central, il grande edificio modernista di ferro e vetro.",
+      "enigma": "Il mercato fu costruito tra il 1914 e il 1928, e le sue cupole sono coronate da diverse banderuole. Una ha la forma di un pesce spada, sopra la zona del pesce. Ma ce n'è un'altra, sopra una corona reale, a forma di uccello, che i valenciani chiamano \"la Cotorra\" (il pappagallo) per la sua fama di pettegola. Individuate quella banderuola: che uccello rappresenta?",
+      "respuestas": ["pappagallo", "un pappagallo", "cocorita", "una cocorita"],
+      "pistas": [
+        "Non è un'aquila né una colomba: è un uccello colorato capace di ripetere ciò che sente.",
+        "La leggenda vuole che sia lo stesso uccello che passa la giornata a spettegolare con quello della chiesa di fronte.",
+        "La banderuola ha la forma di un pappagallo: è la Cotorra del Mercat."
+      ],
+      "historia": "La leggenda narra che la Cotorra del Mercat abbia una discussione eterna con il \"Pardal de Sant Joan\", l'aquila che corona la vicina chiesa dei Santos Juanes: una rappresenta il pettegolezzo del mercato, il profano; l'altra, il sacro. Secondo la tradizione, va avanti così da più di un secolo. Qui finisce il percorso, nella stessa piazza in cui siete partiti, tra mercanti di pietra, una coppa che alcuni chiamano Graal e una città che non ha mai smesso di parlare.",
+      "fuente": "Ajuntament de València; Mercat Central de València"
+    }
+  ],
+  "final": {
+    "titulo": "Avete attraversato il quartiere che non si arrese mai",
+    "texto": "Da una scimmia scolpita nella pietra a una coppa che alcuni chiamano Graal, da colonne che si avvitano come corde a una torre crivellata dai colpi di cannone di una guerra di più di due secoli fa. El Carmen, la Lonja e la Cattedrale hanno visto passare mercanti, re e assedi, e sono ancora lì, con le cicatrici in bella vista per chi sa guardare in alto."
+  }
+}

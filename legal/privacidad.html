@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacidad — Vestigia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f4ead0' stroke='%239c2b1f' stroke-width='5'/%3E%3Cpath d='M50 14 L60 45 L50 86 L40 45 Z' fill='%239c2b1f'/%3E%3Cpath d='M14 50 L45 40 L86 50 L45 60 Z' fill='%23241a10' opacity='0.65'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../index.html" aria-label="Vestigia — inicio">
+      <svg class="marca__icono" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="3" fill="currentColor"/>
+        <path d="M50 10 L58 42 L50 50 L42 42 Z" fill="currentColor"/>
+        <path d="M50 90 L58 58 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M10 50 L42 42 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M90 50 L58 58 L50 50 L58 42 Z" fill="currentColor" opacity="0.35"/>
+      </svg>
+      <span class="marca__texto"><span class="marca__nombre">Vestigia</span></span>
+    </a>
+    <nav class="nav-principal" aria-label="Navegación principal">
+      <a href="../index.html#ciudades">Ciudades</a>
+      <a href="../index.html#como-funciona">Cómo funciona</a>
+    </nav>
+  </div>
+</header>
+
+<main class="prosa">
+  <p class="prosa__actualizado">Última actualización: 22 de agosto de 2026</p>
+
+  <div class="aviso-borrador">
+    <strong>Plantilla pendiente de revisar.</strong> Cubre los tratamientos de
+    datos que ya existen en el código (pago, email de acceso). Si en el
+    futuro se añade analítica, publicidad o un formulario de contacto, hay
+    que ampliar esta política antes de activarlos. Conviene que la revise un
+    profesional antes de empezar a operar.
+  </div>
+
+  <h1>Política de privacidad</h1>
+
+  <h2>1. Responsable del tratamiento</h2>
+  <p>
+    <span class="placeholder">[Nombre completo o razón social]</span>,
+    con NIF/CIF <span class="placeholder">[NIF / CIF]</span> y domicilio en
+    <span class="placeholder">[Dirección fiscal]</span>, es responsable del
+    tratamiento de los datos personales recogidos a través de este sitio.
+    Contacto: <a href="mailto:hola@vestigia.es">hola@vestigia.es</a>.
+  </p>
+
+  <h2>2. Qué datos tratamos</h2>
+  <p>Al comprar una ruta, se tratan los siguientes datos:</p>
+  <ul>
+    <li><strong>Email</strong>, para enviar el enlace de acceso a la ruta y confirmarte la compra.</li>
+    <li><strong>Datos de pago</strong> (tarjeta), gestionados directamente por Stripe — este sitio nunca almacena ni tiene acceso al número completo de tu tarjeta.</li>
+    <li><strong>Idioma preferido</strong>, guardado en tu propio navegador (localStorage), no en nuestros servidores.</li>
+    <li><strong>Progreso de la partida</strong> (parada actual, pistas usadas), guardado únicamente en tu propio navegador.</li>
+  </ul>
+
+  <h2>3. Con qué finalidad y base legal</h2>
+  <ul>
+    <li>Gestionar la compra y entregar el acceso a la ruta — ejecución de un contrato (art. 6.1.b RGPD).</li>
+    <li>Responder a consultas enviadas por email — interés legítimo / consentimiento.</li>
+    <li>Cumplir obligaciones fiscales y contables — obligación legal (art. 6.1.c RGPD).</li>
+  </ul>
+
+  <h2>4. Encargados del tratamiento</h2>
+  <p>Para prestar el servicio, compartimos datos estrictamente necesarios con:</p>
+  <ul>
+    <li><strong>Stripe, Inc.</strong> — procesamiento del pago.</li>
+    <li><strong>Resend</strong> — envío del email con el enlace de acceso.</li>
+    <li><strong>Cloudflare, Inc.</strong> — alojamiento de la infraestructura (Workers) que sirve el contenido de la ruta.</li>
+  </ul>
+  <p>
+    Estos proveedores pueden estar ubicados fuera del Espacio Económico
+    Europeo; en ese caso, las transferencias se amparan en las garantías
+    previstas por el RGPD (cláusulas contractuales tipo u otro mecanismo
+    equivalente ofrecido por cada proveedor).
+  </p>
+
+  <h2>5. Plazo de conservación</h2>
+  <p>
+    Los datos de la compra se conservan mientras el acceso a la ruta esté
+    vigente (un año desde la compra) y, después, durante los plazos exigidos
+    por la normativa fiscal y mercantil aplicable.
+  </p>
+
+  <h2>6. Tus derechos</h2>
+  <p>
+    Puedes ejercer tus derechos de acceso, rectificación, supresión,
+    oposición, limitación y portabilidad escribiendo a
+    <a href="mailto:hola@vestigia.es">hola@vestigia.es</a>. También puedes
+    presentar una reclamación ante la Agencia Española de Protección de
+    Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">aepd.es</a>).
+  </p>
+
+  <h2>7. Cookies y almacenamiento local</h2>
+  <p>
+    Este sitio no usa cookies de seguimiento ni de publicidad. Usa
+    <code>localStorage</code> del navegador — no una cookie, y no se envía a
+    ningún servidor — para recordar tu idioma y el progreso de tu partida.
+    Puedes borrarlo en cualquier momento desde los ajustes de tu navegador.
+  </p>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p class="pie__derechos" id="pie-derechos"></p>
+    <nav class="pie__enlaces" aria-label="Legal">
+      <a href="aviso.html">Aviso legal</a>
+      <a href="privacidad.html">Privacidad</a>
+      <a href="condiciones.html">Condiciones</a>
+      <a href="../assets/img/ciudades/CREDITOS.md">Créditos de imágenes</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module">
+  import { tf, detectarIdioma } from '../js/i18n.js';
+  document.getElementById('pie-derechos').textContent = tf(detectarIdioma(), 'footer_rights', { year: new Date().getFullYear() });
+</script>
+</body>
+</html>

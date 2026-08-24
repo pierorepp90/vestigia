@@ -1,0 +1,125 @@
+{
+  "rutaId": "berlin-mitte",
+  "idioma": "en",
+  "titulo": "The Memory of Mitte",
+  "intro": "You're about to walk between two twin domes that actually have nothing in common, over a hidden library that lost every one of its books, and face a goddess holding a military emblem high above a gate. Berlin doesn't keep its 20th-century history behind glass: it leaves it carved into the stone, metal and glass of its own streets, right at eye level for anyone who stops to look. It's nearly 5 km, all flat.",
+  "puntoPartida": "Gendarmenmarkt, between the Deutscher Dom and the Konzerthaus",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The towers that became twins",
+      "llegada": "Stand in the middle of Gendarmenmarkt, between the Konzerthaus and either of the two domed churches flanking it, so you can see both towers at once.",
+      "enigma": "The two churches around you — the Französischer Dom on one side, the Deutscher Dom on the other — weren't born together and don't even share the same floor plan: the French one went up in 1701-1705 for the Huguenot community fleeing France, the German one in 1701-1708 for the Lutheran congregation, each with its own architect. And yet, from where you're standing, their two domed towers are indistinguishable from one another. That's because they were added almost 80 years later, commissioned by the same king and built by the same architect, purely so the square would look symmetrical. Find the year on the sign or information panel by the entrance of either tower: what year were they completed?",
+      "respuestas": ["1785"],
+      "pistas": [
+        "The commission came from Frederick II of Prussia; the architect was Carl von Gontard.",
+        "Work on both towers began in 1780.",
+        "They were completed in 1785."
+      ],
+      "historia": "One of the two towers, the Deutscher Dom's, didn't even make it standing the first time: it collapsed mid-construction in July 1781 and had to be rebuilt from scratch. Both churches burned out inside during the Second World War and stood as empty shells for years. The Französischer Dom was restored first, in time for Berlin's 750th anniversary in 1987, still under East Germany; the Deutscher Dom didn't fully reopen until 1996, after reunification, with a permanent exhibition on the history of German parliamentary democracy inside.",
+      "fuente": "Stiftung Französische Kirche zu Berlin / Stiftung Deutscher Dom; Wikipedia — Gendarmenmarkt, Französischer Dom, Deutscher Dom"
+    },
+    {
+      "n": 2,
+      "titulo": "The empty library",
+      "llegada": "Walk north along Charlottenstraße for about 500 metres, cross Unter den Linden, and reach Bebelplatz, the square between the State Opera and Humboldt University. Look for a thick glass window set flush into the cobblestones at the centre of the square, a little over a metre on each side.",
+      "enigma": "Crouch down and look through the glass: below is a lit white room, roughly seven metres on each side, lined floor to ceiling with empty shelves. It's the piece Israeli artist Micha Ullman installed in 1995 on the exact spot where, on the night of 10 May 1933, university students sympathetic to Nazism — many from the very university beside you — publicly burned thousands of books by Jewish, communist and pacifist authors, or simply anyone who didn't fit their idea of German culture. Next to the glass there's a plaque bearing a quote from the writer Heinrich Heine, whose own books burned that night. Check the plaque or the nearest information panel: how many books are estimated to have burned that night?",
+      "respuestas": ["20000", "20,000", "twenty thousand", "over 20000"],
+      "pistas": [
+        "The number appears on the information panel, not in Heine's quote itself.",
+        "It's a round, five-digit figure: twenty thousand and something.",
+        "An estimated 20,000 books were burned."
+      ],
+      "historia": "The quote engraved by the glass was written by Heine himself around 1821, more than a century before his own books ended up on the pyre: 'Where they burn books, they will ultimately burn people too.' The 1933 burning wasn't a spontaneous outburst: it was organised on the same day in several German cities at once, with lists of banned authors prepared in advance. Many of those authors managed to flee the country in the years that followed; others didn't.",
+      "fuente": "visitBerlin.de — Book burning memorial at Bebelplatz; Wikipedia — The Empty Library"
+    },
+    {
+      "n": 3,
+      "titulo": "The mother left out in the open",
+      "llegada": "Continue east along Unter den Linden for about 300 metres to the Neue Wache, a low, square building with a columned portico that looks more like a fortress than a chapel. Entry is free; inside, the room is almost empty except for a single sculpture at its centre.",
+      "enigma": "It's an enlarged bronze cast of a work by sculptor Käthe Kollwitz, who lost her son Peter in Belgium in 1914, during the First World War, and years later carved a mother holding the body of her dead son. Before you go up to the figure, look up at the ceiling. What exactly is directly above the sculpture?",
+      "respuestas": ["a hole", "a circular opening", "an oculus", "a hole in the roof", "open to the sky", "opening"],
+      "pistas": [
+        "There's no glass skylight covering it — look closely.",
+        "When it rains or snows in Berlin, it literally comes inside the building.",
+        "It's a round opening straight to the sky, right above the sculpture: rain, snow and sunlight fall directly onto the mother and her son."
+      ],
+      "historia": "Schinkel built this building in 1818 as a Prussian royal guardhouse, and it has changed dedication four times since, once for each political regime that has ruled Berlin: royal guardhouse, memorial to the fallen of the First World War, East German memorial to the 'victims of fascism and militarism', and, since 1993, reunified Germany's central memorial to the victims of war and tyranny. Kollwitz had lost her son Peter in 1914; in 1942 she also lost her grandson, another Peter, named after his uncle, killed on the Stalingrad front.",
+      "fuente": "Bundesrepublik Deutschland — Neue Wache; Wikipedia — Mother with her Dead Son"
+    },
+    {
+      "n": 4,
+      "titulo": "The domes nobody counts right",
+      "llegada": "Continue east along Unter den Linden, cross the bridge over the Spree, and enter the Lustgarten, the park facing the Berliner Dom. Step back a few metres from the building, far enough to see its whole silhouette against the sky.",
+      "enigma": "The cathedral you see today dates from 1905, a Protestant church built with the ambition of a basilica, with the Hohenzollern crypt underneath. Look at the whole silhouette, not just the big central dome: there are more domes, smaller ones, at the corners of the building. Count every dome you can see from where you're standing, the large one and the small ones.",
+      "respuestas": ["5", "five"],
+      "pistas": [
+        "There's one main dome, much larger than the rest, in the centre.",
+        "The other four are smaller and crown the four corner towers.",
+        "There are five domes in total: one large and four small."
+      ],
+      "historia": "More than ninety members of the Hohenzollern family rest beneath this dome — the dynasty that ruled Prussia and later the German Empire until 1918: it's the largest dynastic mausoleum in Europe. A bomb hit the dome's lantern in 1944; the fire and the collapse that followed tore through the church floor and broke open several sarcophagi in the crypt below. Reconstruction began in 1975 under East Germany and finished in 1993, after reunification; it lowered the building's height by about 16 metres compared to the original and simplified its decoration — but kept all five domes.",
+      "fuente": "Berlinerdom.de — GDR period and reconstruction; Wikipedia — Berlin Cathedral"
+    },
+    {
+      "n": 5,
+      "titulo": "What the goddess is holding",
+      "llegada": "Head west along Unter den Linden to Pariser Platz and the Brandenburg Gate — it's a long walk, a little over a kilometre and a half in a straight line. Cross to the far side of the gate, toward the Tiergarten, and find a good angle to see the sculpture crowning the attic, high above the columns.",
+      "enigma": "It's a quadriga: a chariot drawn by four horses, driven by Victoria, the Roman goddess of victory. Look at what Victoria is holding up in her right hand: a staff topped with a wreath, with a military emblem at its centre. That emblem wasn't part of the original 1793 design. What is it?",
+      "respuestas": ["iron cross", "an iron cross", "cross"],
+      "pistas": [
+        "Napoleon carried the whole sculpture off to Paris as a war trophy in 1806, after defeating Prussia.",
+        "When the quadriga returned to Berlin in 1814, architect Schinkel swapped the original olive wreath for an oak one, and added this Prussian military emblem inside it, plus an eagle on top.",
+        "It's an Iron Cross (Eisernes Kreuz)."
+      ],
+      "historia": "Before 1806, Victoria held only a staff with an olive wreath: a symbol of peace. Napoleon dismantled the quadriga piece by piece and took it to Paris; it stayed there eight years, until Prussian troops recovered it in 1814. Schinkel used the statue's return to redesign the emblem: from then on, the goddess no longer stood for victory in general, but for one very specific military victory over Napoleon.",
+      "fuente": "Stiftung Preußische Schlösser und Gärten; Wikipedia — Quadriga (Brandenburger Tor)"
+    },
+    {
+      "n": 6,
+      "titulo": "The line that split the city in two",
+      "llegada": "Walk south along the edge of the Tiergarten on Ebertstraße. At some point in the pavement you'll see a double row of cobblestones, different from the rest of the street, cutting straight across it.",
+      "enigma": "That double line of cobblestones marks, fairly precisely, where the Berlin Wall used to run between 1961 and 1989 — rebuilt along its original path after reunification so no one forgets where it once cut the city in half. At intervals there's a metal plaque set into the cobblestones reading BERLINER MAUER and two years. Find one of those plaques and subtract one year from the other: how many years did the Wall stand?",
+      "respuestas": ["28", "twenty-eight", "28 years"],
+      "pistas": [
+        "The two years engraved on the plaque are 1961 and 1989.",
+        "Subtract the first from the second.",
+        "It stood for 28 years."
+      ],
+      "historia": "The Wall wasn't a single barrier: it was a fortified strip up to 100 metres wide in places, with an inner fence, anti-tank ditches, watchtowers, and the so-called 'death strip' between them, lit up all night. At least 140 people are estimated to have died trying to cross it. Today, along much of its route through the city centre, all that's left is this line of cobblestones under the feet of people walking past without even knowing it.",
+      "fuente": "Berlin.de — Berlin Wall Trail / History Mile; Stiftung Berliner Mauer"
+    },
+    {
+      "n": 7,
+      "titulo": "The sign that no longer tells the truth",
+      "llegada": "Continue southeast, leaving the Tiergarten behind, until you cross Wilhelmstraße and reach the corner of Friedrichstraße and Zimmerstraße. There, in the middle of the street, stands a small white wooden hut with sandbags, and beside it, a lit sign on a post.",
+      "enigma": "It's a replica of the most famous border crossing of the Cold War, the passage between the American and Soviet sectors of a divided Berlin. The sign reads YOU ARE LEAVING THE AMERICAN SECTOR in large letters — but the warning isn't only in English. Count how many different languages the same message is written in.",
+      "respuestas": ["4", "four"],
+      "pistas": [
+        "Berlin was divided among four Allied powers, not just two.",
+        "Below the English there's Russian, and two more languages after that.",
+        "It's written in four languages: English, Russian, French and German."
+      ],
+      "historia": "Neither the hut nor the sign is original: both were removed in 1990 and are now kept at the Allied Museum in Dahlem. What stands here is a reconstruction, on a corner that for almost three decades was one of the most heavily watched spots on the planet, and where, in October 1961, American and Soviet tanks faced off barely a hundred metres apart for several days.",
+      "fuente": "AlliiertenMuseum Berlin; Wikipedia — Checkpoint Charlie"
+    },
+    {
+      "n": 8,
+      "titulo": "The quartet at the poet's feet",
+      "llegada": "Head back to Gendarmenmarkt, to the spot where you started, and stand facing the steps of the Konzerthaus. High up on a column stands a statue of a man holding a book; much further down, around the base of the pedestal, sit several bronze figures.",
+      "enigma": "This is the monument to Friedrich Schiller, unveiled in 1871, the work of sculptor Reinhold Begas — Berlin's first public monument to a poet. Around the pedestal, at Schiller's feet, sit several allegorical figures representing the different fields he wrote in. Count how many bronze figures are seated around the base.",
+      "respuestas": ["4", "four"],
+      "pistas": [
+        "Each figure represents a different literary field: lyric poetry, drama, philosophy and history.",
+        "There's one for each corner of the pedestal.",
+        "There are four allegorical figures around the base."
+      ],
+      "historia": "Every part of the square around you — the two twin domes, the Konzerthaus itself, this monument — was badly damaged in the Second World War and rebuilt over several decades, much of it under a different regime, in East Berlin under the GDR. You've just walked through a city that has changed flags more than once in the last century, and that, every time, has decided very carefully what to rebuild exactly as it was and what to leave as a reminder that something happened here.",
+      "fuente": "Wikipedia — Schiller Monument (Berlin); museum-digital:berlin — Schiller-Denkmal"
+    }
+  ],
+  "final": {
+    "titulo": "Berlin doesn't hide it",
+    "texto": "From two domes pretending to be twins to an empty library under the cobblestones, from a mother left out in the open to an iron cross in a goddess's hand, all the way to a line of stone that once split the city in two. Berlin has decided, again and again, not to smooth over its own history: it leaves it carved into the street, right at eye level for anyone who stops to look. Now you know how to read it."
+  }
+}

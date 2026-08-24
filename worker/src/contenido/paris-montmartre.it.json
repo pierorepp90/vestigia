@@ -1,0 +1,155 @@
+{
+  "rutaId": "paris-montmartre",
+  "idioma": "it",
+  "titulo": "La collina bianca di Montmartre",
+  "intro": "Montmartre fu un villaggio indipendente, con un proprio municipio e proprie vigne, finché Parigi non lo annesse nel 1860 per farne il suo 18° arrondissement. Su questa collina, il punto più alto della città, si stabilirono poi pittori squattrinati, un cabaret con un coniglio come emblema e l'unica vigna ancora coltivata dentro Parigi, mentre una basilica bianca cresceva lentamente sulla cima. Sono circa 2,5 km, con qualche salita e tratti di scalinata: Montmartre è, letteralmente, una collina.",
+  "puntoPartida": "Sagrato della Basilica del Sacro Cuore (Sacré-Cœur), in cima alla scalinata monumentale",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "I due cavalieri che vegliano sull'ingresso",
+      "llegada": "In piedi sul sagrato, la grande spianata di fronte alla facciata principale della Basilica del Sacro Cuore, con la scalinata monumentale alle spalle. Guardate verso il portico d'ingresso, proprio sopra le porte.",
+      "enigma": "Questa basilica è più giovane di quanto sembri: la costruzione iniziò nel 1875 e fu consacrata solo nel 1919, il che la rende quasi coetanea della Torre Eiffel. Fu costruita con una particolare pietra calcarea proveniente da Château-Landon che, ogni volta che piove, secerne la propria calcite e si pulisce da sola: per questo resta così bianca più di un secolo dopo, quasi senza restauri. Guardate ora il portico dell'ingresso principale: sopra di esso si trovano due statue di bronzo, ciascuna a cavallo. Quante statue equestri affiancano l'ingresso?",
+      "respuestas": [
+        "2",
+        "due"
+      ],
+      "pistas": [
+        "Sono in alto, una per lato del portico d'ingresso, sopra le porte.",
+        "Potete contarle con una sola mano e vi avanzano le dita.",
+        "Ci sono 2 statue equestri: Giovanna d'Arco e San Luigi."
+      ],
+      "historia": "Le due statue furono aggiunte nel 1927, opera dello scultore Hippolyte Lefebvre: Giovanna d'Arco, con la spada alzata, e il re San Luigi IX, con gesto di giustizia. L'intera basilica fu costruita come una sorta di voto collettivo dopo la sconfitta della Francia contro la Prussia nel 1870 e il sollevamento della Comune di Parigi nel 1871: un modo di ricominciare, letteralmente, dal punto più alto della città.",
+      "fuente": "Basilique du Sacré-Cœur de Montmartre; Wikipédia"
+    },
+    {
+      "n": 2,
+      "titulo": "Il municipio di un paese che non esiste più",
+      "llegada": "Girate dietro la basilica e camminate un paio di minuti fino a Place du Tertre, la piazza dei pittori, con le sue tende e decine di cavalletti.",
+      "enigma": "Prima del 1860, Montmartre non era un quartiere di Parigi: era un paese con un proprio municipio, orti e mulini, circondato da campagna aperta. Questa stessa piazza, oggi occupata da ritrattisti e tavolini all'aperto, ne era il centro amministrativo. Cercate, su una delle facciate della piazza, la targa che ricorda dove sorgeva il primo municipio di Montmartre. In che anno indica la targa che fu istituito lì?",
+      "respuestas": [
+        "1790"
+      ],
+      "pistas": [
+        "È un anno di fine Settecento, molto prima che Montmartre diventasse parte di Parigi.",
+        "Inizia con 179.",
+        "La targa indica il 1790."
+      ],
+      "historia": "Il paese di Montmartre conservò il proprio sindaco, la propria chiesa e persino le proprie vigne fino al 1° gennaio 1860, quando fu annesso a Parigi insieme ai comuni vicini per creare gli attuali venti arrondissement. Decenni dopo, lo spirito indipendente sopravvisse a modo suo: alcuni artisti del quartiere fondarono la scherzosa \"Commune Libre de Montmartre\", che ancora oggi organizza feste popolari e nomina un proprio sindaco onorario.",
+      "fuente": "Mairie du 18e arrondissement de Paris; Ville de Paris"
+    },
+    {
+      "n": 3,
+      "titulo": "La barca che non galleggiò mai",
+      "llegada": "Camminate verso ovest da Place du Tertre, lungo rue Norvins e poi rue Ravignan, fino a Place Émile-Goudeau, una piccola piazza a gradoni con una panchina circolare intorno a un lampione.",
+      "enigma": "Qui sorgeva il Bateau-Lavoir, uno sgangherato edificio di legno dove vivevano e dipingevano gli artisti più poveri di Montmartre agli inizi del Novecento: Picasso vi dipinse, nel 1907, Les Demoiselles d'Avignon, il quadro che aprì la strada al cubismo. Il soprannome \"battello-lavatoio\" gli venne dalla struttura irregolare, tutta corridoi e finestre, che vista da una certa angolazione ricordava le chiatte-lavatoio ancorate sulla Senna, dove le lavandaie di Parigi facevano il bucato. L'edificio originale, in legno, bruciò completamente nel 1970. Guardate quello che avete davanti, ricostruito dopo quell'incendio: di che materiale è fatto, a differenza dell'originale?",
+      "respuestas": [
+        "cemento",
+        "calcestruzzo",
+        "di cemento",
+        "di calcestruzzo"
+      ],
+      "pistas": [
+        "L'originale era di legno, un materiale che brucia facilmente. Questo non lo è più.",
+        "È lo stesso materiale grigio con cui si costruisce la maggior parte degli edifici moderni.",
+        "L'edificio attuale è di cemento."
+      ],
+      "historia": "L'incendio del 1970 devastò il Bateau-Lavoir appena un anno dopo che era stato dichiarato monumento storico. La ricostruzione, terminata nel 1978, riprodusse la facciata e la disposizione originali, ma in cemento, proprio perché non potesse più bruciare allo stesso modo. Oggi continua a essere usato per quello che è sempre stato, studi d'artista, anche se nessuno povero o sconosciuto quanto lo furono qui Picasso o Modigliani.",
+      "fuente": "Ville de Paris; Wikipédia — Bateau-Lavoir"
+    },
+    {
+      "n": 4,
+      "titulo": "Il mulino che è salito sul tetto",
+      "llegada": "Da Place Émile-Goudeau, salite verso rue Lepic (per rue Ravignan o rue d'Orchampt) e continuate a salire fino all'incrocio con rue Girardon. Cercate le pale di un mulino a vento: impossibile non vederle.",
+      "enigma": "Montmartre arrivò ad avere una trentina di mulini a vento, la maggior parte per macinare grano, qualcuno per pigiare l'uva. Oggi ne sopravvivono solo due, e questo è uno di loro: il Moulin Radet. Ma guardate bene dove si trova esattamente, perché non è dove vi aspettereste di trovare un vero mulino. Dove si trova il mulino, invece di poggiare a terra come qualsiasi altro?",
+      "respuestas": [
+        "sopra un edificio",
+        "su un edificio",
+        "sul tetto",
+        "sopra un tetto",
+        "sul tetto di un edificio",
+        "sopra una casa",
+        "su una casa",
+        "sul tetto di una casa"
+      ],
+      "pistas": [
+        "Cercate le sue fondamenta: non le troverete a livello strada.",
+        "Si trova diversi metri sopra la vostra testa, non alla vostra altezza.",
+        "Il mulino poggia sul tetto di un edificio, non a terra."
+      ],
+      "historia": "Questo mulino e il suo vicino, il Blute-fin, poco più in là dietro un muro, appartennero dal 1809 alla famiglia Debray, che nell'Ottocento li trasformò in una guinguette, un locale popolare di ballo e vino, ribattezzata Moulin de la Galette. Renoir lo dipinse nel 1876; anche Van Gogh e Toulouse-Lautrec lo ritrassero: un mulino che smise di macinare grano per macinare, per decenni, intere domeniche di ballo.",
+      "fuente": "Mairie du 18e arrondissement; Wikipédia — Moulin de la Galette"
+    },
+    {
+      "n": 5,
+      "titulo": "Il coniglio che è scappato dalla pentola",
+      "llegada": "Proseguite lungo rue Girardon fino a rue Saint-Vincent e seguitela fino all'angolo con rue des Saules. Cercate una casetta dalla facciata rosa, con le persiane verdi.",
+      "enigma": "Questo è Au Lapin Agile, un cabaret che accoglie artisti, poeti e cantanti fin dall'Ottocento: Picasso, Modigliani e Utrillo si conobbero proprio tra queste mura. Sopra la porta è appesa un'insegna dipinta nel 1875 dal caricaturista André Gill: un coniglio in redingote verde e berretto, che salta fuori da una pentola con una bottiglia nella zampa. Guardate bene il collo del coniglio, dove porta un fazzoletto annodato. Di che colore è?",
+      "respuestas": [
+        "rosso",
+        "rossa"
+      ],
+      "pistas": [
+        "Non è verde, come la sua redingote, né nero, come la pentola.",
+        "È dello stesso colore del vino rosso che tiene nella zampa.",
+        "Il fazzoletto del coniglio è rosso."
+      ],
+      "historia": "L'insegna di Gill diede il nome al locale: la gente cominciò a chiamarlo \"le lapin à Gill\" (il coniglio di Gill), che col tempo divenne \"Lapin Agile\" (coniglio agile). Il proprietario, Frédéric Gérard, detto Père Frédé, lasciava salire sul palco chiunque avesse una canzone o una poesia da offrire; si racconta che Picasso abbia saldato più di un conto in sospeso con dei quadri, tra cui uno intitolato, non a caso, Au Lapin Agile.",
+      "fuente": "Au Lapin Agile — histoire; Wikipédia"
+    },
+    {
+      "n": 6,
+      "titulo": "La vigna che salvò un quartiere di artisti",
+      "llegada": "Attraversate rue des Saules: proprio di fronte, dietro una cancellata, filari di vite risalgono il pendio. È il Clos Montmartre, la vigna della città.",
+      "enigma": "Entro i confini di Parigi non resta praticamente più una sola vigna, tranne questa: un angolo di meno di un quarto di ettaro con oltre mille ceppi di gamay e pinot nero. Non è un residuo medievale sopravvissuto per caso. Quando questo terreno stava per diventare un condominio, gli artisti e gli abitanti del quartiere, riuniti nella Commune Libre du Vieux Montmartre, ottennero che il comune ripiantasse qui una vigna da zero. Cercate il cartello o la targa all'ingresso del Clos: in che anno fu piantata questa vigna?",
+      "respuestas": [
+        "1933"
+      ],
+      "pistas": [
+        "È un anno degli anni Trenta del Novecento, non del Medioevo.",
+        "Mancano solo un paio d'anni al 1935.",
+        "La vigna attuale fu piantata nel 1933."
+      ],
+      "historia": "La prima festa della vendemmia si tenne nel 1934, con il presidente della Repubblica, Albert Lebrun, tra il pubblico. Ancora oggi la festa della vendemmia di Montmartre si celebra ogni ottobre, con sfilate e migliaia di visitatori, anche se il vino prodotto, appena qualche centinaio di bottiglie l'anno, finisce quasi sempre in aste di beneficenza: qui l'uva conta meno del simbolo che rappresenta, quello di una vigna che cresce ancora nel cuore di Parigi.",
+      "fuente": "Mairie du 18e arrondissement — Le Clos Montmartre; Ville de Paris"
+    },
+    {
+      "n": 7,
+      "titulo": "Gli dei marini ai piedi della basilica",
+      "llegada": "Tornate verso la basilica lungo rue Saint-Vincent e rue du Chevalier-de-la-Barre, poi scendete la scalinata dello Square Louise-Michel, il giardino a terrazze che scende lungo il versante sud della collina, accanto alla funicolare. Cercate la grande fontana di pietra sulla terrazza superiore.",
+      "enigma": "Questa fontana monumentale, terminata nel 1932, è dedicata agli dei del mare. Sotto la terrazza dove vi trovate, diverse nicchie a forma di grotta si aprono nella pietra, una accanto all'altra; in ciascuna, una creatura marina, mezza uomo e mezza pesce, sorregge una vasca da cui l'acqua ricade nella grande vasca sottostante. Contate le nicchie con una creatura marina. Quante sono?",
+      "respuestas": [
+        "3",
+        "tre"
+      ],
+      "pistas": [
+        "Sono una accanto all'altra, in fila sotto la terrazza superiore.",
+        "È un numero piccolo, lo stesso dei lati di un triangolo.",
+        "Ci sono 3 nicchie con una creatura marina."
+      ],
+      "historia": "Lo scultore Paul Gasq firmò questa fontana neoclassica, dedicata a tritoni e naiadi che sorreggono l'acqua sopra grotte scolpite direttamente nella pietra del muro. Il giardino che la ospita cambiò nome nel 2004: si chiamava Square Willette, dal nome di un pittore locale, ma il comune lo ribattezzò Square Louise-Michel, in onore dell'anarchica che combatté nella Comune di Parigi del 1871, la stessa Comune che, indirettamente, portò a costruire la basilica bianca che oggi corona la scalinata sopra le vostre teste.",
+      "fuente": "Ville de Paris — Square Louise-Michel; Wikipédia — Fontaine Paul Gasq"
+    },
+    {
+      "n": 8,
+      "titulo": "Le cinque cupole che chiudono il cerchio",
+      "llegada": "Risalite la scalinata (o prendete la funicolare) fino al sagrato della basilica, lo stesso punto da cui è partita la route. Allontanatevi di qualche passo dal portico, verso il bordo della spianata, finché non riuscite a vedere l'insieme delle cupole sopra il tetto.",
+      "enigma": "Siete tornati nello stesso punto da cui siete partiti, ma ora guardate in alto con occhi diversi. L'architetto Paul Abadie progettò la basilica a forma di croce greca, coronata da una cupola centrale molto più grande, che rappresenta Cristo, circondata da cupole più piccole che rappresentano i quattro evangelisti. Contate tutte le cupole che vedete da qui, quella grande e quelle piccole insieme. Quante sono in totale?",
+      "respuestas": [
+        "5",
+        "cinque"
+      ],
+      "pistas": [
+        "Sommate la grande cupola centrale alle piccole che la circondano.",
+        "È un numero dispari, tra 4 e 6.",
+        "Ci sono 5 cupole in totale: 1 grande e 4 piccole."
+      ],
+      "historia": "Nel campanile, di lato, è appesa La Savoyarde, una campana di 19 tonnellate fusa ad Annecy nel 1895 e donata dalle quattro diocesi della Savoia, una delle più pesanti di Francia. Dietro quel dono si nasconde una curiosa coincidenza: la Savoia fu annessa alla Francia nel 1860, esattamente lo stesso anno in cui Montmartre, il paese indipendente che avete appena attraversato, fu annesso a Parigi. Due annessioni, lo stesso anno, legate senza saperlo da una campana e da questa collina bianca.",
+      "fuente": "Basilique du Sacré-Cœur de Montmartre; Wikipédia"
+    }
+  ],
+  "final": {
+    "titulo": "Siete saliti all'ultimo paese di Parigi",
+    "texto": "Da un portico con due cavalieri di bronzo a una vigna di meno di un quarto di ettaro che si è rifiutata di scomparire, passando per un edificio che non è più di legno e un coniglio con un fazzoletto rosso al collo. Montmartre ha smesso di essere un paese nel 1860, ma da un secolo e mezzo si arrangia per continuare a sembrarlo. La collina bianca che avete ora sopra la testa ha visto passare mulini, pittori senza un soldo e un'intera città che le è cresciuta intorno senza mai riuscire a inghiottirla del tutto."
+  }
+}

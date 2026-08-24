@@ -1,0 +1,19 @@
+name = "vestigia-api"
+main = "src/index.js"
+compatibility_date = "2026-07-29"
+account_id = "a758cd1019845ef9a66297e93da0c5b0"
+
+[vars]
+# TODO: actualizar cuando se confirme el dominio definitivo (ver plan,
+# "Pendiente de ti"). Mientras tanto, apuntar a localhost para pruebas o al
+# subdominio *.pages.dev / *.workers.dev que se use en el primer despliegue.
+SITE_URL = "https://vestigia.es"
+ALLOWED_ORIGIN = "https://vestigia.es"
+OWNER_EMAIL = "pierorepp90@gmail.com"
+
+# Secretos (NUNCA en este archivo — se versiona en git). Configurar con:
+#   wrangler secret put TOKEN_SECRET
+#   wrangler secret put STRIPE_SECRET_KEY
+#   wrangler secret put RESEND_API_KEY
+# TOKEN_SECRET: cualquier cadena aleatoria larga (p. ej. `openssl rand -hex 32`).
+# STRIPE_SECRET_KEY / RESEND_API_KEY: se añaden en el paso 5 del plan (Pago y acceso).

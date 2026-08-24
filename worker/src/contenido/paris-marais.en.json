@@ -1,0 +1,125 @@
+{
+  "rutaId": "paris-marais",
+  "idioma": "en",
+  "titulo": "The Codes of Le Marais",
+  "intro": "Le Marais is the Paris neighbourhood Haussmann never got around to demolishing in the 19th century: that's why you can still walk medieval streets, cross a secret passage from 1624, and read, on any ordinary façade, the memory of those who lived and died here. It's about 2 km, almost all flat.",
+  "puntoPartida": "Parvis Notre-Dame — Place Jean-Paul II",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The point France is measured from",
+      "llegada": "Standing on the parvis (the square) in front of Notre-Dame, look at the ground a few metres ahead of the central door for a small octagonal bronze medallion.",
+      "enigma": "Since 1924, this medallion has marked the Point Zéro des routes de France: the official point from which all of the country's road distances are measured. At its centre there's an engraved symbol also used by sailors and mapmakers. What symbol is it?",
+      "respuestas": ["compass rose", "wind rose", "compass"],
+      "pistas": [
+        "It has points radiating in different directions, like on an old map.",
+        "It's the same kind of symbol sailors use to find their bearings.",
+        "It's a compass rose."
+      ],
+      "historia": "When someone in France says they live \"300 km from Paris,\" this is, literally, the stone that distance is counted from. Tradition says stepping on it brings good luck — which is why the centre is so worn smooth, despite being bronze.",
+      "fuente": "Ville de Paris; Wikipédia — Point zéro des routes de France"
+    },
+    {
+      "n": 2,
+      "titulo": "The kings who weren't kings of France",
+      "llegada": "Look up at Notre-Dame's façade, at the horizontal band of statues just below the gallery with the large round rose window.",
+      "enigma": "There are 28 statues, each nearly 3.5 metres tall, forming the Gallery of Kings. During the French Revolution, a crowd beheaded them believing they represented the kings of France — they actually depict the biblical kings of Judah, ancestors of Christ. Count how many statues make up the full gallery.",
+      "respuestas": ["28", "twenty-eight", "twenty eight"],
+      "pistas": [
+        "They're all in the same horizontal row, right below the large round rose window.",
+        "It's a number between 25 and 30.",
+        "There are 28 kings."
+      ],
+      "historia": "The original heads, cut off in 1793, were thought lost for 184 years, until they turned up by accident in 1977 during works at 20 bis rue de la Chaussée-d'Antin. Today they're on display at the Musée de Cluny; the ones you see on the façade are a 19th-century recreation by Viollet-le-Duc, restored again after the 2019 fire and reopened in December 2024.",
+      "fuente": "Cathédrale Notre-Dame de Paris; Musée de Cluny"
+    },
+    {
+      "n": 3,
+      "titulo": "The scar of a revolution",
+      "llegada": "Cross to the right bank and walk to Rue du Figuier, where you'll find a Gothic façade with two stone corner turrets — the Hôtel de Sens, today the Forney library.",
+      "enigma": "This is one of the few surviving medieval civil buildings in Paris (built between 1475 and 1519). But what you're looking for isn't medieval: next to one of the turrets, something metallic and round is embedded right in the stone, a reminder of a real shot fired. What year is the revolution that fired it?",
+      "respuestas": ["1830"],
+      "pistas": [
+        "Look near the base of the corner turret, at eye level.",
+        "It's a cannonball. The revolution established the July Monarchy.",
+        "It's from 1830, the Three Glorious Days."
+      ],
+      "historia": "The Hôtel de Sens was once home to archbishops and, briefly, to Queen Margot. It survived five centuries of Parisian history — and it literally carries the marks of July 1830, when Parisians once again took up arms.",
+      "fuente": "Bibliothèque Forney; Ville de Paris — Hôtel de Sens"
+    },
+    {
+      "n": 4,
+      "titulo": "The sheep on the façade",
+      "llegada": "Continue to Rue François-Miron. At numbers 11 and 13 you'll see two houses with exposed timber framing, much narrower and older-looking than their neighbours.",
+      "enigma": "Before street numbers existed, houses were identified by a name and a carved symbol on the façade. The house at number 13 is known as \"à l'enseigne du Mouton\" (at the sign of the sheep). Find the carved animal that gives it its name.",
+      "respuestas": ["sheep", "lamb", "ram"],
+      "pistas": [
+        "It's on the façade of number 13, not number 11.",
+        "It's a woolly farm animal.",
+        "It's a sheep (mouton, in French)."
+      ],
+      "historia": "The one at number 11 is called \"à l'enseigne du Faucheur\" (\"at the sign of the reaper\"). Both façades were hidden under a layer of plaster from the 17th century until they were restored in 1967 — the timber framing you see today was hidden for nearly 300 years.",
+      "fuente": "Ville de Paris — Le Marais; Association Marais-Louvre"
+    },
+    {
+      "n": 5,
+      "titulo": "165 names that must not be forgotten",
+      "llegada": "Walk to Rue des Hospitalières-Saint-Gervais, very close to Rue des Rosiers, the heart of the Marais Jewish quarter since the 13th century. Find the façade of the old school.",
+      "enigma": "On the wall there's a plaque that begins: \"... enfants juifs de cette école déportés en Allemagne durant la Seconde Guerre mondiale furent exterminés dans les camps nazis. N'oubliez pas!\" (\"... Jewish children from this school, deported to Germany during the Second World War, were exterminated in the Nazi camps. Do not forget\"). What number is missing at the start of the sentence?",
+      "respuestas": ["165"],
+      "pistas": [
+        "The number is engraved right at the start of the plaque, before \"enfants juifs.\"",
+        "It's a three-digit number, between 100 and 200.",
+        "It was 165 children."
+      ],
+      "historia": "The school's headmaster, Joseph Migneret, hid and saved dozens of Jewish pupils at the risk of his own life; he's now recognised as Righteous Among the Nations. A few steps away, the Jardin des Rosiers-Joseph-Migneret bears his name and also remembers the 101 youngest children deported from this same district.",
+      "fuente": "Ville de Paris — plaques commémoratives du 4e arrondissement; Mémorial de la Shoah"
+    },
+    {
+      "n": 6,
+      "titulo": "A novelist's seashells",
+      "llegada": "Head to Rue Saint-Antoine and step into the church of Saint-Paul-Saint-Louis. Right at the entrance, on either side, are two holy water fonts with an unusual shape for carved stone.",
+      "enigma": "In 1843, a resident of the nearby Place des Vosges donated these two pieces to the parish for his daughter Léopoldine's wedding. They're not stone: they're giant shells brought from the Caribbean, mounted on gilded bronze. How many are there, at the church entrance?",
+      "respuestas": ["2", "two"],
+      "pistas": [
+        "They're one on each side of the main door, symmetrical.",
+        "It's not a large number.",
+        "There are two shells."
+      ],
+      "historia": "The generous neighbour was Victor Hugo, who lived less than ten minutes' walk away, on Place des Vosges. Years later he would use this very church as the setting for Cosette and Marius's wedding in Les Misérables — fiction built, quite literally, on a place where he had lived through a real one.",
+      "fuente": "Paroisse Saint-Paul-Saint-Louis; classified as a historic object in 1905"
+    },
+    {
+      "n": 7,
+      "titulo": "The passage of the two guardians",
+      "llegada": "Cross Rue Saint-Antoine to number 62, the Hôtel de Sully. Enter its courtyard (free access during the day) and look, at the far end, for the passage toward the orangery.",
+      "enigma": "That passage, built in 1624, is a secret shortcut to Place des Vosges once used by the nobility to avoid stepping onto the street. Two stone creatures, half woman and half lion, flank the entrance to the passage. What are these creatures called?",
+      "respuestas": ["sphinxes", "sphinx"],
+      "pistas": [
+        "They're figures from Egyptian and Greek mythology, not Christian.",
+        "The most famous one of all guards the pyramids of Giza.",
+        "They're sphinxes."
+      ],
+      "historia": "The Hôtel de Sully was bought in 1634 by Maximilien de Béthune, Duke of Sully and finance minister to Henri IV. Walk through the passage between the two sphinxes: on the other side, the square that closes this trail is waiting for you.",
+      "fuente": "Centre des Monuments Nationaux — Hôtel de Sully"
+    },
+    {
+      "n": 8,
+      "titulo": "Thirty-six identical houses",
+      "llegada": "Crossing the Hôtel de Sully's passage brings you out directly onto Place des Vosges, the oldest royal square in Paris, inaugurated in 1612.",
+      "enigma": "The whole square is made up of identical red-brick-and-stone pavilions with ground-floor arcades — same roof height, same façade width, on all four sides. Count how many pavilions make up the whole square.",
+      "respuestas": ["36", "thirty-six", "thirty six"],
+      "pistas": [
+        "There are nine pavilions on each of the square's four sides.",
+        "9 × 4 = ?",
+        "There are 36 pavilions."
+      ],
+      "historia": "Henri IV commissioned this square in 1605 for the wealthy classes; he never saw it finished, as he was assassinated in 1610, and it was his son Louis XIII who inaugurated it in 1612, to celebrate his engagement to Anne of Austria. Victor Hugo lived at number 6 for 16 years — the same man who, two stops ago, donated two giant shells to a church. You've walked, without realising it, in his footsteps across half the neighbourhood.",
+      "fuente": "Centre des Monuments Nationaux — Place des Vosges; Maison de Victor Hugo"
+    }
+  ],
+  "final": {
+    "titulo": "You've cracked Le Marais",
+    "texto": "From the exact point all of France is measured from to the square where Victor Hugo lived, by way of an 1830 cannonball and a plaque that quietly asks not to be forgotten. Le Marais survived Haussmann almost whole — now you also know why it deserved to."
+  }
+}

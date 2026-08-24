@@ -1,0 +1,125 @@
+{
+  "rutaId": "toulouse-capitole",
+  "idioma": "es",
+  "titulo": "La cruz de la Ciudad Rosa",
+  "intro": "Toulouse se llama a sí misma la Ville Rose, la Ciudad Rosa, por el ladrillo que cubre casi todos sus edificios desde hace ochocientos años. Esta ruta recorre su centro histórico: desde la plaza donde gobernaban los antiguos capitouls hasta la basílica que guardaba reliquias para los peregrinos camino de Santiago, pasando por una iglesia con forma de fortaleza y un convento con una palmera de piedra en el techo. Son unos 2,5 km, todos llanos, por el corazón de la ciudad.",
+  "puntoPartida": "Place du Capitole",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La cruz que mide el año",
+      "llegada": "De pie en la Place du Capitole, con la fachada del Capitole frente a vosotros, mirad al suelo: unos pasos más adelante, incrustado en el pavimento, hay un gran medallón circular de bronce con una cruz en el centro.",
+      "enigma": "Este medallón, de casi 18 metros de diámetro y 20 toneladas de bronce, lo instaló en 1995 el pintor y escultor tolosano Raymond Moretti. En el centro hay una cruz occitana —el símbolo de los antiguos condes de Toulouse—, y alrededor, un anillo con los doce signos del zodiaco: Moretti quiso representar a la vez los doce meses del año y las doce horas del día. Fijaos solo en la cruz del centro: contad cuántas puntas tiene en total.",
+      "respuestas": ["12", "doce"],
+      "pistas": [
+        "Los cuatro brazos de la cruz son idénticos entre sí: contad las puntas de uno solo y multiplicad por cuatro.",
+        "Cada brazo termina en tres puntas redondeadas, como un trébol de tres hojas.",
+        "Tiene 12 puntas en total."
+      ],
+      "historia": "Moretti fue también el autor de los grandes frescos que decoran la galería de arcadas del lateral de la plaza, dedicados a la historia de Toulouse. La cruz occitana que tenéis bajo los pies es mucho más antigua que este medallón: aparece ya en el sello del conde Raimundo VI en 1211, y con el tiempo se convirtió en el símbolo de toda la región, la que hoy se llama Occitania.",
+      "fuente": "Mairie de Toulouse; Toulouse Tourisme — Place du Capitole"
+    },
+    {
+      "n": 2,
+      "titulo": "Los ocho capitouls de mármol",
+      "llegada": "Girad para mirar de frente la gran fachada de ladrillo rosa y piedra blanca que da nombre a la plaza. En la planta noble, justo encima de la puerta principal y bajo la palabra CAPITOLIUM, hay una hilera de columnas que sostienen el frontón triangular.",
+      "enigma": "Esas columnas, de un mármol rojizo traído desde Caunes-Minervois, no son solo decoración: el arquitecto Guillaume Cammas las diseñó en el siglo XVIII para representar a los ocho primeros capitouls, los magistrados que gobernaban Toulouse antes de la Revolución, cuando la ciudad estaba repartida en ocho distritos o \"capitoulats\". Contad cuántas columnas forman la fachada.",
+      "respuestas": ["8", "ocho"],
+      "pistas": [
+        "Recorren la fachada a la altura del primer piso, entre el balcón central y el frontón.",
+        "Es el mismo número de distritos en que se dividía la Toulouse medieval.",
+        "Son 8 columnas."
+      ],
+      "historia": "La palabra CAPITOLIUM, grabada en letras doradas sobre las columnas, es en realidad una trampa histórica: el nombre \"Capitole\" no viene del Capitolio romano, sino de \"capitouls\", los cónsules medievales cuya asamblea se llamaba en latín capitulum (\"capítulo\"). En 1522, un funcionario municipal aprovechó el parecido entre las dos palabras para inventarle a Toulouse un origen romano que nunca tuvo: le venía bien para defender ciertos privilegios frente al rey.",
+      "fuente": "Le Journal Toulousain; Wikipédia — Capitole de Toulouse"
+    },
+    {
+      "n": 3,
+      "titulo": "Una iglesia con forma de fortaleza",
+      "llegada": "Salid de la plaza por la rue du Taur, en la esquina noroeste. A menos de diez minutos a pie, sin cruzar ninguna otra plaza, encontraréis a mano derecha una fachada maciza de ladrillo rojo que corta la calle como un muro, flanqueada por dos torreones y rematada en almenas: es la iglesia de Notre-Dame du Taur.",
+      "enigma": "Esta iglesia no tiene un campanario aparte: la propia fachada, de 42 metros de altura, hace de campanario. Es lo que se llama un clocher-mur (\"muro-campanario\"), construido enteramente en ladrillo, sin una sola piedra vista, y que sirvió de modelo a decenas de iglesias de pueblo de la región. Contad cuántas aberturas en arco —los huecos por donde asoman las campanas— hay en total, repartidas en dos pisos.",
+      "respuestas": ["6", "seis"],
+      "pistas": [
+        "Hay el mismo número de aberturas en el piso de abajo que en el de arriba.",
+        "Son tres arcos por piso, en dos pisos.",
+        "Son 6 aberturas en total."
+      ],
+      "historia": "El nombre \"du Taur\" (\"del toro\") recuerda una leyenda muy anterior a este edificio del siglo XIV: la de Saturnino, primer obispo de Toulouse, que hacia el año 250 se negó a sacrificar un toro a Júpiter. Los sacerdotes paganos lo ataron entonces por los pies al propio animal, que lo arrastró por esta misma calle —el antiguo cardo romano— hasta este lugar, donde unas mujeres piadosas le dieron sepultura antes de trasladar sus restos a la basílica que vais a visitar ahora.",
+      "fuente": "Wikipédia — Église Notre-Dame du Taur; Basilique Saint-Sernin de Toulouse (sitio oficial)"
+    },
+    {
+      "n": 4,
+      "titulo": "La torre que cambia de estilo",
+      "llegada": "Seguid por la rue du Taur hasta la Place Saint-Sernin. Allí se alza la basílica del mismo nombre, la iglesia románica más grande de Europa que se conserva casi completa. Alejaos unos pasos para ver entero el campanario octogonal que corona el crucero, de 65 metros de altura.",
+      "enigma": "Mirad los pisos de arcadas que se van estrechando hacia arriba. Los de más abajo tienen arcos de medio punto, redondeados; pero a partir de cierta altura el estilo cambia bruscamente y los arcos se vuelven apuntados, en forma de mitra de obispo: la señal de que esos pisos se añadieron casi dos siglos más tarde, ya en pleno gótico. Contad cuántos pisos de arcadas tiene el campanario en total, de abajo arriba, sin contar la aguja final.",
+      "respuestas": ["5", "cinco"],
+      "pistas": [
+        "Tres de esos pisos son románicos, de arcos redondeados; los otros dos son góticos, de arcos apuntados.",
+        "Es un número impar, entre 3 y 7.",
+        "Son 5 pisos."
+      ],
+      "historia": "La construcción de la basílica empezó hacia 1080 para dar cobijo a las reliquias de Saturnino, y el campanario se fue levantando por fases: los tres pisos románicos son del siglo XII, los dos góticos de la segunda mitad del XIII, y la aguja final se añadió en 1478. Este campanario se convirtió en el modelo que copiaron, durante siglos, casi todos los campanarios de ladrillo del Languedoc.",
+      "fuente": "Wikipédia — Basilique Saint-Sernin de Toulouse; Centre des monuments nationaux"
+    },
+    {
+      "n": 5,
+      "titulo": "Doce testigos de piedra",
+      "llegada": "Rodead la basílica por su lado sur (a mano derecha si miráis la fachada occidental) hasta una puerta más pequeña y mucho más decorada que las demás, coronada por un gran tímpano de mármol tallado: es la Porte Miégeville, la entrada que usaban desde el siglo XII los peregrinos camino de Santiago de Compostela.",
+      "enigma": "En el tímpano, Cristo asciende a los cielos sostenido por ángeles. Justo debajo, en el dintel, hay tallada una fila de doce apóstoles de pie, con los pies en la tierra y la mirada hacia arriba. Uno de ellos se identifica enseguida porque sostiene un objeto muy poco habitual en una escultura de hace 900 años: un juego de llaves enormes. ¿Qué apóstol es?",
+      "respuestas": ["san pedro", "pedro", "simon pedro", "simón pedro"],
+      "pistas": [
+        "Es el apóstol al que, según los Evangelios, Cristo entregó las llaves del Reino de los Cielos.",
+        "Busca la figura del dintel cuyas llaves son tan grandes que resulta imposible no verlas.",
+        "Es San Pedro."
+      ],
+      "historia": "Esta puerta no es decoración cualquiera: anunciaba a los peregrinos que, dentro, Toulouse guardaba una de las mayores colecciones de reliquias de Francia, con restos de hasta seis apóstoles. Desde 1354 conserva también la cabeza y el cuerpo que la tradición atribuye a Santiago el Mayor, el mismo santo hacia cuya tumba, en Compostela, seguía camino cada uno de estos peregrinos.",
+      "fuente": "Wikipédia — Porte Miègeville; Basilique Saint-Sernin de Toulouse (sitio oficial)"
+    },
+    {
+      "n": 6,
+      "titulo": "La palmera de piedra",
+      "llegada": "Volved hacia el centro por la rue Lakanal hasta el couvent des Jacobins, el gran convento de ladrillo de los dominicos. Entrad en la iglesia —el acceso a la nave es gratuito— y caminad hasta el fondo, hacia la cabecera.",
+      "enigma": "Ahí arriba entenderéis por qué a esta bóveda se la conoce como \"la palmera\": una sola columna central, mucho más esbelta que el resto, se abre en abanico hacia el techo como las hojas de una palmera de piedra. Contad cuántas nervaduras —los nervios de piedra que se abren desde ese punto— salen de la columna central.",
+      "respuestas": ["22", "veintidos", "veintidós"],
+      "pistas": [
+        "Todas las nervaduras salen del mismo punto, en lo alto de la columna, y se reparten por todo el techo de la cabecera.",
+        "Es un número entre 20 y 25.",
+        "Son 22 nervaduras."
+      ],
+      "historia": "Bajo el altar de esta iglesia descansan, desde 1369, las reliquias de santo Tomás de Aquino, el gran teólogo dominico, entregadas a Toulouse por el papa Urbano V. La orden de los dominicos, fundada aquí mismo para predicar contra la herejía cátara, quiso una bóveda tan ambiciosa como su propia teología: esta \"palmera\" del siglo XIV sigue siendo, siglos después, una de las más admiradas de todo el gótico meridional.",
+      "fuente": "Couvent des Jacobins de Toulouse (sitio oficial); Wikipédia"
+    },
+    {
+      "n": 7,
+      "titulo": "La fuente que no debería estar aquí",
+      "llegada": "Bajad hasta la Place Saint-Georges, una de las plazas más antiguas de Toulouse, documentada ya en el siglo XII y hoy rodeada de terrazas. En el centro hay una fuente de hierro fundido, pintada de un verde oscuro muy característico.",
+      "enigma": "Es una fontaine Wallace, el mismo modelo de fuente pública que el filántropo británico Richard Wallace regaló a París en la década de 1870 para dar acceso gratuito al agua potable. Hoy quedan muy pocas fuera de la capital francesa. Cuatro figuras femeninas de hierro, unidas por la espalda, sostienen la cúpula con los brazos y la cabeza. Contad cuántas cariátides sostienen esta fuente.",
+      "respuestas": ["4", "cuatro"],
+      "pistas": [
+        "Están colocadas de espaldas entre sí, cada una mirando hacia un lado distinto de la plaza.",
+        "Es el mismo número de estaciones que tiene el año.",
+        "Son 4 cariátides."
+      ],
+      "historia": "Las cuatro figuras representan la Bondad, la Sencillez, la Caridad y la Sobriedad, y se repiten idénticas en cada fuente Wallace del mundo. Esta plaza tuvo antes un uso mucho menos amable: entre 1739 y 1780 se ejecutó aquí a más de 170 personas, la más célebre de todas Jean Calas, ajusticiado en 1762 por un crimen que, según se demostró después gracias a Voltaire, no había cometido.",
+      "fuente": "e-monumen.net — Fontaine Wallace, Place Saint-Georges; Wikipédia — Place Saint-Georges (Toulouse)"
+    },
+    {
+      "n": 8,
+      "titulo": "El único superviviente",
+      "llegada": "Volved a la Place du Capitole y rodead el edificio por la rue Lafayette hasta el square Charles-de-Gaulle, el jardín justo detrás del Capitole. Allí, solo en medio del césped, se alza una torre de ladrillo muy distinta a todo lo que habéis visto hasta ahora: el Donjon du Capitole.",
+      "enigma": "Construido en 1525 para guardar el archivo y la pólvora de la ciudad, este donjon es el único fragmento que sobrevive del antiguo Capitole medieval: todo lo demás se derribó en el siglo XVIII para levantar la fachada con la que empezó esta ruta. En el siglo XIX, el arquitecto Eugène Viollet-le-Duc —el mismo que restauró Notre-Dame de París— le añadió un pequeño campanario en lo más alto. Toda la ruta habéis caminado rodeados de ladrillo rosa, pero ese remate del XIX está hecho de un material completamente distinto, de un gris muy oscuro que no pega con el resto de la ciudad. ¿Qué material es?",
+      "respuestas": ["pizarra", "ardoise", "slate"],
+      "pistas": [
+        "Es el mismo material que cubre la mayoría de los tejados en el norte de Francia: muy raro de ver en Toulouse.",
+        "Es una roca oscura, casi negra, que se corta en láminas finas para cubrir tejados y agujas.",
+        "Es pizarra."
+      ],
+      "historia": "En 2025 este donjon cumplió 500 años. Si os fijáis en el escudo de armas de Toulouse, que veréis repetido en banderas y edificios oficiales por todo el centro, reconoceréis en él la misma cruz occitana de doce puntas que pisasteis en la primera parada, acompañada de un cordero, el desaparecido Château Narbonnais de los antiguos condes, y la silueta de una basílica de dos torres: la misma que habéis visitado hoy.",
+      "fuente": "Toulouse Tourisme — Le Donjon du Capitole; Archives municipales de Toulouse"
+    }
+  ],
+  "final": {
+    "titulo": "Habéis descifrado la Ciudad Rosa",
+    "texto": "Empezasteis contando las doce puntas de una cruz de bronce y termináis descubriendo esa misma cruz, junto a un cordero, un castillo desaparecido y una basílica de dos torres, en el escudo que Toulouse lleva usando desde el siglo XIII. Entre una parada y otra habéis visto a un santo arrastrado por un toro, una torre que cambia de opinión a media altura, una palmera que en realidad es de piedra y una fuente parisina varada a cientos de kilómetros de su ciudad. La Ville Rose ya no tiene secretos para vosotros: solo ladrillo, mucho ladrillo, y una cruz que lo cuenta todo."
+  }
+}

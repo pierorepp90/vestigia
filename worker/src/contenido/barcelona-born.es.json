@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-born",
+  "idioma": "es",
+  "titulo": "Los mercaderes de La Ribera",
+  "intro": "El Born fue el barrio de los mercaderes y los gremios, el que financió una basílica entera a pulso y el que pagó por ello con la destrucción total de sus calles en 1714. Hoy es el barrio de moda de Barcelona, pero cada esquina todavía recuerda lo que fue. Son unos 2 km, casi todo llano.",
+  "puntoPartida": "Arc de Triomf, extremo del Passeig de Lluís Companys",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "El animal que vigila la entrada",
+      "llegada": "De pie frente al Arc de Triomf, mirad los dos grandes pilares del arco, a media altura.",
+      "enigma": "Este arco de ladrillo no conmemora ninguna batalla: es la puerta de entrada a la Exposición Universal de 1888, obra de Josep Vilaseca. En los pilares hay tallado un animal alado, emblema heráldico del rey Jaume I. ¿Qué animal es?",
+      "respuestas": ["murcielago", "murciélago"],
+      "pistas": [
+        "No es un pájaro: tiene alas de piel, no de plumas.",
+        "Es el animal que sale de noche y se cuelga boca abajo.",
+        "Es un murciélago."
+      ],
+      "historia": "El murciélago acompaña al escudo de la Corona de Aragón desde la Edad Media, aunque nadie se pone de acuerdo sobre el origen del símbolo. El arco marcó la entrada oficial a una exposición que quiso poner a Barcelona en el mapa de las grandes capitales europeas — y, en cierto modo, lo consiguió.",
+      "fuente": "Ajuntament de Barcelona; Exposició Universal de Barcelona de 1888"
+    },
+    {
+      "n": 2,
+      "titulo": "El joven que aún no era Gaudí",
+      "llegada": "Caminad por el Passeig de Lluís Companys hasta la entrada del Parc de la Ciutadella. Dentro, buscad la gran cascada monumental de piedra.",
+      "enigma": "Esta cascada la diseñó Josep Fontserè en 1875, con la ayuda de un estudiante de arquitectura de poco más de veinte años que aún no había construido nada célebre: Antoni Gaudí. En lo más alto de la cascada hay un carro tirado por caballos, todo de un mismo color. ¿De qué color es esa cuadriga?",
+      "respuestas": ["dorado", "dorada", "oro"],
+      "pistas": [
+        "Mirad al punto más alto de toda la cascada, no a las figuras de abajo.",
+        "Es el color de los metales preciosos, brillante bajo el sol.",
+        "La cuadriga es dorada."
+      ],
+      "historia": "Gaudí colaboró aquí en la ingeniería hidráulica y en algunos motivos decorativos, años antes de la Sagrada Família o el Park Güell. Es, probablemente, la obra pública más antigua en la que puso las manos el arquitecto más famoso de Barcelona — y casi nadie se detiene a pensarlo.",
+      "fuente": "Ajuntament de Barcelona — Parc de la Ciutadella"
+    },
+    {
+      "n": 3,
+      "titulo": "El barrio que desapareció en una noche",
+      "llegada": "Salid del parque y caminad hasta l'Antic Mercat del Born, el gran edificio de hierro y cristal del siglo XIX.",
+      "enigma": "Bajo este mercado, unas obras de 2002 sacaron a la luz las calles enteras de un barrio del siglo XVIII, conservadas casi intactas. Ese barrio fue arrasado tras un asedio para construir una fortaleza militar. ¿En qué año fue ese asedio?",
+      "respuestas": ["1714"],
+      "pistas": [
+        "Fue durante la Guerra de Sucesión española.",
+        "Es el mismo año que se conmemora cada 11 de septiembre en Cataluña.",
+        "El asedio fue en 1714."
+      ],
+      "historia": "Tras la derrota, cientos de casas de la Ribera fueron demolidas para construir la Ciutadella, una fortaleza pensada para vigilar a la propia ciudad. El mercado que veis hoy se construyó encima en el siglo XIX; cuando se reformó en 2002 para convertirlo en biblioteca, aparecieron las calles del barrio destruido, intactas bajo tierra durante casi tres siglos.",
+      "fuente": "El Born Centre de Cultura i Memòria; Ajuntament de Barcelona"
+    },
+    {
+      "n": 4,
+      "titulo": "La plaza de los torneos",
+      "llegada": "Caminad hasta el Passeig del Born, la ancha explanada que sale del mercado.",
+      "enigma": "Este paseo tan ancho no es casualidad: en la Edad Media aquí se celebraban combates de caballeros a caballo, con lanzas y público. Esa actividad, en catalán antiguo, le dio nombre a la calle. ¿Qué tipo de espectáculo medieval da nombre al Born?",
+      "respuestas": ["justas", "torneos", "justas medievales"],
+      "pistas": [
+        "Eran caballeros armados compitiendo unos contra otros a caballo.",
+        "Es lo mismo que en inglés se llama \"joust\".",
+        "Eran justas (torneos de caballeros)."
+      ],
+      "historia": "Durante siglos, el Born fue el gran espacio público de Barcelona: aquí hubo justas, mercados, procesiones de Semana Santa y también, en tiempos más oscuros, autos de fe de la Inquisición. Hoy solo quedan las terrazas — pero el nombre sigue recordando a los caballeros.",
+      "fuente": "Ajuntament de Barcelona — Passeig del Born"
+    },
+    {
+      "n": 5,
+      "titulo": "Las columnas que se pagaron a hombros",
+      "llegada": "Seguid hasta la fachada principal de la Basílica de Santa Maria del Mar, justo al lado.",
+      "enigma": "Esta basílica se construyó en solo 55 años (1329-1384), algo rarísimo para el gótico, porque la pagó y la levantó el propio pueblo de la Ribera: comerciantes, artesanos y los bastaixos, los estibadores del puerto que cargaron cada piedra a hombros desde Montjuïc. Entrad y contad las columnas octogonales que sostienen la nave central.",
+      "respuestas": ["16", "dieciseis", "dieciséis"],
+      "pistas": [
+        "Están repartidas a ambos lados de la nave central, muy separadas entre sí.",
+        "Es un número entre 14 y 18.",
+        "Son 16 columnas."
+      ],
+      "historia": "Las columnas están separadas 15 metros entre sí, una distancia enorme para la época, que deja un espacio interior limpio y luminoso. En los relieves de las puertas se representa a los bastaixos cargando piedra, en homenaje a la gente sin título ni fortuna que construyó, literalmente con su espalda, la iglesia más querida de Barcelona.",
+      "fuente": "Basílica de Santa Maria del Mar; MUHBA"
+    },
+    {
+      "n": 6,
+      "titulo": "La llama por los que no se rindieron",
+      "llegada": "Justo al lado de la basílica, buscad el Fossar de les Moreres, la plaza baja con el pavimento rojizo.",
+      "enigma": "Aquí se enterró a los defensores de Barcelona muertos en el asedio de 1714 del que ya sabéis la fecha. Desde 2001 arde aquí una llama que nunca se apaga. Un poema grabado en el suelo dice que en este cementerio nunca se entierra a una persona en concreto. ¿Qué palabra usa el poema para esa persona?",
+      "respuestas": ["traidor", "traïdor", "traidores"],
+      "pistas": [
+        "Es alguien que traiciona una causa o a su gente.",
+        "Es lo contrario de un héroe o defensor.",
+        "La palabra es \"traïdor\" (traidor)."
+      ],
+      "historia": "El poema completo dice: \"Al fossar de les moreres no s'hi enterra cap traïdor; fins perdent nostres banderes, serà l'urna de l'honor.\" Lo escribió Frederic Soler, \"Pitarra\", en el siglo XIX. El pavimento rojizo simboliza la sangre derramada; cada paso sobre él es, de forma discreta, un homenaje.",
+      "fuente": "Ajuntament de Barcelona — Fossar de les Moreres"
+    },
+    {
+      "n": 7,
+      "titulo": "La calle de los que trabajaban la plata",
+      "llegada": "Caminad hasta el carrer de l'Argenteria, la calle que conecta la basílica con la Via Laietana.",
+      "enigma": "Como muchas calles del Born, esta lleva el nombre del gremio que trabajaba en ella en la Edad Media. Buscad la placa con el nombre de la calle y traducid: ¿con qué metal precioso trabajaban los artesanos de esta calle?",
+      "respuestas": ["plata"],
+      "pistas": [
+        "\"Argent\" es una palabra emparentada con el francés y el catalán antiguo para ese metal.",
+        "Es el metal blanco y brillante, más barato que el oro.",
+        "Trabajaban la plata (eran plateros)."
+      ],
+      "historia": "El Born está lleno de calles-gremio: Argenteria (plateros), Vidrieria (vidrieros), Cotoners (algodoneros), Espaseries (espaderos). Caminar por esta zona es, todavía hoy, caminar por un mapa vivo de los oficios medievales de Barcelona.",
+      "fuente": "Ajuntament de Barcelona — nomenclàtor de carrers"
+    },
+    {
+      "n": 8,
+      "titulo": "Cinco palacios para un solo pintor",
+      "llegada": "Terminad en el carrer Montcada, la calle de los palacios góticos, hasta llegar al Museu Picasso.",
+      "enigma": "El museo no ocupa un solo edificio, sino varios palacios góticos medievales unidos entre sí, construidos por familias nobles y mercaderes enriquecidos por el comercio marítimo. Contad cuántos palacios distintos forman hoy el Museu Picasso.",
+      "respuestas": ["5", "cinco"],
+      "pistas": [
+        "El primero, el palacio Aguilar, abrió como museo en 1963; los demás se fueron añadiendo después.",
+        "Es un número entre 3 y 7.",
+        "Son 5 palacios."
+      ],
+      "historia": "Carrer Montcada fue, desde el siglo XII, la dirección más cara de Barcelona: aquí construían quienes se habían enriquecido con el mar. Que Picasso —hijo de un profesor de dibujo sin fortuna— acabara teniendo su museo en cinco de estos palacios es una de las ironías más bonitas de la ciudad: el arte democratizando, siglos después, el espacio de los que un día tuvieron todo el dinero.",
+      "fuente": "Museu Picasso de Barcelona"
+    }
+  ],
+  "final": {
+    "titulo": "Habéis caminado sobre un barrio enterrado",
+    "texto": "De un murciélago de piedra a una cascada firmada por un Gaudí que aún no era nadie, de un mercado que esconde una ciudad entera bajo el suelo a cinco palacios que hoy albergan a un solo pintor. El Born fue arrasado en 1714 y reconstruido sobre sus propias cenizas — y, aun así, si sabéis mirar, todavía se puede leer el barrio que fue."
+  }
+}

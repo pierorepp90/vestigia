@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-born",
+  "idioma": "fr",
+  "titulo": "Les marchands de la Ribera",
+  "intro": "El Born était le quartier des marchands et des corporations, celui qui a financé de sa poche une basilique entière et l'a payé par la destruction totale de ses rues en 1714. C'est aujourd'hui le quartier le plus branché de Barcelone, mais chaque coin de rue se souvient encore de ce qu'il fut. Comptez environ 2 km, presque tout à plat.",
+  "puntoPartida": "Arc de Triomf, à l'extrémité du Passeig de Lluís Companys",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "L'animal qui veille sur l'entrée",
+      "llegada": "Debout face à l'Arc de Triomf, observez les deux grands piliers de l'arc, à mi-hauteur.",
+      "enigma": "Cet arc de brique ne commémore aucune bataille : c'est la porte d'entrée de l'Exposition universelle de 1888, œuvre de Josep Vilaseca. Sur les piliers est sculpté un animal ailé, emblème héraldique du roi Jaume Ier. Quel est cet animal ?",
+      "respuestas": ["chauve-souris"],
+      "pistas": [
+        "Ce n'est pas un oiseau : ses ailes sont en peau, pas en plumes.",
+        "C'est l'animal qui sort la nuit et dort la tête en bas.",
+        "C'est une chauve-souris."
+      ],
+      "historia": "La chauve-souris accompagne les armoiries de la Couronne d'Aragon depuis le Moyen Âge, bien que personne ne s'accorde vraiment sur l'origine du symbole. L'arc marquait l'entrée officielle d'une exposition qui voulait placer Barcelone sur la carte des grandes capitales européennes — et, d'une certaine façon, elle y est parvenue.",
+      "fuente": "Ajuntament de Barcelona ; Exposition universelle de Barcelone de 1888"
+    },
+    {
+      "n": 2,
+      "titulo": "Le jeune homme qui n'était pas encore Gaudí",
+      "llegada": "Marchez le long du Passeig de Lluís Companys jusqu'à l'entrée du Parc de la Ciutadella. À l'intérieur, cherchez la grande cascade monumentale de pierre.",
+      "enigma": "Cette cascade fut conçue par Josep Fontserè en 1875, avec l'aide d'un étudiant en architecture d'à peine vingt ans qui n'avait encore rien construit de célèbre : Antoni Gaudí. Tout en haut de la cascade se trouve un char tiré par des chevaux, entièrement d'une seule couleur. De quelle couleur est ce char ?",
+      "respuestas": ["doré", "dorée", "or"],
+      "pistas": [
+        "Regardez le point le plus haut de toute la cascade, pas les figures du bas.",
+        "C'est la couleur des métaux précieux, brillante au soleil.",
+        "Le char est doré."
+      ],
+      "historia": "Gaudí a collaboré ici à l'ingénierie hydraulique et à certains motifs décoratifs, des années avant la Sagrada Família ou le Park Güell. C'est probablement la plus ancienne œuvre publique à laquelle l'architecte le plus célèbre de Barcelone ait mis la main — et presque personne ne s'arrête pour y penser.",
+      "fuente": "Ajuntament de Barcelona — Parc de la Ciutadella"
+    },
+    {
+      "n": 3,
+      "titulo": "Le quartier disparu en une nuit",
+      "llegada": "Sortez du parc et marchez jusqu'à l'Antic Mercat del Born, le grand édifice de fer et de verre du XIXe siècle.",
+      "enigma": "Sous ce marché, des travaux en 2002 ont mis au jour des rues entières d'un quartier du XVIIIe siècle, conservées presque intactes. Ce quartier fut rasé après un siège, pour construire une forteresse militaire. En quelle année eut lieu ce siège ?",
+      "respuestas": ["1714"],
+      "pistas": [
+        "C'était pendant la guerre de Succession d'Espagne.",
+        "C'est la même année commémorée chaque 11 septembre en Catalogne.",
+        "Le siège eut lieu en 1714."
+      ],
+      "historia": "Après la défaite, des centaines de maisons de la Ribera furent démolies pour construire la Ciutadella, une forteresse conçue pour surveiller la ville elle-même. Le marché que vous voyez aujourd'hui fut construit par-dessus au XIXe siècle ; lorsqu'il fut rénové en 2002 pour devenir une bibliothèque, les rues du quartier détruit réapparurent, intactes sous terre depuis près de trois siècles.",
+      "fuente": "El Born Centre de Cultura i Memòria ; Ajuntament de Barcelona"
+    },
+    {
+      "n": 4,
+      "titulo": "La place des tournois",
+      "llegada": "Marchez jusqu'au Passeig del Born, la large esplanade qui prolonge le marché.",
+      "enigma": "Cette promenade si large n'est pas un hasard : au Moyen Âge, des chevaliers s'y affrontaient à cheval, lance au poing, devant un public. Cette activité, en catalan ancien, a donné son nom à la rue. Quel type de spectacle médiéval nomme le Born ?",
+      "respuestas": ["joutes", "tournois", "joutes medievales", "joutes médiévales"],
+      "pistas": [
+        "C'étaient des chevaliers en armure s'affrontant à cheval.",
+        "C'est le même mot qu'en anglais pour ce sport de combat : \"joust\".",
+        "C'étaient des joutes (tournois de chevaliers)."
+      ],
+      "historia": "Pendant des siècles, le Born fut le grand espace public de Barcelone : on y organisait des joutes, des marchés, des processions de Semaine sainte, et aussi, à des époques plus sombres, des autodafés de l'Inquisition. Aujourd'hui il ne reste que les terrasses de café — mais le nom se souvient toujours des chevaliers.",
+      "fuente": "Ajuntament de Barcelona — Passeig del Born"
+    },
+    {
+      "n": 5,
+      "titulo": "Les colonnes payées à dos d'homme",
+      "llegada": "Continuez jusqu'à la façade principale de la Basílica de Santa Maria del Mar, juste à côté.",
+      "enigma": "Cette basilique fut construite en seulement 55 ans (1329-1384), une rapidité rarissime pour le gothique, car elle fut payée et bâtie par le peuple même de la Ribera : marchands, artisans et bastaixos, ces dockers du port qui portaient chaque pierre sur leur dos depuis Montjuïc. Entrez et comptez les colonnes octogonales qui soutiennent la nef centrale.",
+      "respuestas": ["16", "seize"],
+      "pistas": [
+        "Elles sont réparties de chaque côté de la nef centrale, très espacées entre elles.",
+        "C'est un nombre entre 14 et 18.",
+        "Il y a 16 colonnes."
+      ],
+      "historia": "Les colonnes sont espacées de 15 mètres, une distance énorme pour l'époque, laissant un espace intérieur épuré et lumineux. Les reliefs des portes représentent les bastaixos portant la pierre, en hommage à ces gens sans titre ni fortune qui ont construit, littéralement à dos d'homme, l'église la plus aimée de Barcelone.",
+      "fuente": "Basílica de Santa Maria del Mar ; MUHBA"
+    },
+    {
+      "n": 6,
+      "titulo": "La flamme pour ceux qui ne se sont jamais rendus",
+      "llegada": "Juste à côté de la basilique, cherchez le Fossar de les Moreres, la place en contrebas au pavage rougeâtre.",
+      "enigma": "C'est ici que furent enterrés les défenseurs de Barcelone morts lors du siège de 1714 dont vous connaissez déjà la date. Depuis 2001, une flamme qui ne s'éteint jamais y brûle. Un poème gravé dans le sol dit qu'on n'enterre jamais un certain type de personne dans ce cimetière. Quel mot le poème emploie-t-il pour cette personne ?",
+      "respuestas": ["traitre", "traître", "traitres", "traîtres"],
+      "pistas": [
+        "C'est quelqu'un qui trahit une cause ou son propre peuple.",
+        "C'est le contraire d'un héros ou d'un défenseur.",
+        "Le mot est \"traître\" (traïdor en catalan)."
+      ],
+      "historia": "Le poème complet dit : \"Au Fossar de les Moreres, on n'enterre aucun traître ; même en perdant nos drapeaux, ce sera l'urne de l'honneur.\" Il fut écrit par Frederic Soler, dit \"Pitarra\", au XIXe siècle. Le pavage rougeâtre symbolise le sang versé ; chaque pas dessus est, discrètement, un hommage.",
+      "fuente": "Ajuntament de Barcelona — Fossar de les Moreres"
+    },
+    {
+      "n": 7,
+      "titulo": "La rue de ceux qui travaillaient l'argent",
+      "llegada": "Marchez jusqu'à la carrer de l'Argenteria, la rue qui relie la basilique à la Via Laietana.",
+      "enigma": "Comme beaucoup de rues du Born, celle-ci porte le nom de la corporation qui y travaillait au Moyen Âge. Cherchez la plaque du nom de la rue et traduisez : avec quel métal précieux travaillaient les artisans de cette rue ?",
+      "respuestas": ["argent"],
+      "pistas": [
+        "C'est le même mot qui donne son nom à la rue en français.",
+        "C'est le métal blanc et brillant, moins cher que l'or.",
+        "Ils travaillaient l'argent (c'étaient des orfèvres)."
+      ],
+      "historia": "Le Born regorge de rues-corporations : Argenteria (orfèvres), Vidrieria (verriers), Cotoners (cotonniers), Espaseries (fourbisseurs d'épées). Marcher dans ce quartier, c'est encore aujourd'hui parcourir une carte vivante des métiers médiévaux de Barcelone.",
+      "fuente": "Ajuntament de Barcelona — nomenclàtor de carrers"
+    },
+    {
+      "n": 8,
+      "titulo": "Cinq palais pour un seul peintre",
+      "llegada": "Terminez sur la carrer Montcada, la rue des palais gothiques, jusqu'au Museu Picasso.",
+      "enigma": "Le musée n'occupe pas un seul bâtiment, mais plusieurs palais gothiques médiévaux reliés entre eux, construits par des familles nobles et des marchands enrichis par le commerce maritime. Comptez combien de palais différents forment aujourd'hui le Museu Picasso.",
+      "respuestas": ["5", "cinq"],
+      "pistas": [
+        "Le premier, le palais Aguilar, a ouvert comme musée en 1963 ; les autres ont été ajoutés ensuite.",
+        "C'est un nombre entre 3 et 7.",
+        "Il y a 5 palais."
+      ],
+      "historia": "La carrer Montcada fut, dès le XIIe siècle, l'adresse la plus chère de Barcelone : ceux qui s'étaient enrichis grâce à la mer y construisaient leurs demeures. Que Picasso — fils d'un professeur de dessin sans fortune — ait fini par avoir son musée dans cinq de ces palais est l'une des plus belles ironies de la ville : l'art démocratisant, des siècles plus tard, l'espace de ceux qui eurent jadis tout l'argent.",
+      "fuente": "Museu Picasso de Barcelona"
+    }
+  ],
+  "final": {
+    "titulo": "Vous avez marché sur un quartier enterré",
+    "texto": "D'une chauve-souris de pierre à une cascade signée par un Gaudí qui n'était encore personne, d'un marché qui cache une ville entière sous terre à cinq palais abritant aujourd'hui un seul peintre. El Born fut rasé en 1714 et reconstruit sur ses propres cendres — et pourtant, si vous savez regarder, on peut encore y lire le quartier qu'il fut."
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "rutaId": "berlin-mitte",
+  "idioma": "fr",
+  "titulo": "La mémoire de Mitte",
+  "intro": "Vous allez marcher entre deux coupoles jumelles qui, en réalité, n'ont rien en commun, au-dessus d'une bibliothèque vide cachée sous les pavés, et face à une déesse qui tient un symbole militaire tout en haut d'une porte. Berlin ne garde pas son histoire du XXe siècle sous vitrine : elle la laisse gravée dans la pierre, le métal et le verre de ses propres rues, à hauteur des yeux de quiconque s'arrête pour regarder. Comptez près de 5 km, tout à plat.",
+  "puntoPartida": "Gendarmenmarkt, entre le Deutscher Dom et le Konzerthaus",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "Les tours devenues jumelles",
+      "llegada": "Placez-vous au centre du Gendarmenmarkt, entre le Konzerthaus et l'une des deux églises à coupole qui l'encadrent, de façon à voir les deux tours en même temps.",
+      "enigma": "Les deux églises qui vous entourent — la Französischer Dom d'un côté, la Deutscher Dom de l'autre — ne sont pas nées ensemble et n'ont même pas le même plan : la française fut construite en 1701-1705 pour la communauté huguenote fuyant la France, l'allemande en 1701-1708 pour la congrégation luthérienne, chacune avec son propre architecte. Et pourtant, depuis où vous êtes, leurs deux tours à coupole sont impossibles à distinguer l'une de l'autre. C'est qu'elles ont été ajoutées près de 80 ans plus tard, commandées par le même roi et réalisées par le même architecte, uniquement pour donner à la place un air symétrique. Cherchez l'année indiquée sur le panneau d'information près de l'entrée de l'une des deux tours : en quelle année ont-elles été achevées ?",
+      "respuestas": ["1785"],
+      "pistas": [
+        "La commande vient de Frédéric II de Prusse ; l'architecte est Carl von Gontard.",
+        "Les travaux des deux tours ont commencé en 1780.",
+        "Elles ont été achevées en 1785."
+      ],
+      "historia": "L'une des deux tours, celle de la Deutscher Dom, n'a même pas tenu debout du premier coup : elle s'est effondrée en pleine construction en juillet 1781 et a dû être rebâtie. Les deux églises ont brûlé à l'intérieur pendant la Seconde Guerre mondiale et sont restées des coquilles vides pendant des années. La Französischer Dom fut restaurée en premier, à temps pour le 750e anniversaire de Berlin en 1987, encore sous la RDA ; la Deutscher Dom n'a rouvert complètement qu'en 1996, après la réunification, avec une exposition permanente sur l'histoire du parlementarisme allemand à l'intérieur.",
+      "fuente": "Stiftung Französische Kirche zu Berlin / Stiftung Deutscher Dom ; Wikipédia — Gendarmenmarkt, Französischer Dom, Deutscher Dom"
+    },
+    {
+      "n": 2,
+      "titulo": "La bibliothèque vide",
+      "llegada": "Marchez vers le nord sur Charlottenstraße pendant environ 500 mètres, traversez Unter den Linden, et rejoignez Bebelplatz, la place entre l'Opéra d'État et l'université Humboldt. Cherchez au centre du pavage une vitre épaisse, encastrée au ras du sol, d'un peu plus d'un mètre de côté.",
+      "enigma": "Accroupissez-vous et regardez à travers la vitre : en dessous se trouve une salle blanche et éclairée, d'environ sept mètres de côté, dont les quatre murs sont couverts d'étagères vides, du sol au plafond. C'est l'œuvre que l'artiste israélien Micha Ullman a installée en 1995, exactement à l'endroit où, dans la nuit du 10 mai 1933, des étudiants acquis au nazisme — beaucoup venus de l'université même à côté de vous — ont brûlé publiquement des milliers de livres d'auteurs juifs, communistes, pacifistes, ou simplement gênants pour leur idée de la culture allemande. Près de la vitre se trouve une plaque portant une citation de l'écrivain Heinrich Heine, dont les propres livres ont brûlé cette nuit-là. Cherchez sur la plaque ou sur le panneau d'information le plus proche : combien de livres estime-t-on avoir brûlé cette nuit-là ?",
+      "respuestas": ["20000", "20 000", "vingt mille", "plus de 20000"],
+      "pistas": [
+        "Le nombre figure sur le panneau d'information, pas dans la citation de Heine.",
+        "C'est un chiffre rond à cinq chiffres : vingt mille et quelques.",
+        "On estime qu'environ 20 000 livres ont brûlé."
+      ],
+      "historia": "La citation gravée près de la vitre a été écrite par Heine lui-même vers 1821, plus d'un siècle avant que ses propres livres ne finissent au bûcher : « Là où l'on brûle des livres, on finit aussi par brûler des hommes. » L'autodafé de 1933 n'était pas un débordement spontané : il fut organisé le même jour dans plusieurs villes allemandes à la fois, avec des listes d'auteurs interdits préparées à l'avance. Beaucoup de ces auteurs réussirent à fuir le pays dans les années qui suivirent ; d'autres non.",
+      "fuente": "visitBerlin.de — Book burning memorial at Bebelplatz ; Wikipédia — The Empty Library"
+    },
+    {
+      "n": 3,
+      "titulo": "La mère laissée aux intempéries",
+      "llegada": "Continuez sur Unter den Linden vers l'est pendant environ 300 mètres jusqu'à la Neue Wache, un bâtiment bas et carré au portique à colonnes qui ressemble plus à une forteresse qu'à une chapelle. L'entrée est gratuite ; à l'intérieur, la salle est presque vide, à l'exception d'une sculpture isolée en son centre.",
+      "enigma": "C'est un agrandissement en bronze d'une œuvre de la sculptrice Käthe Kollwitz, qui perdit son fils Peter en Belgique en 1914, pendant la Première Guerre mondiale, et sculpta des années plus tard une mère tenant le corps de son fils mort. Avant de vous approcher de la statue, regardez le plafond. Que voyez-vous exactement au-dessus de la sculpture ?",
+      "respuestas": ["un trou", "une ouverture circulaire", "un oculus", "un trou dans le plafond", "ouvert sur le ciel", "ouverture"],
+      "pistas": [
+        "Il n'y a aucune verrière pour le couvrir : regardez bien.",
+        "Quand il pleut ou qu'il neige à Berlin, cela entre littéralement dans le bâtiment.",
+        "C'est une ouverture circulaire, ouverte sur le ciel, juste au-dessus de la sculpture : la pluie, la neige et le soleil tombent directement sur la mère et son fils."
+      ],
+      "historia": "Schinkel a construit ce bâtiment en 1818 comme corps de garde royal prussien, et sa vocation a changé quatre fois depuis, une fois pour chaque régime politique ayant gouverné Berlin : corps de garde royal, monument aux morts de la Première Guerre mondiale, mémorial est-allemand aux « victimes du fascisme et du militarisme », et, depuis 1993, mémorial central de l'Allemagne réunifiée aux victimes de la guerre et de la tyrannie. Kollwitz avait perdu son fils Peter en 1914 ; en 1942, elle perdit aussi son petit-fils, un autre Peter, nommé en mémoire de son oncle, tué sur le front de Stalingrad.",
+      "fuente": "Bundesrepublik Deutschland — Neue Wache ; Wikipédia — Mother with her Dead Son"
+    },
+    {
+      "n": 4,
+      "titulo": "Les coupoles que personne ne compte bien",
+      "llegada": "Continuez vers l'est sur Unter den Linden, traversez le pont sur la Spree, et entrez dans le Lustgarten, le parc devant le Berliner Dom. Éloignez-vous de quelques mètres du bâtiment, assez pour voir toute sa silhouette se découper sur le ciel.",
+      "enigma": "La cathédrale que vous voyez aujourd'hui date de 1905, un temple protestant construit avec une ambition de basilique, avec la crypte des Hohenzollern en dessous. Observez toute la silhouette, pas seulement la grande coupole centrale : il y a d'autres coupoles, plus petites, aux angles du bâtiment. Comptez toutes celles que vous pouvez voir d'où vous êtes, la grande et les petites.",
+      "respuestas": ["5", "cinq"],
+      "pistas": [
+        "Il y a une coupole principale, bien plus grande que les autres, au centre.",
+        "Les quatre autres sont plus petites et coiffent les quatre tours d'angle.",
+        "Il y a cinq coupoles en tout : une grande et quatre petites."
+      ],
+      "historia": "Sous cette coupole reposent plus de quatre-vingt-dix membres de la famille Hohenzollern, la dynastie qui gouverna la Prusse puis l'Empire allemand jusqu'en 1918 : c'est le plus grand mausolée dynastique d'Europe. Une bombe a touché la lanterne de la coupole en 1944 ; l'incendie et l'effondrement qui a suivi ont traversé le sol de l'église et brisé plusieurs sarcophages de la crypte. La reconstruction, commencée en 1975 sous la RDA et achevée en 1993, après la réunification, a réduit la hauteur du bâtiment d'environ 16 mètres par rapport à l'original et simplifié son décor — mais a conservé les cinq coupoles.",
+      "fuente": "Berlinerdom.de — GDR period and reconstruction ; Wikipédia — Berlin Cathedral"
+    },
+    {
+      "n": 5,
+      "titulo": "Ce que la déesse tient dans la main",
+      "llegada": "Allez vers l'ouest sur Unter den Linden jusqu'à Pariser Platz et la porte de Brandebourg — c'est une longue marche, un peu plus d'un kilomètre et demi en ligne droite. Passez de l'autre côté de la porte, vers le Tiergarten, et cherchez un bon angle pour voir la sculpture qui couronne l'attique, bien au-dessus des colonnes.",
+      "enigma": "C'est un quadrige : un char tiré par quatre chevaux, conduit par Victoria, la déesse romaine de la victoire. Regardez ce que Victoria tient levé dans sa main droite : une hampe surmontée d'une couronne, avec un symbole militaire en son centre. Ce symbole ne faisait pas partie du dessin original de 1793. Quel est-il ?",
+      "respuestas": ["croix de fer", "une croix de fer", "croix"],
+      "pistas": [
+        "Napoléon a emporté toute la sculpture à Paris comme trophée de guerre en 1806, après avoir vaincu la Prusse.",
+        "Quand le quadrige est revenu à Berlin en 1814, l'architecte Schinkel a remplacé la couronne d'olivier d'origine par une couronne de chêne, et y a ajouté ce symbole militaire prussien, plus un aigle au sommet.",
+        "C'est une croix de fer (Eisernes Kreuz)."
+      ],
+      "historia": "Avant 1806, Victoria ne tenait qu'une hampe surmontée d'une couronne d'olivier : un symbole de paix. Napoléon démonta le quadrige pièce par pièce et l'emporta à Paris ; il y resta huit ans, jusqu'à ce que les troupes prussiennes le récupèrent en 1814. Schinkel profita de ce retour pour redessiner le symbole : depuis, la déesse ne représente plus la victoire en général, mais une victoire militaire bien précise sur Napoléon.",
+      "fuente": "Stiftung Preußische Schlösser und Gärten ; Wikipédia — Quadriga (Brandenburger Tor)"
+    },
+    {
+      "n": 6,
+      "titulo": "La ligne qui coupait la ville en deux",
+      "llegada": "Marchez vers le sud en longeant le Tiergarten sur Ebertstraße. À un moment, vous verrez sur la chaussée une double rangée de pavés, différente du reste de la rue, qui la traverse de part en part.",
+      "enigma": "Cette double ligne de pavés marque, assez précisément, le tracé du mur de Berlin entre 1961 et 1989 — reconstituée sur son emplacement d'origine après la réunification pour que personne n'oublie par où il coupait la ville. À intervalles réguliers, une plaque métallique est incrustée entre les pavés, portant l'inscription BERLINER MAUER et deux années. Cherchez l'une de ces plaques et soustrayez une année à l'autre : combien d'années le mur est-il resté debout ?",
+      "respuestas": ["28", "vingt-huit", "28 ans"],
+      "pistas": [
+        "Les deux années gravées sur la plaque sont 1961 et 1989.",
+        "Soustrayez la première à la seconde.",
+        "Il est resté debout 28 ans."
+      ],
+      "historia": "Le mur n'était pas une simple paroi : c'était une bande fortifiée large de jusqu'à 100 mètres par endroits, avec une clôture intérieure, des fossés antichars, des miradors et la « bande de la mort » entre les deux, éclairée toute la nuit. On estime qu'au moins 140 personnes sont mortes en tentant de le franchir. Aujourd'hui, sur une grande partie de son tracé dans le centre-ville, il ne reste que cette ligne de pavés sous les pieds de ceux qui passent sans le savoir.",
+      "fuente": "Berlin.de — Berlin Wall Trail / History Mile ; Stiftung Berliner Mauer"
+    },
+    {
+      "n": 7,
+      "titulo": "Le panneau qui ne dit plus la vérité",
+      "llegada": "Continuez vers le sud-est, en laissant le Tiergarten derrière vous, jusqu'à traverser Wilhelmstraße et atteindre l'angle de Friedrichstraße et de Zimmerstraße. Là, au milieu de la rue, se dresse une petite guérite en bois blanc entourée de sacs de sable, et à côté, un panneau lumineux sur un poteau.",
+      "enigma": "C'est la réplique du poste-frontière le plus célèbre de la guerre froide, le passage entre les secteurs américain et soviétique d'un Berlin divisé. Le panneau indique YOU ARE LEAVING THE AMERICAN SECTOR en grandes lettres — mais l'avertissement n'est pas seulement en anglais. Comptez en combien de langues différentes le même message est écrit.",
+      "respuestas": ["4", "quatre"],
+      "pistas": [
+        "Berlin était divisé entre quatre puissances alliées, pas seulement deux.",
+        "Sous l'anglais se trouve le russe, puis encore deux autres langues.",
+        "C'est écrit en quatre langues : anglais, russe, français et allemand."
+      ],
+      "historia": "Ni la guérite ni le panneau ne sont d'origine : tous deux ont été retirés en 1990 et sont aujourd'hui conservés à l'Alliierten Museum, à Dahlem. Ce que vous voyez ici est une reconstitution, sur un coin de rue qui fut, pendant près de trente ans, l'un des points les plus surveillés de la planète, et où, en octobre 1961, des chars américains et soviétiques se sont retrouvés braqués les uns contre les autres à peine à cent mètres de distance, pendant plusieurs jours.",
+      "fuente": "AlliiertenMuseum Berlin ; Wikipédia — Checkpoint Charlie"
+    },
+    {
+      "n": 8,
+      "titulo": "Le quatuor aux pieds du poète",
+      "llegada": "Retournez sur le Gendarmenmarkt, à l'endroit où vous avez commencé, et placez-vous face à l'escalier du Konzerthaus. Tout en haut d'une colonne se dresse la statue d'un homme tenant un livre ; bien plus bas, autour de la base du piédestal, sont assises plusieurs figures de bronze.",
+      "enigma": "C'est le monument à Friedrich Schiller, inauguré en 1871, œuvre du sculpteur Reinhold Begas — le premier monument public dédié à un poète à Berlin. Autour du piédestal, aux pieds de Schiller, sont assises plusieurs figures allégoriques représentant les différents domaines où il a écrit. Comptez combien de figures de bronze sont assises autour de la base.",
+      "respuestas": ["4", "quatre"],
+      "pistas": [
+        "Chaque figure représente un genre littéraire différent : poésie lyrique, théâtre, philosophie et histoire.",
+        "Il y en a une à chaque angle du piédestal.",
+        "Il y a quatre figures allégoriques autour de la base."
+      ],
+      "historia": "Toute la place autour de vous — les deux coupoles jumelles, le Konzerthaus lui-même, ce monument — a été gravement endommagée pendant la Seconde Guerre mondiale et reconstruite sur plusieurs décennies, en grande partie sous un régime différent, dans le Berlin-Est de la RDA. Vous venez de traverser une ville qui a changé de drapeau plusieurs fois au cours du dernier siècle, et qui, à chaque fois, a décidé avec beaucoup de soin ce qu'il fallait reconstruire à l'identique et ce qu'il fallait laisser comme rappel que quelque chose s'était passé ici.",
+      "fuente": "Wikipédia — Schiller Monument (Berlin) ; museum-digital:berlin — Schiller-Denkmal"
+    }
+  ],
+  "final": {
+    "titulo": "Berlin ne le cache pas",
+    "texto": "De deux coupoles qui se font passer pour jumelles à une bibliothèque vide sous les pavés, d'une mère laissée aux intempéries à une croix de fer dans la main d'une déesse, jusqu'à une ligne de pierre qui coupait la ville en deux. Berlin a choisi, encore et encore, de ne pas maquiller sa propre histoire : elle la laisse gravée dans la rue, à hauteur des yeux de quiconque s'arrête pour regarder. Vous savez désormais la lire."
+  }
+}

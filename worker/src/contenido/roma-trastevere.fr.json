@@ -1,0 +1,125 @@
+{
+  "rutaId": "roma-trastevere",
+  "idioma": "fr",
+  "titulo": "La proue de Trastevere",
+  "intro": "Trastevere signifie « de l'autre côté du Tibre », et ce quartier a toujours vécu ainsi : tournant le dos au pouvoir de l'autre rive, avec ses propres saints, son propre dieu de la médecine et une île en forme de bateau au milieu du fleuve. Vous allez compter les côtés de la plus vieille fontaine de Rome, chercher un serpent gravé dans la pierre et regarder de près une sainte qui dort dans le marbre depuis des siècles. Comptez environ 3 km, plats, presque toujours au bord de l'eau.",
+  "puntoPartida": "Piazza di Santa Maria in Trastevere, face à la façade de la basilique",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "Les femmes d'or",
+      "llegada": "Restez debout sur la Piazza di Santa Maria in Trastevere, face à la façade de la basilique. Levez les yeux, juste au-dessus des colonnes du portique : une frise dorée y brille.",
+      "enigma": "Cette mosaïque du XIIIe siècle montre la Vierge en majesté allaitant l'Enfant. Autour d'elle se tient une rangée de femmes, chacune tenant une lampe à huile : deux la portent éteinte, les autres allumée. Sans compter la Vierge, combien de femmes voyez-vous en tout ?",
+      "respuestas": ["10", "dix"],
+      "pistas": [
+        "Elles sont réparties en rangée de part et d'autre de la Vierge, avec le même nombre de chaque côté.",
+        "C'est un nombre compris entre 8 et 12.",
+        "Il y a dix femmes."
+      ],
+      "historia": "Personne ne s'accorde vraiment sur l'identité de ces dix femmes : la lecture la plus répandue les identifie aux vierges sages et aux vierges folles d'une parabole de l'Évangile selon Matthieu, celles qui avaient de l'huile de réserve pour leur lampe et celles qui n'en avaient pas. La légende locale ajoute une autre histoire d'huile : on raconte que la nuit de la naissance du Christ, une source d'huile jaillit du sol, à cet endroit même, et coula jusqu'au Tibre — c'est pourquoi, pendant des siècles, cette église fut aussi appelée Santa Maria in Fontibus.",
+      "fuente": "Basilica di Santa Maria in Trastevere; Sovraintendenza Capitolina — mosaïque de façade"
+    },
+    {
+      "n": 2,
+      "titulo": "La vasque à huit côtés",
+      "llegada": "Tournez-vous vers le centre de la place, où une fontaine de pierre travertin s'élève sur quelques marches, un peu à l'écart de la façade de l'église.",
+      "enigma": "Cette fontaine se dispute avec une autre de Rome le titre de la plus ancienne de la ville : certains font remonter son origine au VIIIe siècle, même si celle que vous voyez aujourd'hui résulte d'au moins quatre reconstructions — Bramante, le Bernin et Carlo Fontana y ont tous mis la main, chacun à sa façon et à son siècle. Observez la grande vasque surélevée, décorée de coquillages sculptés à chaque angle : combien de côtés a-t-elle ?",
+      "respuestas": ["8", "huit"],
+      "pistas": [
+        "Elle n'est ni carrée ni ronde : c'est un polygone régulier de plus de six côtés.",
+        "C'est le même nombre de côtés qu'un panneau stop.",
+        "Elle a huit côtés : c'est un octogone."
+      ],
+      "historia": "Bramante lui donna sa première forme vers 1499 ; elle devint octogonale peu après ; le Bernin la déplaça au centre exact de la place et ajouta les grands coquillages en 1659 ; Carlo Fontana l'acheva en 1692, et en 1873 elle fut reconstruite une nouvelle fois, pierre par pierre, en suivant ce même dessin. Peu de fontaines romaines ont autant changé de forme sans jamais changer de place.",
+      "fuente": "Comune di Roma; Sovraintendenza Capitolina — Fontana di Piazza Santa Maria in Trastevere"
+    },
+    {
+      "n": 3,
+      "titulo": "L'œil qui annonce les crues",
+      "llegada": "Quittez la place vers le nord par la Via della Scala jusqu'à la Piazza Trilussa, au bord du fleuve. Là commence un pont piétonnier de pierre claire : le Ponte Sisto.",
+      "enigma": "Ce pont fut construit sur ordre du pape Sixte IV entre 1473 et 1479, sur les ruines d'un pont romain antérieur. Cherchez, juste au-dessus de l'arche centrale, une grande ouverture qui traverse le pont de part en part — assez large pour qu'on voie le ciel à travers. Les Romains l'appellent affectueusement l'occhialone, « grand œil », car pendant des siècles elle a signalé le danger : quand l'eau du Tibre commençait à y entrer, il fallait fuir. Quelle forme a cette ouverture ?",
+      "respuestas": ["circulaire", "ronde", "un cercle"],
+      "pistas": [
+        "Elle n'a ni coins ni côtés droits.",
+        "C'est la même forme qu'une pièce de monnaie ou une roue.",
+        "Elle est circulaire : un grand cercle, l'« occhialone »."
+      ],
+      "historia": "Sous l'eau, presque sans trace visible, subsistent les vestiges d'un premier pont commandé par Agrippa avant l'an 12 av. J.-C. Au fil des siècles, on l'appela aussi pons Aurelius, jusqu'à ce qu'une crue le fasse s'effondrer en l'an 791 : il devint alors le pons fractus, le « pont cassé » — le même surnom, curieusement, que porte aujourd'hui un autre pont romain de cette ville, en aval, que vous atteindrez plus loin sur cet itinéraire.",
+      "fuente": "Sovraintendenza Capitolina — Ponte Sisto; Touring Club Italiano"
+    },
+    {
+      "n": 4,
+      "titulo": "La proue de pierre",
+      "llegada": "Revenez sur vos pas vers le sud, en longeant le Lungotevere côté Trastevere, jusqu'au Ponte Cestio, le pont à trois arches qui mène à l'île Tibérine (Isola Tiberina). Traversez-le et cherchez la pointe de l'île qui regarde vers l'aval, non loin de l'église San Bartolomeo.",
+      "enigma": "Depuis le Ier siècle av. J.-C., les Romains ont habillé cette pointe de l'île de pierre travertin pour lui donner l'allure d'une proue de navire, avec un obélisque au centre de l'île en guise de mât. La légende raconte qu'en 291 av. J.-C., alors que Rome était ravagée par une épidémie, des envoyés rapportèrent de Grèce une statue du dieu de la médecine ; pendant le voyage de retour, le serpent sacré du dieu s'échappa du bateau et nagea se cacher ici même, indiquant l'endroit où bâtir son temple. Sur la pierre de la proue, on distingue encore un bâton sculpté autour duquel s'enroule un animal. Quel est cet animal ?",
+      "respuestas": ["serpent", "un serpent"],
+      "pistas": [
+        "C'est un reptile sans pattes, le héros de la légende fondatrice de ce lieu.",
+        "C'est le même animal qui figure aujourd'hui encore dans le symbole international de la médecine.",
+        "C'est un serpent, enroulé autour du bâton d'Esculape."
+      ],
+      "historia": "Le serpent guida les Romains jusqu'à Esculape, dieu grec de la médecine, venu à Rome pour enrayer l'épidémie. La tradition ne s'est jamais interrompue : là où se dressait son temple se trouve aujourd'hui encore un hôpital, le Fatebenefratelli — cette île soigne donc les gens sans interruption depuis plus de deux mille ans.",
+      "fuente": "Sovraintendenza Capitolina — Isola Tiberina; Ospedale Fatebenefratelli"
+    },
+    {
+      "n": 5,
+      "titulo": "Le pont qui a cédé au fleuve",
+      "llegada": "Depuis l'île, regardez vers l'aval, au sud, en direction du pont moderne suivant, le Ponte Palatino. Juste avant de l'atteindre, au milieu de l'eau, il y a quelque chose qui n'est plus un pont entier.",
+      "enigma": "Au milieu du fleuve, isolée et ne rejoignant aucune des deux rives, se dresse une seule arche de pierre : c'est tout ce qu'il reste du Pons Aemilius, le plus vieux pont de pierre de Rome, dont les arches furent achevées en 142 av. J.-C. Comptez combien d'arches complètes tiennent encore debout aujourd'hui au-dessus de l'eau.",
+      "respuestas": ["1", "une", "une arche"],
+      "pistas": [
+        "Ce n'est pas un pont entier : il n'en survit qu'un fragment, isolé au milieu du fleuve.",
+        "C'est le plus petit nombre possible qui ne soit pas zéro.",
+        "Il ne reste qu'une seule arche."
+      ],
+      "historia": "Les Romains l'appellent Ponte Rotto, le « pont cassé » — presque la même histoire déjà arrivée, des siècles plus tôt, au Ponte Sisto. La grande crue du 24 décembre 1598 emporta trois des six arches que comptait alors le pont, jamais reconstruites depuis. Deux arches supplémentaires disparurent à la fin du XIXe siècle, lors de la construction des murs actuels le long du Tibre pour contenir les crues, ne laissant debout que l'arche que vous voyez aujourd'hui, posée sur des piles romaines du IIe siècle av. J.-C.",
+      "fuente": "Sovraintendenza Capitolina — Pons Aemilius (Ponte Rotto); Roma Capitale"
+    },
+    {
+      "n": 6,
+      "titulo": "Trois doigts pour un secret",
+      "llegada": "Dirigez-vous vers le sud-ouest, en vous éloignant du fleuve, jusqu'à la Basilica di Santa Cecilia in Trastevere (l'entrée de l'église est gratuite). Approchez-vous du maître-autel : en dessous, dans un renfoncement au ras du sol, se trouve une sculpture de marbre blanc représentant une femme allongée sur le côté.",
+      "enigma": "Elle fut sculptée par Stefano Maderno en 1600, peu après l'ouverture du tombeau de sainte Cécile, où l'on trouva, disait-on alors, son corps incorrompu après 1300 ans. Maderno jura avoir sculpté exactement la position dans laquelle il l'avait vue : sur le flanc, le visage détourné et caché, les mains tendues d'une manière bien précise. Regardez sa main droite, celle qui est le mieux visible : combien de doigts tend-elle ?",
+      "respuestas": ["3", "trois"],
+      "pistas": [
+        "Ce n'est ni un poing fermé ni une main entièrement ouverte.",
+        "C'est un nombre inférieur à cinq.",
+        "Elle tend trois doigts."
+      ],
+      "historia": "De son autre main, Cécile tend un seul doigt : trois et un, sa façon silencieuse de proclamer la Trinité — un seul Dieu en trois personnes — dans le dernier geste de sa vie. Cécile est aujourd'hui la patronne des musiciens car, selon la légende, elle chantait dans son cœur pour Dieu pendant qu'on la forçait à se marier ; la basilique qui l'abrite se dresserait, dit-on, sur les vestiges de sa propre maison.",
+      "fuente": "Basilica di Santa Cecilia in Trastevere; sculpture de Stefano Maderno (1600)"
+    },
+    {
+      "n": 7,
+      "titulo": "Le numéro qui trahit le quartier",
+      "llegada": "Repartez vers le nord, vers le cœur de Trastevere, jusqu'au Vicolo del Bologna, l'une des ruelles les plus photographiées du quartier : façades colorées, pavés irréguliers et, presque toujours, du linge tendu de balcon à balcon.",
+      "enigma": "Cherchez la plaque de marbre blanc portant le nom de la rue, fixée sur l'un des murs. Outre le nom, les plaques traditionnelles de Rome portent dans un coin un chiffre romain : celui du rione, le quartier historique auquel appartient la rue — Rome en compte 22 au total. Quel chiffre romain figure sur cette plaque ?",
+      "respuestas": ["XIII", "13", "treize"],
+      "pistas": [
+        "C'est un chiffre romain composé d'un X suivi de plusieurs I.",
+        "En chiffres normaux, c'est 13.",
+        "Le chiffre est XIII : Trastevere est le 13e rione de Rome."
+      ],
+      "historia": "L'emblème officiel du rione XIII est une tête de lion dorée sur fond rouge ; personne ne s'accorde vraiment sur son origine, même si une théorie la relie aux chrétiens de Trastevere martyrisés dans les arènes romaines. Le Vicolo del Bologna, quant à lui, doit son nom à un menuisier du XVIe siècle surnommé « il Bologna » — un métier et un surnom de plus parmi les centaines que Rome a conservés, presque malgré elle, dans le nom de ses rues.",
+      "fuente": "Roma Capitale — toponomastica e rioni di Roma; Roma Segreta — Vicolo del Bologna"
+    },
+    {
+      "n": 8,
+      "titulo": "Les quatre papes de pierre",
+      "llegada": "Revenez sur la Piazza di Santa Maria in Trastevere, de nouveau face à la basilique. Regardez cette fois le portique à colonnes situé sous la mosaïque dorée, et levez les yeux vers la balustrade de pierre qui le couronne.",
+      "enigma": "Ce portique fut ajouté par l'architecte Carlo Fontana en 1702. Sur la balustrade qui le surmonte se dressent plusieurs statues de pierre, chacune représentant un pape différent des premiers siècles de l'Église. Comptez-les : combien de statues de papes se trouvent là-haut ?",
+      "respuestas": ["4", "quatre"],
+      "pistas": [
+        "Elles sont debout, en rangée, juste au-dessus des colonnes du portique.",
+        "C'est un nombre compris entre 2 et 6.",
+        "Il y a quatre statues de papes."
+      ],
+      "historia": "Ce sont Calixte Ier, Corneille, Jules Ier et Calépode : des papes des IIIe et IVe siècles, tous liés aux origines de cette basilique, la première de Rome officiellement dédiée à la Vierge. Sous ce même portique est conservée depuis le XVIIIe siècle une collection de stèles païennes et chrétiennes récupérées dans les catacombes romaines — des fragments épars de deux mille ans d'histoire, réunis sur la place même où vous avez commencé et terminé ce parcours.",
+      "fuente": "Basilica di Santa Maria in Trastevere; Sovraintendenza Capitolina — portico di Carlo Fontana (1702)"
+    }
+  ],
+  "final": {
+    "titulo": "Vous avez traversé le fleuve sans vous mouiller",
+    "texto": "De dix lampes en mosaïque à un pont qui a perdu toutes ses arches sauf une, d'un serpent fondateur d'hôpital il y a deux mille ans à une sainte qui a laissé son dernier message dans les doigts d'une main. Trastevere a toujours vécu le dos tourné au pouvoir de l'autre rive, avec ses propres saints, son propre dieu et ses propres règles — et, si vous avez su regarder, cela se sent encore."
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "rutaId": "lisboa-alfama",
+  "idioma": "en",
+  "titulo": "The Echoes of Alfama",
+  "intro": "Alfama is Lisbon's oldest neighbourhood: a maze of Moorish-era streets that not even the great 1755 earthquake managed to straighten out. Fado was born here, fishermen and their wives once lived here, and every tile seems to hold a story too big for any guidebook. It's about 2 km, with some steep climbs — Lisbon doesn't go easy on you.",
+  "puntoPartida": "Sé de Lisboa (Cathedral), Largo da Sé",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The cathedral built over another faith",
+      "llegada": "Stand facing the façade of the Sé de Lisboa, with its two crenellated towers and central rose window.",
+      "enigma": "This cathedral was built in 1147, right after King Afonso Henriques conquered the city. It was built on top of the religious building that stood on this very spot during Lisbon's Muslim rule. What kind of building was here before?",
+      "respuestas": ["mosque"],
+      "pistas": [
+        "It's the Islamic place of worship, equivalent to a church or a synagogue.",
+        "It has a minaret instead of a bell tower.",
+        "It was a mosque."
+      ],
+      "historia": "The rose window you see today is actually from the 13th century, in Gothic style, replacing an earlier Romanesque one. The Sé has survived several earthquakes, including the devastating one of 1755 — though it's had to be restored more than once, it has stood on this same spot for almost 900 years.",
+      "fuente": "Sé Catedral de Lisboa; Direção-Geral do Património Cultural"
+    },
+    {
+      "n": 2,
+      "titulo": "The square that no longer exists",
+      "llegada": "Climb up to the Miradouro de Santa Luzia and find the two large tile panels on the south wall, next to the bougainvillea.",
+      "enigma": "One of the two panels shows a Lisbon square as it looked before 1755 — very different from what you'll see if you end up walking down to the river. What's that square called?",
+      "respuestas": ["praca do comercio", "praça do comércio"],
+      "pistas": [
+        "Today it's the great arcaded square by the river, rebuilt after the earthquake.",
+        "Its current name refers to trade and commerce.",
+        "It's the Praça do Comércio."
+      ],
+      "historia": "The other panel shows the Christian conquest of Castelo de São Jorge in 1147 — the same date as the cathedral you just left behind. Both tile panels are by António Quaresma and were restored in 2015; the one of the square is a partial replica of an older panel now kept at the Museu do Azulejo.",
+      "fuente": "Miradouro de Santa Luzia; e-cultura, Direção-Geral do Património Cultural"
+    },
+    {
+      "n": 3,
+      "titulo": "The boat that protects the city",
+      "llegada": "Continue up to the Miradouro das Portas do Sol, a little further on, and find the bronze statue on a column.",
+      "enigma": "This statue depicts São Vicente (Saint Vincent), Lisbon's patron saint since 1173, holding the boat in which his relics reached the city. Beside the boat are two birds that, according to legend, protected it on the journey. Count those birds.",
+      "respuestas": ["2", "two"],
+      "pistas": [
+        "They're not doves: they're black scavenger birds.",
+        "It's the same number of birds shown on Lisbon's current coat of arms.",
+        "There are two birds (ravens)."
+      ],
+      "historia": "The boat and its two ravens remain, to this day, Lisbon's official symbol: they appear on the city's coat of arms and even on some manhole covers. This particular statue is by Raul Xavier and was installed in 1949, but the legend it depicts is over 800 years old.",
+      "fuente": "Miradouro das Portas do Sol; Câmara Municipal de Lisboa"
+    },
+    {
+      "n": 4,
+      "titulo": "The house of music you can't record",
+      "llegada": "Head down to Largo do Chafariz de Dentro, where you'll find the Museu do Fado building, a former water pumping station.",
+      "enigma": "Fado, the melancholic song born in these very streets of Alfama, was declared by UNESCO as Intangible Cultural Heritage of Humanity. What year did that happen?",
+      "respuestas": ["2011"],
+      "pistas": [
+        "It was near the end of a year in the early 2010s — the very first year of that decade, in fact.",
+        "The decision was made at a meeting in Bali, Indonesia.",
+        "It was declared in 2011."
+      ],
+      "historia": "The museum building was originally a water pumping station, construction of which began in 1868. Fado was born precisely on streets like these, among sailors, taverns and the hard life of the docks — which is why people say you can't truly learn fado without first having walked through Alfama.",
+      "fuente": "Museu do Fado; UNESCO — Lists of Intangible Cultural Heritage"
+    },
+    {
+      "n": 5,
+      "titulo": "The house shaped like a pineapple",
+      "llegada": "Head down to the Casa dos Bicos, the building with the most distinctive façade in the whole neighbourhood, near the river.",
+      "enigma": "This house was built between 1521 and 1523 for Brás de Albuquerque, inspired by the Italian Renaissance architecture its patron had seen on his travels. Its façade is carved in a very particular relief. What shape are the stones that jut out from the wall?",
+      "respuestas": ["diamond points", "diamond", "pyramid shaped", "pyramid points"],
+      "pistas": [
+        "They're not flat: they stick out from the wall, tapering to a point.",
+        "It's the same shape as a well-known precious stone, cut into facets.",
+        "They're shaped like diamond points."
+      ],
+      "historia": "The 1755 earthquake destroyed the original upper floors, which were later rebuilt based on old engravings of Lisbon. Today the Casa dos Bicos houses the José Saramago Foundation, named after the Nobel laureate — another writer who, like fado, can't be understood without these streets.",
+      "fuente": "Museu de Lisboa; Fundação José Saramago"
+    },
+    {
+      "n": 6,
+      "titulo": "The alleys the earthquake couldn't straighten",
+      "llegada": "Deliberately get lost down any narrow Alfama street signposted with the word \"Beco\".",
+      "enigma": "\"Beco\" is a very specific Portuguese word for a type of street. Notice where yours leads: does it come out on the other side, or does it close off somewhere? A beco, by definition, is a street that is...",
+      "respuestas": ["a dead end", "dead end", "a cul de sac", "cul de sac"],
+      "pistas": [
+        "Think of the English term for a street with no way through.",
+        "It's the opposite of a street that crosses the whole neighbourhood.",
+        "A beco is a dead-end alley."
+      ],
+      "historia": "This layout — narrow, winding, full of dead ends — comes directly from Islamic-era Lisbon, before 1147: there isn't a single straight street in the whole neighbourhood. When the 1755 earthquake levelled the city centre, the Marquis of Pombal rebuilt the Baixa with wide, straight streets in a grid — but Alfama, which suffered almost no damage, kept its medieval Arab layout completely intact.",
+      "fuente": "Câmara Municipal de Lisboa; Museu de Lisboa"
+    },
+    {
+      "n": 7,
+      "titulo": "The work that never seemed to end",
+      "llegada": "Walk to the Panteão Nacional, the great white dome that dominates Alfama's skyline from a distance.",
+      "enigma": "This building began construction in 1682 as the Church of Santa Engrácia. It took so long to finish that it gave rise to a Portuguese expression still used today for something that never seems to end: \"obras de Santa Engrácia\" (Santa Engrácia's works). How many years did the construction take, from the first stone to its completion in 1966?",
+      "respuestas": ["284"],
+      "pistas": [
+        "It's almost three full centuries.",
+        "The number is between 250 and 300.",
+        "It took 284 years."
+      ],
+      "historia": "Since 1916, the building has served as the National Pantheon, resting place for great Portuguese figures — including, fittingly, Amália Rodrigues, fado's most famous voice in history. That Lisbon's slowest construction project ended up as the resting place of the queen of fado has a strange kind of poetry to it, for anyone who's just walked through Alfama.",
+      "fuente": "Panteão Nacional; Direção-Geral do Património Cultural"
+    },
+    {
+      "n": 8,
+      "titulo": "The neighbourhood that survived everything",
+      "llegada": "Head back down to any viewpoint overlooking the Tagus river — Santa Luzia or Portas do Sol will do just as well.",
+      "enigma": "Alfama, along with Mouraria, is one of the few Lisbon neighbourhoods that survived the 1755 earthquake almost intact, unlike the Baixa, which was levelled and rebuilt from scratch. Historians mostly explain this with a geological reason related to the ground it's built on. What kind of ground is Alfama built on: solid rock or soft sediment?",
+      "respuestas": ["solid rock", "rock"],
+      "pistas": [
+        "It's the opposite of the soft, loose earth by the river, which shifted and liquefied during the tremor.",
+        "It's a hard, stable material that doesn't shift easily.",
+        "Alfama is built on solid rock."
+      ],
+      "historia": "The Baixa, closer to the river and built on landfill, suffered what's known as liquefaction: the ground behaved almost like a liquid during the tremor. Alfama, by contrast, sits on firm rock from the castle hill — probably the same geological reason the Romans, and later the Moors, chose this exact spot to build over a thousand years ago.",
+      "fuente": "getLISBON — O Terramoto de 1755; Museu de Lisboa"
+    }
+  ],
+  "final": {
+    "titulo": "You've heard Alfama's echo",
+    "texto": "From a mosque turned cathedral to a boat with two ravens that still watches over the city, from a house with a diamond-tipped façade to an alley leading nowhere, all the way to a construction that took 284 years to finish. Alfama survived the earthquake that erased half of Lisbon — and, if you knew how to listen, it's still singing."
+  }
+}

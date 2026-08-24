@@ -1,0 +1,368 @@
+/* css/juego.css
+ * Pantalla de juego — mismo sistema tipográfico que css/styles.css, pero
+ * invertido a fondo oscuro: se juega al aire libre, muchas veces a pleno
+ * sol, y ahí el contraste alto gana siempre a la estética de "papel". Se
+ * carga junto a styles.css (reutiliza sus custom properties de fuente).
+ */
+
+.tema-juego {
+  --j-fondo: #18110a;
+  --j-superficie: #241a10;
+  --j-superficie-alta: #2e2114;
+  --j-borde: #4a3a26;
+  --j-texto: #f1e6cf;
+  --j-texto-tenue: #b7a582;
+  --j-lacre: #d4483a;
+  --j-lacre-oscuro: #9c2b1f;
+  --j-exito: #5fa876;
+  --j-aviso: #d9a441;
+
+  background: var(--j-fondo);
+  color: var(--j-texto);
+  min-height: 100vh;
+}
+
+.tema-juego .cabecera {
+  border-bottom-color: var(--j-borde);
+  background: var(--j-fondo);
+  padding: 16px 0;
+}
+
+.tema-juego .marca__nombre {
+  color: var(--j-texto);
+}
+
+.tema-juego .marca__tagline {
+  color: var(--j-texto-tenue);
+}
+
+.tema-juego .marca__icono {
+  color: var(--j-lacre);
+}
+
+/* ---------- Barra de progreso ---------- */
+.barra-superior {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--j-fondo);
+  border-bottom: 1px solid var(--j-borde);
+  padding: 12px 0;
+}
+
+.barra-superior__fila {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.barra-superior__parada {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--j-texto-tenue);
+  letter-spacing: 0.04em;
+}
+
+.barra-superior__tiempo {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--j-texto-tenue);
+  font-variant-numeric: tabular-nums;
+}
+
+.barra-progreso {
+  height: 4px;
+  background: var(--j-superficie-alta);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.barra-progreso__relleno {
+  height: 100%;
+  background: var(--j-lacre);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+/* ---------- Contenedor de juego ---------- */
+.zona-juego {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 28px 20px 60px;
+}
+
+.aviso-offline {
+  display: none;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--j-aviso);
+  background: color-mix(in srgb, var(--j-aviso) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--j-aviso) 40%, transparent);
+  border-radius: var(--radio);
+  padding: 8px 14px;
+  margin-bottom: 20px;
+}
+
+.aviso-offline.visible {
+  display: flex;
+}
+
+/* ---------- Tarjeta de parada ---------- */
+.tarjeta-parada__numero {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--j-lacre);
+  margin-bottom: 6px;
+  display: block;
+}
+
+.tarjeta-parada__titulo {
+  color: var(--j-texto);
+  font-size: 1.9rem;
+  margin-bottom: 22px;
+}
+
+.bloque {
+  margin-bottom: 22px;
+}
+
+.bloque__etiqueta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--j-texto-tenue);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.bloque__texto {
+  color: var(--j-texto);
+  font-size: 1.02rem;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.bloque--enigma {
+  background: var(--j-superficie);
+  border: 1px solid var(--j-borde);
+  border-radius: var(--radio);
+  padding: 20px 22px;
+}
+
+.bloque--enigma .bloque__texto {
+  font-family: var(--font-display);
+  font-size: 1.2rem;
+}
+
+/* ---------- Formulario de respuesta ---------- */
+.form-respuesta {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.input-respuesta {
+  flex: 1;
+  min-width: 0;
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  padding: 14px 16px;
+  background: var(--j-superficie);
+  border: 1px solid var(--j-borde);
+  border-radius: var(--radio);
+  color: var(--j-texto);
+}
+
+.input-respuesta::placeholder {
+  color: var(--j-texto-tenue);
+}
+
+.input-respuesta:focus-visible {
+  outline: 2px solid var(--j-lacre);
+  outline-offset: 1px;
+}
+
+.tema-juego .btn-lacre {
+  background: var(--j-lacre);
+  box-shadow: 0 2px 0 var(--j-lacre-oscuro);
+  white-space: nowrap;
+}
+
+.tema-juego .btn-lacre:hover {
+  background: var(--j-lacre-oscuro);
+}
+
+.tema-juego .btn-lacre:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Feedback ---------- */
+.feedback {
+  display: none;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: var(--radio);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  animation: feedback-entra 0.25s ease;
+}
+
+.feedback.visible {
+  display: flex;
+}
+
+.feedback--correcto {
+  background: color-mix(in srgb, var(--j-exito) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--j-exito) 45%, transparent);
+  color: var(--j-exito);
+}
+
+.feedback--casi {
+  background: color-mix(in srgb, var(--j-aviso) 16%, transparent);
+  border: 1px solid color-mix(in srgb, var(--j-aviso) 45%, transparent);
+  color: var(--j-aviso);
+}
+
+.feedback--incorrecto {
+  background: color-mix(in srgb, var(--j-lacre) 14%, transparent);
+  border: 1px solid color-mix(in srgb, var(--j-lacre) 40%, transparent);
+  color: #e8a099;
+}
+
+@keyframes feedback-entra {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .feedback {
+    animation: none;
+  }
+}
+
+/* ---------- Pistas ---------- */
+.zona-pistas {
+  border-top: 1px dashed var(--j-borde);
+  padding-top: 18px;
+  margin-top: 8px;
+}
+
+.lista-pistas {
+  margin-bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pista {
+  display: flex;
+  gap: 10px;
+  font-size: 0.92rem;
+  color: var(--j-texto-tenue);
+  background: var(--j-superficie);
+  border-radius: var(--radio);
+  padding: 10px 14px;
+}
+
+.pista__numero {
+  font-family: var(--font-mono);
+  color: var(--j-lacre);
+  flex-shrink: 0;
+}
+
+/* ---------- Revelación (historia tras acertar) ---------- */
+.revelacion {
+  text-align: center;
+  padding-top: 30px;
+}
+
+.revelacion__icono {
+  width: 46px;
+  height: 46px;
+  margin: 0 auto 18px;
+  color: var(--j-exito);
+}
+
+.revelacion__titulo {
+  color: var(--j-texto);
+  font-size: 1.5rem;
+  margin-bottom: 18px;
+}
+
+.revelacion__historia {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--j-texto);
+  text-align: left;
+  background: var(--j-superficie);
+  border-left: 3px solid var(--j-lacre);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  padding: 20px 22px;
+  margin-bottom: 12px;
+}
+
+.revelacion__fuente {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--j-texto-tenue);
+  margin-bottom: 26px;
+}
+
+/* ---------- Carga / error / final (tema oscuro) ---------- */
+/* El layout base de .pantalla-centrada y .girando vive en styles.css (lo
+   comparte jugar/imprimir.html, que no carga este archivo); aquí solo se
+   sobrescriben los colores para el tema oscuro. */
+.tema-juego .girando {
+  border-color: var(--j-borde);
+  border-top-color: var(--j-lacre);
+}
+
+.tema-juego .pantalla-centrada__titulo {
+  color: var(--j-texto);
+}
+
+.tema-juego .pantalla-centrada__texto {
+  color: var(--j-texto-tenue);
+}
+
+.pantalla-final__acciones {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+  max-width: 320px;
+  margin-top: 10px;
+}
+
+@media (min-width: 480px) {
+  .form-respuesta {
+    flex-wrap: nowrap;
+  }
+}
+
+@media (max-width: 420px) {
+  .form-respuesta {
+    flex-direction: column;
+  }
+  .tema-juego .btn-lacre {
+    width: 100%;
+    justify-content: center;
+  }
+}

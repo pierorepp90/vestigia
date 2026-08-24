@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-born",
+  "idioma": "en",
+  "titulo": "The Merchants of La Ribera",
+  "intro": "El Born was the district of merchants and guilds, the one that financed an entire basilica out of its own pocket and paid for it with the total destruction of its streets in 1714. Today it's Barcelona's trendiest neighbourhood, but every corner still remembers what it once was. It's about 2 km, almost entirely flat.",
+  "puntoPartida": "Arc de Triomf, at the end of Passeig de Lluís Companys",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The animal guarding the entrance",
+      "llegada": "Standing in front of the Arc de Triomf, look at the two large pillars of the arch, at mid-height.",
+      "enigma": "This brick arch doesn't commemorate any battle: it's the entrance gate to the 1888 Universal Exposition, designed by Josep Vilaseca. Carved into the pillars is a winged animal, the heraldic emblem of King Jaume I. What animal is it?",
+      "respuestas": ["bat"],
+      "pistas": [
+        "It's not a bird: its wings are skin, not feathers.",
+        "It's the animal that comes out at night and hangs upside down.",
+        "It's a bat."
+      ],
+      "historia": "The bat has accompanied the coat of arms of the Crown of Aragon since medieval times, though nobody quite agrees on the symbol's origin. The arch marked the official entrance to an exhibition meant to put Barcelona on the map of great European capitals — and, in a way, it succeeded.",
+      "fuente": "Ajuntament de Barcelona; 1888 Barcelona Universal Exposition"
+    },
+    {
+      "n": 2,
+      "titulo": "The young man who wasn't Gaudí yet",
+      "llegada": "Walk along Passeig de Lluís Companys to the entrance of Parc de la Ciutadella. Inside, find the great monumental stone waterfall.",
+      "enigma": "This waterfall was designed by Josep Fontserè in 1875, with help from an architecture student barely in his twenties who hadn't yet built anything famous: Antoni Gaudí. At the very top of the waterfall there's a chariot pulled by horses, all in a single colour. What colour is that chariot?",
+      "respuestas": ["gold", "golden"],
+      "pistas": [
+        "Look at the highest point of the whole waterfall, not the figures below.",
+        "It's the colour of precious metals, gleaming in the sun.",
+        "The chariot is gold."
+      ],
+      "historia": "Gaudí worked here on the hydraulic engineering and some decorative motifs, years before the Sagrada Família or Park Güell. It's probably the earliest public work the most famous architect in Barcelona ever laid hands on — and almost no one stops to think about it.",
+      "fuente": "Ajuntament de Barcelona — Parc de la Ciutadella"
+    },
+    {
+      "n": 3,
+      "titulo": "The neighbourhood that vanished overnight",
+      "llegada": "Leave the park and walk to l'Antic Mercat del Born, the great 19th-century iron-and-glass building.",
+      "enigma": "Beneath this market, works in 2002 uncovered entire streets of an 18th-century neighbourhood, preserved almost intact. That neighbourhood was levelled after a siege, to build a military fortress. What year was that siege?",
+      "respuestas": ["1714"],
+      "pistas": [
+        "It happened during the War of the Spanish Succession.",
+        "It's the same year commemorated every 11 September in Catalonia.",
+        "The siege was in 1714."
+      ],
+      "historia": "After the defeat, hundreds of houses in La Ribera were demolished to build the Ciutadella, a fortress designed to keep watch over the city itself. The market you see today was built on top of it in the 19th century; when it was renovated in 2002 to become a library, the streets of the destroyed neighbourhood appeared, intact underground for almost three centuries.",
+      "fuente": "El Born Centre de Cultura i Memòria; Ajuntament de Barcelona"
+    },
+    {
+      "n": 4,
+      "titulo": "The square of the tournaments",
+      "llegada": "Walk to Passeig del Born, the wide esplanade leading away from the market.",
+      "enigma": "This unusually wide promenade is no accident: in medieval times, knights fought each other here on horseback, with lances and an audience. That activity, in old Catalan, gave the street its name. What kind of medieval spectacle names the Born?",
+      "respuestas": ["jousts", "joust", "tournaments", "medieval jousts"],
+      "pistas": [
+        "It was armoured knights competing against each other on horseback.",
+        "It's the same word used in English for this kind of combat sport.",
+        "They were jousts (medieval tournaments)."
+      ],
+      "historia": "For centuries, the Born was Barcelona's great public space: it hosted jousts, markets, Holy Week processions, and also, in darker times, autos-da-fé carried out by the Inquisition. Today only the outdoor café tables remain — but the name still remembers the knights.",
+      "fuente": "Ajuntament de Barcelona — Passeig del Born"
+    },
+    {
+      "n": 5,
+      "titulo": "The columns paid for on people's shoulders",
+      "llegada": "Continue to the main façade of the Basílica de Santa Maria del Mar, right next door.",
+      "enigma": "This basilica was built in just 55 years (1329-1384), remarkably fast for Gothic architecture, because it was paid for and built by the people of La Ribera themselves: merchants, artisans, and the bastaixos, the port dockworkers who carried every stone on their shoulders from Montjuïc. Go inside and count the octagonal columns holding up the central nave.",
+      "respuestas": ["16", "sixteen"],
+      "pistas": [
+        "They're spread along both sides of the central nave, spaced far apart.",
+        "It's a number between 14 and 18.",
+        "There are 16 columns."
+      ],
+      "historia": "The columns are 15 metres apart, an enormous distance for the period, leaving a clean, luminous interior space. The door reliefs depict the bastaixos carrying stone, in homage to the people with no title or fortune who built, quite literally with their own backs, Barcelona's best-loved church.",
+      "fuente": "Basílica de Santa Maria del Mar; MUHBA"
+    },
+    {
+      "n": 6,
+      "titulo": "The flame for those who never surrendered",
+      "llegada": "Right next to the basilica, find the Fossar de les Moreres, the sunken square with the reddish paving.",
+      "enigma": "This is where Barcelona's defenders killed in the 1714 siege you already know the date of were buried. Since 2001, a flame that never goes out has burned here. A poem carved into the ground says a certain kind of person is never buried in this cemetery. What word does the poem use for that person?",
+      "respuestas": ["traitor", "traitors"],
+      "pistas": [
+        "It's someone who betrays a cause or their own people.",
+        "It's the opposite of a hero or defender.",
+        "The word is \"traitor\" (traïdor in Catalan)."
+      ],
+      "historia": "The full poem reads: \"In the Fossar de les Moreres, no traitor is buried; even losing our flags, it will be the urn of honour.\" It was written by Frederic Soler, \"Pitarra,\" in the 19th century. The reddish paving symbolises the blood shed here; every step across it is, quietly, a tribute.",
+      "fuente": "Ajuntament de Barcelona — Fossar de les Moreres"
+    },
+    {
+      "n": 7,
+      "titulo": "The street of those who worked silver",
+      "llegada": "Walk to Carrer de l'Argenteria, the street connecting the basilica to Via Laietana.",
+      "enigma": "Like many streets in the Born, this one is named after the guild that worked here in the Middle Ages. Find the street name plaque and translate it: what precious metal did the craftsmen on this street work with?",
+      "respuestas": ["silver"],
+      "pistas": [
+        "\"Argent\" is a word related to the French and old Catalan word for that metal.",
+        "It's the white, shiny metal, cheaper than gold.",
+        "They worked silver (they were silversmiths)."
+      ],
+      "historia": "The Born is full of guild-streets: Argenteria (silversmiths), Vidrieria (glassmakers), Cotoners (cotton merchants), Espaseries (swordsmiths). Walking through this area is, even today, walking through a living map of medieval Barcelona's trades.",
+      "fuente": "Ajuntament de Barcelona — nomenclàtor de carrers"
+    },
+    {
+      "n": 8,
+      "titulo": "Five palaces for a single painter",
+      "llegada": "Finish on Carrer Montcada, the street of Gothic palaces, until you reach the Museu Picasso.",
+      "enigma": "The museum doesn't occupy a single building, but several medieval Gothic palaces joined together, built by noble families and merchants grown rich on maritime trade. Count how many different palaces make up today's Museu Picasso.",
+      "respuestas": ["5", "five"],
+      "pistas": [
+        "The first, the Aguilar palace, opened as a museum in 1963; the others were added later.",
+        "It's a number between 3 and 7.",
+        "There are 5 palaces."
+      ],
+      "historia": "Carrer Montcada was, from the 12th century onward, the most expensive address in Barcelona: this is where those who had grown rich from the sea built their homes. That Picasso — son of a drawing teacher with no fortune — ended up with his museum in five of these palaces is one of the city's nicest ironies: art democratising, centuries later, the space of those who once had all the money.",
+      "fuente": "Museu Picasso de Barcelona"
+    }
+  ],
+  "final": {
+    "titulo": "You've walked over a buried neighbourhood",
+    "texto": "From a stone bat to a waterfall signed by a Gaudí who was still nobody, from a market hiding an entire city underground to five palaces now home to a single painter. El Born was levelled in 1714 and rebuilt on its own ashes — and yet, if you know how to look, you can still read the neighbourhood it once was."
+  }
+}

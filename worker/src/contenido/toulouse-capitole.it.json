@@ -1,0 +1,125 @@
+{
+  "rutaId": "toulouse-capitole",
+  "idioma": "it",
+  "titulo": "La croce della Città Rosa",
+  "intro": "Toulouse si definisce da sé la Ville Rose, la Città Rosa, per il mattone che ricopre quasi tutti i suoi edifici da ottocento anni. Questo percorso attraversa il suo centro storico: dalla piazza dove un tempo governavano gli antichi capitouls fino alla basilica che custodiva reliquie per i pellegrini diretti a Santiago di Compostela, passando per una chiesa a forma di fortezza e un convento con una palma di pietra sul soffitto. Sono circa 2,5 km, tutti pianeggianti, nel cuore della città.",
+  "puntoPartida": "Place du Capitole",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La croce che misura l'anno",
+      "llegada": "In piedi in Place du Capitole, con la facciata del Capitole di fronte a voi, guardate a terra: pochi passi più avanti, incastonato nella pavimentazione, c'è un grande medaglione circolare di bronzo con una croce al centro.",
+      "enigma": "Questo medaglione, di quasi 18 metri di diametro e realizzato con 20 tonnellate di bronzo, fu installato nel 1995 dal pittore e scultore tolosano Raymond Moretti. Al centro c'è una croce occitana — il simbolo degli antichi conti di Tolosa —, circondata da un anello con i dodici segni dello zodiaco: Moretti volle rappresentare insieme i dodici mesi dell'anno e le dodici ore del giorno. Osservate solo la croce al centro: contate quante punte ha in totale.",
+      "respuestas": ["12", "dodici"],
+      "pistas": [
+        "I quattro bracci della croce sono identici tra loro: contate le punte di uno solo e moltiplicate per quattro.",
+        "Ogni braccio termina in tre punte arrotondate, come un trifoglio a tre foglie.",
+        "Ha 12 punte in totale."
+      ],
+      "historia": "Moretti è anche l'autore dei grandi affreschi che decorano la galleria ad arcate sul lato della piazza, dedicati alla storia di Tolosa. La croce occitana che avete sotto i piedi è molto più antica di questo medaglione: compare già sul sigillo del conte Raimondo VI nel 1211, e col tempo è diventata il simbolo di tutta la regione oggi chiamata Occitania.",
+      "fuente": "Mairie de Toulouse; Toulouse Tourisme — Place du Capitole"
+    },
+    {
+      "n": 2,
+      "titulo": "Gli otto capitouls di marmo",
+      "llegada": "Giratevi per guardare di fronte la grande facciata di mattoni rosa e pietra bianca che dà il nome alla piazza. Al piano nobile, subito sopra la porta principale e sotto la scritta CAPITOLIUM, una fila di colonne sostiene il frontone triangolare.",
+      "enigma": "Quelle colonne, scolpite in un marmo rossastro proveniente da Caunes-Minervois, non sono un semplice ornamento: l'architetto Guillaume Cammas le progettò nel Settecento per rappresentare i primi otto capitouls, i magistrati che governavano Tolosa prima della Rivoluzione, quando la città era divisa in otto quartieri, o \"capitoulats\". Contate quante colonne compongono la facciata.",
+      "respuestas": ["8", "otto"],
+      "pistas": [
+        "Corrono lungo la facciata all'altezza del primo piano, tra il balcone centrale e il frontone.",
+        "È lo stesso numero di quartieri in cui era divisa la Tolosa medievale.",
+        "Sono 8 colonne."
+      ],
+      "historia": "La parola CAPITOLIUM, incisa in lettere dorate sopra le colonne, nasconde in realtà un piccolo inganno storico: il nome \"Capitole\" non deriva dal Campidoglio romano, ma da \"capitouls\", i consoli medievali la cui assemblea si chiamava in latino capitulum (\"capitolo\"). Nel 1522, un funzionario municipale sfruttò la somiglianza tra le due parole per inventare a Tolosa un'origine romana che non aveva mai avuto: tornava utile, allora, per difendere certi privilegi davanti al re.",
+      "fuente": "Le Journal Toulousain; Wikipédia — Capitole de Toulouse"
+    },
+    {
+      "n": 3,
+      "titulo": "Una chiesa a forma di fortezza",
+      "llegada": "Uscite dalla piazza per rue du Taur, all'angolo nord-ovest. A meno di dieci minuti a piedi, senza attraversare nessun'altra piazza, troverete sulla destra una facciata massiccia di mattoni rossi che taglia la strada come un muro, affiancata da due torrette e coronata da merli: è la chiesa di Notre-Dame du Taur.",
+      "enigma": "Questa chiesa non ha un campanile separato: è la facciata stessa, alta 42 metri, a fare da campanile. È quello che si chiama un clocher-mur (\"muro-campanile\"), costruito interamente in mattoni, senza una sola pietra a vista, e che servì da modello a decine di chiese di paese in tutta la regione. Contate quante aperture ad arco — i vani da cui si intravedono le campane — ci sono in totale, distribuite su due livelli.",
+      "respuestas": ["6", "sei"],
+      "pistas": [
+        "Ci sono lo stesso numero di aperture al livello inferiore e a quello superiore.",
+        "Sono tre archi per livello, su due livelli.",
+        "Sono 6 aperture in totale."
+      ],
+      "historia": "Il nome \"du Taur\" (\"del toro\") ricorda una leggenda molto più antica di questo edificio del Trecento: quella di Saturnino, primo vescovo di Tolosa, che intorno all'anno 250 si rifiutò di sacrificare un toro a Giove. I sacerdoti pagani lo legarono allora per i piedi all'animale stesso, che lo trascinò lungo questa stessa via — l'antico cardo romano — fino a questo punto, dove alcune pie donne gli diedero sepoltura prima che i suoi resti fossero trasferiti nella basilica che state per visitare.",
+      "fuente": "Wikipédia — Église Notre-Dame du Taur; Basilique Saint-Sernin de Toulouse (sito ufficiale)"
+    },
+    {
+      "n": 4,
+      "titulo": "La torre che cambia stile",
+      "llegada": "Proseguite lungo rue du Taur fino a Place Saint-Sernin. Lì sorge la basilica omonima, la più grande chiesa romanica d'Europa giunta fino a noi quasi intatta. Allontanatevi di qualche passo per vedere per intero il campanile ottagonale che corona il transetto, alto 65 metri.",
+      "enigma": "Osservate i piani di arcature che si restringono man mano che salgono. Quelli più in basso hanno archi a tutto sesto, arrotondati; ma a partire da una certa altezza lo stile cambia bruscamente e gli archi diventano a sesto acuto, a forma di mitra vescovile — segno che quei piani furono aggiunti quasi due secoli più tardi, in pieno gotico. Contate quanti piani di arcature ha il campanile in totale, dal basso verso l'alto, senza contare la guglia finale.",
+      "respuestas": ["5", "cinque"],
+      "pistas": [
+        "Tre di quei piani sono romanici, ad archi arrotondati; gli altri due sono gotici, ad archi a sesto acuto.",
+        "È un numero dispari, tra 3 e 7.",
+        "Sono 5 piani."
+      ],
+      "historia": "La costruzione della basilica iniziò verso il 1080 per custodire le reliquie di Saturnino, e il campanile si innalzò per fasi: i tre piani romanici risalgono al XII secolo, i due gotici alla seconda metà del XIII, e la guglia finale fu aggiunta nel 1478. Questo campanile divenne il modello copiato, per secoli, da quasi tutti i campanili di mattoni della Linguadoca.",
+      "fuente": "Wikipédia — Basilique Saint-Sernin de Toulouse; Centre des monuments nationaux"
+    },
+    {
+      "n": 5,
+      "titulo": "Dodici testimoni di pietra",
+      "llegada": "Costeggiate la basilica sul lato sud (a destra se guardate la facciata occidentale) fino a trovare un portale più piccolo e molto più decorato degli altri, coronato da un grande timpano di marmo scolpito: è la Porte Miégeville, l'ingresso usato fin dal XII secolo dai pellegrini diretti a Santiago di Compostela.",
+      "enigma": "Nel timpano, Cristo ascende al cielo, sorretto da angeli. Subito sotto, sull'architrave, è scolpita una fila di dodici apostoli in piedi, con i piedi a terra e lo sguardo rivolto verso l'alto. Uno di loro si riconosce subito, perché regge un oggetto piuttosto insolito per una scultura di 900 anni fa: un enorme mazzo di chiavi. Di quale apostolo si tratta?",
+      "respuestas": ["san pietro", "pietro", "simon pietro"],
+      "pistas": [
+        "È l'apostolo a cui, secondo i Vangeli, Cristo consegnò le chiavi del Regno dei Cieli.",
+        "Cercate, sull'architrave, la figura le cui chiavi sono impossibili da non notare.",
+        "È san Pietro."
+      ],
+      "historia": "Questo portale non era un ornamento qualunque: annunciava ai pellegrini che, all'interno, Tolosa custodiva una delle più grandi collezioni di reliquie di Francia, con resti di ben sei apostoli. Dal 1354 conserva anche la testa e il corpo che la tradizione attribuisce a san Giacomo il Maggiore — lo stesso santo verso la cui tomba, a Compostela, camminava ciascuno di questi pellegrini.",
+      "fuente": "Wikipédia — Porte Miègeville; Basilique Saint-Sernin de Toulouse (sito ufficiale)"
+    },
+    {
+      "n": 6,
+      "titulo": "La palma di pietra",
+      "llegada": "Tornate verso il centro per rue Lakanal fino al couvent des Jacobins, il grande convento di mattoni dei domenicani. Entrate in chiesa — l'accesso alla navata è gratuito — e camminate fino in fondo, verso l'abside.",
+      "enigma": "Lassù capirete perché questa volta è soprannominata \"la palma\": un'unica colonna centrale, molto più snella delle altre, si apre a ventaglio verso il soffitto come le fronde di una palma di pietra. Contate quante nervature — quelle che si dipartono da quel punto — escono dalla colonna centrale.",
+      "respuestas": ["22", "ventidue"],
+      "pistas": [
+        "Tutte le nervature partono dallo stesso punto, in cima alla colonna, e si distribuiscono su tutto il soffitto dell'abside.",
+        "È un numero compreso tra 20 e 25.",
+        "Sono 22 nervature."
+      ],
+      "historia": "Dal 1369, le reliquie di san Tommaso d'Aquino, il grande teologo domenicano, riposano sotto l'altare di questa chiesa, donate a Tolosa da papa Urbano V. L'ordine domenicano, fondato proprio qui per predicare contro l'eresia catara, volle una volta ambiziosa quanto la propria teologia: secoli dopo, questa \"palma\" del Trecento resta una delle più ammirate di tutto il gotico meridionale.",
+      "fuente": "Couvent des Jacobins de Toulouse (sito ufficiale); Wikipédia"
+    },
+    {
+      "n": 7,
+      "titulo": "La fontana che non dovrebbe essere qui",
+      "llegada": "Scendete fino a Place Saint-Georges, una delle piazze più antiche di Tolosa, documentata già nel XII secolo e oggi circondata da terrazze di caffè. Al centro si trova una fontana in ghisa, dipinta di un caratteristico verde scuro.",
+      "enigma": "È una fontaine Wallace, lo stesso modello di fontana pubblica che il filantropo britannico Richard Wallace regalò a Parigi negli anni 1870 per garantire l'accesso gratuito all'acqua potabile. Oggi ne restano pochissime fuori dalla capitale francese. Quattro figure femminili in ghisa, unite di schiena, sorreggono la cupola con le braccia e la testa. Contate quante cariatidi sostengono questa fontana.",
+      "respuestas": ["4", "quattro"],
+      "pistas": [
+        "Sono disposte schiena contro schiena, ciascuna rivolta verso un lato diverso della piazza.",
+        "Sono tante quante le stagioni dell'anno.",
+        "Sono 4 cariatidi."
+      ],
+      "historia": "Le quattro figure rappresentano la Bontà, la Semplicità, la Carità e la Sobrietà, e si ripetono identiche su ogni fontana Wallace del mondo. Questa piazza ebbe in passato un uso ben meno gentile: tra il 1739 e il 1780 vi furono giustiziate più di 170 persone, la più celebre delle quali fu Jean Calas, messo a morte nel 1762 per un crimine che in seguito, anche grazie a Voltaire, si dimostrò non avesse commesso.",
+      "fuente": "e-monumen.net — Fontaine Wallace, Place Saint-Georges; Wikipédia — Place Saint-Georges (Toulouse)"
+    },
+    {
+      "n": 8,
+      "titulo": "L'unica sopravvissuta",
+      "llegada": "Tornate in Place du Capitole e costeggiate l'edificio lungo rue Lafayette fino allo square Charles-de-Gaulle, il giardino proprio dietro il Capitole. Lì, isolata in mezzo al prato, si erge una torre di mattoni molto diversa da tutto ciò che avete visto finora: il Donjon du Capitole.",
+      "enigma": "Costruito nel 1525 per custodire l'archivio e la polvere da sparo della città, questo donjon è l'unico frammento sopravvissuto dell'antico Capitole medievale: tutto il resto fu demolito nel Settecento per costruire la facciata da cui è partito questo percorso. Nell'Ottocento, l'architetto Eugène Viollet-le-Duc — lo stesso che restaurò Notre-Dame di Parigi — vi aggiunse in cima un piccolo campanile. Per tutto il percorso avete camminato circondati da mattoni rosa, ma quell'aggiunta ottocentesca è fatta di un materiale completamente diverso, di un grigio molto scuro che stona con il resto della città. Di che materiale si tratta?",
+      "respuestas": ["ardesia"],
+      "pistas": [
+        "È lo stesso materiale che copre la maggior parte dei tetti del nord della Francia — rarissimo da vedere a Tolosa.",
+        "È una roccia scura, quasi nera, tagliata in lastre sottili per coprire tetti e guglie.",
+        "È ardesia."
+      ],
+      "historia": "Nel 2025 questo donjon ha compiuto 500 anni. Se cercate lo stemma di Tolosa, che vedrete ripetuto su bandiere ed edifici ufficiali in tutto il centro, vi riconoscerete la stessa croce occitana a dodici punte su cui avete camminato alla prima tappa, accompagnata da un agnello, dallo scomparso Château Narbonnais degli antichi conti, e dalla sagoma di una basilica a due torri: proprio quella che avete visitato oggi.",
+      "fuente": "Toulouse Tourisme — Le Donjon du Capitole; Archives municipales de Toulouse"
+    }
+  ],
+  "final": {
+    "titulo": "Avete decifrato la Città Rosa",
+    "texto": "Avete iniziato contando le dodici punte di una croce di bronzo, e finite ritrovando quella stessa croce — insieme a un agnello, un castello scomparso e una basilica a due torri — nello stemma che Tolosa usa fin dal XIII secolo. Lungo il percorso avete incontrato un santo trascinato da un toro, una torre che cambia idea a metà altezza, una palma che in realtà è di pietra, e una fontana parigina arenata a centinaia di chilometri da casa sua. La Ville Rose non ha più segreti per voi: resta solo mattone, tanto mattone, e una croce che racconta tutta la storia."
+  }
+}

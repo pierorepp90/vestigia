@@ -1,0 +1,125 @@
+{
+  "rutaId": "florencia-centro",
+  "idioma": "it",
+  "titulo": "I rivali di Firenze",
+  "intro": "Firenze si è costruita a colpi di rivalità: tra corporazioni, tra famiglie, tra architetti che competevano per lasciare la propria firma sulla stessa piazza. Ogni cupola, ogni statua e ogni torre di questo percorso è, in fondo, la risposta a una sfida. Sono circa 1,5 km nel cuore del Rinascimento.",
+  "puntoPartida": "Piazza del Duomo, di fronte alla facciata di Santa Maria del Fiore",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La facciata che finge di essere medievale",
+      "llegada": "In piedi in Piazza del Duomo, guardate la facciata principale della cattedrale: marmi bianchi, verdi e rosati che formano un disegno geometrico.",
+      "enigma": "Questa facciata sembra medievale, in armonia con il resto dell'edificio gotico — ma è in realtà dell'Ottocento, completata nel 1887. Osservate bene il disegno di marmo: quanti colori diversi di marmo formano il motivo geometrico della facciata?",
+      "respuestas": ["3", "tre"],
+      "pistas": [
+        "I colori sono bianco, verde e un altro.",
+        "Il terzo colore ricorda quello di una pietra semipreziosa rosata o rossastra.",
+        "Sono tre colori: bianco, verde e rosa/rosso."
+      ],
+      "historia": "Il progetto è di Emilio De Fabris, morto nel 1883 senza vedere completata la sua opera. La facciata gotica originale della cattedrale fu lasciata incompiuta nel Cinquecento e rimase così, spoglia, per quasi 300 anni, finché Firenze decise di completarla secondo il gusto neogotico dell'Ottocento — quasi nello stesso periodo, tra l'altro, in cui Barcellona faceva lo stesso con la propria cattedrale.",
+      "fuente": "Opera di Santa Maria del Fiore; Comune di Firenze"
+    },
+    {
+      "n": 2,
+      "titulo": "La cupola costruita senza impalcature",
+      "llegada": "Girate intorno all'edificio finché non riuscite a vedere bene la grande cupola rossa che corona la cattedrale.",
+      "enigma": "Filippo Brunelleschi costruì questa cupola tra il 1420 e il 1436 senza usare il metodo abituale dell'epoca per sostenere la pietra durante la costruzione. Cosa NON usò Brunelleschi per innalzare la cupola, a differenza di quasi ogni altra costruzione simile del suo tempo?",
+      "respuestas": ["impalcature", "centina", "armatura di legno", "ponteggi"],
+      "pistas": [
+        "È una struttura temporanea di legno che sostiene la pietra mentre la malta si asciuga.",
+        "Senza di essa, qualsiasi architetto dell'epoca avrebbe detto che la cupola era impossibile.",
+        "Non usò impalcature (centine) di legno."
+      ],
+      "historia": "Brunelleschi inventò un sistema di anelli di mattoni disposti a \"spina di pesce\" che si sostenevano da soli man mano che salivano. Con i suoi 45,5 metri di diametro interno, resta la più grande cupola in muratura senza armatura mai costruita — un record che dura da quasi 600 anni.",
+      "fuente": "Opera di Santa Maria del Fiore — Cupola del Brunelleschi"
+    },
+    {
+      "n": 3,
+      "titulo": "La porta che conquistò il cielo",
+      "llegada": "Camminate fino al Battistero di San Giovanni, l'edificio ottagonale di fronte alla cattedrale, e cercate la porta est, quella rivolta verso la facciata principale.",
+      "enigma": "Questa porta di bronzo dorato fu realizzata da Lorenzo Ghiberti tra il 1425 e il 1452, e un artista ancora più famoso le diede il soprannome con cui è conosciuta oggi. Contate i pannelli quadrati che formano la porta, ciascuno con una scena dell'Antico Testamento.",
+      "respuestas": ["10", "dieci"],
+      "pistas": [
+        "Ghiberti aveva pianificato molti più pannelli, ma li ridusse a metà per poterli fare più grandi e dettagliati.",
+        "Sono cinque file di due pannelli ciascuna.",
+        "Sono 10 pannelli."
+      ],
+      "historia": "Fu Michelangelo che, vedendola, la battezzò \"la Porta del Paradiso\" — nome che le è rimasto per sempre. I pannelli originali, danneggiati da un'alluvione nel 1966, sono oggi custoditi al sicuro nel Museo dell'Opera del Duomo; quelli che vedete sulla porta sono copie esatte.",
+      "fuente": "Opera di Santa Maria del Fiore — Porta del Paradiso"
+    },
+    {
+      "n": 4,
+      "titulo": "La torre che il suo ideatore non finì",
+      "llegada": "Cercate ora l'alto campanile di marmo policromo accanto alla cattedrale, il Campanile.",
+      "enigma": "Questo campanile porta il nome dell'artista che lo progettò e ne iniziò la costruzione nel 1334. Ma non fu lui a completarlo: un'epidemia di peste interruppe i lavori, e un altro architetto lo terminò nel 1359, dopo aver proseguito il lavoro di un terzo maestro nel frattempo. Chi dà il nome alla torre, pur non avendola mai vista finita?",
+      "respuestas": ["giotto"],
+      "pistas": [
+        "È più noto come pittore che come architetto.",
+        "È uno dei grandi nomi dell'arte italiana appena prima del Rinascimento.",
+        "La torre si chiama Campanile di Giotto."
+      ],
+      "historia": "Giotto costruì solo i primi livelli prima di morire nel 1337. Andrea Pisano proseguì l'opera, e fu infine Francesco Talenti a completarla nel 1359. I 414 gradini fino alla terrazza salgono per 84,7 metri — e il rivestimento di marmo bianco, verde e rosso è lo stesso che ritroverete sulla cattedrale e sul battistero: i tre edifici condividono lo stesso linguaggio di pietra.",
+      "fuente": "Opera di Santa Maria del Fiore — Campanile di Giotto"
+    },
+    {
+      "n": 5,
+      "titulo": "Il gigante che non è l'originale",
+      "llegada": "Camminate fino a Piazza della Signoria e cercate la grande statua di un uomo nudo in piedi, proprio davanti all'ingresso di Palazzo Vecchio.",
+      "enigma": "Questa statua raffigura il David, il capolavoro di Michelangelo. Ma quello che avete davanti non è l'originale: è una copia installata nel 1910. Dove è custodito il David autentico, trasferito lì nel 1873 per proteggerlo?",
+      "respuestas": ["galleria dell accademia", "accademia"],
+      "pistas": [
+        "È un museo, non un'altra piazza all'aperto.",
+        "È dedicato in gran parte allo stesso Michelangelo.",
+        "L'originale si trova alla Galleria dell'Accademia."
+      ],
+      "historia": "Per oltre 350 anni, il David originale rimase esposto proprio qui, all'aperto, finché il deterioramento non ne impose lo spostamento al chiuso. Oggi esiste persino una terza versione, in bronzo, al Piazzale Michelangelo — quindi a Firenze ci sono, in totale, tre David diversi sparsi per la città.",
+      "fuente": "Musei del Bargello; Comune di Firenze"
+    },
+    {
+      "n": 6,
+      "titulo": "Le quattro figure ai piedi dell'eroe",
+      "llegada": "Proprio accanto, sotto i grandi archi della Loggia dei Lanzi, cercate la statua di bronzo di un uomo che regge una testa mozzata.",
+      "enigma": "È il Perseo di Benvenuto Cellini (1545-1554), che regge la testa di Medusa. Sulla base di marmo della statua ci sono diverse figure di bronzo più piccole collocate in nicchie. Contate quante figure ci sono su quella base.",
+      "respuestas": ["4", "quattro"],
+      "pistas": [
+        "Sono dèi e personaggi della mitologia classica, molto più piccoli dello stesso Perseo.",
+        "È un numero pari, tra 2 e 6.",
+        "Sono 4 figure: Mercurio, Minerva, Giove e Danae."
+      ],
+      "historia": "Cellini, orafo prima che scultore, impiegò nove anni a fondere questo pezzo in bronzo, con una tecnica così rischiosa che rischiò di fallire completamente la notte della colata finale. L'intera Loggia funziona come una sorta di museo di sculture all'aperto — gratuito, aperto giorno e notte, nel cuore della città.",
+      "fuente": "Musei Civici Fiorentini; Uffizi"
+    },
+    {
+      "n": 7,
+      "titulo": "I due modi di difendere una città",
+      "llegada": "Alzate lo sguardo verso la Torre di Arnolfo, l'alta torre merlata di Palazzo Vecchio.",
+      "enigma": "Osservate bene le merlature che coronano il muro e la torre: non hanno tutte la stessa forma. Alcune sono quadrate, altre terminano con una doppia punta, come una coda di rondine — ogni forma identificava una fazione politica rivale nella Firenze medievale. Quante forme diverse di merlatura riuscite a distinguere?",
+      "respuestas": ["2", "due"],
+      "pistas": [
+        "Una è semplice e rettangolare; l'altra ha un intaglio a V sulla punta.",
+        "Rappresentavano le due fazioni contrapposte: guelfi e ghibellini.",
+        "Ci sono due forme diverse di merlatura."
+      ],
+      "historia": "Le merlature quadrate (guelfe) e quelle a coda di rondine (ghibelline) indicavano, a colpo d'occhio, in tutta Italia, a quale fazione politica apparteneva un edificio: i guelfi appoggiavano il Papa, i ghibellini il Sacro Romano Imperatore. Il grande orologio della torre, del 1667, funziona ancora oggi con il suo meccanismo originale.",
+      "fuente": "Musei Civici Fiorentini — Palazzo Vecchio"
+    },
+    {
+      "n": 8,
+      "titulo": "Il ponte che non profuma più di carne",
+      "llegada": "Terminate camminando fino al Ponte Vecchio, il ponte medievale coperto di piccole botteghe, e cercate il busto di bronzo a metà del ponte.",
+      "enigma": "Questo ponte fu pieno di macellerie per secoli, finché un granduca, stufo del cattivo odore sotto il suo passaggio sopraelevato privato, ordinò di sostituirle con un mestiere ben più nobile nel 1593. Il busto che vedete sul ponte raffigura l'orafo fiorentino più celebre di tutti. A quale mestiere si dedicavano — e si dedicano ancora oggi — quasi tutte le botteghe del ponte?",
+      "respuestas": ["orafi", "gioiellieri", "oreficeria"],
+      "pistas": [
+        "Lavorano oro, argento e pietre preziose.",
+        "Il busto del ponte raffigura uno di loro, anche scultore del Perseo che avete già visto.",
+        "Sono orafi e gioiellieri."
+      ],
+      "historia": "Il busto è di Benvenuto Cellini, collocato nel 1901 per il quarto centenario della sua nascita — lo stesso scultore del Perseo della Loggia dei Lanzi. Sopra le botteghe passa, invisibile da qui, il Corridoio Vasariano: un passaggio sopraelevato lungo quasi un chilometro che permetteva ai Medici di attraversare da un palazzo all'altro senza mai mettere piede in strada.",
+      "fuente": "Comune di Firenze — Ponte Vecchio"
+    }
+  ],
+  "final": {
+    "titulo": "Avete visto Firenze competere con se stessa",
+    "texto": "Da una facciata che finge di avere 600 anni a una cupola costruita senza impalcature, da una porta soprannominata da Michelangelo a un David che è solo una copia, fino a un ponte che cambiò odore per decreto. Firenze si è costruita competendo con se stessa, generazione dopo generazione — e il risultato è la città che avete appena attraversato."
+  }
+}

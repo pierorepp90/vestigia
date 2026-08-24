@@ -1,0 +1,125 @@
+{
+  "rutaId": "madrid-austrias",
+  "idioma": "it",
+  "titulo": "I testimoni della Villa y Corte",
+  "intro": "State per iniziare nella piazza più fotografata di Spagna, quella che compare su ogni cartolina, e scoprirete che quasi nessuno si accorge di ciò che ha davanti: un secondo animale su uno stemma che tutti calpestano, una sfera che si muove solo una notte all'anno, un orso che non posa come sugli stemmi della città. La Madrid degli Asburgo — Puerta del Sol, Plaza Mayor, Plaza de la Villa — custodisce i suoi dettagli migliori all'altezza degli occhi, non dietro una vetrina. Sono poco più di un chilometro e mezzo in totale.",
+  "puntoPartida": "Puerta del Sol, di fronte alla Real Casa de Correos, sotto l'orologio",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La targa che tutti calpestano",
+      "llegada": "Restate in Puerta del Sol, proprio davanti alla porta principale della Real Casa de Correos — l'edificio con l'orologio. Per terra, a pochi passi, c'è una targa circolare di granito e ottone che migliaia di persone calpestano ogni giorno senza mai chinarsi a guardarla.",
+      "enigma": "È il Chilometro Zero: il punto da cui storicamente si misurano le strade radiali di Spagna e la numerazione delle vie di Madrid. Al centro porta incisa la sagoma della Spagna con le strade che ne partono, e subito sotto, due stemmi. Uno è quello del Collegio degli Ingegneri delle Strade. L'altro è un antico stemma della città di Madrid — più elaborato di quello che la città usa oggi — con una corona, l'orso e il corbezzolo... e un secondo animale, fantastico, che non compare più nello stemma attuale. Che animale è?",
+      "respuestas": ["grifone", "un grifone", "il grifone"],
+      "pistas": [
+        "Guardate bene lo stemma di destra, quello di Madrid, non quello di sinistra (quello è degli ingegneri).",
+        "È una creatura mitologica che unisce un corpo di leone a una testa e ali d'aquila.",
+        "È un grifone."
+      ],
+      "historia": "Il primo Chilometro Zero fu fissato qui nel XVIII secolo, quando vennero tracciate le sei grandi strade nazionali che si irradiavano da Madrid come una stella. La targa attuale, rinnovata nel 2023, ha aggiunto il grande cerchio di ottone con i nomi di tutti i capoluoghi di provincia intorno. Ma il dettaglio che quasi nessuno nota resta sempre lo stesso: quello stemma con un grifone, ricordo di un'araldica più antica e più complessa del semplice orso che mangia corbezzoli che oggi identifica la città.",
+      "fuente": "Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano; Mirador Madrid — Placa del Kilómetro Cero"
+    },
+    {
+      "n": 2,
+      "titulo": "La sfera che aspetta tutto l'anno",
+      "llegada": "Senza muovervi da Puerta del Sol, alzate lo sguardo verso la torre che corona la Real Casa de Correos, sopra i quadranti dell'orologio. C'è una piccola struttura, quasi un tempietto, proprio in cima.",
+      "enigma": "L'orologio fu installato gratuitamente, nel 1866, dall'orologiaio José Rodríguez Losada. All'inizio aveva tre quadranti; il quarto fu aggiunto nel 1968, insieme a quel tempietto sulla sommità. Al suo interno vive un meccanismo che da oltre un secolo funziona una sola volta all'anno: ogni 31 dicembre, poco prima di mezzanotte, qualcosa scende lentamente lungo una piccola asta per annunciare che stanno per iniziare i dodici rintocchi. Che cos'è quell'oggetto che cade?",
+      "respuestas": ["sfera", "una sfera", "la sfera"],
+      "pistas": [
+        "Non sono le campane: è un oggetto a parte, indipendente dal meccanismo dell'orologio.",
+        "Ha forma tonda e scende un po' come la sfera del conto alla rovescia di Times Square, a New York.",
+        "È una sfera."
+      ],
+      "historia": "La tradizione della discesa della sfera risale al 1890, più antica della stessa usanza dei dodici chicchi d'uva, che non si diffuse fino ai primi del Novecento. Durante la guerra civile, una bomba caduta vicino a calle Mayor nell'autunno del 1936 fece saltare in aria tutti e quattro i quadranti dell'orologio; venne ripristinato subito solo quello rivolto verso Puerta del Sol, mentre gli altri impiegarono anni a tornare a segnare l'ora completa.",
+      "fuente": "Wikipedia — Reloj de Gobernación; Diario del Viajero — Real Casa de Correos"
+    },
+    {
+      "n": 3,
+      "titulo": "L'orso che non è sullo stemma",
+      "llegada": "Camminate fino all'angolo nord-est di Puerta del Sol, dove inizia calle de Alcalá. Lì, su un piedistallo di granito, troverete l'Orso e il Corbezzolo: il simbolo più fotografato di Madrid.",
+      "enigma": "Ripensate allo stemma appena visto al Chilometro Zero, o a quello di qualsiasi lampione di Madrid: l'orso araldico tradizionale compare con le quattro zampe a terra, teso di lato verso l'albero. Questa statua di bronzo, collocata nel 1967, non riprende quella posa. L'orso si è alzato sulle zampe posteriori, con quelle anteriori appoggiate al tronco del corbezzolo, mentre cerca il frutto con il muso. Osservate bene la scultura reale, non lo stemma: con quante zampe l'orso tocca il suolo (o il piedistallo)?",
+      "respuestas": ["2", "due"],
+      "pistas": [
+        "L'orso non è a quattro zampe: si è alzato, come se stesse per arrampicarsi sull'albero.",
+        "Le zampe anteriori sono occupate, appoggiate contro il tronco del corbezzolo.",
+        "Tocca il suolo con due zampe, quelle posteriori."
+      ],
+      "historia": "Lo scultore Antonio Navarro Santafé, nato a Villena, si ispirò a un vero orso bruno che viveva nell'antico zoo del Retiro per creare questa versione molto più realistica dell'araldica medievale. L'opera pesa circa 20 tonnellate tra la pietra del piedistallo — un blocco di granito a gradoni — e il bronzo del gruppo scultoreo, per un'altezza totale di 4 metri.",
+      "fuente": "Wikipedia — Estatua del Oso y el Madroño; Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano"
+    },
+    {
+      "n": 4,
+      "titulo": "Il cavaliere con tre date ai piedi",
+      "llegada": "Scendete per calle Mayor fino a entrare in Plaza Mayor e andate dritti al centro, dove un re a cavallo domina la piazza da un piedistallo di pietra.",
+      "enigma": "È Filippo III: la statua fu iniziata da Giambologna e terminata da Pietro Tacca a Firenze, regalo dei Medici, e arrivò qui nel 1848 per ordine di Isabella II. Sul piedistallo stesso c'è una lunga iscrizione che racconta tutta la storia, date incluse. Leggetela per intero: menziona l'anno in cui Filippo III riportò la corte a Madrid, e l'anno in cui lo stesso re fece costruire questa Plaza Mayor dove ora vi trovate. Secondo l'iscrizione, in che anno Filippo III ordinò la costruzione di questa piazza?",
+      "respuestas": ["1619"],
+      "pistas": [
+        "L'iscrizione menziona due anni del regno di Filippo III prima di arrivare al 1848, l'anno del trasferimento: uno è il ritorno della corte, l'altro la costruzione della piazza.",
+        "Cercate la frase sulla costruzione di \"questa Plaza Mayor\" e guardate il numero appena prima.",
+        "Fu nel 1619."
+      ],
+      "historia": "La statua equestre pesa oltre cinque tonnellate di bronzo e ha trascorso quasi due secoli e mezzo nei giardini della Casa de Campo prima di trasferirsi qui. Sulla cinghia del cavallo, Pietro Tacca lasciò la propria firma in latino: PETRVS TACCA F. FLORENTIAE. Il re tiene il bastone di comando nella mano destra e porta il Toson d'Oro sul petto, mentre il cavallo solleva la zampa anteriore sinistra in pieno movimento.",
+      "fuente": "Wikipedia — Estatua ecuestre de Felipe III; Comunidad de Madrid — Patrimonio Cultural"
+    },
+    {
+      "n": 5,
+      "titulo": "La dea nascosta tra cento personaggi",
+      "llegada": "Voltatevi verso il lato nord della piazza, verso la facciata più decorata di tutte: la Casa de la Panadería, coperta di dipinti colorati dall'alto in basso.",
+      "enigma": "Gli affreschi che vedete furono completati nel 1992 — dipinti da Carlos Franco, quando Madrid fu Capitale Europea della Cultura — e si ispirano alla mitologia classica e ai segni dello zodiaco. Tra dei, creature inventate e simboli, c'è una dea protagonista di tutto il programma, il cui matrimonio con un personaggio chiamato \"Acuático\" fa da filo conduttore alla facciata. È la stessa dea che ha una propria fontana, molto più famosa, in un'altra piazza di Madrid — con leoni che tirano il suo carro. Cercatela tra i personaggi dipinti. Come si chiama?",
+      "respuestas": ["cibele", "cibeles"],
+      "pistas": [
+        "È una dea romana legata alla fertilità e alla terra, non un dio maschile come Bacco o Cupido, che compaiono anch'essi sulla facciata.",
+        "Dà il nome a una piazza e a una fontana molto famose di Madrid, con due leoni che tirano un carro.",
+        "È Cibele."
+      ],
+      "historia": "Prima di questi affreschi ce ne furono altri: quelli secenteschi di Claudio Coello e José Jiménez Donoso, e una versione del 1914 di Enrique Guijo che non resistette né all'inquinamento né al tempo. Carlos Franco vinse il concorso alla fine degli anni '80, ma l'opera definitiva non fu svelata fino al 1992. Accanto agli dei classici, inventò personaggi che non esistono in nessuna mitologia, con nomi tipicamente madrileni come Panaderico o Mono-Pez (\"la scimmia-pesce\"), sparsi senza remore tra le divinità e i segni zodiacali lungo tutta la facciata.",
+      "fuente": "Turismo Madrid (esmadrid.com) — Casa de la Panadería; Ferrovial — Historia de la Casa de la Panadería"
+    },
+    {
+      "n": 6,
+      "titulo": "Le dieci porte che nessuno conta",
+      "llegada": "Percorrete i portici della piazza — i passaggi coperti sotto gli edifici — senza ancora uscirne. Osservate ogni varco che porta a una strada diversa.",
+      "enigma": "Plaza Mayor è un rettangolo quasi perfetto, ma non è un rettangolo chiuso: comunica con il resto di Madrid attraverso vari punti diversi, alcuni con grandi archi di pietra (come quelli di calle de Toledo o calle de Ciudad Rodrigo), altri molto più discreti, quasi nascosti sotto i portici — come il famoso Arco de Cuchilleros, che non si vede nemmeno bene dall'interno della piazza. Contate tutti gli accessi che circondano la piazza, grandi e piccoli. Quanti sono in totale?",
+      "respuestas": ["10", "dieci"],
+      "pistas": [
+        "Sono più di sei: oltre ai grandi archi ce ne sono altri più stretti, facili da non notare.",
+        "Tra questi: Cuchilleros, Toledo, Ciudad Rodrigo, Sal, Gerona, Zaragoza, Botoneras, Felipe III, Siete de Julio e l'Arco de Triunfo.",
+        "Ci sono dieci accessi in totale."
+      ],
+      "historia": "La piazza che vedete oggi, alta tre piani, è più bassa di quella originale del XVII secolo, che arrivò ad averne cinque prima che vari incendi — l'ultimo nel 1790 — costringessero a ricostruirla. Si calcola che le sue facciate sommino 237 balconi affacciati sulla piazza, dai quali un tempo la famiglia reale assisteva a corride, autodafé e incoronazioni senza mai dover scendere in strada.",
+      "fuente": "Wikipedia — Plaza Mayor de Madrid; Cosas de Madrid — Los arcos de la Plaza Mayor"
+    },
+    {
+      "n": 7,
+      "titulo": "La facciata che guarda la strada sbagliata",
+      "llegada": "Camminate da Plaza Mayor fino a Plaza de la Villa, circa cinque minuti per calle Mayor e le sue viuzze. Una volta arrivati, non fermatevi a guardare il lato rivolto verso la piazza: girate intorno all'edificio della Casa de Cisneros fino a calle Sacramento, sul retro.",
+      "enigma": "La facciata che si vede da Plaza de la Villa è in realtà un'aggiunta dei primi del Novecento. Quella autentica, del 1537, fu voluta da Benito Jiménez de Cisneros — nipote del cardinale Cisneros — e dà su questa via stretta, quasi sempre vuota di turisti: un arco di pietra con una porta di legno riccamente intagliata, e sopra, un balcone plateresco affiancato da colonne scolpite. Contate le colonne che affiancano quel balcone.",
+      "respuestas": ["2", "due"],
+      "pistas": [
+        "Guardate proprio sopra l'arco della porta principale, in calle Sacramento.",
+        "Il balcone è affiancato in modo simmetrico, una colonna per lato.",
+        "Sono due colonne."
+      ],
+      "historia": "Per secoli, strati di intonaco nascosero la pietra originale di questa facciata. Solo con il restauro dei primi del Novecento, dopo che il Comune acquistò l'edificio, si recuperò l'aspetto plateresco originale — e si costruì il passaggio sopraelevato in pietra che ancora oggi collega la Casa de Cisneros alla Casa de la Villa, l'antico municipio, dall'altro lato della strada.",
+      "fuente": "Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano, Casa de Cisneros; Rutas con Historia"
+    },
+    {
+      "n": 8,
+      "titulo": "La Venere che nessuno guarda due volte",
+      "llegada": "Tornate verso Puerta del Sol per calle Mayor e calle Arenal. Proprio all'angolo dove Arenal sbocca sulla piazza, su una colonna di pietra calcarea circondata da una panchina circolare, si trova una statua femminile bianca che quasi nessuno fotografa.",
+      "enigma": "È la Mariblanca: una Venere scolpita a Firenze nel XVII secolo, che presiedette una fontana barocca in questa stessa Puerta del Sol per due secoli, prima di essere spostata di piazza in piazza e finire conservata in un museo. Quello che vedete oggi sulla colonna è una copia in pietra. Sul piedistallo, sotto lo stemma di Madrid — lo stesso orso e corbezzolo che già conoscete — è incisa una data in numeri romani: MCMLXXXVI. A quale anno corrisponde?",
+      "respuestas": ["1986"],
+      "pistas": [
+        "MCMLXXXVI si scompone in M (1000) + CM (900) + LXXX (80) + VI (6).",
+        "Sommate 1000 + 900 + 80 + 6.",
+        "L'anno è il 1986."
+      ],
+      "historia": "L'originale, scolpita da Ludovico Turqui e portata da Firenze nel 1625, fu per generazioni la statua più amata di Puerta del Sol, finché nel 1838 non fu rimossa per il degrado della fontana che la sosteneva. Passò per magazzini comunali, la Plaza de las Descalzas, il Retiro e il Paseo de Recoletos prima di finire al sicuro nel Museo de Historia de Madrid. Questa copia si trova qui, in diversi punti della piazza, dal 1986: vigilando, quasi senza che nessuno se ne accorga, sullo stesso incrocio da cui avete iniziato questo percorso.",
+      "fuente": "Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano, Mariblanca (réplica); Mirador Madrid"
+    }
+  ],
+  "final": {
+    "titulo": "Avete guardato dove nessuno guarda",
+    "texto": "Un grifone dimenticato su una targa che tutti calpestano. Una sfera che si muove solo una volta all'anno. Un orso che non posa come sugli stemmi. Un re con tre date nascoste ai piedi. Una dea travestita tra un centinaio di personaggi dipinti. Dieci porte in una piazza che la maggior parte crede ne abbia solo quattro. Una facciata che guarda la strada sbagliata. E una Venere tornata a Madrid senza che quasi nessuno la riconoscesse. Puerta del Sol è, si dice, la piazza più trafficata di Spagna; voi siete tra i pochi che si sono fermati a guardarla davvero."
+  }
+}

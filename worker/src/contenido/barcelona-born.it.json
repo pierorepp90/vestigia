@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-born",
+  "idioma": "it",
+  "titulo": "I mercanti della Ribera",
+  "intro": "El Born era il quartiere dei mercanti e delle corporazioni, quello che finanziò di tasca propria un'intera basilica e lo pagò con la distruzione totale delle sue strade nel 1714. Oggi è il quartiere più alla moda di Barcellona, ma ogni angolo ricorda ancora cosa fu. Sono circa 2 km, quasi tutti pianeggianti.",
+  "puntoPartida": "Arc de Triomf, all'estremità del Passeig de Lluís Companys",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "L'animale che sorveglia l'ingresso",
+      "llegada": "In piedi davanti all'Arc de Triomf, osservate i due grandi pilastri dell'arco, a mezza altezza.",
+      "enigma": "Questo arco di mattoni non commemora nessuna battaglia: è la porta d'ingresso all'Esposizione Universale del 1888, opera di Josep Vilaseca. Sui pilastri è scolpito un animale alato, emblema araldico del re Giacomo I. Che animale è?",
+      "respuestas": ["pipistrello"],
+      "pistas": [
+        "Non è un uccello: le sue ali sono di pelle, non di piume.",
+        "È l'animale che esce di notte e dorme a testa in giù.",
+        "È un pipistrello."
+      ],
+      "historia": "Il pipistrello accompagna lo stemma della Corona d'Aragona fin dal medioevo, anche se nessuno concorda del tutto sull'origine del simbolo. L'arco segnava l'ingresso ufficiale a un'esposizione che voleva mettere Barcellona sulla mappa delle grandi capitali europee — e, in un certo senso, ci riuscì.",
+      "fuente": "Ajuntament de Barcelona; Esposizione Universale di Barcellona del 1888"
+    },
+    {
+      "n": 2,
+      "titulo": "Il giovane che ancora non era Gaudí",
+      "llegada": "Camminate lungo il Passeig de Lluís Companys fino all'ingresso del Parc de la Ciutadella. All'interno, cercate la grande cascata monumentale di pietra.",
+      "enigma": "Questa cascata fu progettata da Josep Fontserè nel 1875, con l'aiuto di uno studente di architettura poco più che ventenne che non aveva ancora costruito nulla di celebre: Antoni Gaudí. In cima alla cascata c'è un carro trainato da cavalli, tutto di un unico colore. Di che colore è quel carro?",
+      "respuestas": ["dorato", "dorata", "oro"],
+      "pistas": [
+        "Guardate il punto più alto di tutta la cascata, non le figure in basso.",
+        "È il colore dei metalli preziosi, splendente sotto il sole.",
+        "Il carro è dorato."
+      ],
+      "historia": "Gaudí collaborò qui all'ingegneria idraulica e ad alcuni motivi decorativi, anni prima della Sagrada Família o del Park Güell. È probabilmente l'opera pubblica più antica su cui abbia messo mano l'architetto più famoso di Barcellona — e quasi nessuno si ferma a pensarci.",
+      "fuente": "Ajuntament de Barcelona — Parc de la Ciutadella"
+    },
+    {
+      "n": 3,
+      "titulo": "Il quartiere scomparso in una notte",
+      "llegada": "Uscite dal parco e camminate fino all'Antic Mercat del Born, il grande edificio in ferro e vetro dell'Ottocento.",
+      "enigma": "Sotto questo mercato, lavori del 2002 riportarono alla luce intere strade di un quartiere del Settecento, conservate quasi intatte. Quel quartiere fu raso al suolo dopo un assedio, per costruire una fortezza militare. In che anno fu quell'assedio?",
+      "respuestas": ["1714"],
+      "pistas": [
+        "Fu durante la Guerra di Successione spagnola.",
+        "È lo stesso anno commemorato ogni 11 settembre in Catalogna.",
+        "L'assedio fu nel 1714."
+      ],
+      "historia": "Dopo la sconfitta, centinaia di case della Ribera furono demolite per costruire la Ciutadella, una fortezza pensata per sorvegliare la città stessa. Il mercato che vedete oggi fu costruito sopra nell'Ottocento; quando fu ristrutturato nel 2002 per diventare una biblioteca, apparvero le strade del quartiere distrutto, intatte sottoterra da quasi tre secoli.",
+      "fuente": "El Born Centre de Cultura i Memòria; Ajuntament de Barcelona"
+    },
+    {
+      "n": 4,
+      "titulo": "La piazza dei tornei",
+      "llegada": "Camminate fino al Passeig del Born, l'ampia spianata che parte dal mercato.",
+      "enigma": "Questo viale così largo non è un caso: nel medioevo qui si tenevano combattimenti di cavalieri a cavallo, con lance e pubblico. Quell'attività, in catalano antico, diede il nome alla via. Che tipo di spettacolo medievale dà il nome al Born?",
+      "respuestas": ["giostre", "tornei", "giostre medievali"],
+      "pistas": [
+        "Erano cavalieri armati che si sfidavano a cavallo.",
+        "È lo stesso termine inglese \"joust\" per questo sport da combattimento.",
+        "Erano giostre (tornei cavallereschi)."
+      ],
+      "historia": "Per secoli, il Born fu il grande spazio pubblico di Barcellona: qui si tennero giostre, mercati, processioni della Settimana Santa e, in tempi più bui, anche autodafé dell'Inquisizione. Oggi restano solo i tavolini dei bar — ma il nome ricorda ancora i cavalieri.",
+      "fuente": "Ajuntament de Barcelona — Passeig del Born"
+    },
+    {
+      "n": 5,
+      "titulo": "Le colonne pagate a spalle",
+      "llegada": "Proseguite fino alla facciata principale della Basílica de Santa Maria del Mar, proprio accanto.",
+      "enigma": "Questa basilica fu costruita in soli 55 anni (1329-1384), rapidissima per il gotico, perché fu pagata e costruita dal popolo stesso della Ribera: mercanti, artigiani e i bastaixos, gli scaricatori del porto che portarono ogni pietra sulle spalle da Montjuïc. Entrate e contate le colonne ottagonali che sostengono la navata centrale.",
+      "respuestas": ["16", "sedici"],
+      "pistas": [
+        "Sono distribuite su entrambi i lati della navata centrale, molto distanziate tra loro.",
+        "È un numero tra 14 e 18.",
+        "Sono 16 colonne."
+      ],
+      "historia": "Le colonne distano 15 metri l'una dall'altra, una distanza enorme per l'epoca, che lascia uno spazio interno pulito e luminoso. I rilievi dei portali raffigurano i bastaixos mentre portano la pietra, in omaggio alla gente senza titolo né fortuna che costruì, letteralmente con la propria schiena, la chiesa più amata di Barcellona.",
+      "fuente": "Basílica de Santa Maria del Mar; MUHBA"
+    },
+    {
+      "n": 6,
+      "titulo": "La fiamma per chi non si arrese",
+      "llegada": "Proprio accanto alla basilica, cercate il Fossar de les Moreres, la piazza ribassata dalla pavimentazione rossastra.",
+      "enigma": "Qui furono sepolti i difensori di Barcellona morti nell'assedio del 1714 di cui conoscete già la data. Dal 2001 arde qui una fiamma che non si spegne mai. Una poesia incisa nel pavimento dice che in questo cimitero non si seppellisce mai un certo tipo di persona. Che parola usa la poesia per questa persona?",
+      "respuestas": ["traditore", "traditori"],
+      "pistas": [
+        "È qualcuno che tradisce una causa o la propria gente.",
+        "È il contrario di un eroe o di un difensore.",
+        "La parola è \"traditore\" (traïdor in catalano)."
+      ],
+      "historia": "La poesia completa recita: \"Nel Fossar de les Moreres non vi si seppellisce alcun traditore; anche perdendo le nostre bandiere, sarà l'urna dell'onore.\" Fu scritta da Frederic Soler, \"Pitarra\", nell'Ottocento. La pavimentazione rossastra simboleggia il sangue versato; ogni passo su di essa è, silenziosamente, un omaggio.",
+      "fuente": "Ajuntament de Barcelona — Fossar de les Moreres"
+    },
+    {
+      "n": 7,
+      "titulo": "La via di chi lavorava l'argento",
+      "llegada": "Camminate fino a carrer de l'Argenteria, la via che collega la basilica alla Via Laietana.",
+      "enigma": "Come molte strade del Born, questa porta il nome della corporazione che vi lavorava nel medioevo. Cercate la targa con il nome della via e traducete: con quale metallo prezioso lavoravano gli artigiani di questa strada?",
+      "respuestas": ["argento"],
+      "pistas": [
+        "\"Argent\" è una parola imparentata con l'italiano per quel metallo.",
+        "È il metallo bianco e lucente, più economico dell'oro.",
+        "Lavoravano l'argento (erano argentieri)."
+      ],
+      "historia": "Il Born è pieno di vie-corporazione: Argenteria (argentieri), Vidrieria (vetrai), Cotoners (cotonieri), Espaseries (spadai). Camminare in questa zona significa, ancora oggi, attraversare una mappa vivente dei mestieri medievali di Barcellona.",
+      "fuente": "Ajuntament de Barcelona — nomenclàtor de carrers"
+    },
+    {
+      "n": 8,
+      "titulo": "Cinque palazzi per un solo pittore",
+      "llegada": "Terminate in carrer Montcada, la via dei palazzi gotici, fino al Museu Picasso.",
+      "enigma": "Il museo non occupa un solo edificio, ma diversi palazzi gotici medievali uniti tra loro, costruiti da famiglie nobili e mercanti arricchiti dal commercio marittimo. Contate quanti palazzi diversi formano oggi il Museu Picasso.",
+      "respuestas": ["5", "cinque"],
+      "pistas": [
+        "Il primo, il palazzo Aguilar, aprì come museo nel 1963; gli altri si aggiunsero in seguito.",
+        "È un numero tra 3 e 7.",
+        "Sono 5 palazzi."
+      ],
+      "historia": "Carrer Montcada fu, fin dal XII secolo, l'indirizzo più costoso di Barcellona: qui costruivano coloro che si erano arricchiti con il mare. Che Picasso — figlio di un insegnante di disegno senza fortuna — abbia finito per avere il suo museo in cinque di questi palazzi è una delle ironie più belle della città: l'arte che democratizza, secoli dopo, lo spazio di chi un tempo possedeva tutto il denaro.",
+      "fuente": "Museu Picasso de Barcelona"
+    }
+  ],
+  "final": {
+    "titulo": "Avete camminato su un quartiere sepolto",
+    "texto": "Da un pipistrello di pietra a una cascata firmata da un Gaudí che ancora non era nessuno, da un mercato che nasconde una città intera sottoterra a cinque palazzi che oggi ospitano un solo pittore. El Born fu raso al suolo nel 1714 e ricostruito sulle proprie ceneri — eppure, se sapete guardare, si può ancora leggere il quartiere che fu."
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "rutaId": "valencia-carmen",
+  "idioma": "en",
+  "titulo": "The Merchants' Grail",
+  "intro": "El Carmen is Valencia's oldest neighbourhood: it grew up hard against the old Arab wall, and later the Christian one, among silk merchants, guild craftsmen and friars. On one side, the Lonja raised a stone temple to trade; on the other, the Cathedral guards a cup some believe Christ used at the Last Supper. It's about 3 km, flat, right through the heart of the old town.",
+  "puntoPartida": "La Lonja de la Seda (the Silk Exchange), main façade, Calle de la Lonja",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The monkey watching over the merchants",
+      "llegada": "Standing in front of the Lonja's main façade, with the Tower at its centre, walk around the building to the left until you reach the Consulado del Mar wing, recognisable by its own stepped battlements and separate doorway.",
+      "enigma": "This building isn't a church, even though it looks like one: it's a Gothic temple dedicated to the silk trade, built between 1482 and 1548. Its outer walls are covered in gargoyles and carved figures, around 28 in total, ranging from fantastical animals to friars, soldiers and everyday scenes. On the wall of the Consulado del Mar, between two medallions, an old woman is carved holding an animal in her arms. What animal is it?",
+      "respuestas": ["monkey", "a monkey"],
+      "pistas": [
+        "It's not a dog or a cat: it's an animal that can also walk almost like a person.",
+        "It lives in the forest and has hands very similar to ours.",
+        "It's a monkey."
+      ],
+      "historia": "The Lonja's gargoyles weren't just water spouts: many historians believe they also worked as a medieval moral warning, carving vices and sins into stone for anyone who knew how to look up. In Gothic art, the monkey usually stood for lust or human foolishness — quite a lesson to carve at the doors of a building where enormous sums of money changed hands.",
+      "fuente": "Generalitat Valenciana — La Lonja de la Seda; UNESCO World Heritage (1996)"
+    },
+    {
+      "n": 2,
+      "titulo": "The columns that spiral toward the sky",
+      "llegada": "Go in through the main door to the Sala de Contratación, the great hall beneath the pointed arch crowned by the Virgin and Child.",
+      "enigma": "This is where silk merchants sealed their deals, under a ceiling almost 17 metres high held up by columns that twist like rope: the famous helical columns, carved using a stonework technique that was hugely expensive for its time. Count only the free-standing columns — the ones that rise on their own in the middle of the hall, not touching any wall. How many are there?",
+      "respuestas": ["8", "eight"],
+      "pistas": [
+        "Don't count the ones attached to or half-sunk into the wall, only the completely free-standing ones.",
+        "It's an even number, less than 10.",
+        "There are 8 free-standing columns."
+      ],
+      "historia": "The Lonja was built with the merchants' own money, in the golden age of Valencia's silk trade. And it wasn't purely a place of business: the top two floors of the Tower right next door served as a prison for merchants who failed to pay their debts, while the ground floor was a chapel. Closing a bad deal here could cost you far more than money.",
+      "fuente": "Colegio Territorial de Arquitectos de Valencia; Consorci de Museus de la Comunitat Valenciana"
+    },
+    {
+      "n": 3,
+      "titulo": "The dome painted the colour of the sky",
+      "llegada": "Walk to the Plaza de la Virgen and find the Basílica de la Virgen de los Desamparados, next to the Cathedral. Step back a few paces to get a clear view of its dome.",
+      "enigma": "In a city of golden stone and grey rooftops, this oval dome stands out with a very different covering: it's completely clad in glazed ceramic tiles. What colour are those tiles?",
+      "respuestas": ["blue"],
+      "pistas": [
+        "It's the same colour as the sea and a clear sky.",
+        "It's not green or gold: it's a cool colour.",
+        "The tiles are blue."
+      ],
+      "historia": "Inside, the dome hides another surprise: frescoes painted by Antonio Palomino between 1701 and 1704, with a perspective that seems to open straight up into the sky. They stayed hidden under later overpainting for generations and were only fully recovered in a restoration this century. The Virgin of the Forsaken is Valencia's patron saint, and every year, on the Sunday after Easter, thousands of people fill this square for her enormous flower offering.",
+      "fuente": "Real Basílica de la Virgen de los Desamparados; Ajuntament de València"
+    },
+    {
+      "n": 4,
+      "titulo": "The tower that took a century to rise",
+      "llegada": "Go around the Cathedral to the Plaza de la Reina, where the Miguelete stands, the octagonal bell tower.",
+      "enigma": "The Miguelete is Valencia's symbol: a stone tower you can climb via a narrow spiral staircase of more than 200 steps. It took so long to build that it passed through the hands of several different master builders. Find the information panel by the entrance door: what year did construction on the tower begin?",
+      "respuestas": ["1381"],
+      "pistas": [
+        "It's more than a century before construction began on the Lonja, this route's first stop.",
+        "It's a date in the 1380s.",
+        "The tower's construction began in 1381."
+      ],
+      "historia": "The tower takes its name because its bells were blessed on 29 September, the feast of Saint Michael. Its octagonal floor plan is unusual: most Gothic bell towers are square or round. From the top, at around 51 metres up, you can see the whole of old Valencia and, on clear days, the sea.",
+      "fuente": "Catedral de Valencia — Capítol Catedral; Ajuntament de València"
+    },
+    {
+      "n": 5,
+      "titulo": "The twelve who guard the cup",
+      "llegada": "Go inside the Cathedral and find the Capilla del Santo Cáliz, set in the former chapter house, with its own entrance grille.",
+      "enigma": "This chapel venerates an agate cup that arrived in Valencia in 1437, one some scholars identify with the cup of the Last Supper: the Holy Grail. Several popes have used it to celebrate Mass right here. Look up at the star-ribbed vault: the Apostles are carved around it, one on each keystone, with a different scene of the Virgin at the centre. How many Apostles do you count?",
+      "respuestas": ["12", "twelve"],
+      "pistas": [
+        "They're the same number who sat at the table at the Last Supper, not counting Jesus.",
+        "It's a number also associated with the months of the year.",
+        "There are 12 Apostles carved into the vault."
+      ],
+      "historia": "The upper cup, made of polished agate, was probably carved somewhere between the 4th century BC and the 1st century AD in a workshop in the Near East. The stem, in gold and precious stones, comes from a 10th- or 11th-century Caliphal vessel and was added to the cup later, around the 12th century. The current chapel, with its alabaster altarpiece carved by the Italian Giuliano Poggibonsi, opened in 1916, though the cup has been in Valencia since the 15th century.",
+      "fuente": "Catedral de Valencia — Santo Cáliz; Archivo de la Catedral de Valencia"
+    },
+    {
+      "n": 6,
+      "titulo": "The towers that still carry the scars",
+      "llegada": "Cross the Barrio del Carmen heading west along Calle Caballeros until you reach the Torres de Quart, one of the old gates of the medieval wall.",
+      "enigma": "Of the twelve gates the Christian wall of Valencia once had, only two survive, and this is one of them. Look closely at the stone of the outward-facing façade, the one looking away from the city: it's covered in round holes and irregular marks, hundreds of them, deliberately preserved during restoration instead of being patched over. Find the information panel by the gate: what year did this tower suffer the attack that left those marks?",
+      "respuestas": ["1808"],
+      "pistas": [
+        "It happened during the war against Napoleon's troops, when Valencia withstood a siege.",
+        "It's a date in the early 19th century, right when that war began in Spain.",
+        "The attack happened in 1808."
+      ],
+      "historia": "In June 1808, between 8,000 and 10,000 French soldiers under Marshal Moncey attacked Valencia here. The city held out, and the stone was left with more than a hundred cannonball marks and over a thousand musket-shot marks. Over the years, the tower also served as a women's prison; today, some birds nest in the very holes the shots left behind.",
+      "fuente": "Ajuntament de València — Torres de Quart; Peninsular War (1808)"
+    },
+    {
+      "n": 7,
+      "titulo": "The street of those who stitched money",
+      "llegada": "Head back toward the centre of the neighbourhood to Calle Bolsería, one of the narrowest, liveliest streets in the Carmen.",
+      "enigma": "As in most of Valencia, this street's name is written on a traditional blue-and-white ceramic tile on a corner wall. The name comes from a medieval guild that worked here. Find the tile and think: what did the craftsmen who gave the street its name make and sell?",
+      "respuestas": ["bags", "purses", "bags and purses", "purses and bags"],
+      "pistas": [
+        "The name comes from the same word we still use today for the thing we keep our coins or keys in.",
+        "They didn't weave whole cloths — they stitched something smaller, meant to be carried.",
+        "The bolseros made bags and purses out of cloth or leather."
+      ],
+      "historia": "Valencia is, by several accounts, the Spanish city with the most streets named after medieval trades and guilds. Bolsería already appears under that name in 14th-century documents, and its craftsmen — the bolseros — went on to have their own guild ordinances by 1741. Many of those purses were sewn, fittingly, with silk thread bought just a few steps away, at the Lonja.",
+      "fuente": "Ajuntament de València — nomenclàtor de carrers; Archivo Municipal de Valencia"
+    },
+    {
+      "n": 8,
+      "titulo": "The parrot that never stops talking",
+      "llegada": "Head down to the Plaza del Mercado, where you'll see the Lonja again: right across from it stands the Mercado Central, the great Modernist building of iron and glass.",
+      "enigma": "The Market was built between 1914 and 1928, and its domes are topped with several weathervanes. One is shaped like a swordfish, over the fish stalls. But there's another, above a royal crown, shaped like a bird, which locals call \"la Cotorra\" (the parrot) for its reputation as a gossip. Find that weathervane: what bird does it represent?",
+      "respuestas": ["parrot", "a parrot"],
+      "pistas": [
+        "It's not an eagle or a dove: it's a colourful bird that can repeat what it hears.",
+        "Legend says it's the same bird that spends all day gossiping with the one on the church across the square.",
+        "The weathervane is shaped like a parrot: it's the Cotorra del Mercat."
+      ],
+      "historia": "Legend has it that the Cotorra del Mercat keeps up an endless argument with the \"Pardal de Sant Joan,\" the eagle crowning the nearby Church of Santos Juanes: one stands for the market's worldly gossip, the other for the sacred. According to tradition, they've kept it up for more than a century. This is where the route ends, in the very square where you started, among stone merchants, a cup some call the Grail, and a city that never stopped talking.",
+      "fuente": "Ajuntament de València; Mercat Central de València"
+    }
+  ],
+  "final": {
+    "titulo": "You've walked through the neighbourhood that never surrendered",
+    "texto": "From a monkey carved in stone to a cup some call the Grail, from columns that spiral like rope to a tower pockmarked by cannon fire from a war more than two centuries ago. El Carmen, the Lonja and the Cathedral have watched merchants, kings and sieges come and go, and they're still standing, scars in plain sight for anyone who knows to look up."
+  }
+}

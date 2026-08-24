@@ -1,0 +1,190 @@
+/* css/print.css
+ * Versión imprimible de una ruta. Enigmas visibles desde el principio;
+ * respuestas, pistas e historia viven en una sección final que se imprime
+ * boca abajo (@media print) — el truco clásico de los libros de acertijos:
+ * nadie las lee "sin querer" mientras resuelve, pero siguen ahí si hace
+ * falta rendirse y consultar.
+ */
+
+.hoja-imprimir {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 40px 24px 80px;
+}
+
+.hoja-imprimir__cabecera {
+  text-align: center;
+  margin-bottom: 8px;
+  padding-bottom: 28px;
+  border-bottom: 2px solid var(--ink);
+}
+
+.hoja-imprimir__marca {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 10px;
+}
+
+.hoja-imprimir__titulo {
+  font-size: 2.1rem;
+  margin-bottom: 12px;
+}
+
+.hoja-imprimir__intro {
+  color: var(--ink-soft);
+  max-width: 60ch;
+  margin: 0 auto 14px;
+}
+
+.hoja-imprimir__meta {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+}
+
+.hoja-imprimir__acciones {
+  text-align: center;
+  margin: 26px 0 36px;
+}
+
+/* ---------- Paradas ---------- */
+.parada-impresa {
+  padding: 26px 0;
+  border-bottom: 1px dashed var(--paper-edge);
+  break-inside: avoid;
+}
+
+.parada-impresa__numero {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lacre);
+  display: block;
+  margin-bottom: 6px;
+}
+
+.parada-impresa__titulo {
+  font-size: 1.4rem;
+  margin-bottom: 12px;
+}
+
+.parada-impresa__bloque {
+  margin-bottom: 10px;
+}
+
+.parada-impresa__etiqueta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  display: block;
+  margin-bottom: 3px;
+}
+
+.parada-impresa__texto {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.parada-impresa__casilla {
+  margin-top: 14px;
+  border: 1px solid var(--ink-faint);
+  border-radius: 3px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- Sección de respuestas (boca abajo al imprimir) ---------- */
+.seccion-respuestas {
+  margin-top: 50px;
+  padding-top: 30px;
+  border-top: 3px double var(--ink);
+}
+
+.seccion-respuestas__aviso {
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--lacre);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 24px;
+}
+
+.respuesta-impresa {
+  margin-bottom: 22px;
+}
+
+.respuesta-impresa__titulo {
+  font-size: 1.05rem;
+  margin-bottom: 6px;
+}
+
+.respuesta-impresa__valor {
+  font-weight: 700;
+  color: var(--lacre);
+}
+
+.respuesta-impresa__pistas {
+  margin: 6px 0 0;
+  padding-left: 18px;
+  color: var(--ink-soft);
+  font-size: 0.92rem;
+}
+
+.respuesta-impresa__historia {
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+  margin-top: 6px;
+}
+
+/* ---------- Solo pantalla ---------- */
+@media screen {
+  .hoja-imprimir {
+    background: var(--paper);
+  }
+}
+
+/* ---------- Solo impresión ---------- */
+@media print {
+  @page {
+    margin: 18mm 16mm;
+  }
+
+  body::before,
+  .cabecera,
+  .pie,
+  .hoja-imprimir__acciones,
+  .sr-only {
+    display: none !important;
+  }
+
+  .hoja-imprimir {
+    max-width: none;
+    padding: 0;
+  }
+
+  .parada-impresa {
+    break-inside: avoid;
+  }
+
+  .seccion-respuestas {
+    break-before: page;
+    transform: rotate(180deg);
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}

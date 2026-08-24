@@ -1,0 +1,125 @@
+{
+  "rutaId": "madrid-austrias",
+  "idioma": "en",
+  "titulo": "The Witnesses of Villa y Corte",
+  "intro": "You're about to start in the most photographed square in Spain, the one on every postcard, and you're about to discover that almost no one looks closely at what's right in front of them: a second animal on a shield that everyone walks over, a ball that only moves once a year, a bear that doesn't pose the way it does on the city's own street signs. Habsburg Madrid — Puerta del Sol, Plaza Mayor, Plaza de la Villa — keeps its best details at eye level, not behind glass. It's a little over a kilometre and a half in total.",
+  "puntoPartida": "Puerta del Sol, facing the Real Casa de Correos, under the clock",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The plaque everyone walks over",
+      "llegada": "Stand in Puerta del Sol, right in front of the main door of the Real Casa de Correos — the building with the clock. In the ground, just a few steps away, there's a circular granite-and-brass plaque that thousands of people walk over every day without ever bending down to look at it.",
+      "enigma": "This is Kilometre Zero: the point from which Spain's radial highways and Madrid's street numbering have historically been measured. At its centre it carries an engraved outline of Spain with the routes radiating outward, and just below that, two coats of arms. One belongs to the Civil Engineers' Association. The other is an old coat of arms of the City of Madrid — busier than the one the city uses today — with a crown, the bear and the strawberry tree... and a second, mythical animal that no longer appears on the current coat of arms. What animal is it?",
+      "respuestas": ["griffin", "a griffin", "the griffin"],
+      "pistas": [
+        "Look closely at the shield on the right, Madrid's own, not the one on the left (that one belongs to the engineers).",
+        "It's a mythical creature that combines a lion's body with an eagle's head and wings.",
+        "It's a griffin."
+      ],
+      "historia": "The first Kilometre Zero was fixed here in the 18th century, when the six great national highways that radiated out from Madrid like a star were laid out. The current plaque, renovated in 2023, added the large bronze ring bearing the names of every provincial capital around it. But the detail almost no one notices is still the same one it always was: that coat of arms with a griffin, a leftover from an older, busier heraldry than the simple bear eating strawberries that identifies the city today.",
+      "fuente": "Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano; Mirador Madrid — Placa del Kilómetro Cero"
+    },
+    {
+      "n": 2,
+      "titulo": "The ball that waits all year",
+      "llegada": "Without moving from Puerta del Sol, look up at the tower crowning the Real Casa de Correos, above the clock dials. There's a small structure, almost like a little temple, right at the very top.",
+      "enigma": "The clock was installed for free in 1866 by watchmaker José Rodríguez Losada. At first it had three dials; the fourth was added in 1968, along with that small structure at the top. Inside it lives a mechanism that has spent over a century working just once a year: every 31 December, right before midnight, something slowly descends a short mast to signal that the chimes are about to begin. What is that object that drops?",
+      "respuestas": ["ball", "a ball", "the ball"],
+      "pistas": [
+        "It isn't the bells: it's a separate object, independent of the clock mechanism itself.",
+        "It's round, and it descends much like the countdown ball in Times Square, New York.",
+        "It's a ball."
+      ],
+      "historia": "The tradition of the ball's descent dates back to 1890, older than the custom of the twelve grapes itself, which didn't become popular until the early 20th century. During the Civil War, a bomb that fell near Calle Mayor in the autumn of 1936 blew all four clock dials off the tower; only the one facing Puerta del Sol was replaced right away, and the rest took years to tell the full time again.",
+      "fuente": "Wikipedia — Reloj de Gobernación; Diario del Viajero — Real Casa de Correos"
+    },
+    {
+      "n": 3,
+      "titulo": "The bear that isn't on the coat of arms",
+      "llegada": "Walk to the north-east corner of Puerta del Sol, where Calle de Alcalá begins. There, on a granite pedestal, you'll find the Bear and the Strawberry Tree: Madrid's most photographed symbol.",
+      "enigma": "Think back to the coat of arms you just saw at Kilometre Zero, or the one on any Madrid lamppost: the traditional heraldic bear stands on all four legs, stretching sideways towards the tree. This bronze statue, put up in 1967, doesn't copy that pose. The bear is reared up on its hind legs, front paws resting on the strawberry tree's trunk, reaching for the fruit with its snout. Look closely at the actual sculpture, not the coat of arms: how many paws does the bear have touching the ground (or the pedestal)?",
+      "respuestas": ["2", "two"],
+      "pistas": [
+        "The bear isn't on all fours: it has reared up, as if about to climb the tree.",
+        "Its front paws are otherwise occupied, pressed against the tree trunk.",
+        "It touches the ground with two paws, the back ones."
+      ],
+      "historia": "Sculptor Antonio Navarro Santafé, born in Villena, took inspiration from a real brown bear living at the Retiro's old zoo to create this far more realistic version than medieval heraldry ever managed. The piece weighs around 20 tonnes between the pedestal's granite — a stepped block of it — and the bronze of the sculptural group, standing 4 metres tall in total.",
+      "fuente": "Wikipedia — Estatua del Oso y el Madroño; Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano"
+    },
+    {
+      "n": 4,
+      "titulo": "The horseman with three dates at his feet",
+      "llegada": "Head down Calle Mayor into Plaza Mayor and go straight to the centre, where a king on horseback dominates the square from a stone pedestal.",
+      "enigma": "This is Felipe III: the statue was begun by Giambologna and finished by Pietro Tacca in Florence, a gift from the Medici, and it arrived here in 1848 by order of Isabel II. The pedestal itself carries a long inscription that tells the whole story, dates included. Read it in full: it mentions the year Felipe III brought the royal court back to Madrid, and the year that same king ordered this very Plaza Mayor to be built. According to the inscription, what year did Felipe III order this square built?",
+      "respuestas": ["1619"],
+      "pistas": [
+        "The inscription mentions two years from Felipe III's reign before it gets to 1848, the year of the move: one is when the court returned, the other when the square was built.",
+        "Look for the phrase about building \"this Plaza Mayor\" and check the number right before it.",
+        "It was 1619."
+      ],
+      "historia": "The equestrian statue weighs over five tonnes of bronze and spent nearly two and a half centuries in the gardens of the Casa de Campo before moving here. On the horse's girth, Pietro Tacca left his signature in Latin: PETRVS TACCA F. FLORENTIAE. The king holds a commander's baton in his right hand and wears the Order of the Golden Fleece at his chest, while the horse raises its left foreleg in mid-stride.",
+      "fuente": "Wikipedia — Estatua ecuestre de Felipe III; Comunidad de Madrid — Patrimonio Cultural"
+    },
+    {
+      "n": 5,
+      "titulo": "The goddess hidden among a hundred characters",
+      "llegada": "Turn towards the north side of the square, to the most decorated façade of them all: the Casa de la Panadería, covered in colourful paintings from top to bottom.",
+      "enigma": "The frescoes you see were completed in 1992 — painted by Carlos Franco, when Madrid was European Capital of Culture — and they draw on classical mythology and the signs of the zodiac. Among gods, invented creatures and symbols, one goddess is the star of the whole programme, her wedding to a figure called \"Acuático\" forming the storyline that runs across the façade. She's the same goddess who has her own, far more famous fountain in another square in Madrid — with lions pulling her chariot. Find her among the painted figures. What's her name?",
+      "respuestas": ["cibeles", "cybele"],
+      "pistas": [
+        "She's a Roman goddess linked to fertility and the earth, not a male god like Bacchus or Cupid, who also appear on the façade.",
+        "She gives her name to a very famous square and fountain in Madrid, with two lions pulling a chariot.",
+        "It's Cibeles."
+      ],
+      "historia": "Other frescoes came before these: 17th-century ones by Claudio Coello and José Jiménez Donoso, and a 1914 version by Enrique Guijo that couldn't withstand the pollution or the passing years. Carlos Franco won the competition in the late 1980s, but the finished work wasn't unveiled until 1992. Alongside the classical gods, he invented characters that exist in no mythology at all, with names as distinctly Madrid as Panaderico or Mono-Pez (\"Monkey-Fish\"), scattered without a second thought among the deities and zodiac signs across the whole façade.",
+      "fuente": "Turismo Madrid (esmadrid.com) — Casa de la Panadería; Ferrovial — Historia de la Casa de la Panadería"
+    },
+    {
+      "n": 6,
+      "titulo": "The ten doors nobody counts",
+      "llegada": "Walk the square's arcades — the covered walkways beneath the buildings — without leaving the square just yet. Look at every gap that leads out to a different street.",
+      "enigma": "Plaza Mayor is an almost perfect rectangle, but it isn't a closed one: it connects to the rest of Madrid through several different points, some through grand stone arches (like the ones on Calle de Toledo or Calle de Ciudad Rodrigo) and others much more discreet, almost hidden beneath the arcades — like the famous Arco de Cuchilleros, which you can barely even see from inside the square. Count every access point around the square, large and small. How many are there in total?",
+      "respuestas": ["10", "ten"],
+      "pistas": [
+        "There are more than six: besides the grand arches there are other, narrower ones that are easy to miss.",
+        "Among them are Cuchilleros, Toledo, Ciudad Rodrigo, Sal, Gerona, Zaragoza, Botoneras, Felipe III, Siete de Julio, and the Arco de Triunfo.",
+        "There are ten access points in total."
+      ],
+      "historia": "The square you see today, three storeys tall, is lower than the original 17th-century one, which reached five storeys before a series of fires — the last in 1790 — forced it to be rebuilt. Its façades are estimated to hold 237 balconies facing the square, from which royalty once watched bullfights, autos-da-fé and coronations without ever needing to come down to street level.",
+      "fuente": "Wikipedia — Plaza Mayor de Madrid; Cosas de Madrid — Los arcos de la Plaza Mayor"
+    },
+    {
+      "n": 7,
+      "titulo": "The façade facing the wrong street",
+      "llegada": "Walk from Plaza Mayor to Plaza de la Villa, about five minutes through Calle Mayor and its side streets. When you arrive, don't just look at the side facing the square: go around the Casa de Cisneros building to Calle Sacramento, at the back.",
+      "enigma": "The façade you see from Plaza de la Villa is actually an early-20th-century addition. The real one, from 1537, was commissioned by Benito Jiménez de Cisneros — nephew of Cardinal Cisneros — and it faces this narrow street, almost always empty of tourists: a stone arch with a richly carved wooden door, and above it, a Plateresque balcony flanked by carved columns. Count the columns flanking that balcony.",
+      "respuestas": ["2", "two"],
+      "pistas": [
+        "Look just above the arch of the main door, on Calle Sacramento.",
+        "The balcony is flanked symmetrically, one column on each side.",
+        "There are two columns."
+      ],
+      "historia": "For centuries, layers of plaster hid this façade's original stonework. It wasn't until the early-20th-century restoration, once the City Council had bought the building, that its original Plateresque look was recovered — and the elevated stone passageway that still connects Casa de Cisneros to Casa de la Villa, the old town hall, across the street, was built.",
+      "fuente": "Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano, Casa de Cisneros; Rutas con Historia"
+    },
+    {
+      "n": 8,
+      "titulo": "The Venus nobody looks at twice",
+      "llegada": "Head back towards Puerta del Sol along Calle Mayor and Calle Arenal. Right at the corner where Arenal meets the square, on a limestone column with a circular bench around it, stands a white female statue that almost nobody photographs.",
+      "enigma": "This is the Mariblanca: a Venus carved in Florence in the 17th century, who presided over a Baroque fountain in this very Puerta del Sol for two centuries, before being moved from square to square and finally ending up in a museum. What you see today on the column is a stone replica. On the pedestal, beneath Madrid's coat of arms — the same bear and strawberry tree you already know — there's a date carved in Roman numerals: MCMLXXXVI. What year does that correspond to?",
+      "respuestas": ["1986"],
+      "pistas": [
+        "MCMLXXXVI breaks down into M (1000) + CM (900) + LXXX (80) + VI (6).",
+        "Add 1000 + 900 + 80 + 6.",
+        "The year is 1986."
+      ],
+      "historia": "The original, carved by Ludovico Turqui and brought from Florence in 1625, was for generations the best-loved statue in Puerta del Sol, until it was removed in 1838 due to the poor state of the fountain that held it. It passed through municipal storage, Plaza de las Descalzas, the Retiro and Paseo de Recoletos before finally landing safely in the Museo de Historia de Madrid. This copy has stood here, at various points around the square, since 1986 — quietly keeping watch, almost unnoticed, over the very crossroads where you began this route.",
+      "fuente": "Ayuntamiento de Madrid — Patrimonio cultural y paisaje urbano, Mariblanca (réplica); Mirador Madrid"
+    }
+  ],
+  "final": {
+    "titulo": "You've looked where no one looks",
+    "texto": "A griffin forgotten on a plaque everyone walks over. A ball that only moves once a year. A bear that doesn't pose the way it does on the coats of arms. A king with three dates hidden at his feet. A goddess in disguise among a hundred painted figures. Ten doors in a square most people think has only four. A façade facing the wrong street. And a Venus who came back to Madrid without almost anyone recognising her. Puerta del Sol is said to be the busiest square in Spain; you're among the few who stopped to really look at it."
+  }
+}

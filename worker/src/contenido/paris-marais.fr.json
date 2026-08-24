@@ -1,0 +1,125 @@
+{
+  "rutaId": "paris-marais",
+  "idioma": "fr",
+  "titulo": "Les codes du Marais",
+  "intro": "Le Marais est le quartier de Paris qu'Haussmann n'a jamais eu le temps de démolir au XIXe siècle : c'est pourquoi on peut encore y marcher dans des rues médiévales, traverser un passage secret de 1624, et lire, sur une façade quelconque, la mémoire de ceux qui y ont vécu et sont morts. Comptez environ 2 km, presque tout à plat.",
+  "puntoPartida": "Parvis Notre-Dame — Place Jean-Paul II",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "Le point d'où l'on mesure la France",
+      "llegada": "Debout sur le parvis, face à Notre-Dame, cherchez au sol, quelques mètres devant le portail central, un petit médaillon octogonal en bronze.",
+      "enigma": "Depuis 1924, ce médaillon marque le Point Zéro des routes de France : le point officiel à partir duquel se mesurent toutes les distances routières du pays. En son centre est gravé un symbole également utilisé par les marins et les cartographes. Quel est ce symbole ?",
+      "respuestas": ["rose des vents", "boussole"],
+      "pistas": [
+        "Il a des pointes orientées dans différentes directions, comme sur une carte ancienne.",
+        "C'est le même type de symbole que les marins utilisent pour s'orienter.",
+        "C'est une rose des vents."
+      ],
+      "historia": "Quand quelqu'un dit en France qu'il habite « à 300 km de Paris », c'est littéralement depuis cette pierre que se compte cette distance. La tradition veut que la fouler porte chance — d'où son centre si poli, malgré le bronze.",
+      "fuente": "Ville de Paris ; Wikipédia — Point zéro des routes de France"
+    },
+    {
+      "n": 2,
+      "titulo": "Les rois qui n'étaient pas rois de France",
+      "llegada": "Levez les yeux vers la façade de Notre-Dame, vers la frise de statues juste sous la galerie portant la grande rosace circulaire.",
+      "enigma": "Ce sont 28 statues d'environ 3,5 mètres chacune, la Galerie des Rois. Pendant la Révolution française, une foule les décapita en croyant qu'elles représentaient les rois de France — ce sont en réalité les rois bibliques de Juda, ancêtres du Christ. Comptez combien de statues forme la galerie complète.",
+      "respuestas": ["28", "vingt-huit"],
+      "pistas": [
+        "Elles sont toutes alignées horizontalement, juste sous la grande rosace circulaire.",
+        "C'est un nombre entre 25 et 30.",
+        "Il y a 28 rois."
+      ],
+      "historia": "Les têtes originales, coupées en 1793, furent crues perdues pendant 184 ans, jusqu'à ce qu'elles réapparaissent par hasard en 1977 lors de travaux au 20 bis rue de la Chaussée-d'Antin. Elles sont aujourd'hui exposées au musée de Cluny ; celles que vous voyez sur la façade sont une recréation du XIXe siècle par Viollet-le-Duc, restaurée à nouveau après l'incendie de 2019 et rouverte en décembre 2024.",
+      "fuente": "Cathédrale Notre-Dame de Paris ; Musée de Cluny"
+    },
+    {
+      "n": 3,
+      "titulo": "La cicatrice d'une révolution",
+      "llegada": "Traversez vers la rive droite et marchez jusqu'à la rue du Figuier, où vous trouverez une façade gothique avec deux tourelles de pierre en encorbellement — l'Hôtel de Sens, aujourd'hui bibliothèque Forney.",
+      "enigma": "C'est l'un des rares édifices civils médiévaux encore debout à Paris (construit entre 1475 et 1519). Mais ce que vous cherchez n'est pas médiéval : près d'une des tourelles, quelque chose de métallique et de sphérique est incrusté dans la pierre elle-même, souvenir d'un véritable tir. De quelle année date la révolution qui l'a tiré ?",
+      "respuestas": ["1830"],
+      "pistas": [
+        "Cherchez près de la base de la tourelle d'angle, à hauteur des yeux.",
+        "C'est un boulet de canon. La révolution a instauré la monarchie de Juillet.",
+        "Il date de 1830, les Trois Glorieuses."
+      ],
+      "historia": "L'Hôtel de Sens fut résidence d'archevêques et, brièvement, de la reine Margot. Il a survécu à cinq siècles d'histoire parisienne — et porte, littéralement gravée, celle de juillet 1830, quand les Parisiens reprirent une nouvelle fois les armes.",
+      "fuente": "Bibliothèque Forney ; Ville de Paris — Hôtel de Sens"
+    },
+    {
+      "n": 4,
+      "titulo": "Le mouton sur la façade",
+      "llegada": "Continuez jusqu'à la rue François-Miron. Aux numéros 11 et 13, vous verrez deux maisons à pans de bois apparents, bien plus étroites et anciennes que leurs voisines.",
+      "enigma": "Avant l'existence des numéros de rue, les maisons étaient identifiées par un nom et un symbole sculpté sur la façade. La maison du numéro 13 est connue sous le nom « à l'enseigne du Mouton ». Cherchez l'animal sculpté qui lui donne son nom.",
+      "respuestas": ["mouton", "brebis", "agneau"],
+      "pistas": [
+        "Il se trouve sur la façade du numéro 13, pas du 11.",
+        "C'est un animal de ferme à la laine épaisse.",
+        "C'est un mouton."
+      ],
+      "historia": "Celle du numéro 11 s'appelle « à l'enseigne du Faucheur ». Les deux façades sont restées cachées sous une couche de plâtre du XVIIe siècle jusqu'à leur restauration en 1967 — le colombage que vous voyez aujourd'hui est resté caché près de 300 ans.",
+      "fuente": "Ville de Paris — Le Marais ; Association Marais-Louvre"
+    },
+    {
+      "n": 5,
+      "titulo": "165 noms qu'on ne doit pas oublier",
+      "llegada": "Marchez jusqu'à la rue des Hospitalières-Saint-Gervais, tout près de la rue des Rosiers, cœur du quartier juif du Marais depuis le XIIIe siècle. Cherchez la façade de l'ancienne école.",
+      "enigma": "Sur le mur se trouve une plaque qui commence ainsi : « ... enfants juifs de cette école déportés en Allemagne durant la Seconde Guerre mondiale furent exterminés dans les camps nazis. N'oubliez pas ! ». Quel nombre manque au début de la phrase ?",
+      "respuestas": ["165"],
+      "pistas": [
+        "Le nombre est gravé tout au début de la plaque, avant « enfants juifs ».",
+        "C'est un nombre à trois chiffres, entre 100 et 200.",
+        "Ils étaient 165 enfants."
+      ],
+      "historia": "Le directeur de cette école, Joseph Migneret, cacha et sauva des dizaines d'élèves juifs au péril de sa propre vie ; il est aujourd'hui reconnu Juste parmi les Nations. À quelques pas, le Jardin des Rosiers-Joseph-Migneret porte son nom et rappelle aussi les 101 plus jeunes enfants déportés depuis cet arrondissement.",
+      "fuente": "Ville de Paris — plaques commémoratives du 4e arrondissement ; Mémorial de la Shoah"
+    },
+    {
+      "n": 6,
+      "titulo": "Les coquillages d'un romancier",
+      "llegada": "Allez vers la rue Saint-Antoine et entrez dans l'église Saint-Paul-Saint-Louis. Juste à l'entrée, de part et d'autre, se trouvent deux bénitiers d'une forme inhabituelle pour de la pierre taillée.",
+      "enigma": "En 1843, un habitant de la Place des Vosges toute proche fit don de ces deux pièces à la paroisse à l'occasion du mariage de sa fille Léopoldine. Ce ne sont pas des pierres : ce sont des coquillages géants venus des Caraïbes, montés sur bronze doré. Combien y en a-t-il, à l'entrée de l'église ?",
+      "respuestas": ["2", "deux"],
+      "pistas": [
+        "Ils sont un de chaque côté de la porte principale, symétriques.",
+        "Ce n'est pas un grand nombre.",
+        "Il y a deux coquillages."
+      ],
+      "historia": "Le voisin généreux, c'était Victor Hugo, qui habitait à moins de dix minutes à pied, place des Vosges. Des années plus tard, il utiliserait cette même église comme décor du mariage de Cosette et Marius dans Les Misérables — une fiction bâtie, littéralement, sur un lieu où lui-même avait vécu un vrai mariage.",
+      "fuente": "Paroisse Saint-Paul-Saint-Louis ; classés monument historique en 1905"
+    },
+    {
+      "n": 7,
+      "titulo": "Le passage des deux gardiennes",
+      "llegada": "Traversez la rue Saint-Antoine jusqu'au numéro 62, l'Hôtel de Sully. Entrez dans sa cour (accès libre en journée) et cherchez, au fond, le passage vers l'orangerie.",
+      "enigma": "Ce passage, construit en 1624, est un raccourci secret vers la Place des Vosges qu'utilisait la noblesse pour éviter de sortir dans la rue. Deux créatures de pierre, mi-femmes mi-lionnes, encadrent l'entrée du passage. Comment s'appellent ces créatures ?",
+      "respuestas": ["sphinx", "sphinges"],
+      "pistas": [
+        "Ce sont des figures de la mythologie égyptienne et grecque, pas chrétienne.",
+        "La plus célèbre de toutes garde les pyramides de Gizeh.",
+        "Ce sont des sphinx."
+      ],
+      "historia": "L'Hôtel de Sully fut acheté en 1634 par Maximilien de Béthune, duc de Sully et ministre des finances d'Henri IV. Traversez le passage entre les deux sphinx : de l'autre côté vous attend la place qui clôt ce parcours.",
+      "fuente": "Centre des Monuments Nationaux — Hôtel de Sully"
+    },
+    {
+      "n": 8,
+      "titulo": "Trente-six maisons identiques",
+      "llegada": "En traversant le passage de l'Hôtel de Sully, vous arrivez directement Place des Vosges, la plus ancienne place royale de Paris, inaugurée en 1612.",
+      "enigma": "Toute la place est formée de pavillons identiques en brique rouge et pierre claire, avec des arcades au rez-de-chaussée — même hauteur de toit, même largeur de façade, sur les quatre côtés. Comptez combien de pavillons forment la place entière.",
+      "respuestas": ["36", "trente-six"],
+      "pistas": [
+        "Il y a neuf pavillons sur chacun des quatre côtés de la place.",
+        "9 × 4 = ?",
+        "Il y a 36 pavillons."
+      ],
+      "historia": "Henri IV commanda cette place en 1605 pour les classes aisées ; il ne la vit jamais achevée, car il fut assassiné en 1610, et ce fut son fils Louis XIII qui l'inaugura en 1612, pour célébrer ses fiançailles avec Anne d'Autriche. Victor Hugo vécut au numéro 6 pendant 16 ans — le même homme qui, deux étapes plus tôt, fit don de deux coquillages géants à une église. Vous avez marché, sans le savoir, sur ses pas à travers la moitié du quartier.",
+      "fuente": "Centre des Monuments Nationaux — Place des Vosges ; Maison de Victor Hugo"
+    }
+  ],
+  "final": {
+    "titulo": "Vous avez décodé le Marais",
+    "texto": "Du point exact où l'on mesure toute la France jusqu'à la place où vécut Victor Hugo, en passant par un boulet de canon de 1830 et une plaque qui, sans crier, demande qu'on n'oublie pas. Le Marais a presque entièrement survécu à Haussmann : vous savez maintenant aussi pourquoi il méritait de survivre."
+  }
+}

@@ -1,0 +1,125 @@
+{
+  "rutaId": "toulouse-capitole",
+  "idioma": "en",
+  "titulo": "The Cross of the Pink City",
+  "intro": "Toulouse calls itself the Ville Rose, the Pink City, after the brick that has covered nearly all its buildings for eight hundred years. This route crosses its historic centre: from the square where the old capitouls once governed to the basilica that kept relics for pilgrims bound for Santiago de Compostela, by way of a church shaped like a fortress and a convent with a stone palm tree on its ceiling. It's about 2.5 km, all flat, through the heart of the city.",
+  "puntoPartida": "Place du Capitole",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The cross that measures the year",
+      "llegada": "Standing in Place du Capitole, facing the Capitole's façade, look down at the ground: a few steps ahead, set into the paving, there's a large bronze medallion with a cross at its centre.",
+      "enigma": "This medallion, nearly 18 metres across and cast from 20 tonnes of bronze, was installed in 1995 by the Toulouse-born painter and sculptor Raymond Moretti. At its centre is an Occitan cross — the symbol of the old counts of Toulouse — surrounded by a ring bearing the twelve signs of the zodiac: Moretti wanted it to represent both the twelve months of the year and the twelve hours of the day. Look just at the cross in the middle: count how many points it has in total.",
+      "respuestas": ["12", "twelve"],
+      "pistas": [
+        "The cross's four arms are identical: count the points on just one, then multiply by four.",
+        "Each arm ends in three rounded points, like a three-leaf clover.",
+        "It has 12 points in total."
+      ],
+      "historia": "Moretti also painted the large frescoes that decorate the arcaded gallery along the side of the square, telling the story of Toulouse. The Occitan cross under your feet is far older than this medallion: it already appears on the seal of Count Raymond VI in 1211, and over time it became the symbol of the whole region now known as Occitania.",
+      "fuente": "Mairie de Toulouse; Toulouse Tourisme — Place du Capitole"
+    },
+    {
+      "n": 2,
+      "titulo": "The eight capitouls in marble",
+      "llegada": "Turn to face the great pink-brick-and-white-stone façade that gives the square its name. On the main floor, right above the front door and under the word CAPITOLIUM, a row of columns holds up the triangular pediment.",
+      "enigma": "Those columns, carved from reddish marble brought from Caunes-Minervois, aren't just decoration: architect Guillaume Cammas designed them in the 18th century to represent the eight original capitouls, the magistrates who governed Toulouse before the Revolution, back when the city was divided into eight districts, or \"capitoulats\". Count how many columns make up the façade.",
+      "respuestas": ["8", "eight"],
+      "pistas": [
+        "They run along the façade at first-floor level, between the central balcony and the pediment.",
+        "It's the same number of districts medieval Toulouse was divided into.",
+        "There are 8 columns."
+      ],
+      "historia": "The word CAPITOLIUM, carved in gold letters above the columns, is actually a bit of historical sleight of hand: the name \"Capitole\" doesn't come from Rome's Capitoline Hill at all, but from \"capitouls\", the medieval consuls whose assembly was called capitulum (\"chapter\") in Latin. In 1522, a city clerk played on the resemblance between the two words to give Toulouse a Roman pedigree it never really had — useful, at the time, for defending certain privileges against the king.",
+      "fuente": "Le Journal Toulousain; Wikipédia — Capitole de Toulouse"
+    },
+    {
+      "n": 3,
+      "titulo": "A church shaped like a fortress",
+      "llegada": "Leave the square via Rue du Taur, in the north-west corner. Less than ten minutes' walk on, without crossing any other square, you'll find on your right a solid red-brick façade that cuts across the street like a wall, flanked by two turrets and topped with battlements: this is the church of Notre-Dame du Taur.",
+      "enigma": "This church has no separate bell tower: the façade itself, 42 metres high, doubles as one. It's what's known as a clocher-mur (a \"wall-belfry\"), built entirely of brick with not a single stone in sight, and it became the model copied by dozens of village churches across the region. Count how many arched openings — the gaps the bells show through — there are in total, spread across two levels.",
+      "respuestas": ["6", "six"],
+      "pistas": [
+        "There are the same number of openings on the lower level as on the upper one.",
+        "It's three arches per level, over two levels.",
+        "There are 6 openings in total."
+      ],
+      "historia": "The name \"du Taur\" (\"of the bull\") recalls a legend far older than this 14th-century building: that of Saturninus, Toulouse's first bishop, who around the year 250 refused to sacrifice a bull to Jupiter. The pagan priests tied him by the feet to the animal itself, which dragged him along this very street — the old Roman cardo — to this spot, where pious women buried him before his remains were later moved to the basilica you're about to visit.",
+      "fuente": "Wikipédia — Église Notre-Dame du Taur; Basilique Saint-Sernin de Toulouse (official site)"
+    },
+    {
+      "n": 4,
+      "titulo": "The tower that changes its mind",
+      "llegada": "Continue along Rue du Taur to Place Saint-Sernin. There stands the basilica of the same name, Europe's largest Romanesque church still standing almost intact. Step back a little to take in the whole of the octagonal bell tower crowning the crossing, 65 metres tall.",
+      "enigma": "Look at the tiers of arcades narrowing as they rise. The lower ones have rounded, round-headed arches; but from a certain height up, the style changes abruptly and the arches become pointed, shaped like a bishop's mitre — a sign that those tiers were added almost two centuries later, well into the Gothic period. Count how many tiers of arcades the bell tower has in total, from bottom to top, not counting the final spire.",
+      "respuestas": ["5", "five"],
+      "pistas": [
+        "Three of those tiers are Romanesque, with rounded arches; the other two are Gothic, with pointed ones.",
+        "It's an odd number, between 3 and 7.",
+        "There are 5 tiers."
+      ],
+      "historia": "Construction of the basilica began around 1080 to house Saturninus's relics, and the bell tower went up in stages: the three Romanesque tiers date from the 12th century, the two Gothic ones from the second half of the 13th, and the spire was added on top in 1478. This tower went on to become the model copied, for centuries afterwards, by nearly every brick bell tower in Languedoc.",
+      "fuente": "Wikipédia — Basilique Saint-Sernin de Toulouse; Centre des monuments nationaux"
+    },
+    {
+      "n": 5,
+      "titulo": "Twelve witnesses in stone",
+      "llegada": "Walk around the basilica to its south side (on your right if you're facing the west front) until you find a smaller doorway, far more richly decorated than the others, crowned by a large carved marble tympanum: this is the Porte Miégeville, the door pilgrims bound for Santiago de Compostela used from the 12th century onward.",
+      "enigma": "In the tympanum, Christ ascends to heaven, held up by angels. Just below, on the lintel, twelve apostles stand in a row, feet on the ground, eyes turned upward. One of them is easy to pick out, because he's holding something quite unusual for a 900-year-old carving: an enormous set of keys. Which apostle is it?",
+      "respuestas": ["saint peter", "st peter", "peter", "simon peter"],
+      "pistas": [
+        "He's the apostle to whom, according to the Gospels, Christ gave the keys to the Kingdom of Heaven.",
+        "Look for the figure on the lintel whose keys are too large to miss.",
+        "It's Saint Peter."
+      ],
+      "historia": "This doorway was no ordinary decoration: it told pilgrims that, inside, Toulouse held one of the largest relic collections in France, including remains of as many as six apostles. Since 1354 it has also kept the head and body tradition attributes to Saint James the Great — the very saint whose tomb in Compostela every one of these pilgrims was walking toward.",
+      "fuente": "Wikipédia — Porte Miègeville; Basilique Saint-Sernin de Toulouse (official site)"
+    },
+    {
+      "n": 6,
+      "titulo": "The stone palm tree",
+      "llegada": "Head back toward the centre along Rue Lakanal to the Couvent des Jacobins, the great brick Dominican convent. Go into the church — the nave is free to enter — and walk to the far end, toward the apse.",
+      "enigma": "Look up there and you'll see why this vault is known as \"the palm tree\": a single central column, far slimmer than the rest, fans out toward the ceiling like the fronds of a stone palm. Count how many ribs — the stone veins that spread out from that point — spring from the central column.",
+      "respuestas": ["22", "twenty-two", "twenty two"],
+      "pistas": [
+        "All the ribs spring from the same point, high on the column, and spread across the whole ceiling of the apse.",
+        "It's a number between 20 and 25.",
+        "There are 22 ribs."
+      ],
+      "historia": "Since 1369, the relics of Saint Thomas Aquinas, the great Dominican theologian, have rested beneath this church's altar, given to Toulouse by Pope Urban V. The Dominican order, founded right here to preach against the Cathar heresy, wanted a vault as ambitious as its own theology: centuries on, this 14th-century \"palm tree\" is still one of the most admired in all of southern French Gothic.",
+      "fuente": "Couvent des Jacobins de Toulouse (official site); Wikipédia"
+    },
+    {
+      "n": 7,
+      "titulo": "The fountain that shouldn't be here",
+      "llegada": "Head down to Place Saint-Georges, one of Toulouse's oldest squares, recorded as far back as the 12th century and today ringed with café terraces. At its centre stands a cast-iron fountain, painted a distinctive dark green.",
+      "enigma": "It's a Wallace fountain, the very same model British philanthropist Richard Wallace gave to Paris in the 1870s to provide free access to drinking water. Very few survive today outside the French capital. Four cast-iron female figures, joined back to back, hold up the dome with their arms and heads. Count how many caryatids support this fountain.",
+      "respuestas": ["4", "four"],
+      "pistas": [
+        "They stand back to back, each one facing a different side of the square.",
+        "It's the same number as the seasons of the year.",
+        "There are 4 caryatids."
+      ],
+      "historia": "The four figures represent Kindness, Simplicity, Charity and Sobriety, and they appear identically on every Wallace fountain in the world. This square once served a far less gentle purpose: between 1739 and 1780, more than 170 people were executed here, most famously Jean Calas, put to death in 1762 for a crime later shown — thanks largely to Voltaire — that he hadn't committed.",
+      "fuente": "e-monumen.net — Fontaine Wallace, Place Saint-Georges; Wikipédia — Place Saint-Georges (Toulouse)"
+    },
+    {
+      "n": 8,
+      "titulo": "The sole survivor",
+      "llegada": "Return to Place du Capitole and walk around the building along Rue Lafayette to Square Charles-de-Gaulle, the garden right behind the Capitole. There, standing alone on the lawn, is a brick tower quite unlike anything else you've seen on this route: the Donjon du Capitole.",
+      "enigma": "Built in 1525 to store the city's archives and gunpowder, this keep is the only piece that survives from the old medieval Capitole: everything else was torn down in the 18th century to build the façade this route started at. In the 19th century, architect Eugène Viollet-le-Duc — the same one who restored Notre-Dame in Paris — added a small belfry on top. You've spent this whole route surrounded by pink brick, but that 19th-century addition is made of a completely different material, a very dark grey that clashes with the rest of the city. What material is it?",
+      "respuestas": ["slate"],
+      "pistas": [
+        "It's the same material that covers most rooftops in the north of France — very rare to see in Toulouse.",
+        "It's a dark, almost black rock, cut into thin sheets to cover roofs and spires.",
+        "It's slate."
+      ],
+      "historia": "This keep turned 500 years old in 2025. If you look for Toulouse's coat of arms, which you'll see repeated on flags and official buildings all over the centre, you'll spot the same twelve-pointed Occitan cross you stood on at the first stop, alongside a lamb, the long-vanished Château Narbonnais of the old counts, and the outline of a twin-towered basilica: the very one you visited today.",
+      "fuente": "Toulouse Tourisme — Le Donjon du Capitole; Archives municipales de Toulouse"
+    }
+  ],
+  "final": {
+    "titulo": "You've cracked the Pink City",
+    "texto": "You started by counting the twelve points of a bronze cross, and you end by finding that same cross again — alongside a lamb, a vanished castle and a twin-towered basilica — on the coat of arms Toulouse has used since the 13th century. Along the way you've seen a saint dragged by a bull, a tower that changes its mind halfway up, a palm tree that's actually made of stone, and a Parisian fountain stranded hundreds of kilometres from home. The Ville Rose has no secrets left from you now — just brick, plenty of it, and a cross that tells the whole story."
+  }
+}

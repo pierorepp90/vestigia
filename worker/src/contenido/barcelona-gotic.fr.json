@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-gotic",
+  "idioma": "fr",
+  "titulo": "Le secret du quartier gothique",
+  "intro": "Le Barri Gòtic n'est pas une carte postale médiévale figée dans le temps : c'est un collage de deux mille ans, avec des couches romaines, juives, gothiques et du XXe siècle superposées sur les mêmes pierres. Vous allez marcher environ 1,5 km et il faudra regarder en haut, en bas et de près. Personne ne vous demandera votre téléphone ni un cadenas : la seule clé, c'est l'attention.",
+  "puntoPartida": "Plaça Nova, face à la façade de la cathédrale de Barcelone",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La porte qui n'existe plus",
+      "llegada": "Placez-vous sur la Plaça Nova, face à la façade de la cathédrale. Sur votre gauche, accolée à la Casa de l'Ardiaca, se trouve une tour ronde en pierre sombre, plus basse et plus ancienne que tout ce qui l'entoure.",
+      "enigma": "Cette tour et sa jumelle encadraient une porte romaine de la ville de Barcino. En 1958, on a reconstruit une partie de l'aqueduc qui y menait : observez les arcs de pierre claire, plus récents, appuyés contre la tour. Comptez combien d'arcs complets forment cette reconstruction.",
+      "respuestas": ["2", "deux"],
+      "pistas": [
+        "Les arcs reconstruits sont d'une pierre nettement plus claire que la tour romaine d'origine.",
+        "Ils sont empilés en haut de la tour de gauche, pas au niveau de la rue.",
+        "Il y a deux arcs."
+      ],
+      "historia": "Sous vos pieds se trouvait l'une des quatre portes de Barcino, la colonie romaine fondée à l'époque d'Auguste. Le cardo (la rue principale romaine) partait d'ici et s'appelle aujourd'hui carrer del Bisbe : la première rue que vous allez parcourir est, littéralement, une rue romaine. Un détail pour déstabiliser quiconque croit la cathédrale purement médiévale : sa façade principale, celle qui est devant vous, ne date pas du XVe siècle comme le reste du bâtiment, mais de 1913 — une fantaisie néogothique payée par le banquier Manuel Girona.",
+      "fuente": "MUHBA (Museu d'Història de Barcelona) ; Ajuntament de Barcelona"
+    },
+    {
+      "n": 2,
+      "titulo": "La tortue et les cinq hirondelles",
+      "llegada": "Tournez-vous vers la façade de la Casa de l'Ardiaca, la même tour qu'avant : près de sa porte se trouve une boîte aux lettres en bronze moderniste, à hauteur de taille.",
+      "enigma": "Cette boîte aux lettres fut dessinée par Lluís Domènech i Montaner en 1902 pour l'Ordre des avocats : une tortue lente récupère les lettres que des oiseaux rapides laissent tomber, une plaisanterie sur la lenteur de la justice. Comptez combien de ces oiseaux — des hirondelles — sont sculptés sur la boîte aux lettres.",
+      "respuestas": ["5", "cinq"],
+      "pistas": [
+        "Cherchez des formes d'ailes en relief autour de la fente, pas seulement au-dessus.",
+        "Il y en a plus de trois et moins de sept.",
+        "Il y a cinq hirondelles."
+      ],
+      "historia": "La tortue représente la lenteur de la justice ; les hirondelles, sa promesse de rapidité. Depuis 1921, ce bâtiment abrite les Archives historiques de la ville — d'une certaine façon, la plaisanterie moderniste est donc toujours vivante : c'est ici que se conserve la mémoire écrite de Barcelone.",
+      "fuente": "Arxiu Municipal de Barcelona ; Ajuntament de Barcelona"
+    },
+    {
+      "n": 3,
+      "titulo": "Ce qui pend sous le pont",
+      "llegada": "Marchez le long de la carrer del Bisbe (l'ancien cardo romain) jusqu'au pont néogothique qui enjambe la rue en hauteur, orné d'une dentelle de pierre ajourée et de gargouilles.",
+      "enigma": "Ce pont semble médiéval, mais il date de 1928, œuvre de l'architecte Joan Rubió i Bellver. Sous l'arc central, face à la rue, se trouve un petit crâne de pierre transpercé par un objet tranchant. Quel est cet objet ? Répondez en un seul mot.",
+      "respuestas": ["dague", "poignard"],
+      "pistas": [
+        "Il faut regarder tout droit en l'air, exactement au centre de l'arc du pont, pas sur les côtés.",
+        "C'est une arme blanche courte, à un ou deux tranchants.",
+        "C'est une dague plantée dans le crâne."
+      ],
+      "historia": "Rubió i Bellver est mort en 1952 sans jamais expliquer pourquoi il avait placé ce crâne là. La légende urbaine raconte que si quelqu'un retirait un jour la dague, le pont — et Barcelone avec lui — s'effondrerait. Une autre version, plus douce, dit que le toucher en faisant un vœu le réalise. Aucune des deux n'est documentée : c'est simplement le mystère que Rubió a emporté dans sa tombe.",
+      "fuente": "Ajuntament de Barcelona ; chroniques locales sur le Pont del Bisbe"
+    },
+    {
+      "n": 4,
+      "titulo": "Le saint qui ne perd jamais",
+      "llegada": "Continuez jusqu'à la Plaça de Sant Jaume, centre civique de Barcelone depuis l'époque romaine : d'un côté, l'Ajuntament (Casa de la Ciutat) ; de l'autre, le Palau de la Generalitat.",
+      "enigma": "Au-dessus de la porte principale du Palau de la Generalitat, porté par un cavalier, se trouve une grande sculpture de pierre. Le cavalier, c'est Sant Jordi (saint Georges). Quelle créature gît vaincue sous sa lance ? Un seul mot.",
+      "respuestas": ["dragon"],
+      "pistas": [
+        "Regardez juste au-dessus du portail de style Renaissance, pas les fenêtres latérales.",
+        "C'est la même créature que dans la légende associée à la fête du 23 avril.",
+        "C'est un dragon."
+      ],
+      "historia": "Cette façade, à l'allure italienne, date de 1596 — un siècle et demi après le reste du Palau, qui est gothique. Sant Jordi est le saint patron de la Catalogne, et chaque 23 avril cette place se remplit d'étals de livres et de roses en son honneur : la fête que le monde connaîtra ensuite, via l'UNESCO, sous le nom de Journée mondiale du livre.",
+      "fuente": "Palau de la Generalitat de Catalunya ; Ajuntament de Barcelona"
+    },
+    {
+      "n": 5,
+      "titulo": "La lumière qui brûle pour toujours",
+      "llegada": "Depuis Sant Jaume, engagez-vous dans la carrer del Call et cherchez la carrer de Marlet. Sur la façade du numéro 1, à hauteur des yeux, se trouve une pierre gravée de caractères hébraïques et, à côté, une plaque avec sa traduction.",
+      "enigma": "Cette pierre faisait partie d'une fondation caritative juive médiévale — hôpital, école et refuge — dédiée par le rabbin Samuel Ha-Sardí. La plaque traduite dit que sa lumière brûle en permanence depuis une année précise. Quelle est cette année, dans le calendrier que nous utilisons aujourd'hui ?",
+      "respuestas": ["1314"],
+      "pistas": [
+        "Ce n'est pas l'année en chiffres hébraïques sur la pierre d'origine ; c'est l'année sur la plaque traduite, juste en dessous ou à côté.",
+        "C'est au XIVe siècle, le même siècle où le Call connut son plus grand rayonnement avant 1391.",
+        "L'année est 1314."
+      ],
+      "historia": "Le Call fut l'un des quartiers juifs les plus importants de la péninsule ibérique, du IXe siècle jusqu'en 1391, année où un pogrom anéantit la communauté. Cette inscription — aujourd'hui une copie, l'originale est protégée — est l'un des rares témoignages physiques qui restent de ce Barcelone-là, caché dans la façade d'une maison comme une autre.",
+      "fuente": "MUHBA — El Call ; Fidel Fita, étude épigraphique de l'inscription"
+    },
+    {
+      "n": 6,
+      "titulo": "Le temple qui a survécu",
+      "llegada": "Revenez vers Sant Jaume et prenez la carrer del Paradís. Au numéro 10, un portail discret (siège du Centre Excursionista de Catalunya) donne accès à une petite cour intérieure.",
+      "enigma": "Dans cette cour se conserve une partie d'un temple romain dédié à l'empereur Auguste — le plus haut édifice romain encore debout à Barcelone. Comptez les colonnes corinthiennes qui subsistent du temple d'origine.",
+      "respuestas": ["4", "quatre"],
+      "pistas": [
+        "Elles sont toutes regroupées dans le même coin de la cour, pas réparties dans tout l'espace.",
+        "Le temple d'origine en comptait six ; toutes n'ont pas survécu.",
+        "Il reste quatre colonnes."
+      ],
+      "historia": "Ces colonnes, hautes de près de 9 mètres, faisaient partie d'un temple de la fin du Ier siècle av. J.-C. dédié au culte impérial d'Auguste. Qu'elles soient encore debout, cachées dans la cour d'un club de montagne du XIXe siècle, résume bien Barcelone : l'histoire n'y est pas sous vitrine, elle fait partie des bâtiments où les gens entrent encore chaque jour.",
+      "fuente": "MUHBA — Temple d'August ; Centre Excursionista de Catalunya"
+    },
+    {
+      "n": 7,
+      "titulo": "La place qu'on n'a jamais restaurée",
+      "llegada": "Marchez jusqu'à la Plaça de Sant Felip Neri, une petite place recueillie près de la cathédrale. Observez la façade de l'église qui donne sur la place : elle est marquée de dizaines de petits cratères irréguliers.",
+      "enigma": "Ce sont des impacts d'éclats d'obus d'un bombardement de l'aviation italienne pendant la guerre civile, qui a tué 42 personnes — beaucoup d'entre elles des enfants. Ils n'ont jamais été restaurés. Cherchez la plaque commémorative sur la façade : en quelle année a-t-elle été posée ?",
+      "respuestas": ["2007"],
+      "pistas": [
+        "La plaque est un rectangle discret, à mi-hauteur, pas un grand monument.",
+        "Elle a été posée près de 70 ans après le bombardement, déjà au XXIe siècle.",
+        "Elle a été posée en 2007."
+      ],
+      "historia": "Le 30 janvier 1938, deux bombes sont tombées sur cette place en à peine une demi-heure. La façade de Sant Felip Neri porte encore ces blessures par choix délibéré : ne pas les restaurer est la façon dont Barcelone a choisi de ne jamais les oublier.",
+      "fuente": "Ajuntament de Barcelona — Programme de mémoire démocratique ; Wikipédia — Bombardements aériens de Barcelone en janvier 1938"
+    },
+    {
+      "n": 8,
+      "titulo": "Treize plumes blanches",
+      "llegada": "Retournez à la cathédrale et entrez dans son cloître gothique (accès près de la façade de la Plaça Nova ou par le Pla de la Seu). Au centre se trouve un jardin avec des palmiers, une fontaine et un petit bassin.",
+      "enigma": "Dans ce bassin vivent, depuis des siècles, des oies blanches. Leur nombre n'est pas anodin : il rappelle l'âge auquel sainte Eulalie, copatronne de Barcelone, fut martyrisée. Comptez les oies et donnez-nous son âge.",
+      "respuestas": ["13", "treize"],
+      "pistas": [
+        "Il se peut que l'une d'elles se cache à l'ombre ou parmi les plantes : faites tout le tour du bassin avant d'abandonner.",
+        "C'est un nombre à deux chiffres, entre 10 et 15.",
+        "Il y a 13 oies."
+      ],
+      "historia": "Selon la tradition, Eulalie subit treize supplices, un pour chaque année de sa vie, avant de mourir pendant les persécutions romaines du IVe siècle. Depuis, treize oies gardent son cloître — on dit aussi qu'elles effraient les intrus par leurs cris, comme le faisaient les oies du Capitole dans la Rome antique. Vous avez marché depuis une porte romaine jusqu'à une cour qui honore encore une fillette de treize ans : voilà, au fond, le secret du quartier gothique — il ne cesse jamais d'être habité par sa propre histoire.",
+      "fuente": "Cathédrale de Barcelone — Traditions ; Ajuntament de Barcelona"
+    }
+  ],
+  "final": {
+    "titulo": "Vous avez lu la ville",
+    "texto": "Huit étapes, deux mille ans : d'une porte romaine à une boîte aux lettres moderniste, d'une dague sans explication à un dragon de pierre, d'une plaque hébraïque de 1314 aux blessures jamais restaurées de 1938, jusqu'à treize oies qui veillent depuis des siècles sur un cloître. La prochaine fois que vous traverserez le Gòtic, ce ne sera plus seulement un joli décor — vous saurez le lire."
+  }
+}

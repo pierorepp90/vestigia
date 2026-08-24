@@ -1,0 +1,125 @@
+{
+  "rutaId": "florencia-centro",
+  "idioma": "es",
+  "titulo": "Los rivales de Florencia",
+  "intro": "Florencia se construyó a base de rivalidades: entre gremios, entre familias, entre arquitectos que competían por dejar su firma en la misma plaza. Cada cúpula, cada estatua y cada torre de este recorrido es, en el fondo, la respuesta a un desafío. Son unos 1,5 km por el corazón del Renacimiento.",
+  "puntoPartida": "Piazza del Duomo, frente a la fachada de Santa Maria del Fiore",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La fachada que finge ser medieval",
+      "llegada": "De pie en la Piazza del Duomo, mirad la fachada principal de la catedral: mármoles blancos, verdes y rosados formando un dibujo geométrico.",
+      "enigma": "Esta fachada parece medieval, a juego con el resto del edificio gótico — pero es en realidad del siglo XIX, terminada en 1887. Fijaos bien en el dibujo de mármol: ¿cuántos colores distintos de mármol forman el patrón geométrico de la fachada?",
+      "respuestas": ["3", "tres"],
+      "pistas": [
+        "Los colores son blanco, verde y uno más.",
+        "El tercer color recuerda al de una piedra semipreciosa rosada o rojiza.",
+        "Son tres colores: blanco, verde y rosa/rojo."
+      ],
+      "historia": "El diseño es de Emilio De Fabris, que murió en 1883 sin ver terminada su obra. La fachada gótica original de la catedral se dejó sin terminar en el siglo XVI y estuvo así, desnuda, durante casi 300 años, hasta que Florencia decidió completarla al gusto neogótico del siglo XIX — casi al mismo tiempo, por cierto, que Barcelona hacía lo mismo con su propia catedral.",
+      "fuente": "Opera di Santa Maria del Fiore; Comune di Firenze"
+    },
+    {
+      "n": 2,
+      "titulo": "La cúpula que se construyó sin andamios",
+      "llegada": "Rodead el edificio hasta poder ver bien la gran cúpula roja que corona la catedral.",
+      "enigma": "Filippo Brunelleschi construyó esta cúpula entre 1420 y 1436 sin usar el método habitual de la época para sostener el peso de la piedra mientras se construye. ¿Qué NO usó Brunelleschi para levantar la cúpula, a diferencia de casi cualquier otra construcción similar de su tiempo?",
+      "respuestas": ["andamios", "cimbra", "armazon de madera", "armazón de madera"],
+      "pistas": [
+        "Es una estructura temporal de madera que sostiene la piedra mientras se seca el mortero.",
+        "Sin ella, cualquier arquitecto de la época habría dicho que la cúpula era imposible.",
+        "No usó andamios (cimbra) de madera."
+      ],
+      "historia": "Brunelleschi inventó un sistema de anillos de ladrillo dispuestos en \"espina de pez\" que se sostenían a sí mismos mientras subían. Con sus 45,5 metros de diámetro interior, sigue siendo la mayor cúpula de fábrica sin armadura de acero jamás construida — un récord que lleva casi 600 años sin superarse.",
+      "fuente": "Opera di Santa Maria del Fiore — Cupola del Brunelleschi"
+    },
+    {
+      "n": 3,
+      "titulo": "La puerta que ganó el cielo",
+      "llegada": "Caminad hasta el Battistero di San Giovanni, el edificio octogonal frente a la catedral, y buscad la puerta este, la que mira hacia la fachada principal.",
+      "enigma": "Esta puerta de bronce dorado la hizo Lorenzo Ghiberti entre 1425 y 1452, y un artista aún más famoso le puso el apodo por el que se la conoce hoy. Contad los paneles cuadrados que forman la puerta, cada uno con una escena del Antiguo Testamento.",
+      "respuestas": ["10", "diez"],
+      "pistas": [
+        "Ghiberti había planeado muchos más paneles, pero los redujo a la mitad para poder hacerlos más grandes y detallados.",
+        "Son cinco filas de dos paneles cada una.",
+        "Son 10 paneles."
+      ],
+      "historia": "Fue Miguel Ángel quien, al verla, la bautizó como \"la Puerta del Paraíso\" — nombre que le ha quedado para siempre. Los paneles originales, dañados por una inundación en 1966, hoy están a salvo en el Museo dell'Opera del Duomo; los que veis en la puerta son copias exactas.",
+      "fuente": "Opera di Santa Maria del Fiore — Porta del Paradiso"
+    },
+    {
+      "n": 4,
+      "titulo": "La torre que no terminó quien la empezó",
+      "llegada": "Buscad ahora el alto campanario de mármol de colores junto a la catedral, el Campanile.",
+      "enigma": "Este campanario lleva el nombre del artista que lo diseñó y empezó a construirlo en 1334. Pero no fue él quien lo terminó: una epidemia de peste interrumpió las obras y otro arquitecto lo completó en 1359, tras continuar el trabajo de un tercer maestro intermedio. ¿Quién le da su nombre a la torre, aunque no llegara a verla acabada?",
+      "respuestas": ["giotto"],
+      "pistas": [
+        "Es más conocido como pintor que como arquitecto.",
+        "Es uno de los grandes nombres del arte italiano justo antes del Renacimiento.",
+        "La torre se llama Campanile di Giotto."
+      ],
+      "historia": "Giotto construyó solo los primeros niveles antes de morir en 1337. Andrea Pisano continuó la obra, y fue finalmente Francesco Talenti quien la remató en 1359. Los 414 escalones hasta la terraza suben 84,7 metros — y el revestimiento de mármol blanco, verde y rojo es el mismo que veréis repetido en la catedral y en el baptisterio: los tres edificios comparten un mismo lenguaje de piedra.",
+      "fuente": "Opera di Santa Maria del Fiore — Campanile di Giotto"
+    },
+    {
+      "n": 5,
+      "titulo": "El gigante que no es el original",
+      "llegada": "Caminad hasta la Piazza della Signoria y buscad la gran estatua de un hombre desnudo, de pie, justo frente a la entrada del Palazzo Vecchio.",
+      "enigma": "Esta estatua representa a David, la obra maestra de Miguel Ángel. Pero lo que tenéis delante no es el original: es una copia instalada en 1910. ¿Dónde está guardado el David auténtico, trasladado allí en 1873 para protegerlo?",
+      "respuestas": ["galleria dell accademia", "accademia", "galería de la academia"],
+      "pistas": [
+        "Es un museo, no otra plaza al aire libre.",
+        "Está dedicado en gran parte al propio Miguel Ángel.",
+        "El original está en la Galleria dell'Accademia."
+      ],
+      "historia": "Durante más de 350 años, el David original estuvo expuesto aquí mismo, a la intemperie, hasta que el deterioro obligó a trasladarlo bajo techo. Hoy hay incluso una tercera versión, en bronce, en el Piazzale Michelangelo — así que en Florencia hay, en total, tres Davides distintos repartidos por la ciudad.",
+      "fuente": "Musei del Bargello; Comune di Firenze"
+    },
+    {
+      "n": 6,
+      "titulo": "Las cuatro figuras a los pies del héroe",
+      "llegada": "Justo al lado, bajo los grandes arcos de la Loggia dei Lanzi, buscad la estatua de bronce de un hombre sosteniendo una cabeza cortada.",
+      "enigma": "Es el Perseo de Benvenuto Cellini (1545-1554), sujetando la cabeza de Medusa. En la base de mármol de la estatua hay varias figuras de bronce más pequeñas colocadas en nichos. Contad cuántas figuras hay en esa base.",
+      "respuestas": ["4", "cuatro"],
+      "pistas": [
+        "Son dioses y personajes de la mitología clásica, mucho más pequeños que el propio Perseo.",
+        "Es un número par, entre 2 y 6.",
+        "Son 4 figuras: Mercurio, Minerva, Júpiter y Dánae."
+      ],
+      "historia": "Cellini, orfebre antes que escultor, tardó nueve años en fundir esta pieza en bronce, con una técnica tan arriesgada que estuvo a punto de fracasar por completo la noche de la colada final. La Loggia entera funciona como una especie de museo al aire libre de esculturas — gratuito, abierto día y noche, en pleno centro de la ciudad.",
+      "fuente": "Musei Civici Fiorentini; Uffizi"
+    },
+    {
+      "n": 7,
+      "titulo": "Las dos formas de defender una ciudad",
+      "llegada": "Alzad la vista hacia la Torre de Arnolfo, la alta torre almenada del Palazzo Vecchio.",
+      "enigma": "Fijaos en las almenas que coronan la muralla y la torre: no todas tienen la misma forma. Unas son cuadradas y otras acaban en una punta doble, como una cola de golondrina — cada forma identificaba a un bando político rival en la Florencia medieval. ¿Cuántas formas distintas de almena podéis distinguir?",
+      "respuestas": ["2", "dos"],
+      "pistas": [
+        "Una es simple y rectangular; la otra tiene una muesca en forma de V en la punta.",
+        "Representaban a los dos bandos enfrentados: güelfos y gibelinos.",
+        "Hay dos formas distintas de almena."
+      ],
+      "historia": "Las almenas cuadradas (güelfas) y las de cola de golondrina (gibelinas) marcaban de un vistazo, en toda Italia, de qué bando político era un edificio: los güelfos apoyaban al Papa, los gibelinos al Sacro Emperador Romano. El gran reloj de la torre, de 1667, sigue funcionando hoy con su mecanismo original.",
+      "fuente": "Musei Civici Fiorentini — Palazzo Vecchio"
+    },
+    {
+      "n": 8,
+      "titulo": "El puente donde ya no huele a carne",
+      "llegada": "Terminad caminando hasta el Ponte Vecchio, el puente medieval cubierto de pequeñas tiendas, y buscad el busto de bronce a media altura del puente.",
+      "enigma": "Este puente estuvo lleno de carnicerías durante siglos, hasta que un gran duque, harto del mal olor bajo su paso elevado privado, ordenó sustituirlas por un oficio mucho más noble en 1593. El busto que veis en el puente representa al orfebre florentino más célebre de todos. ¿A qué oficio se dedicaban —y se siguen dedicando hoy— casi todas las tiendas del puente?",
+      "respuestas": ["orfebres", "joyeros", "orfebreria", "joyeria"],
+      "pistas": [
+        "Trabajan con oro, plata y piedras preciosas.",
+        "El busto del puente representa a uno de ellos, también escultor del Perseo que ya habéis visto.",
+        "Son orfebres y joyeros."
+      ],
+      "historia": "El busto es de Benvenuto Cellini, colocado en 1901 para el cuarto centenario de su nacimiento — el mismo escultor del Perseo de la Loggia dei Lanzi. Por encima de las tiendas pasa, invisible desde aquí, el Corredor Vasariano: un pasillo elevado de casi un kilómetro que permitía a los Medici cruzar de un palacio a otro sin pisar nunca la calle.",
+      "fuente": "Comune di Firenze — Ponte Vecchio"
+    }
+  ],
+  "final": {
+    "titulo": "Habéis visto Florencia competir consigo misma",
+    "texto": "De una fachada que finge tener 600 años a una cúpula construida sin andamios, de una puerta bautizada por Miguel Ángel a un David que es solo una copia, hasta un puente que cambió de olor por decreto. Florencia se construyó compitiendo consigo misma, generación tras generación — y el resultado es la ciudad que acabáis de recorrer."
+  }
+}

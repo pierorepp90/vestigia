@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-gotic",
+  "idioma": "en",
+  "titulo": "The Secret of the Gothic Quarter",
+  "intro": "The Barri Gòtic is not a medieval postcard frozen in time: it's a two-thousand-year collage, with Roman, Jewish, Gothic and 20th-century layers stacked on the very same stones. You'll walk about 1.5 km, and you'll need to look up, look down, and look closely. Nobody will ask for your phone or a padlock: the only key is paying attention.",
+  "puntoPartida": "Plaça Nova, facing the Cathedral of Barcelona",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "The gate that's no longer there",
+      "llegada": "Stand in Plaça Nova, facing the Cathedral's façade. To your left, attached to the Casa de l'Ardiaca, there's a dark stone round tower, lower and older than everything around it.",
+      "enigma": "That tower and its twin flanked a Roman gate into the city of Barcino. In 1958, part of the aqueduct that once reached it was rebuilt: look for the lighter, newer stone arches propped against the tower. Count how many complete arches make up that reconstruction.",
+      "respuestas": ["2", "two"],
+      "pistas": [
+        "The rebuilt arches are a noticeably lighter shade of stone than the original Roman tower.",
+        "They're stacked near the top of the left-hand tower, not at street level.",
+        "There are two arches."
+      ],
+      "historia": "Beneath your feet stood one of the four gates of Barcino, the Roman colony founded in the time of Augustus. The cardo (the main Roman street) ran from here, and today it's called Carrer del Bisbe: the first street you're about to walk is, literally, a Roman street. One fact to unsettle anyone who thinks the Cathedral is purely medieval: its main façade, the one in front of you, isn't from the 15th century like the rest of the building — it's from 1913, a neo-Gothic indulgence paid for by banker Manuel Girona.",
+      "fuente": "MUHBA (Museu d'Història de Barcelona); Ajuntament de Barcelona"
+    },
+    {
+      "n": 2,
+      "titulo": "The tortoise and the five swallows",
+      "llegada": "Turn to face the façade of Casa de l'Ardiaca, the same tower as before: next to its door there's a bronze modernist mailbox, at waist height.",
+      "enigma": "The mailbox was designed by Lluís Domènech i Montaner in 1902 for the Bar Association: a slow tortoise collects the letters that fast birds drop, a joke about how slowly justice moves. Count how many of those birds — swallows — are carved on the mailbox.",
+      "respuestas": ["5", "five"],
+      "pistas": [
+        "Look for wing shapes in relief around the mail slot, not just above it.",
+        "There are more than three and fewer than seven.",
+        "There are five swallows."
+      ],
+      "historia": "The tortoise represents the slowness of justice; the swallows, its promise of speed. Since 1921 this building has housed the City's Historical Archive — so, in a way, the modernist joke is still alive: the written memory of Barcelona is kept right here.",
+      "fuente": "Arxiu Municipal de Barcelona; Ajuntament de Barcelona"
+    },
+    {
+      "n": 3,
+      "titulo": "What hangs beneath the bridge",
+      "llegada": "Walk along Carrer del Bisbe (the old Roman cardo) until you reach the neo-Gothic bridge that crosses the street overhead, decorated with pierced tracery and gargoyles.",
+      "enigma": "This bridge looks medieval but dates from 1928, the work of architect Joan Rubió i Bellver. Underneath the central arch, facing the street, there's a small stone skull pierced by a sharp object. What object is it? Answer with a single word.",
+      "respuestas": ["dagger", "knife"],
+      "pistas": [
+        "You need to look straight up, right at the centre of the bridge's arch, not to the sides.",
+        "It's a short bladed weapon, single or double-edged.",
+        "It's a dagger stuck into the skull."
+      ],
+      "historia": "Rubió i Bellver died in 1952 without ever explaining why he put that skull there. Urban legend says that if anyone ever pulls the dagger out, the bridge — and Barcelona with it — will collapse. Another, kinder version says touching it and making a wish makes it come true. Neither is documented: it's simply the mystery Rubió took to his grave.",
+      "fuente": "Ajuntament de Barcelona; local chronicles on the Pont del Bisbe"
+    },
+    {
+      "n": 4,
+      "titulo": "The saint who never loses",
+      "llegada": "Continue to Plaça de Sant Jaume, Barcelona's civic centre since Roman times: on one side, the Ajuntament (Casa de la Ciutat); on the other, the Palau de la Generalitat.",
+      "enigma": "Above the main door of the Palau de la Generalitat, held up by a rider on horseback, there's a large stone sculpture. The rider is Sant Jordi (Saint George). What creature lies defeated under his lance? One word.",
+      "respuestas": ["dragon"],
+      "pistas": [
+        "Look right above the Renaissance-style portal, not at the side windows.",
+        "It's the same creature from the legend behind the 23 April celebration.",
+        "It's a dragon."
+      ],
+      "historia": "This façade, with its Italian-style portal, dates from 1596 — a century and a half later than the rest of the Palau, which is Gothic. Sant Jordi is the patron saint of Catalonia, and every 23 April this square fills with book and rose stalls in his honour: the festival the world would later come to know, via UNESCO, as World Book Day.",
+      "fuente": "Palau de la Generalitat de Catalunya; Ajuntament de Barcelona"
+    },
+    {
+      "n": 5,
+      "titulo": "The light that burns forever",
+      "llegada": "From Sant Jaume, head into Carrer del Call and find Carrer de Marlet. On the façade of number 1, at eye level, there's a stone with Hebrew characters and, next to it, a plaque with its translation.",
+      "enigma": "This stone was once part of a medieval Jewish charitable foundation — a hospital, school and shelter — dedicated by Rabbi Samuel Ha-Sardí. The translated plaque says its light has burned permanently since a particular year. What year is that, in the calendar we use today?",
+      "respuestas": ["1314"],
+      "pistas": [
+        "It's not the year in Hebrew numerals on the original stone; it's the year on the translated plaque, just below or beside it.",
+        "It's in the 14th century, the same century the Call reached its greatest splendour before 1391.",
+        "The year is 1314."
+      ],
+      "historia": "The Call was one of the most important Jewish quarters on the Iberian Peninsula from the 9th century until 1391, when a pogrom wiped out the community. This inscription — today a copy, the original is protected — is one of the few physical traces left of that Barcelona, hidden in a house façade like any other.",
+      "fuente": "MUHBA — El Call; Fidel Fita, epigraphic study of the inscription"
+    },
+    {
+      "n": 6,
+      "titulo": "The temple that survived",
+      "llegada": "Head back toward Sant Jaume and take Carrer del Paradís. At number 10, a discreet doorway (home to the Centre Excursionista de Catalunya) leads into a small inner courtyard.",
+      "enigma": "In that courtyard stands part of a Roman temple dedicated to Emperor Augustus — the tallest Roman building still standing in Barcelona. Count the Corinthian columns that remain from the original temple.",
+      "respuestas": ["4", "four"],
+      "pistas": [
+        "They're all grouped together in the same corner of the courtyard, not spread around the space.",
+        "The original temple had six; not all of them survived.",
+        "Four columns remain."
+      ],
+      "historia": "These columns, nearly 9 metres tall, were part of a temple from the late 1st century BC dedicated to the imperial cult of Augustus. That they're still standing, hidden in the courtyard of a 19th-century mountaineering club, sums up Barcelona rather well: history here isn't kept behind glass, it's built into the buildings people still walk into every day.",
+      "fuente": "MUHBA — Temple d'August; Centre Excursionista de Catalunya"
+    },
+    {
+      "n": 7,
+      "titulo": "The square that was never restored",
+      "llegada": "Walk to Plaça de Sant Felip Neri, a small, sheltered square next to the Cathedral. Look at the church façade facing the square: it's marked by dozens of small, irregular craters.",
+      "enigma": "They're shrapnel marks from an Italian air force bombing during the Spanish Civil War, which killed 42 people — many of them children. They have never been restored. Find the memorial plaque on the façade: what year was it placed?",
+      "respuestas": ["2007"],
+      "pistas": [
+        "The plaque is a discreet rectangle, at mid-height, not a large monument.",
+        "It was placed almost 70 years after the bombing, in the 21st century.",
+        "It was placed in 2007."
+      ],
+      "historia": "On 30 January 1938, two bombs fell on this square within half an hour. Sant Felip Neri's façade still shows those wounds by deliberate choice: not restoring them is the way Barcelona chose to make sure they're never forgotten.",
+      "fuente": "Ajuntament de Barcelona — Programa de Memòria Democràtica; Wikipedia — 1938 air raids on Barcelona"
+    },
+    {
+      "n": 8,
+      "titulo": "Thirteen white feathers",
+      "llegada": "Head back to the Cathedral and enter its Gothic cloister (entrance next to the Plaça Nova façade or via Pla de la Seu). In the centre there's a garden with palm trees, a fountain and a small pond.",
+      "enigma": "White geese have lived in that pond for centuries. Their number isn't random: it recalls the age at which Saint Eulalia, co-patron of Barcelona, was martyred. Count the geese and tell us her age.",
+      "respuestas": ["13", "thirteen"],
+      "pistas": [
+        "One might be hiding in the shade or among the plants: go all the way around the pond before giving up.",
+        "It's a two-digit number, between 10 and 15.",
+        "There are 13 geese."
+      ],
+      "historia": "According to tradition, Eulalia suffered thirteen tortures, one for each year of her life, before dying during the Roman persecutions of the 4th century. Ever since, thirteen geese have guarded her cloister — said to also scare off intruders with their honking, just as the geese of the Capitol did in ancient Rome. You've walked from a Roman gate to a courtyard that still honours a thirteen-year-old girl: that, at bottom, is the secret of the Gothic Quarter — it never stops being inhabited by its own history.",
+      "fuente": "Barcelona Cathedral — Traditions; Ajuntament de Barcelona"
+    }
+  ],
+  "final": {
+    "titulo": "You've read the city",
+    "texto": "Eight stops, two thousand years: from a Roman gate to a modernist mailbox, from an unexplained dagger to a stone dragon, from a Hebrew plaque from 1314 to the unrestored wounds of 1938, all the way to thirteen geese that have watched over a cloister for centuries. Next time you walk through the Gòtic, it won't just be a pretty backdrop anymore — you'll know how to read it."
+  }
+}

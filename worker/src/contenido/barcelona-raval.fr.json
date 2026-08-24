@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-raval",
+  "idioma": "fr",
+  "titulo": "Les bas-fonds et les saints du Raval",
+  "intro": "Le Raval fut d'abord des champs, puis un monastère, puis le quartier le plus dense et le plus mal famé de Barcelone — l'ancien \"quartier chinois\" — et c'est aujourd'hui un mélange d'art contemporain, d'immigration et d'églises millénaires qui survivent collées à des bars centenaires. C'est le visage le moins carte-postale de Barcelone, et c'est précisément pour cela le plus honnête. Comptez environ 2 km.",
+  "puntoPartida": "Mercat de la Boqueria, entrée principale depuis La Rambla",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "Le cercle peint par un voisin",
+      "llegada": "Debout à l'entrée de la Boqueria, regardez le sol : une grande mosaïque circulaire et colorée est incrustée dans le pavage.",
+      "enigma": "Cette mosaïque fut conçue par un artiste né à quelques mètres d'ici, dans l'actuel Passatge del Crèdit aujourd'hui disparu. Elle fut installée en 1976. Quel était le nom du peintre ?",
+      "respuestas": ["miro", "joan miro"],
+      "pistas": [
+        "C'est l'un des peintres catalans les plus célèbres du XXe siècle, aux côtés de Dalí et Picasso.",
+        "Ses formes sont simples : cercles, étoiles, couleurs primaires.",
+        "L'artiste est Joan Miró."
+      ],
+      "historia": "Miró a choisi ce lieu exprès : il était né à deux pas d'ici. La mosaïque, de 8 mètres de diamètre, est faite de ciment coloré et de verre pilé — le même type de matériau que Miró utilisait dans ses sculptures publiques disséminées dans toute la ville.",
+      "fuente": "Ajuntament de Barcelona ; Fundació Joan Miró"
+    },
+    {
+      "n": 2,
+      "titulo": "Le dragon qui garde le palais",
+      "llegada": "Marchez le long de la carrer Nou de la Rambla jusqu'au Palau Güell, la façade de pierre claire aux deux grands arcs d'entrée.",
+      "enigma": "Gaudí a conçu cette maison pour Eusebi Güell, entre deux énormes portes en fer forgé. Entre les portes se trouve une grille ornée des armoiries de la Catalogne, couronnées d'un heaume surmonté d'une créature ailée. Quelle est cette créature ?",
+      "respuestas": ["dragon"],
+      "pistas": [
+        "Ce n'est pas la chauve-souris de l'Arc de Triomf, bien que ce soit aussi un symbole héraldique.",
+        "C'est la même créature mythique que dans la légende de Sant Jordi (saint Georges).",
+        "C'est un dragon ailé."
+      ],
+      "historia": "Cette façade date de 1888, l'une des premières grandes commandes de Gaudí, plus de vingt ans avant la Sagrada Família. Sur le toit, invisible d'ici, se trouvent vingt cheminées différentes et une girouette en forme de chauve-souris — le même animal héraldique que vous avez déjà vu si vous avez joué le parcours d'El Born.",
+      "fuente": "Palau Güell ; Portal Gaudí"
+    },
+    {
+      "n": 3,
+      "titulo": "L'hôpital qui prête aujourd'hui des livres",
+      "llegada": "Marchez jusqu'à la carrer de l'Hospital et cherchez l'entrée de la cour de l'Antic Hospital de la Santa Creu.",
+      "enigma": "Cet hôpital gothique a soigné des malades depuis sa fondation jusqu'à sa fermeture en 1926. Cherchez une date gravée dans la cour ou sur un panneau d'information : en quelle année l'hôpital a-t-il commencé à fonctionner ?",
+      "respuestas": ["1414"],
+      "pistas": [
+        "C'est une année du début du XVe siècle.",
+        "Cela remonte à un peu plus de 500 ans.",
+        "L'hôpital a ouvert en 1414."
+      ],
+      "historia": "Pendant des siècles, ce fut l'hôpital général de Barcelone ; aujourd'hui ses bâtiments abritent la Biblioteca de Catalunya et l'école d'art Massana. Chaque Fête-Dieu, la fontaine de la cour accueille \"l'ou com balla\" : un œuf vide qui danse littéralement sur le jet d'eau — une tradition qui ne manque pas un rendez-vous depuis des siècles.",
+      "fuente": "Biblioteca de Catalunya ; Ajuntament de Barcelona"
+    },
+    {
+      "n": 4,
+      "titulo": "L'église qui a survécu à tout",
+      "llegada": "Marchez jusqu'à Sant Pau del Camp, la petite église de pierre au portique bas et sobre, la plus ancienne du Raval.",
+      "enigma": "C'est de loin la plus ancienne église de Barcelone : une pierre funéraire de l'an 911 aide à dater son origine, bien que le bâtiment actuel date surtout du XIe siècle. Observez bien le portique d'entrée : les colonnes qui le soutiennent sont d'un style différent du reste du bâtiment. D'où viennent ces colonnes, selon les historiens ? (un mot : ce sont des pièces...)",
+      "respuestas": ["reutilisees", "réutilisées", "recyclees", "recyclées"],
+      "pistas": [
+        "Personne ne les a taillées spécialement pour cette église.",
+        "Elles proviennent de bâtiments romains ou wisigoths antérieurs, bien plus anciens que l'église elle-même.",
+        "Ce sont des colonnes réutilisées de constructions antérieures."
+      ],
+      "historia": "\"Del Camp\" signifie \"des champs\" : à sa construction, ce monastère bénédictin se trouvait hors des murailles de la ville, entouré de vergers. Il a survécu à une attaque d'Almanzor en l'an 985 et à des siècles d'histoire — et il est toujours là, presque invisible, à quelques pas de La Rambla.",
+      "fuente": "Sant Pau del Camp ; Generalitat de Catalunya, Patrimoni Cultural"
+    },
+    {
+      "n": 5,
+      "titulo": "Le chat qui ne trouvait pas de maison",
+      "llegada": "Marchez jusqu'à la Rambla del Raval et cherchez la grande sculpture en bronze en forme de chat, couchée sur un socle de pierre.",
+      "enigma": "Cette sculpture est l'œuvre d'un artiste colombien célèbre pour ses figures rondes et volumineuses. La mairie l'a achetée en 1987, mais il lui a fallu seize ans pour lui trouver un foyer définitif ici. Quel est le nom du sculpteur ?",
+      "respuestas": ["botero", "fernando botero"],
+      "pistas": [
+        "Il est colombien, et ses figures — personnes, animaux — sont toujours rondes et enveloppées.",
+        "Son nom de famille commence par B.",
+        "Le sculpteur est Fernando Botero."
+      ],
+      "historia": "Avant d'arriver ici en 2003, le chat est passé par le Parc de la Ciutadella puis par le Stade olympique lors des Jeux de 1992. C'est aujourd'hui l'une des sculptures les plus photographiées — et les plus escaladées — de Barcelone. Botero, dit-on, trouve cela plutôt bien.",
+      "fuente": "Ajuntament de Barcelona — sculpture publique"
+    },
+    {
+      "n": 6,
+      "titulo": "Le cube blanc des skateurs",
+      "llegada": "Marchez jusqu'à la Plaça dels Àngels et cherchez le grand bâtiment blanc à la façade de verre ondulée.",
+      "enigma": "Ce musée d'art contemporain fut conçu par un architecte américain et inauguré en 1995. Sa place de pierre sombre est devenue, sans que personne ne l'ait prévu, l'un des spots de skateboard les plus célèbres d'Europe. De quelle couleur est le bâtiment ?",
+      "respuestas": ["blanc"],
+      "pistas": [
+        "Il contraste fortement avec le pavage sombre de la place.",
+        "C'est la couleur de la lumière, l'absence de couleur.",
+        "Le bâtiment est blanc."
+      ],
+      "historia": "L'architecte est Richard Meier, connu pour ses bâtiments blancs et lumineux. Personne n'a conçu cette place en pensant au skateboard, mais ses marches et bancs de granit se sont révélés parfaits pour cela — aujourd'hui elle est aussi célèbre parmi les skateurs du monde entier que le musée lui-même parmi les amateurs d'art.",
+      "fuente": "MACBA — Museu d'Art Contemporani de Barcelona"
+    },
+    {
+      "n": 7,
+      "titulo": "Le bar le plus vieux de la ville",
+      "llegada": "Marchez jusqu'au croisement de la carrer de Sant Pau et de la carrer de Sant Ramon, où se trouve le Bar Marsella, avec son décor du début du XIXe siècle.",
+      "enigma": "C'est le plus vieux bar de Barcelone, célèbre pour servir de l'absinthe et pour avoir accueilli Hemingway, Picasso et Dalí à son comptoir. Cherchez l'année de fondation, généralement visible sur sa façade ou sa carte. En quelle année a-t-il ouvert ?",
+      "respuestas": ["1820"],
+      "pistas": [
+        "C'est une année du début du XIXe siècle, dans ses deux premières décennies.",
+        "Le bar est ouvert depuis plus de 200 ans.",
+        "Il a ouvert en 1820."
+      ],
+      "historia": "Les miroirs usés, les lustres et les tables de marbre sont d'origine. La façon traditionnelle de servir l'absinthe ici — avec une petite cuillère, un sucre et de l'eau versée lentement dessus — est toujours la même que lorsque Picasso venait y chercher conversation et inspiration.",
+      "fuente": "Bar Marsella ; chroniques historiques du Raval"
+    },
+    {
+      "n": 8,
+      "titulo": "Le cinéma où il y avait autre chose avant",
+      "llegada": "Terminez sur la Plaça de Salvador Seguí, où se trouve le bâtiment moderne de la Filmoteca de Catalunya.",
+      "enigma": "Ce bâtiment, à la grande façade vitrée, fut inauguré pour donner un nouveau foyer à la Filmoteca. Avant cela, cette place et ses rues faisaient partie de l'ancien \"quartier chinois\", zone de tolérance de Barcelone pendant une grande partie du XXe siècle. En quelle année le bâtiment actuel fut-il inauguré ?",
+      "respuestas": ["2012"],
+      "pistas": [
+        "C'est une année des années 2010, très récente.",
+        "Il y a moins de 15 ans entre cette date et aujourd'hui.",
+        "Il fut inauguré en 2012."
+      ],
+      "historia": "Le design est de l'architecte Josep Lluís Mateo. Qu'un temple du cinéma et de la culture occupe aujourd'hui une place qui, pendant des décennies, fut synonyme d'autre chose résume bien l'histoire récente du Raval : un quartier qui s'est réinventé plusieurs fois sans jamais cesser d'être, au fond, le même — dense, mélangé et vivant.",
+      "fuente": "Filmoteca de Catalunya"
+    }
+  ],
+  "final": {
+    "titulo": "Vous avez traversé l'autre centre historique",
+    "texto": "D'une mosaïque de Miró à un dragon en fer forgé, d'un hôpital qui prête aujourd'hui des livres au lieu de médicaments à la plus vieille église de la ville, d'un chat qui a mis seize ans à trouver un foyer à un bar qui sert de l'absinthe depuis deux siècles. Le Raval n'a jamais été le plus joli quartier de Barcelone — mais c'est peut-être le plus vivant."
+  }
+}

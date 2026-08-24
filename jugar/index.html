@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Jugando — Vestigia</title>
+<meta name="robots" content="noindex">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23241a10' stroke='%23d4483a' stroke-width='5'/%3E%3Cpath d='M50 14 L60 45 L50 86 L40 45 Z' fill='%23d4483a'/%3E%3Cpath d='M14 50 L45 40 L86 50 L45 60 Z' fill='%23f1e6cf' opacity='0.5'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../css/styles.css">
+<link rel="stylesheet" href="../css/juego.css">
+</head>
+<body class="tema-juego">
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../index.html" aria-label="Vestigia — inicio">
+      <svg class="marca__icono" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="3" fill="currentColor"/>
+        <path d="M50 10 L58 42 L50 50 L42 42 Z" fill="currentColor"/>
+        <path d="M50 90 L58 58 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M10 50 L42 42 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M90 50 L58 58 L50 50 L58 42 Z" fill="currentColor" opacity="0.35"/>
+      </svg>
+      <span class="marca__texto">
+        <span class="marca__nombre">Vestigia</span>
+      </span>
+    </a>
+  </div>
+</header>
+
+<div id="barra-superior" class="barra-superior" hidden>
+  <div class="contenedor">
+    <div class="barra-superior__fila">
+      <span class="barra-superior__parada" id="txt-parada"></span>
+      <span class="barra-superior__tiempo" id="txt-tiempo"></span>
+    </div>
+    <div class="barra-progreso"><div class="barra-progreso__relleno" id="barra-relleno" style="width:0%"></div></div>
+  </div>
+</div>
+
+<main class="zona-juego">
+  <p class="aviso-offline" id="aviso-offline">
+    <span aria-hidden="true">⚠</span> <span data-i18n="juego_offline_aviso"></span>
+  </p>
+
+  <section id="vista-cargando" class="pantalla-centrada">
+    <div class="girando" role="status" aria-label="Cargando"></div>
+    <p class="pantalla-centrada__texto" data-i18n="juego_cargando"></p>
+  </section>
+
+  <section id="vista-error" class="pantalla-centrada" hidden>
+    <h1 class="pantalla-centrada__titulo" data-i18n="juego_error_titulo"></h1>
+    <p class="pantalla-centrada__texto" id="txt-error"></p>
+    <a class="btn btn-lacre" href="../index.html#ciudades" data-i18n="juego_error_cta"></a>
+  </section>
+
+  <section id="vista-jugando" hidden>
+    <p class="tarjeta-parada__numero" id="txt-parada-numero"></p>
+    <h1 class="tarjeta-parada__titulo" id="txt-parada-titulo"></h1>
+
+    <div class="bloque">
+      <span class="bloque__etiqueta" data-i18n="juego_llegada_titulo"></span>
+      <p class="bloque__texto" id="txt-llegada"></p>
+    </div>
+
+    <div class="bloque bloque--enigma">
+      <span class="bloque__etiqueta" data-i18n="juego_enigma_titulo"></span>
+      <p class="bloque__texto" id="txt-enigma"></p>
+    </div>
+
+    <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
+
+    <form id="form-respuesta" class="form-respuesta">
+      <label class="sr-only" for="input-respuesta" data-i18n="juego_input_placeholder">Escribe vuestra respuesta</label>
+      <input
+        id="input-respuesta"
+        class="input-respuesta"
+        type="text"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        data-i18n-attr="placeholder:juego_input_placeholder"
+      >
+      <button type="submit" class="btn btn-lacre" data-i18n="juego_btn_comprobar">Comprobar</button>
+    </form>
+
+    <div class="zona-pistas">
+      <div class="lista-pistas" id="lista-pistas"></div>
+      <button type="button" class="btn btn-fantasma" id="btn-pista" data-i18n="juego_btn_pista">Pedir una pista</button>
+    </div>
+  </section>
+
+  <section id="vista-revelando" class="revelacion" hidden>
+    <svg class="revelacion__icono" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+      <path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <p class="tarjeta-parada__numero" style="text-align:center" data-i18n="juego_feedback_correcto">¡Correcto!</p>
+    <h2 class="revelacion__titulo" data-i18n="juego_historia_titulo">Lo que acabáis de descubrir</h2>
+    <p class="revelacion__historia" id="txt-historia"></p>
+    <p class="revelacion__fuente" id="txt-fuente"></p>
+    <button type="button" class="btn btn-lacre" id="btn-siguiente"></button>
+  </section>
+
+  <section id="vista-completada" class="pantalla-centrada" hidden>
+    <h1 class="pantalla-centrada__titulo" id="txt-final-titulo"></h1>
+    <p class="pantalla-centrada__texto" id="txt-final-texto"></p>
+    <p class="pantalla-centrada__texto" id="txt-final-tiempo"></p>
+    <div class="pantalla-final__acciones">
+      <a class="btn btn-lacre" id="link-imprimir" href="imprimir.html" data-i18n="juego_final_btn_imprimir">Descargar versión imprimible</a>
+      <a class="btn btn-fantasma" href="../index.html" data-i18n="juego_final_btn_inicio">Volver a Vestigia</a>
+    </div>
+  </section>
+</main>
+
+<script type="module" src="../js/jugar.js"></script>
+</body>
+</html>

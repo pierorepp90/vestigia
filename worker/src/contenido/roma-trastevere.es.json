@@ -1,0 +1,125 @@
+{
+  "rutaId": "roma-trastevere",
+  "idioma": "es",
+  "titulo": "La proa de Trastevere",
+  "intro": "Trastevere significa \"al otro lado del Tíber\", y este barrio ha vivido siempre así: de espaldas al poder de la otra orilla, con sus propios santos, su propio dios de la medicina y una isla con forma de barco en mitad del río. Vais a contar los lados de la fuente más vieja de Roma, a buscar una serpiente tallada en piedra y a mirar de cerca a una santa que lleva siglos durmiendo en mármol. Son unos 3 km, llanos, casi siempre junto al agua.",
+  "puntoPartida": "Piazza di Santa Maria in Trastevere, frente a la fachada de la basílica",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "Las mujeres de oro",
+      "llegada": "Quedaos de pie en la Piazza di Santa Maria in Trastevere, frente a la fachada de la basílica. Mirad hacia arriba, justo encima de las columnas del pórtico: ahí brilla un friso dorado.",
+      "enigma": "Ese mosaico, del siglo XIII, muestra a la Virgen entronizada amamantando al Niño. A su alrededor hay una fila de mujeres, cada una con una lámpara de aceite en las manos: dos la llevan apagada, el resto encendida. Sin contar a la Virgen, ¿cuántas mujeres hay en total?",
+      "respuestas": ["10", "diez"],
+      "pistas": [
+        "Están repartidas en fila a ambos lados de la Virgen, con el mismo número en cada lado.",
+        "Es un número entre 8 y 12.",
+        "Son diez mujeres."
+      ],
+      "historia": "Nadie se pone del todo de acuerdo sobre quiénes son estas diez mujeres: la lectura más repetida las identifica con las vírgenes prudentes y las necias de una parábola del Evangelio de Mateo, las que llevaban aceite de reserva para su lámpara y las que no. La leyenda local añade otra historia de aceite: dicen que la noche en que nació Cristo brotó del suelo, en este mismo lugar, una fuente de aceite que corrió hasta el Tíber — por eso, durante siglos, esta iglesia también se llamó Santa Maria in Fontibus.",
+      "fuente": "Basilica di Santa Maria in Trastevere; Sovraintendenza Capitolina — mosaico di facciata"
+    },
+    {
+      "n": 2,
+      "titulo": "La taza de ocho lados",
+      "llegada": "Girad hacia el centro de la plaza, donde una fuente de piedra travertino se eleva sobre unos escalones, un poco alejada de la fachada de la iglesia.",
+      "enigma": "Esta fuente se disputa con otra de Roma el título de más antigua de la ciudad: hay quien sitúa su origen en el siglo VIII, aunque la que veis hoy es el resultado de al menos cuatro reconstrucciones — Bramante, Bernini y Carlo Fontana pusieron aquí las manos, cada uno a su manera y a su siglo. Fijaos en la taza grande y elevada, decorada con conchas talladas en las esquinas: ¿cuántos lados tiene?",
+      "respuestas": ["8", "ocho"],
+      "pistas": [
+        "No es cuadrada ni redonda: es un polígono regular con más de seis lados.",
+        "Es el mismo número de lados que una señal de stop.",
+        "Tiene ocho lados: es un octógono."
+      ],
+      "historia": "Bramante le dio su primera forma hacia 1499; poco después se hizo octogonal; Bernini la trasladó al centro exacto de la plaza y añadió las grandes conchas en 1659; Carlo Fontana la remató en 1692, y en 1873 volvió a reconstruirse, piedra a piedra, siguiendo ese mismo diseño. Pocas fuentes de Roma han cambiado tanto de forma sin cambiar nunca de sitio.",
+      "fuente": "Comune di Roma; Sovraintendenza Capitolina — Fontana di Piazza Santa Maria in Trastevere"
+    },
+    {
+      "n": 3,
+      "titulo": "El ojo que avisa de las crecidas",
+      "llegada": "Salid de la plaza hacia el norte por Via della Scala hasta Piazza Trilussa, junto al río. Allí arranca un puente peatonal de piedra clara: el Ponte Sisto.",
+      "enigma": "Este puente lo mandó construir el papa Sixto IV entre 1473 y 1479, sobre las ruinas de un puente romano anterior. Buscad, justo encima del arco central, una gran abertura que atraviesa el puente de lado a lado — tan ancha que se ve el cielo a través de ella. Los romanos la llaman cariñosamente occhialone, \"ojo grande\", porque durante siglos avisó del peligro: cuando el agua del Tíber empezaba a entrar por ahí, tocaba huir. ¿Qué forma tiene esa abertura?",
+      "respuestas": ["circular", "redonda", "redondo", "un circulo", "un círculo"],
+      "pistas": [
+        "No tiene esquinas ni lados rectos.",
+        "Es la misma forma que una moneda o una rueda.",
+        "Es circular: un gran círculo, el \"occhialone\"."
+      ],
+      "historia": "Bajo el agua, sin apenas rastro visible, siguen los restos de un primer puente que mandó construir Agripa antes del año 12 a.C. Con los siglos se le conoció también como pons Aurelius, hasta que una crecida lo derribó en el año 791 y pasó a llamarse pons fractus, \"puente roto\" — el mismo apodo, curiosamente, que lleva hoy otro puente romano de esta ciudad, río abajo, al que llegaréis más adelante en esta ruta.",
+      "fuente": "Sovraintendenza Capitolina — Ponte Sisto; Touring Club Italiano"
+    },
+    {
+      "n": 4,
+      "titulo": "La proa de piedra",
+      "llegada": "Volved sobre vuestros pasos hacia el sur, siguiendo el Lungotevere por la orilla de Trastevere, hasta el Ponte Cestio, el puente de tres arcos que cruza a la Isola Tiberina. Cruzadlo y buscad la punta de la isla que mira río abajo, no lejos de la iglesia de San Bartolomeo.",
+      "enigma": "Desde el siglo I a.C., los romanos revistieron esta punta de la isla con piedra travertino para que pareciera la proa de un barco, con un obelisco en el centro de la isla haciendo de mástil. La leyenda cuenta que en el año 291 a.C., con Roma azotada por una epidemia, unos enviados trajeron desde Grecia una estatua del dios de la medicina; en el viaje de vuelta, la serpiente sagrada del dios escapó del barco y nadó hasta esconderse justo aquí, señalando dónde debía construirse su templo. Sobre la piedra de la proa todavía se distingue tallado un bastón con un animal enroscado. ¿Qué animal es?",
+      "respuestas": ["serpiente", "una serpiente", "culebra", "sierpe"],
+      "pistas": [
+        "Es un reptil sin patas, el protagonista de la leyenda fundacional de este lugar.",
+        "Es el mismo animal que aparece hoy en el símbolo internacional de la medicina.",
+        "Es una serpiente, enroscada en el bastón de Esculapio."
+      ],
+      "historia": "La serpiente guiaba a los romanos hasta Esculapio, dios griego de la medicina, que llegó a Roma para frenar la epidemia. La tradición no se ha interrumpido nunca: donde estuvo su templo sigue habiendo hoy un hospital, el Fatebenefratelli, así que esta isla lleva más de dos mil años curando gente sin descanso.",
+      "fuente": "Sovraintendenza Capitolina — Isola Tiberina; Ospedale Fatebenefratelli"
+    },
+    {
+      "n": 5,
+      "titulo": "El puente que se rindió al río",
+      "llegada": "Desde la isla, mirad río abajo, hacia el sur, en dirección al siguiente puente moderno, el Ponte Palatino. Justo antes de llegar a él, en mitad del agua, hay algo que ya no es un puente entero.",
+      "enigma": "En medio del río, aislado y sin conectar con ninguna orilla, se levanta un único arco de piedra: es todo lo que queda del Pons Aemilius, el puente de piedra más antiguo de Roma, cuyos arcos se terminaron en el año 142 a.C. Contad cuántos arcos completos quedan hoy en pie sobre el agua.",
+      "respuestas": ["1", "uno", "un arco"],
+      "pistas": [
+        "No es un puente entero: solo sobrevive un fragmento, solo en mitad del río.",
+        "Es el número más pequeño posible que no sea cero.",
+        "Queda un solo arco."
+      ],
+      "historia": "Los romanos lo llaman Ponte Rotto, \"puente roto\" — casi la misma historia que le ha pasado antes, siglos atrás, a Ponte Sisto. La gran riada del 24 de diciembre de 1598 se llevó tres de los seis arcos que entonces tenía el puente, y nunca se reconstruyeron. Dos arcos más desaparecieron a finales del siglo XIX, al levantar los muros actuales del Tíber contra las crecidas, dejando en pie solo el arco que veis hoy, apoyado en pilares romanos del siglo II a.C.",
+      "fuente": "Sovraintendenza Capitolina — Pons Aemilius (Ponte Rotto); Roma Capitale"
+    },
+    {
+      "n": 6,
+      "titulo": "Tres dedos para un secreto",
+      "llegada": "Caminad hacia el suroeste, alejándoos del río, hasta la Basilica di Santa Cecilia in Trastevere (la entrada a la iglesia es gratuita). Acercaos al altar mayor: debajo, en un hueco a ras de suelo, hay una escultura de mármol blanco de una mujer tumbada de lado.",
+      "enigma": "La talló Stefano Maderno en 1600, poco después de que se abriera la tumba de Santa Cecilia y se encontrara, según se dijo entonces, su cuerpo incorrupto tras 1300 años. Maderno juró haber esculpido exactamente la postura en la que la vio: de costado, con el rostro apartado y oculto, y las manos extendidas de una forma muy concreta. Mirad su mano derecha, la que queda más a la vista: ¿cuántos dedos extiende?",
+      "respuestas": ["3", "tres"],
+      "pistas": [
+        "No es un puño cerrado ni una mano del todo abierta.",
+        "Es un número menor que cinco.",
+        "Extiende tres dedos."
+      ],
+      "historia": "En la otra mano, Cecilia extiende un solo dedo: tres y uno, su manera silenciosa de proclamar la Trinidad —un solo Dios en tres personas— con el último gesto de su vida. Cecilia es hoy la patrona de los músicos porque, según la leyenda, cantaba en su corazón para Dios mientras la obligaban a casarse; la basílica que la alberga se levanta, se dice, sobre los restos de su propia casa.",
+      "fuente": "Basilica di Santa Cecilia in Trastevere; escultura de Stefano Maderno (1600)"
+    },
+    {
+      "n": 7,
+      "titulo": "El número que delata el barrio",
+      "llegada": "Volved hacia el norte, de regreso al corazón de Trastevere, hasta el Vicolo del Bologna, una de las callejuelas más fotografiadas del barrio: fachadas de colores, adoquines irregulares y, casi siempre, ropa tendida de balcón a balcón.",
+      "enigma": "Buscad la placa de mármol blanco con el nombre de la calle, atornillada en una de las paredes. Además del nombre, las placas tradicionales de Roma llevan en una esquina un número romano: el número del rione, el distrito histórico al que pertenece la calle — Roma tiene 22 rione en total. ¿Qué número romano aparece en esta placa?",
+      "respuestas": ["XIII", "13", "trece"],
+      "pistas": [
+        "Es un número romano compuesto por una X seguida de varias íes.",
+        "En números normales, es el 13.",
+        "El número es XIII: Trastevere es el rione 13 de Roma."
+      ],
+      "historia": "El emblema oficial del rione XIII es una cabeza de león dorada sobre fondo rojo; nadie se pone de acuerdo sobre su origen, aunque una teoría lo relaciona con los cristianos de Trastevere martirizados en las arenas romanas. Vicolo del Bologna, por su parte, debe su nombre a un carpintero del siglo XVI apodado \"il Bologna\" — otro de los cientos de oficios y apodos que Roma ha ido guardando, casi sin querer, en el nombre de sus calles.",
+      "fuente": "Roma Capitale — toponomastica e rioni di Roma; Roma Segreta — Vicolo del Bologna"
+    },
+    {
+      "n": 8,
+      "titulo": "Los cuatro papas de piedra",
+      "llegada": "Volved a la Piazza di Santa Maria in Trastevere, de nuevo frente a la basílica. Esta vez fijaos en el pórtico de columnas que hay bajo el mosaico dorado, y mirad la balaustrada de piedra que lo corona.",
+      "enigma": "Este pórtico lo añadió el arquitecto Carlo Fontana en 1702. Sobre la balaustrada que lo remata hay varias estatuas de piedra, cada una representando a un papa distinto de los primeros siglos de la Iglesia. Contadlas: ¿cuántas estatuas de papas hay ahí arriba?",
+      "respuestas": ["4", "cuatro"],
+      "pistas": [
+        "Están de pie, en fila, justo encima de las columnas del pórtico.",
+        "Es un número entre 2 y 6.",
+        "Son cuatro estatuas de papas."
+      ],
+      "historia": "Son Calixto I, Cornelio, Julio I y Calepodio: papas de los siglos III y IV, todos relacionados con el origen de esta basílica, la primera de Roma dedicada oficialmente a la Virgen. Bajo este mismo pórtico se guarda además, desde el siglo XVIII, una colección de lápidas paganas y cristianas rescatadas de las catacumbas romanas — fragmentos sueltos de dos mil años de historia, reunidos en la misma plaza donde habéis empezado y terminado esta ruta.",
+      "fuente": "Basilica di Santa Maria in Trastevere; Sovraintendenza Capitolina — portico di Carlo Fontana (1702)"
+    }
+  ],
+  "final": {
+    "titulo": "Habéis cruzado el río sin mojaros",
+    "texto": "De diez lámparas de mosaico a un puente que perdió todos sus arcos menos uno, de una serpiente que fundó un hospital hace dos mil años a una santa que dejó su último mensaje en los dedos de una mano. Trastevere siempre vivió de espaldas al poder de la otra orilla, con sus propios santos, su propio dios y sus propias reglas — y, si habéis sabido mirar, todavía se nota."
+  }
+}

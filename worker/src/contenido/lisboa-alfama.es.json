@@ -1,0 +1,125 @@
+{
+  "rutaId": "lisboa-alfama",
+  "idioma": "es",
+  "titulo": "Los ecos de Alfama",
+  "intro": "Alfama es el barrio más viejo de Lisboa: laberinto de calles moriscas que ni el gran terremoto de 1755 logró enderezar. Aquí nació el fado, aquí vivieron los pescadores y sus varinas, y aquí cada azulejo parece guardar una historia que no cabe en una guía. Son unos 2 km, con algunas cuestas — Lisboa no perdona del todo.",
+  "puntoPartida": "Sé de Lisboa (Catedral), Largo da Sé",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La catedral que se construyó sobre otra fe",
+      "llegada": "De pie frente a la fachada de la Sé de Lisboa, con sus dos torres almenadas y el gran rosetón central.",
+      "enigma": "Esta catedral se levantó en 1147, justo después de que el rey Afonso Henriques conquistara la ciudad. Se construyó sobre el edificio religioso que ocupaba este mismo lugar durante el dominio musulmán de Lisboa. ¿Qué tipo de edificio había aquí antes?",
+      "respuestas": ["mezquita"],
+      "pistas": [
+        "Es el lugar de culto del islam, equivalente a una iglesia o una sinagoga.",
+        "Tiene un minarete en vez de un campanario.",
+        "Era una mezquita."
+      ],
+      "historia": "El rosetón que veis hoy es en realidad del siglo XIII, en estilo gótico, y sustituyó a uno románico anterior. La Sé ha sobrevivido a varios terremotos, incluido el devastador de 1755 — aunque tuvo que ser restaurada varias veces, sigue en el mismo lugar desde hace casi 900 años.",
+      "fuente": "Sé Catedral de Lisboa; Direção-Geral do Património Cultural"
+    },
+    {
+      "n": 2,
+      "titulo": "La plaza que ya no existe",
+      "llegada": "Subid hasta el Miradouro de Santa Luzia y buscad los dos grandes paneles de azulejos en el muro sur, junto a las buganvillas.",
+      "enigma": "Uno de los dos paneles representa una plaza de Lisboa tal como era antes de 1755 — muy distinta a como la veréis si termináis bajando hasta el río. ¿Cómo se llama esa plaza?",
+      "respuestas": ["praca do comercio", "praça do comércio"],
+      "pistas": [
+        "Hoy es la gran plaza porticada junto al río, reconstruida tras el terremoto.",
+        "Su nombre actual hace referencia a la actividad mercantil.",
+        "Es la Praça do Comércio."
+      ],
+      "historia": "El otro panel representa la conquista cristiana del Castelo de São Jorge en 1147 — la misma fecha de la catedral que acabáis de dejar atrás. Ambos azulejos son obra de António Quaresma y se restauraron en 2015; el de la plaza es una réplica parcial de un panel más antiguo que hoy se conserva en el Museu do Azulejo.",
+      "fuente": "Miradouro de Santa Luzia; e-cultura, Direção-Geral do Património Cultural"
+    },
+    {
+      "n": 3,
+      "titulo": "El barco que protege la ciudad",
+      "llegada": "Continuad hasta el Miradouro das Portas do Sol, un poco más arriba, y buscad la estatua de bronce sobre una columna.",
+      "enigma": "Esta estatua representa a Sao Vicente, patrón de Lisboa desde 1173, sosteniendo la barca en la que sus reliquias llegaron a la ciudad. Junto a la barca hay dos aves que, según la leyenda, la protegieron durante el viaje. Contad esas aves.",
+      "respuestas": ["2", "dos"],
+      "pistas": [
+        "No son palomas: son aves negras, carroñeras.",
+        "Es el mismo número de aves que aparece en el escudo actual de Lisboa.",
+        "Son dos aves (cuervos)."
+      ],
+      "historia": "El barco y los dos cuervos siguen siendo, hoy mismo, el símbolo oficial de Lisboa: aparecen en el escudo de la ciudad y hasta en algunas tapas de alcantarilla. Esta estatua concreta es de Raul Xavier y se instaló en 1949, pero la leyenda que representa tiene más de 800 años.",
+      "fuente": "Miradouro das Portas do Sol; Câmara Municipal de Lisboa"
+    },
+    {
+      "n": 4,
+      "titulo": "La casa de la música que no se puede grabar",
+      "llegada": "Bajad hacia el Largo do Chafariz de Dentro, donde encontraréis el edificio del Museu do Fado, antigua estación de bombeo de agua.",
+      "enigma": "El fado, el canto melancólico nacido en estas mismas calles de Alfama, fue declarado por la UNESCO Patrimonio Cultural Inmaterial de la Humanidad. ¿En qué año ocurrió eso?",
+      "respuestas": ["2011"],
+      "pistas": [
+        "Fue a finales de un año de la década de 2010... casi: es justo el primer año de esa década.",
+        "La decisión se tomó en una reunión en Bali, Indonesia.",
+        "Fue declarado en 2011."
+      ],
+      "historia": "El edificio del museo fue antes una estación de bombeo de agua, construida a partir de 1868. El fado nació precisamente en calles como estas, entre marineros, tabernas y la vida dura del puerto — por eso se dice que no se puede aprender el fado sin haber caminado antes por Alfama.",
+      "fuente": "Museu do Fado; UNESCO — Listas del Patrimonio Cultural Inmaterial"
+    },
+    {
+      "n": 5,
+      "titulo": "La casa que parece una piña",
+      "llegada": "Bajad hasta la Casa dos Bicos, el edificio con la fachada más peculiar de todo el barrio, cerca del río.",
+      "enigma": "Esta casa se construyó entre 1521 y 1523 para Brás de Albuquerque, inspirada en la arquitectura renacentista italiana que su promotor había visto en un viaje. Su fachada está tallada en un relieve muy particular. ¿Qué forma tienen las piedras que sobresalen de la pared?",
+      "respuestas": ["puntas de diamante", "diamante", "piramidal", "pirámides"],
+      "pistas": [
+        "No son lisas: sobresalen hacia fuera en forma de punta.",
+        "Es la misma forma que una piedra preciosa muy conocida, tallada en facetas.",
+        "Son puntas de diamante."
+      ],
+      "historia": "El terremoto de 1755 destruyó los pisos superiores originales, que se reconstruyeron después basándose en grabados antiguos de Lisboa. Hoy la Casa dos Bicos alberga la Fundación José Saramago, premio Nobel de Literatura — otro escritor que, como el fado, no se entiende sin estas calles.",
+      "fuente": "Museu de Lisboa; Fundação José Saramago"
+    },
+    {
+      "n": 6,
+      "titulo": "Los callejones que el terremoto no pudo enderezar",
+      "llegada": "Perdeos deliberadamente por cualquier calle estrecha de Alfama que veáis señalizada con la palabra \"Beco\".",
+      "enigma": "\"Beco\" es una palabra portuguesa muy concreta para un tipo de calle. Fijaos en hacia dónde lleva la vuestra: ¿tiene salida al otro lado, o se cierra en algún punto? Un beco, por definición, es una calle...",
+      "respuestas": ["sin salida", "callejon sin salida", "callejón sin salida"],
+      "pistas": [
+        "Piensa en su equivalente en inglés: \"dead end\".",
+        "Es lo contrario de una calle que atraviesa todo el barrio.",
+        "Un beco es un callejón sin salida."
+      ],
+      "historia": "Este trazado —estrecho, curvo, lleno de callejones sin salida— viene directamente de la Lisboa islámica anterior a 1147: no hay una sola calle recta en todo el barrio. Cuando el terremoto de 1755 arrasó el centro de la ciudad, el marqués de Pombal reconstruyó la Baixa con calles rectas y anchas, en cuadrícula — pero Alfama, que apenas sufrió daños, conservó intacto su trazado árabe medieval.",
+      "fuente": "Câmara Municipal de Lisboa; Museu de Lisboa"
+    },
+    {
+      "n": 7,
+      "titulo": "La obra que nunca se acababa",
+      "llegada": "Caminad hasta el Panteão Nacional, la gran cúpula blanca que domina el perfil de Alfama desde lejos.",
+      "enigma": "Este edificio empezó a construirse en 1682 como iglesia de Santa Engrácia. Tardó tanto en terminarse que dio lugar a una expresión portuguesa que todavía se usa hoy para algo que no acaba nunca: \"obras de Santa Engrácia\". ¿Cuántos años tardó en completarse la obra, desde la primera piedra hasta su finalización en 1966?",
+      "respuestas": ["284"],
+      "pistas": [
+        "Son casi tres siglos completos.",
+        "El número está entre 250 y 300.",
+        "Tardó 284 años."
+      ],
+      "historia": "Desde 1916, el edificio funciona como Panteón Nacional, donde descansan grandes figuras portuguesas — incluida, simbólicamente, Amália Rodrigues, la voz de fado más famosa de la historia. Que la obra más lenta de Lisboa termine siendo el lugar de descanso de la reina del fado tiene, para quien ha caminado hoy por Alfama, un sentido casi poético.",
+      "fuente": "Panteão Nacional; Direção-Geral do Património Cultural"
+    },
+    {
+      "n": 8,
+      "titulo": "El barrio que sobrevivió a todo",
+      "llegada": "Volved a bajar hacia cualquier miradouro con vistas al río Tajo — el de Santa Luzia o las Portas do Sol sirven igual de bien.",
+      "enigma": "Alfama es, junto con Mouraria, de los pocos barrios de Lisboa que sobrevivió casi intacto al terremoto de 1755, a diferencia de la Baixa, arrasada y reconstruida desde cero. Los historiadores lo explican, sobre todo, por un motivo geológico relacionado con el terreno sobre el que está construido. ¿Sobre qué tipo de suelo está Alfama: roca sólida o sedimento blando?",
+      "respuestas": ["roca solida", "roca sólida", "roca"],
+      "pistas": [
+        "Es lo contrario de la tierra blanda y suelta junto al río, que se movió y licuó con el temblor.",
+        "Es un material duro, estable, que no se desplaza con facilidad.",
+        "Alfama está construida sobre roca sólida."
+      ],
+      "historia": "La Baixa, más cercana al río y construida sobre terreno de relleno, sufrió el llamado fenómeno de licuefacción: el suelo se comportó casi como un líquido durante el temblor. Alfama, en cambio, se asienta sobre roca firme desde la colina del castillo — la misma razón geológica, probablemente, por la que los romanos y luego los moros eligieron este lugar para construir hace más de mil años.",
+      "fuente": "getLISBON — O Terramoto de 1755; Museu de Lisboa"
+    }
+  ],
+  "final": {
+    "titulo": "Habéis escuchado el eco de Alfama",
+    "texto": "De una mezquita convertida en catedral a un barco con dos cuervos que aún vigila la ciudad, de una casa con fachada de diamantes a un callejón que no lleva a ninguna parte, hasta una obra que tardó 284 años en terminarse. Alfama sobrevivió al terremoto que borró media Lisboa — y, si habéis sabido escuchar, todavía canta."
+  }
+}

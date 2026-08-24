@@ -1,0 +1,125 @@
+{
+  "rutaId": "istanbul-sultanahmet",
+  "idioma": "es",
+  "titulo": "La serpiente de Constantinopla",
+  "intro": "Estambul es la única ciudad del mundo que fue capital de dos imperios sin cambiar de sitio: Constantinopla y Estambul se pisan la una a la otra en cada esquina de Sultanahmet. Vais a contar cabezas que ya no están, descifrar un grafiti vikingo tallado por un mercenario de la guardia imperial bizantina, y encontrar un águila cristiana escondida sobre una puerta otomana. Son algo más de 3 km en total, con una única cuesta suave de subida hacia el Gran Bazar y la misma bajada de vuelta.",
+  "puntoPartida": "Plaza de Sultanahmet, en la explanada ajardinada entre Santa Sofía (Ayasofya) y la Mezquita Azul (Sultan Ahmed Camii)",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "Los cuatro minaretes que no combinan",
+      "llegada": "De pie en la plaza de Sultanahmet, con Santa Sofía delante, alejaos unos pasos hasta ver el edificio entero y sus cuatro minaretes, uno en cada esquina.",
+      "enigma": "Santa Sofía fue catedral cristiana durante casi mil años antes de convertirse en mezquita en 1453: los cuatro minaretes son un añadido otomano posterior, construidos en épocas distintas por sultanes distintos. Comparad los cuatro con calma: tres son iguales entre sí, del mismo color y material, pero el cuarto desentona claramente. ¿De qué color es el minarete que no combina con los otros tres?",
+      "respuestas": ["rojo", "rojizo", "ladrillo rojo", "rojo ladrillo", "de ladrillo", "marron rojizo"],
+      "pistas": [
+        "Fijaos en el material, no solo en la forma: tres de los minaretes son de piedra clara.",
+        "El que desentona es el más antiguo de los cuatro, de finales del siglo XV.",
+        "Es el minarete de ladrillo rojo, en la esquina sureste — muy distinto del blanco de los otros tres."
+      ],
+      "historia": "El primer minarete de Santa Sofía, de madera, no ha sobrevivido: lo mandó levantar Mehmed II nada más convertir la catedral en mezquita, en 1453. El que veis hoy en la esquina sureste, de ladrillo, es algo posterior, de finales del siglo XV. Los otros tres, esbeltos y de piedra caliza blanca, se añadieron durante el siglo XVI; dos de ellos son obra del gran arquitecto otomano Mimar Sinan, el mismo que reforzó todo el edificio para que resistiera los terremotos que ya entonces sacudían la ciudad.",
+      "fuente": "Wikipedia — Hagia Sophia; hagiasophia.com — Hagia Sophia Minarets"
+    },
+    {
+      "n": 2,
+      "titulo": "El vikingo que firmó en la balaustrada",
+      "llegada": "Esta parada está en la galería superior de Santa Sofía, a la que solo se accede pagando la entrada de la 'zona de visita' (obligatoria para turistas desde 2024, unos 25 €). Si no vais a entrar, leed igualmente la historia y pasad a la parada 3. Si entráis, subid a la galería sur y buscad una barandilla de mármol junto a una de las ventanas.",
+      "enigma": "En una de las losas de mármol de esa barandilla hay unas rayas verticales talladas que parecen simples arañazos, pero son runas nórdicas: un guardia vikingo las grabó ahí hace más de mil años, probablemente aburrido durante una larga ceremonia, mientras servía en la guardia varega del emperador bizantino. Los expertos han logrado leer un nombre propio escandinavo entre esas rayas, casi seguro el de quien las talló. ¿Qué nombre nórdico se ha identificado en esta inscripción?",
+      "respuestas": ["halvdan", "halfdan", "haldvan"],
+      "pistas": [
+        "Es un nombre masculino escandinavo, no un santo ni un emperador bizantino.",
+        "Empieza por 'Hal-' y significa aproximadamente 'medio danés'.",
+        "El nombre tallado es Halvdan (también escrito Halfdan)."
+      ],
+      "historia": "La guardia varega era el cuerpo de élite del ejército bizantino, formado por mercenarios escandinavos y, más tarde, anglosajones, que servían como guardaespaldas personales del emperador desde el siglo X. Este grafiti, identificado en 1964, es una de las dos inscripciones rúnicas conocidas en Santa Sofía. Dejar el propio nombre grabado en piedra, lejos de casa, no es tan distinto de lo que hoy hacemos con un rotulador en cualquier monumento — solo que Halvdan usó runas, y las suyas llevan aquí más de mil años.",
+      "fuente": "Wikipedia — Runic inscriptions in Hagia Sophia; hagia-sophia.istanbul — Viking Graffiti (Varangian Guard)"
+    },
+    {
+      "n": 3,
+      "titulo": "Las seis torres que asustaron a La Meca",
+      "llegada": "Girad para dar la espalda a Santa Sofía: tenéis delante la Mezquita Azul, con sus minaretes recortados contra el cielo. Contadlos todos, incluidos los más finos y alejados, sin necesidad de entrar.",
+      "enigma": "Casi todas las mezquitas imperiales otomanas tienen como mucho cuatro minaretes; algunas, solo uno o dos. Cuando el sultán Ahmed I terminó esta mezquita en 1616, se armó un escándalo en el mundo islámico, porque solo un edificio tenía entonces tantos minaretes como este: la Gran Mezquita de La Meca, la más sagrada del islam. ¿Cuántos minaretes tiene la Mezquita Azul?",
+      "respuestas": ["6", "seis"],
+      "pistas": [
+        "Hay cuatro en las esquinas del edificio principal, y dos más pequeños en las esquinas del patio.",
+        "Es el mismo número que tenía entonces la Gran Mezquita de La Meca — de ahí el escándalo.",
+        "Son 6 minaretes en total."
+      ],
+      "historia": "La leyenda cuenta que el sultán pidió minaretes 'altın' (de oro) y el arquitecto, Sedefkâr Mehmed Ağa, entendió 'altı' (seis) — una confusión demasiado bonita para ser cierta, pero que los guías siguen repitiendo. La versión documentada es menos divertida: Ahmed I, un sultán joven que aún no había ganado ninguna guerra importante, quiso una mezquita a la altura de su ambición, y copiar el número de minaretes de La Meca se interpretó como una afrenta. Para resolver el conflicto se añadió un séptimo minarete a la mezquita de La Meca, y Estambul pudo quedarse con sus seis.",
+      "fuente": "Wikipedia — Sultan Ahmed Mosque; traveltomorrow.com — The story behind the six minarets"
+    },
+    {
+      "n": 4,
+      "titulo": "El faraón que acabó en un hipódromo",
+      "llegada": "Caminad hasta la explanada alargada al oeste de la Mezquita Azul: es el antiguo Hipódromo de Constantinopla, hoy una plaza pública y gratuita. En un extremo se alza un obelisco de piedra rojiza sobre un pedestal de mármol blanco tallado.",
+      "enigma": "El obelisco en sí es egipcio de verdad, tallado hace más de 3.000 años para el faraón Tutmosis III, y estuvo primero en el templo de Karnak. Los relieves del pedestal, en cambio, son bizantinos, de cuando el emperador Teodosio lo trajo aquí en el año 390. En una de las cuatro caras del pedestal, unas figuras talladas observan algo desde un palco elevado, con las manos alzadas. ¿Qué están viendo el emperador y su corte desde ese palco?",
+      "respuestas": ["carreras de carros", "una carrera de carros", "carreras de cuadrigas", "carreras del hipodromo", "carreras de caballos", "carreras de cuadriga"],
+      "pistas": [
+        "Estáis de pie, ahora mismo, sobre la pista donde ocurría aquello: esta plaza era el hipódromo.",
+        "Es un espectáculo con público y competición, muy popular en Constantinopla, con vehículos tirados por caballos.",
+        "El relieve muestra al emperador presidiendo carreras de carros (cuadrigas) desde el palco imperial del hipódromo."
+      ],
+      "historia": "Trasladar este obelisco desde Egipto fue una hazaña logística: pesa unas 200 toneladas y viajó por el Nilo y luego por mar hasta Constantinopla, donde tardó años en poder levantarse de nuevo. Se rompió durante el transporte o el montaje, así que hoy mide unos 18,5 metros — bastante menos que el original egipcio, que rondaba los 30. Los jeroglíficos siguen siendo los de Tutmosis III, del siglo XV a.C.; el pedestal en el que se apoya, en cambio, se talló expresamente en el siglo IV para la ocasión, con inscripciones en griego y en latín contando la proeza de haberlo erguido de nuevo.",
+      "fuente": "Wikipedia — Obelisk of Theodosius; thebyzantinelegacy.com — Obelisk of Theodosius"
+    },
+    {
+      "n": 5,
+      "titulo": "La serpiente sin cabezas",
+      "llegada": "Seguid por la misma explanada del Hipódromo unos metros más hasta una columna de bronce retorcida, mucho más baja y oscura que el obelisco: son los cuerpos entrelazados de tres serpientes.",
+      "enigma": "Esta columna se fundió con las armas de bronce que los griegos arrebataron al ejército persa derrotado en la batalla de Platea, en el año 479 a.C., y estuvo más de 800 años en el santuario de Delfos antes de que Constantino la trajera aquí. Originalmente terminaba en tres cabezas de serpiente que sostenían un cuenco de oro. Mirad bien el extremo superior de la columna, donde deberían estar esas cabezas. ¿Cuántas quedan hoy en su sitio?",
+      "respuestas": ["0", "cero", "ninguna", "ninguna cabeza", "no queda ninguna"],
+      "pistas": [
+        "No hace falta que forcéis la vista: mirad si hay algo con forma de cabeza en el extremo superior.",
+        "Las tres desaparecieron hace siglos; un fragmento sobrevive, pero no está aquí, sino en un museo.",
+        "No queda ninguna cabeza (0): las tres se perdieron, la última hacia el año 1700."
+      ],
+      "historia": "Las tres cabezas de serpiente sobrevivieron al viaje desde Delfos, a la caída de Constantinopla en 1453 y a más de mil años de historia bizantina y otomana, pero se perdieron ya en época moderna, probablemente por vandalismo, entre finales del siglo XVI y 1700. Solo se conserva el fragmento de una mandíbula superior, hoy expuesto en el Museo Arqueológico de Estambul, a menos de un kilómetro de aquí. La columna entera medía unos 8 metros con las cabezas; hoy, decapitada, se queda en poco más de 5.",
+      "fuente": "Wikipedia — Serpent Column; Istanbul Archaeological Museums"
+    },
+    {
+      "n": 6,
+      "titulo": "Las medusas que nadie quiso mirar de frente",
+      "llegada": "Esta parada está dentro de la Cisterna Basílica (Yerebatan Sarnıcı), un aljibe subterráneo bizantino a pocos pasos de Santa Sofía, con entrada de pago obligatoria — no hay forma de verla desde fuera. Si no entráis, leed igualmente la historia y pasad a la parada 7. Si entráis, buscad en la esquina noroeste del recinto, al fondo, dos columnas cuya base no es una simple piedra, sino un rostro de mujer con serpientes por pelo.",
+      "enigma": "Son dos cabezas de Medusa, probablemente romanas y ya antiguas cuando los ingenieros de Justiniano las reutilizaron aquí en el año 532, reaprovechando piedras de algún monumento anterior del que ya no se sabe nada. Ninguna de las dos está colocada mirando al frente con normalidad: una está completamente invertida, boca abajo. La otra no está invertida, pero tampoco está derecha. ¿Cómo está colocada la segunda cabeza de Medusa?",
+      "respuestas": ["de lado", "de costado", "tumbada", "girada", "lateral", "acostada de lado", "tumbada de lado"],
+      "pistas": [
+        "Mirad primero la que está boca abajo, para descartarla: buscáis la otra, la que la acompaña.",
+        "No está ni de pie ni invertida: está girada unos 90 grados respecto a la posición normal.",
+        "La segunda cabeza de Medusa está de lado (tumbada, de costado)."
+      ],
+      "historia": "Nadie sabe con certeza por qué se colocaron así. Existe una leyenda que dice que se hizo a propósito, para anular el poder de la mirada de Medusa —que en el mito convertía en piedra a quien la miraba a los ojos— sin destruir unas esculturas todavía valiosas. La explicación menos poética, defendida por buena parte de la arqueología actual, es más simple: los canteros bizantinos solo necesitaban dos bloques de la altura exacta para nivelar estas dos columnas, y las cabezas de Medusa, ya recicladas de otro edificio, encajaban perfectamente puestas así.",
+      "fuente": "Wikipedia — Basilica Cistern; yerebatan.com — Medusa Heads"
+    },
+    {
+      "n": 7,
+      "titulo": "El águila que sobrevivió al imperio que la talló",
+      "llegada": "Caminad hacia el noroeste, remontando la calle Yerebatan Caddesi y cruzando la avenida Divan Yolu, hasta el Gran Bazar (Kapalıçarşı) — unos 15-20 minutos a pie, entrada libre. Entrad por la puerta de Nuruosmaniye y preguntad por el İç Bedesten, el salón abovedado más antiguo del bazar, hoy zona de joyerías y anticuarios. En su lado este, sobre la puerta de los joyeros (Kuyumcular Kapısı), buscad un relieve de piedra gris, mucho más gastado que la puerta que lo rodea.",
+      "enigma": "El Gran Bazar se levantó por orden de Mehmed el Conquistador, terminado hacia 1461 — pero este relieve concreto es bizantino, de estilo anterior a la conquista otomana de la ciudad, y representa un ave con las alas desplegadas. Puede que los constructores otomanos lo reutilizaran de un edificio bizantino derruido, o puede que lo colocaran ahí a propósito, como gesto hacia los habitantes cristianos de la ciudad recién conquistada. Contad con atención: ¿cuántas cabezas tiene el ave del relieve?",
+      "respuestas": ["2", "dos"],
+      "pistas": [
+        "No es un águila corriente: fijaos bien en la parte superior, donde esperaríais encontrar una sola cabeza.",
+        "Es el símbolo heráldico más repetido de todo el Imperio bizantino.",
+        "Tiene 2 cabezas: es un águila bizantina bicéfala."
+      ],
+      "historia": "Este relieve se usa a veces como prueba de que parte del edificio es bizantino, pero los análisis de los muros de ladrillo muestran que la estructura que lo rodea es casi toda otomana, de después de 1453. Lo más probable es que sea una pieza reaprovechada, una entre miles de fragmentos de la antigua Constantinopla que los otomanos reciclaron al construir la nueva Estambul, igual que hicieron con columnas, capiteles y bloques de mármol por toda la ciudad. El bazar cierra los domingos: si completáis esta ruta ese día, tendréis que conformaros con verlo desde fuera, a través de las rejas de las puertas.",
+      "fuente": "kulturenvanteri.com — Kapalıçarşı; Wikipedia — Grand Bazaar, Istanbul"
+    },
+    {
+      "n": 8,
+      "titulo": "La columna que fue el centro del mundo",
+      "llegada": "Salid del Gran Bazar por donde entrasteis y volved hacia Sultanahmet por la avenida Divan Yolu. Poco antes de llegar de nuevo a la plaza, a la altura de la Cisterna Basílica, buscad a la derecha una columna de piedra corta y solitaria, en un pequeño espacio ajardinado junto a la calzada.",
+      "enigma": "Esto es lo que queda del Milion: un monumento que en torno al año 330, cuando Constantino fundó aquí su nueva capital, marcaba el punto exacto desde el que se medían todas las distancias del Imperio bizantino, el equivalente constantinopolitano al Miliario de Oro de Roma. Estaba formado por varios arcos y columnas, decorado con estatuas de Constantino y su madre, Helena. De todo aquello, ¿cuántas columnas quedan hoy en pie, aquí, a la vista?",
+      "respuestas": ["1", "una", "uno", "una sola", "solo una"],
+      "pistas": [
+        "No busquéis un monumento grande: es mucho más pequeño y sencillo de lo que erais.",
+        "El resto del Milion se perdió o se reutilizó como material de construcción hace siglos.",
+        "Queda una sola columna (1), reconstruida con fragmentos originales."
+      ],
+      "historia": "Desde este punto, en teoría, se medían las distancias a todas las grandes ciudades del Imperio bizantino: Constantinopla como kilómetro cero del mundo conocido. Toda la ruta que acabáis de recorrer —desde los minaretes que no combinan hasta el águila reciclada del Gran Bazar— ha ido descubriendo monumentos incompletos: una firma vikinga aislada, una serpiente sin cabezas, un águila bizantina que sobrevivió en una puerta otomana. El Milion, reducido a esta única columna, es quizás el resumen perfecto de las dos ciudades —Constantinopla y Estambul— que lleváis media mañana caminando a la vez.",
+      "fuente": "Wikipedia — Milion; istanbul-tourist-information.com — Million Stone (Milyon Taşı)"
+    }
+  ],
+  "final": {
+    "titulo": "Habéis caminado dos imperios a la vez",
+    "texto": "Desde un minarete que no combina con los demás hasta una única columna que un día fue el centro del mundo conocido, habéis recorrido algo más de 3 km sobre un hipódromo que ya no existe, la firma de un mercenario vikingo grabada en mármol, y un águila bizantina que sobrevivió a la conquista que debería haberla borrado. Constantinopla y Estambul se han pisado la una a la otra en cada parada, sin que ninguna de las dos ganara del todo. La próxima vez que alguien os pregunte cómo se llama esta ciudad, las dos respuestas seguirán siendo correctas."
+  }
+}

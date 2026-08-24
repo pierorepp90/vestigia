@@ -1,0 +1,125 @@
+{
+  "rutaId": "paris-marais",
+  "idioma": "it",
+  "titulo": "I codici di Le Marais",
+  "intro": "Le Marais è il quartiere di Parigi che Haussmann non fece in tempo a demolire nell'Ottocento: per questo si possono ancora percorrere strade medievali, attraversare un passaggio segreto del 1624 e leggere, su una facciata qualunque, la memoria di chi ha vissuto e è morto qui. Sono circa 2 km, quasi tutti pianeggianti.",
+  "puntoPartida": "Parvis Notre-Dame — Place Jean-Paul II",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "Il punto da cui si misura la Francia",
+      "llegada": "In piedi sul sagrato davanti a Notre-Dame, cercate a terra, pochi metri prima della porta centrale, un piccolo medaglione ottagonale di bronzo.",
+      "enigma": "Dal 1924, questo medaglione segna il Point Zéro des routes de France: il punto ufficiale da cui si misurano tutte le distanze stradali del paese. Al centro c'è un simbolo inciso usato anche da marinai e cartografi. Che simbolo è?",
+      "respuestas": ["rosa dei venti", "bussola"],
+      "pistas": [
+        "Ha punte rivolte in direzioni diverse, come su una mappa antica.",
+        "È lo stesso tipo di simbolo che usano i marinai per orientarsi.",
+        "È una rosa dei venti."
+      ],
+      "historia": "Quando qualcuno in Francia dice di vivere \"a 300 km da Parigi\", è letteralmente da questa pietra che si conta quella distanza. La tradizione vuole che calpestarla porti fortuna — per questo il centro è così levigato, nonostante sia bronzo.",
+      "fuente": "Ville de Paris; Wikipédia — Point zéro des routes de France"
+    },
+    {
+      "n": 2,
+      "titulo": "I re che non erano re di Francia",
+      "llegada": "Alzate lo sguardo verso la facciata di Notre-Dame, verso la fascia orizzontale di statue proprio sotto la galleria con il grande rosone circolare.",
+      "enigma": "Sono 28 statue di quasi 3,5 metri ciascuna, la Galerie des Rois. Durante la Rivoluzione francese, una folla le decapitò credendo rappresentassero i re di Francia — in realtà raffigurano i re biblici di Giuda, antenati di Cristo. Contate quante statue formano la galleria completa.",
+      "respuestas": ["28", "ventotto"],
+      "pistas": [
+        "Sono tutte sulla stessa fila orizzontale, proprio sotto il grande rosone circolare.",
+        "È un numero tra 25 e 30.",
+        "Sono 28 re."
+      ],
+      "historia": "Le teste originali, tagliate nel 1793, si credettero perdute per 184 anni, finché non ricomparvero per caso nel 1977 durante lavori al numero 20 bis di rue de la Chaussée-d'Antin. Oggi sono esposte al Musée de Cluny; quelle che vedete sulla facciata sono una ricostruzione ottocentesca di Viollet-le-Duc, restaurata di nuovo dopo l'incendio del 2019 e riaperta nel dicembre 2024.",
+      "fuente": "Cathédrale Notre-Dame de Paris; Musée de Cluny"
+    },
+    {
+      "n": 3,
+      "titulo": "La cicatrice di una rivoluzione",
+      "llegada": "Attraversate verso la riva destra e camminate fino a rue du Figuier, dove troverete una facciata gotica con due torrette di pietra angolari — l'Hôtel de Sens, oggi biblioteca Forney.",
+      "enigma": "Questo è uno dei pochi edifici civili medievali sopravvissuti a Parigi (costruito tra il 1475 e il 1519). Ma ciò che cercate non è medievale: vicino a una delle torrette, qualcosa di metallico e sferico è incastonato nella pietra stessa, ricordo di uno sparo vero. Di che anno è la rivoluzione che lo sparò?",
+      "respuestas": ["1830"],
+      "pistas": [
+        "Cercate vicino alla base della torretta d'angolo, all'altezza degli occhi.",
+        "È una palla di cannone. La rivoluzione instaurò la Monarchia di Luglio.",
+        "È del 1830, le Tre Giornate Gloriose."
+      ],
+      "historia": "L'Hôtel de Sens fu residenza di arcivescovi e, brevemente, della regina Margot. Sopravvisse a cinque secoli di storia parigina — e porta incisa, letteralmente, quella del luglio 1830, quando i parigini tornarono a prendere le armi.",
+      "fuente": "Bibliothèque Forney; Ville de Paris — Hôtel de Sens"
+    },
+    {
+      "n": 4,
+      "titulo": "La pecora sulla facciata",
+      "llegada": "Proseguite fino a rue François-Miron. Ai numeri 11 e 13 vedrete due case a graticcio, molto più strette e antiche delle vicine.",
+      "enigma": "Prima che esistessero i numeri civici, le case si identificavano con un nome e un simbolo scolpito sulla facciata. La casa al numero 13 è nota come \"à l'enseigne du Mouton\" (all'insegna della pecora). Cercate l'animale scolpito che le dà il nome.",
+      "respuestas": ["pecora", "montone", "agnello"],
+      "pistas": [
+        "Si trova sulla facciata del numero 13, non dell'11.",
+        "È un animale da fattoria con la lana.",
+        "È una pecora (mouton, in francese)."
+      ],
+      "historia": "Quella al numero 11 si chiama \"à l'enseigne du Faucheur\" (\"all'insegna del mietitore\"). Entrambe le facciate rimasero nascoste sotto uno strato di intonaco dal Seicento fino al restauro del 1967 — il graticcio che vedete oggi è rimasto nascosto per quasi 300 anni.",
+      "fuente": "Ville de Paris — Le Marais; Association Marais-Louvre"
+    },
+    {
+      "n": 5,
+      "titulo": "165 nomi da non dimenticare",
+      "llegada": "Camminate fino a rue des Hospitalières-Saint-Gervais, vicinissima a rue des Rosiers, cuore del quartiere ebraico del Marais fin dal XIII secolo. Cercate la facciata della vecchia scuola.",
+      "enigma": "Sul muro c'è una targa che inizia così: \"... enfants juifs de cette école déportés en Allemagne durant la Seconde Guerre mondiale furent exterminés dans les camps nazis. N'oubliez pas!\" (\"... bambini ebrei di questa scuola, deportati in Germania durante la Seconda guerra mondiale, furono sterminati nei campi nazisti. Non dimenticate\"). Che numero manca all'inizio della frase?",
+      "respuestas": ["165"],
+      "pistas": [
+        "Il numero è inciso proprio all'inizio della targa, prima di \"enfants juifs\".",
+        "È un numero di tre cifre, tra 100 e 200.",
+        "Erano 165 bambini."
+      ],
+      "historia": "Il preside di quella scuola, Joseph Migneret, nascose e salvò decine di alunni ebrei rischiando la propria vita; oggi è riconosciuto come Giusto tra le Nazioni. A pochi passi, il Jardin des Rosiers-Joseph-Migneret porta il suo nome e ricorda anche i 101 bambini più piccoli deportati da questo stesso distretto.",
+      "fuente": "Ville de Paris — plaques commémoratives du 4e arrondissement; Mémorial de la Shoah"
+    },
+    {
+      "n": 6,
+      "titulo": "Le conchiglie di un romanziere",
+      "llegada": "Andate verso rue Saint-Antoine ed entrate nella chiesa di Saint-Paul-Saint-Louis. Proprio all'ingresso, ai due lati, ci sono due acquasantiere dalla forma insolita per la pietra scolpita.",
+      "enigma": "Nel 1843, un abitante della vicina Place des Vosges donò questi due pezzi alla parrocchia in occasione del matrimonio di sua figlia Léopoldine. Non sono pietra: sono conchiglie giganti portate dai Caraibi, montate su bronzo dorato. Quante sono, all'ingresso della chiesa?",
+      "respuestas": ["2", "due"],
+      "pistas": [
+        "Sono una per lato della porta principale, simmetriche.",
+        "Non è un numero grande.",
+        "Sono due conchiglie."
+      ],
+      "historia": "Il vicino generoso era Victor Hugo, che viveva a meno di dieci minuti a piedi, in Place des Vosges. Anni dopo avrebbe usato proprio questa chiesa come scenario del matrimonio di Cosette e Marius ne I Miserabili — finzione costruita, letteralmente, su un luogo dove lui stesso aveva vissuto un matrimonio vero.",
+      "fuente": "Paroisse Saint-Paul-Saint-Louis; classificate come monumento storico nel 1905"
+    },
+    {
+      "n": 7,
+      "titulo": "Il passaggio delle due guardiane",
+      "llegada": "Attraversate rue Saint-Antoine fino al numero 62, l'Hôtel de Sully. Entrate nel suo cortile (accesso libero di giorno) e cercate, in fondo, il passaggio verso l'aranciera.",
+      "enigma": "Quel passaggio, costruito nel 1624, è una scorciatoia segreta verso Place des Vosges che la nobiltà usava per non uscire in strada. Due creature di pietra, metà donna e metà leone, affiancano l'ingresso del passaggio. Come si chiamano queste creature?",
+      "respuestas": ["sfingi", "sfinge"],
+      "pistas": [
+        "Sono figure della mitologia egizia e greca, non cristiana.",
+        "La più famosa di tutte custodisce le piramidi di Giza.",
+        "Sono sfingi."
+      ],
+      "historia": "L'Hôtel de Sully fu acquistato nel 1634 da Maximilien de Béthune, duca di Sully e ministro delle finanze di Enrico IV. Attraversate il passaggio tra le due sfingi: dall'altra parte vi aspetta la piazza che chiude questo percorso.",
+      "fuente": "Centre des Monuments Nationaux — Hôtel de Sully"
+    },
+    {
+      "n": 8,
+      "titulo": "Trentasei case identiche",
+      "llegada": "Attraversando il passaggio dell'Hôtel de Sully si arriva direttamente in Place des Vosges, la più antica piazza reale di Parigi, inaugurata nel 1612.",
+      "enigma": "L'intera piazza è formata da padiglioni identici in mattoni rossi e pietra chiara, con portici al piano terra — stessa altezza dei tetti, stessa larghezza di facciata, su tutti e quattro i lati. Contate quanti padiglioni formano la piazza completa.",
+      "respuestas": ["36", "trentasei"],
+      "pistas": [
+        "Ci sono nove padiglioni per ciascuno dei quattro lati della piazza.",
+        "9 × 4 = ?",
+        "Sono 36 padiglioni."
+      ],
+      "historia": "Enrico IV commissionò questa piazza nel 1605 per le classi abbienti; non la vide mai terminata perché fu assassinato nel 1610, e fu suo figlio Luigi XIII a inaugurarla nel 1612, per celebrare il fidanzamento con Anna d'Austria. Victor Hugo visse al numero 6 per 16 anni — lo stesso uomo che, due tappe fa, donò due conchiglie giganti a una chiesa. Avete camminato, senza saperlo, sulle sue orme per mezzo quartiere.",
+      "fuente": "Centre des Monuments Nationaux — Place des Vosges; Maison de Victor Hugo"
+    }
+  ],
+  "final": {
+    "titulo": "Avete decifrato Le Marais",
+    "texto": "Dal punto esatto da cui si misura tutta la Francia alla piazza dove visse Victor Hugo, passando per una palla di cannone del 1830 e una targa che, senza gridare, chiede di non dimenticare. Le Marais è sopravvissuto quasi intero a Haussmann: ora sapete anche perché meritava di sopravvivere."
+  }
+}

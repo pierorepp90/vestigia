@@ -1,0 +1,1340 @@
+/* css/styles.css
+ * Vestigia — sistema de diseño "papel y tinta"
+ * =============================================
+ * Dirección: un atlas de viaje encuadernado a mano. Papel envejecido, tinta
+ * sepia, un rojo lacre para lo que se puede pulsar. Fotografía grande y de
+ * alto contraste haciendo de ventana a cada ciudad. Nada de gradientes
+ * violeta ni de Inter: tipografía con carácter, motivos de cartografía
+ * antigua (rosa de los vientos, matasellos, líneas de ruta punteadas).
+ *
+ * Índice:
+ *   1. Fuentes
+ *   2. Tokens (custom properties)
+ *   3. Reset y base
+ *   4. Textura de papel
+ *   5. Layout / utilidades
+ *   6. Cabecera
+ *   7. Hero
+ *   8. Cómo funciona
+ *   9. Tarjetas de ciudad
+ *   10. Componentes compartidos (botones, badges, meta)
+ *   11. Footer
+ *   12. Animaciones
+ *   13. Responsive
+ */
+
+/* ---------- 1. Fuentes ---------- */
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,450;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Archivo:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap');
+
+/* ---------- 2. Tokens ---------- */
+:root {
+  /* Paleta — papel y tinta */
+  --paper: #f4ead0;
+  --paper-2: #ecdfb9;
+  --paper-3: #e2d0a3;
+  --paper-edge: #d6bf8c;
+  --ink: #241a10;
+  --ink-soft: #4d3f2c;
+  --ink-faint: #83714f;
+  --lacre: #9c2b1f;
+  --lacre-dark: #7a1f16;
+  --lacre-ink: #fbe9df;
+  --gold: #9c7a2e;
+  --forest: #435c42;
+
+  --sombra-tarjeta: 0 1px 2px rgba(36, 26, 16, 0.08), 0 12px 24px -12px rgba(36, 26, 16, 0.35);
+  --sombra-alzada: 0 4px 8px rgba(36, 26, 16, 0.12), 0 24px 40px -16px rgba(36, 26, 16, 0.45);
+
+  /* Tipografía */
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Archivo', -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Courier New', monospace;
+
+  /* Radios y ritmo */
+  --radio: 3px;
+  --contenedor: 1180px;
+
+  color-scheme: light;
+}
+
+/* ---------- 3. Reset y base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* El atributo hidden debe ganar siempre, incluso sobre clases que fijan
+   display (p. ej. .pantalla-centrada { display: flex }) — misma
+   especificidad que [hidden] del UA stylesheet, pero las nuestras cargan
+   después y ganarían por orden de aparición si no fuera por este !important. */
+[hidden] {
+  display: none !important;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-soft);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  margin: 0 0 0.5em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  font: inherit;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 2px solid var(--lacre);
+  outline-offset: 3px;
+}
+
+/* ---------- 4. Textura de papel ---------- */
+/* Grano sutil vía SVG de ruido, sin peticiones de red adicionales. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.5;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 0.14  0 0 0 0 0.10  0 0 0 0 0.06  0 0 0 0.045 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+main,
+header,
+footer {
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- 5. Layout / utilidades ---------- */
+.contenedor {
+  width: 100%;
+  max-width: var(--contenedor);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--lacre);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 22px;
+  height: 1px;
+  background: currentColor;
+  opacity: 0.6;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ---------- 6. Cabecera ---------- */
+.cabecera {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--paper-edge);
+}
+
+.cabecera .contenedor {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.marca {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.marca__icono {
+  width: 34px;
+  height: 34px;
+  flex-shrink: 0;
+  color: var(--lacre);
+}
+
+.marca__texto {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.marca__nombre {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  color: var(--ink);
+}
+
+.marca__tagline {
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--ink-faint);
+}
+
+.nav-principal {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+}
+
+.nav-principal a {
+  text-decoration: none;
+  font-size: 0.94rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.nav-principal a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -2px;
+  height: 1px;
+  background: var(--lacre);
+  transition: right 0.25s ease;
+}
+
+.nav-principal a:hover::after {
+  right: 0;
+}
+
+.selector-idioma {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.03em;
+}
+
+.selector-idioma__opcion {
+  background: none;
+  border: none;
+  padding: 2px 0 4px;
+  color: var(--ink-faint);
+  border-bottom: 1.5px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.selector-idioma__opcion:hover {
+  color: var(--ink-soft);
+}
+
+.selector-idioma__opcion.activa {
+  color: var(--lacre);
+  border-bottom-color: var(--lacre);
+  font-weight: 600;
+}
+
+.selector-idioma__separador {
+  color: var(--paper-edge);
+}
+
+/* ---------- 7. Hero ---------- */
+.hero {
+  padding: 72px 0 56px;
+  text-align: center;
+}
+
+.hero__titulo {
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  font-weight: 700;
+  font-style: italic;
+  max-width: 16ch;
+  margin: 0.4em auto 0.3em;
+}
+
+.hero__subtitulo {
+  max-width: 56ch;
+  margin: 0 auto 30px;
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.hero__cta {
+  margin-bottom: 44px;
+}
+
+/* Línea de ruta decorativa: tres paradas unidas por un trazo punteado */
+.ruta-decorativa {
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  margin: 0 auto;
+  color: var(--gold);
+}
+
+.ruta-decorativa .trazo {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-dasharray: 1 9;
+  stroke-linecap: round;
+  opacity: 0.8;
+}
+
+.ruta-decorativa .punto {
+  fill: var(--lacre);
+}
+
+.ruta-decorativa .punto-anillo {
+  fill: none;
+  stroke: var(--lacre);
+  stroke-width: 1.5;
+  opacity: 0.5;
+}
+
+/* ---------- 8. Cómo funciona ---------- */
+.como-funciona {
+  padding: 40px 0 76px;
+}
+
+.como-funciona__titulo {
+  text-align: center;
+  font-size: 1.7rem;
+  margin-bottom: 40px;
+}
+
+.pasos {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+
+.paso {
+  position: relative;
+  padding: 26px 20px 20px;
+  background: var(--paper-2);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radio);
+}
+
+.paso__numero {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.2rem;
+  color: var(--lacre);
+  line-height: 1;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.paso__titulo {
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+.paso__texto {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+  margin: 0;
+}
+
+/* ---------- 9. Tarjetas de ciudad ---------- */
+.seccion-ciudades {
+  padding: 20px 0 90px;
+}
+
+.seccion-ciudades__cabecera {
+  text-align: center;
+  margin-bottom: 44px;
+}
+
+.seccion-ciudades__titulo {
+  font-size: 2rem;
+}
+
+.seccion-ciudades__subtitulo {
+  color: var(--ink-faint);
+  font-size: 1rem;
+}
+
+.grid-ciudades {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px 30px;
+}
+
+.tarjeta-ciudad {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+  background: var(--paper-2);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra-tarjeta);
+  transform: rotate(var(--giro, 0deg));
+  transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.35s ease;
+  opacity: 0;
+  animation: aparecer 0.7s cubic-bezier(0.2, 0.7, 0.3, 1) forwards;
+  animation-delay: var(--retraso, 0s);
+}
+
+.tarjeta-ciudad:nth-child(3n + 1) {
+  --giro: -0.6deg;
+}
+
+.tarjeta-ciudad:nth-child(3n + 2) {
+  --giro: 0.4deg;
+}
+
+.tarjeta-ciudad:nth-child(3n + 3) {
+  --giro: -0.3deg;
+}
+
+.tarjeta-ciudad--activa:hover,
+.tarjeta-ciudad--activa:focus-visible {
+  transform: rotate(0deg) translateY(-6px);
+  box-shadow: var(--sombra-alzada);
+}
+
+.tarjeta-ciudad__marco {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  /* Esquina dada la vuelta, como una postal usada */
+  clip-path: polygon(0 0, 88% 0, 100% 12%, 100% 100%, 0 100%);
+}
+
+.tarjeta-ciudad__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.tarjeta-ciudad--activa:hover .tarjeta-ciudad__foto {
+  transform: scale(1.05);
+}
+
+.tarjeta-ciudad__solapa {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 46px 46px 0;
+  border-color: transparent var(--paper) transparent transparent;
+  filter: drop-shadow(-2px 2px 2px rgba(36, 26, 16, 0.25));
+}
+
+.tarjeta-ciudad--inactiva {
+  cursor: default;
+}
+
+.tarjeta-ciudad--inactiva .tarjeta-ciudad__foto {
+  filter: grayscale(0.85) brightness(0.8) contrast(0.92);
+}
+
+.matasellos {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  width: 84px;
+  height: 84px;
+  color: var(--paper);
+  opacity: 0.92;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.35));
+}
+
+.matasellos text {
+  font-family: var(--font-mono);
+  font-size: 7.6px;
+  letter-spacing: 0.15em;
+  fill: currentColor;
+  text-transform: uppercase;
+}
+
+.matasellos circle,
+.matasellos line {
+  stroke: currentColor;
+  fill: none;
+}
+
+.cinta-proximamente {
+  position: absolute;
+  top: 18px;
+  right: -34px;
+  width: 150px;
+  transform: rotate(40deg);
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-mono);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 5px 0;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.tarjeta-ciudad__cuerpo {
+  padding: 20px 22px 24px;
+}
+
+.tarjeta-ciudad__pais {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-bottom: 4px;
+  display: block;
+}
+
+.tarjeta-ciudad__nombre {
+  font-size: 1.6rem;
+  margin-bottom: 8px;
+}
+
+.tarjeta-ciudad__resumen {
+  font-size: 0.9rem;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+}
+
+.tarjeta-ciudad__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+}
+
+/* ---------- 10. Componentes compartidos ---------- */
+.meta-item {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.meta-item svg {
+  width: 13px;
+  height: 13px;
+  opacity: 0.75;
+}
+
+.badge-dificultad {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  padding: 2px 9px;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+}
+
+.badge-dificultad--facil {
+  color: var(--forest);
+}
+
+.badge-dificultad--media {
+  color: var(--gold);
+}
+
+.badge-dificultad--dificil {
+  color: var(--lacre);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-decoration: none;
+  padding: 14px 26px;
+  border-radius: 999px;
+  border: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.btn-lacre {
+  background: var(--lacre);
+  color: var(--lacre-ink);
+  box-shadow: 0 2px 0 var(--lacre-dark), 0 8px 18px -8px rgba(156, 43, 31, 0.7);
+}
+
+.btn-lacre:hover {
+  background: var(--lacre-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 0 var(--lacre-dark), 0 14px 24px -10px rgba(156, 43, 31, 0.8);
+}
+
+.btn-lacre:active {
+  transform: translateY(0);
+  box-shadow: 0 1px 0 var(--lacre-dark);
+}
+
+.btn-fantasma {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--ink);
+}
+
+.btn-fantasma:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+/* ---------- 11. Footer ---------- */
+.pie {
+  border-top: 1px solid var(--paper-edge);
+  padding: 34px 0;
+  margin-top: 40px;
+}
+
+.pie .contenedor {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+}
+
+.pie__enlaces {
+  display: flex;
+  gap: 22px;
+  flex-wrap: wrap;
+}
+
+.pie__enlaces a {
+  text-decoration: none;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+}
+
+.pie__enlaces a:hover {
+  color: var(--lacre);
+}
+
+.pie__derechos {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--ink-faint);
+}
+
+/* ---------- 12. Animaciones ---------- */
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: translateY(16px) rotate(var(--giro, 0deg));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) rotate(var(--giro, 0deg));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .tarjeta-ciudad {
+    animation: none;
+    opacity: 1;
+  }
+  .tarjeta-ciudad,
+  .tarjeta-ciudad__foto,
+  .btn,
+  .nav-principal a::after {
+    transition: none;
+  }
+}
+
+/* ---------- 12b. Pantallas centradas (carga / error) ---------- */
+/* Compartido por jugar/index.html (tema oscuro, ver juego.css para los
+   colores) y jugar/imprimir.html (usa estos colores claros tal cual). */
+.pantalla-centrada {
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 40px 24px;
+}
+
+.girando {
+  width: 34px;
+  height: 34px;
+  border: 3px solid var(--paper-edge);
+  border-top-color: var(--lacre);
+  border-radius: 50%;
+  animation: girar 0.8s linear infinite;
+  margin-bottom: 18px;
+}
+
+@keyframes girar {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .girando {
+    animation-duration: 2s;
+  }
+}
+
+.pantalla-centrada__titulo {
+  color: var(--ink);
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.pantalla-centrada__texto {
+  color: var(--ink-faint);
+  max-width: 42ch;
+  margin-bottom: 20px;
+}
+
+/* ---------- 13. Responsive ---------- */
+@media (max-width: 980px) {
+  .pasos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-ciudades {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .cabecera .contenedor {
+    flex-wrap: wrap;
+  }
+  .nav-principal {
+    order: 3;
+    width: 100%;
+    justify-content: space-between;
+    padding-top: 14px;
+    border-top: 1px dashed var(--paper-edge);
+  }
+  .hero {
+    padding: 48px 0 36px;
+  }
+  .pasos,
+  .grid-ciudades {
+    grid-template-columns: 1fr;
+  }
+  .tarjeta-ciudad {
+    transform: none !important;
+  }
+}
+
+/* =============================================================
+ * 14. Migas de pan
+ * ============================================================= */
+.migas {
+  padding: 20px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+}
+
+.migas a {
+  text-decoration: none;
+  color: var(--ink-faint);
+  border-bottom: 1px dotted var(--ink-faint);
+}
+
+.migas a:hover {
+  color: var(--lacre);
+  border-color: var(--lacre);
+}
+
+.migas .separador {
+  margin: 0 8px;
+  opacity: 0.6;
+}
+
+.migas .actual {
+  color: var(--ink-soft);
+}
+
+/* =============================================================
+ * 15. Cabecera de ciudad (banner editorial)
+ * ============================================================= */
+.ciudad-hero {
+  position: relative;
+  margin-top: 18px;
+  min-height: 62vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  border-radius: var(--radio);
+}
+
+.ciudad-hero__foto {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.ciudad-hero__velo {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(24, 16, 8, 0) 35%, rgba(24, 16, 8, 0.82) 100%);
+}
+
+.ciudad-hero__contenido {
+  position: relative;
+  z-index: 1;
+  padding: 40px 44px;
+  color: var(--paper);
+  max-width: 62ch;
+}
+
+.ciudad-hero__contenido .eyebrow {
+  color: var(--paper);
+  opacity: 0.85;
+}
+
+.ciudad-hero__pais {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  opacity: 0.85;
+  margin: 10px 0 2px;
+}
+
+.ciudad-hero__nombre {
+  color: var(--paper);
+  font-size: clamp(2.4rem, 5.4vw, 4rem);
+  margin-bottom: 10px;
+}
+
+.ciudad-hero__resumen {
+  color: var(--paper);
+  opacity: 0.92;
+  font-size: 1.05rem;
+  margin: 0;
+}
+
+/* =============================================================
+ * 16. Rutas de una ciudad
+ * ============================================================= */
+.seccion-rutas {
+  padding: 54px 0 90px;
+}
+
+.seccion-rutas__titulo {
+  font-size: 1.7rem;
+  margin-bottom: 26px;
+}
+
+.grid-rutas {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.tarjeta-ruta {
+  display: grid;
+  grid-template-columns: minmax(0, 340px) 1fr;
+  background: var(--paper-2);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radio);
+  overflow: hidden;
+  box-shadow: var(--sombra-tarjeta);
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.tarjeta-ruta:hover {
+  box-shadow: var(--sombra-alzada);
+  transform: translateY(-3px);
+}
+
+.tarjeta-ruta__foto-envoltorio {
+  position: relative;
+  min-height: 220px;
+}
+
+.tarjeta-ruta__foto {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tarjeta-ruta__cuerpo {
+  padding: 26px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.tarjeta-ruta__zona {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lacre);
+}
+
+.tarjeta-ruta__zona svg {
+  width: 13px;
+  height: 13px;
+  flex-shrink: 0;
+}
+
+.tarjeta-ruta__titulo {
+  font-size: 1.7rem;
+  margin: 0;
+}
+
+.tarjeta-ruta__resumen {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.tarjeta-ruta__pie {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 18px;
+  padding-top: 8px;
+}
+
+.tarjeta-ruta__precio {
+  margin-left: auto;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.3rem;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.tarjeta-ruta__precio small {
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.7rem;
+  color: var(--ink-faint);
+}
+
+/* =============================================================
+ * 17. Ficha de ruta (página de producto)
+ * ============================================================= */
+.ruta-detalle {
+  padding: 36px 0 100px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 340px;
+  gap: 48px;
+  align-items: start;
+}
+
+.ruta-detalle__principal {
+  min-width: 0;
+}
+
+.ruta-detalle__foto {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: var(--radio);
+  box-shadow: var(--sombra-tarjeta);
+  margin-bottom: 26px;
+}
+
+.ruta-detalle__zona {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--lacre);
+}
+
+.ruta-detalle__titulo {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  margin: 8px 0 18px;
+}
+
+.ruta-detalle__resumen {
+  font-size: 1.06rem;
+  color: var(--ink-soft);
+  max-width: 68ch;
+}
+
+/* Adelanto: caja de "nota encontrada", con esquina doblada */
+.adelanto {
+  position: relative;
+  margin: 34px 0;
+  padding: 28px 30px 26px;
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
+  border-left: 3px solid var(--lacre);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.adelanto::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent var(--paper-3) transparent transparent;
+}
+
+.adelanto__titulo {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--lacre);
+  margin-bottom: 12px;
+  display: block;
+}
+
+.adelanto__texto {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.28rem;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.adelanto__nota {
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  margin: 0;
+}
+
+.mapa-zona-title {
+  font-size: 1.3rem;
+  margin: 40px 0 16px;
+}
+
+.mapa-zona {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  max-width: 420px;
+  margin: 0 0 8px;
+}
+
+.mapa-zona__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mapa-zona__caption {
+  margin: 6px 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.lista-incluye li {
+  position: relative;
+  padding: 6px 0 6px 26px;
+  color: var(--ink-soft);
+}
+
+.lista-incluye li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--forest);
+  font-weight: 700;
+}
+
+.lista-incluye--compacta {
+  margin-top: 4px;
+}
+
+.lista-incluye--compacta li {
+  font-size: 0.82rem;
+  color: var(--ink-faint);
+  padding: 3px 0 3px 22px;
+}
+
+.lista-incluye--compacta li::before {
+  font-size: 0.8rem;
+}
+
+/* Panel lateral: ficha estilo billete */
+.panel-ficha {
+  position: sticky;
+  top: 24px;
+  background: var(--paper-2);
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radio);
+  padding: 26px 26px 24px;
+  box-shadow: var(--sombra-tarjeta);
+}
+
+.panel-ficha__fila {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  padding: 11px 0;
+  border-bottom: 1px dashed var(--paper-edge);
+}
+
+.panel-ficha__fila:first-child {
+  padding-top: 0;
+}
+
+.panel-ficha__fila:last-of-type {
+  border-bottom: none;
+}
+
+.panel-ficha__etiqueta {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.panel-ficha__valor {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-align: right;
+}
+
+.panel-ficha__precio {
+  text-align: center;
+  margin: 18px 0 16px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 2.1rem;
+  color: var(--ink);
+}
+
+.panel-ficha__precio small {
+  display: block;
+  font-family: var(--font-mono);
+  font-style: normal;
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+  margin-top: 4px;
+}
+
+.panel-ficha__email {
+  margin: 4px 0 14px;
+}
+
+.input-email {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  padding: 10px 12px;
+  border: 1px solid var(--paper-edge);
+  border-radius: var(--radio);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.input-email:focus {
+  outline: 2px solid var(--lacre);
+  outline-offset: 1px;
+}
+
+.panel-ficha .btn {
+  width: 100%;
+  justify-content: center;
+  text-align: center;
+}
+
+/* =============================================================
+ * 18b. Páginas de prosa (legal)
+ * ============================================================= */
+.prosa {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 50px 24px 90px;
+}
+
+.prosa__actualizado {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-faint);
+  margin-bottom: 34px;
+}
+
+.prosa h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.prosa h2 {
+  font-size: 1.35rem;
+  margin: 36px 0 12px;
+}
+
+.prosa p,
+.prosa li {
+  color: var(--ink-soft);
+  font-size: 0.98rem;
+}
+
+.prosa ul,
+.prosa ol {
+  margin: 0 0 1em;
+  padding-left: 22px;
+}
+
+.prosa li {
+  margin-bottom: 6px;
+}
+
+.prosa li::marker {
+  color: var(--lacre);
+}
+
+.prosa strong {
+  color: var(--ink);
+}
+
+.prosa a {
+  color: var(--lacre);
+}
+
+.prosa .placeholder {
+  background: color-mix(in srgb, var(--gold) 18%, transparent);
+  border: 1px dashed var(--gold);
+  border-radius: 3px;
+  padding: 0 5px;
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+}
+
+.prosa .aviso-borrador {
+  background: var(--paper-2);
+  border-left: 3px solid var(--lacre);
+  border-radius: 0 var(--radio) var(--radio) 0;
+  padding: 16px 20px;
+  margin-bottom: 36px;
+  font-size: 0.92rem;
+}
+
+/* =============================================================
+ * 18. Responsive — ciudad / ruta
+ * ============================================================= */
+@media (max-width: 980px) {
+  .tarjeta-ruta {
+    grid-template-columns: 1fr;
+  }
+  .tarjeta-ruta__foto-envoltorio {
+    min-height: 180px;
+  }
+  .ruta-detalle {
+    grid-template-columns: 1fr;
+  }
+  .panel-ficha {
+    position: static;
+  }
+}
+
+@media (max-width: 640px) {
+  .ciudad-hero {
+    min-height: 48vh;
+  }
+  .ciudad-hero__contenido {
+    padding: 26px 20px;
+  }
+  .tarjeta-ruta__pie {
+    gap: 8px 14px;
+  }
+  .tarjeta-ruta__precio {
+    margin-left: 0;
+    width: 100%;
+  }
+}

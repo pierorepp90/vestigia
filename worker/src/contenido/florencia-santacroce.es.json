@@ -1,0 +1,125 @@
+{
+  "rutaId": "florencia-santacroce",
+  "idioma": "es",
+  "titulo": "Las manos que hicieron Florencia",
+  "intro": "Cruzáis el río hacia el barrio que Florencia usaba para trabajar, no para posar en las fotos. Detrás de la fachada neogótica de Santa Croce hay una estrella que nadie plantó ahí por casualidad, y en una plaza donde antes corría sangre a puñetazos hay una fecha grabada en un disco de mármol que casi nadie mira. Cruzaréis el Ponte Vecchio de paso, sin deteneros —esa historia ya la cuenta otra ruta de esta misma ciudad—, para entrar en Oltrarno, el barrio donde los artesanos llevan ochocientos años trabajando el cuero, la madera y el oro con las mismas manos, generación tras generación. Son casi 2,5 km y ocho paradas: aquí la dificultad está en fijarse en lo pequeño, no en lo monumental.",
+  "puntoPartida": "Piazza Santa Croce, frente a la fachada de la Basilica di Santa Croce",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La estrella que no debería estar ahí",
+      "llegada": "De pie en la Piazza Santa Croce, colocaos frente a la fachada principal de la basílica: paneles geométricos de mármol blanco, verde y rosa cubriendo toda la superficie, coronados por un gran rosetón. Alzad la vista hasta el remate triangular que corona la fachada, justo encima del rosetón.",
+      "enigma": "Esta fachada parece medieval, a juego con el resto de la iglesia gótica, pero es en realidad del siglo XIX: la terminó en 1863 el arquitecto Niccolò Matas, de origen judío, casi 600 años después de que empezara a construirse la basílica. En el centro exacto del triángulo que corona la fachada, entre la decoración geométrica de mármol, Matas incluyó una figura que nadie esperaría encontrar en la portada de una iglesia franciscana: una estrella formada por dos triángulos superpuestos, uno invertido sobre el otro. ¿Cuántas puntas tiene esa estrella?",
+      "respuestas": ["6", "seis"],
+      "pistas": [
+        "Mirad justo en el vértice superior del triángulo que remata la fachada, por encima del rosetón central, no en los laterales.",
+        "Es la misma figura de dos triángulos cruzados que aparece en la bandera de Israel.",
+        "Tiene 6 puntas: es un hexagrama, la Estrella de David."
+      ],
+      "historia": "Matas murió en 1872, sin llegar a ver rematado del todo el conjunto que había dedicado media vida a completar. Por su origen judío no podía recibir sepultura dentro de la basílica junto a los grandes nombres de Italia que descansan ahí; se le enterró justo bajo el umbral de la puerta principal, en el pavimento exterior, con una lápida que hoy pisan sin saberlo miles de visitantes cada día al entrar. Algunos historiadores actuales matizan que el hexagrama era también un motivo decorativo habitual del neogótico del XIX, y no necesariamente una firma personal — pero la coincidencia, ahí arriba, sigue sin pasar desapercibida para quien mira con atención.",
+      "fuente": "Wikipedia — Niccolò Matas, Basilica di Santa Croce; FirenzeToday — Perché sulla facciata di Santa Croce c'è la stella ebraica"
+    },
+    {
+      "n": 2,
+      "titulo": "El disco que marcaba el centro del campo",
+      "llegada": "Sin salir de la Piazza Santa Croce, girad hacia el lado largo de la plaza, el que queda a mano izquierda si tenéis la basílica a la espalda: buscad el Palazzo dell'Antella, reconocible por ser la fachada más larga de toda la plaza, cubierta de restos de pintura al fresco. A la altura de la planta baja, empotrado en la piedra, hay un pequeño disco circular de mármol blanco.",
+      "enigma": "Esta plaza es, desde el Renacimiento, el campo de juego del Calcio Storico Fiorentino: un deporte violento, mitad fútbol y mitad lucha libre, que enfrenta a los cuatro barrios históricos de Florencia. En 1565 se empotraron dos discos de mármol en fachadas opuestas de la plaza —este de Palazzo dell'Antella y otro en el edificio de enfrente— para marcar, de forma permanente, la línea que divide el campo exactamente por la mitad. En el disco que tenéis delante hay grabado un año: el mismo en que se marcó el campo. ¿Qué año es?",
+      "respuestas": ["1565"],
+      "pistas": [
+        "No es el año de una partida famosa: es el año en que se instalaron los propios discos de mármol.",
+        "Es un año de mediados del siglo XVI, cuando Florencia ya estaba gobernada por los Medici como grandes duques.",
+        "El año grabado es 1565."
+      ],
+      "historia": "El partido más recordado de esta plaza se jugó el 17 de febrero de 1530, en pleno asedio de Florencia por las tropas de Carlos V: la ciudad, sitiada y hambrienta, organizó igualmente su partido de Carnaval como gesto de desafío al enemigo, subiendo incluso a los tejados cercanos a tocar música para que los soldados imperiales la oyeran desde fuera de las murallas. Hoy, cada mes de junio, se sigue jugando aquí un torneo entre los cuatro barrios históricos —Santa Croce (azul), Santa Maria Novella (rojo), San Giovanni (verde) y Santo Spirito (blanco)— sobre una gruesa capa de arena que cubre toda la plaza durante las semanas del torneo.",
+      "fuente": "Comune di Firenze — Partita dell'Assedio; Wikipedia — Calcio storico fiorentino, Palazzo dell'Antella"
+    },
+    {
+      "n": 3,
+      "titulo": "Las tres artes que velan al escultor",
+      "llegada": "Entrad en la Basilica di Santa Croce por la puerta principal —hay entrada de pago, unos 8-11 € según el billete, que incluye también el Museo, los Claustros y la Capilla de los Pazzi; si no vais a entrar, leed igualmente la historia y pasad a la parada 4—. Ya dentro, buscad en la nave derecha, muy cerca de la entrada, un gran monumento funerario de mármol con tres figuras sentadas.",
+      "enigma": "Esta basílica se conoce como el Templo de las Glorias Italianas porque aquí descansan Miguel Ángel, Galileo, Maquiavelo o el compositor Rossini, entre otros. La tumba que tenéis delante es la de Miguel Ángel: la diseñó Giorgio Vasari por encargo del gran duque Cosimo I, que hizo traer el cuerpo del artista desde Roma en 1564. A los pies del sarcófago, varias estatuas de mármol —cada una obra de un escultor distinto— representan, cada una, un arte diferente en el que Miguel Ángel fue maestro. ¿Cuántas estatuas alegóricas hay sentadas en esta tumba?",
+      "respuestas": ["3", "tres"],
+      "pistas": [
+        "No es una sola figura llorando al muerto: son varias estatuas distintas, cada una representando una disciplina artística.",
+        "Las tres artes representadas son la Escultura, la Pintura y la Arquitectura.",
+        "Hay 3 estatuas, una por cada arte."
+      ],
+      "historia": "El monumento no se terminó hasta 1576, doce años después de la muerte de Miguel Ángel, y cada estatua la esculpió un artista distinto: la Escultura es de Valerio Cioli, la Pintura de Giovan Battista Lorenzi y la Arquitectura de Giovanni dell'Opera. Justo enfrente, al otro lado de la nave, está la tumba de Galileo Galilei, trasladada aquí en 1737 —casi un siglo después de su muerte— porque la Iglesia, que lo había condenado en vida, tardó generaciones en permitirle un entierro digno dentro de un templo cristiano.",
+      "fuente": "Opera di Santa Croce — Monumento funebre di Michelangelo (Vasari); Wikipedia — Basilica di Santa Croce"
+    },
+    {
+      "n": 4,
+      "titulo": "El retrato que llegó tres siglos tarde",
+      "llegada": "Salid de la plaza por Via Ghibellina, hacia el noreste, y caminad unos 400 m hasta el número 70, en la esquina con Via Buonarroti. Es la Casa Buonarroti: unas casas que pertenecieron a la familia de Miguel Ángel, convertidas en museo. Sin necesidad de entrar, mirad la fachada, justo encima de la puerta principal.",
+      "enigma": "Miguel Ángel compró estas casas en 1508 y vivió en ellas por temporadas, pero el edificio que veis hoy, con su aspecto actual, no lo construyó él: fue obra de su sobrino-nieto, Michelangelo Buonarroti el Joven, entre 1612 y 1643, para convertirla en un monumento a la memoria del artista. Sobre la puerta principal hay un busto que representa al propio Miguel Ángel, pero no es un retrato de su época: se colocó en 1875, obra de Clemente Papi y Lodovico Caselli sobre un diseño de Daniele da Volterra, amigo del artista. Miguel Ángel murió en 1564. Contando en siglos completos, ¿cuántos siglos pasaron entre su muerte y la colocación de este busto sobre la puerta?",
+      "respuestas": ["3", "tres", "3 siglos", "tres siglos", "311", "311 años"],
+      "pistas": [
+        "Restad el año de la muerte de Miguel Ángel (1564) al año en que se colocó el busto (1875).",
+        "El resultado son 311 años: redondeado a siglos completos, son varios siglos, no solo uno o dos.",
+        "Pasaron 3 siglos (311 años) entre su muerte y el busto de la puerta."
+      ],
+      "historia": "En la fachada, junto a la puerta, hay también un escudo de armas de los Buonarroti en terracota vidriada de vivos colores, obra de comienzos del siglo XVI del taller de la familia della Robbia —los mismos que inventaron esa técnica de cerámica azul y blanca que se ve por toda Florencia—, mucho más antiguo que el busto. Dentro, aunque esta ruta no entra, se conserva la mayor colección del mundo de dibujos originales de Miguel Ángel: más de 200 hojas que la familia fue guardando durante generaciones.",
+      "fuente": "Casa Buonarroti — Storia del museo; Wikipedia — Casa Buonarroti"
+    },
+    {
+      "n": 5,
+      "titulo": "La torre que no quiso apartarse",
+      "llegada": "Volved hacia el Arno —por Via de' Benci o Borgo Santa Croce, unos 10 minutos— y cruzad el Ponte Vecchio sin deteneros: sus tiendas de orfebres y su historia ya pertenecen a otra ruta de esta misma ciudad. Al llegar al extremo sur del puente, justo donde entráis en el barrio de Oltrarno, deteneos en Via de' Bardi: buscad, casi pegada a las últimas casas del puente, una pequeña torre medieval de piedra, más antigua y más basta que todo lo que la rodea.",
+      "enigma": "Es la Torre dei Mannelli, del siglo XIII: la única que sobrevive de las cuatro torres que en su día vigilaban las esquinas del Ponte Vecchio. En 1565, cuando Giorgio Vasari construyó el pasillo elevado que permitía a los Medici cruzar de un palacio a otro sin pisar la calle, todos los propietarios cedieron parte de su fachada para dejarlo pasar en línea recta... excepto la familia dueña de esta torre, que se negó en redondo. Vasari tuvo que desviar el pasillo, sacándolo hacia fuera sobre unos soportes de piedra en voladizo para rodear la torre por fuera, sin tocarla: mirad hacia arriba y buscad ese tramo que se aparta de la línea recta. ¿Qué familia se negó a ceder su torre a los Medici?",
+      "respuestas": ["mannelli", "los mannelli", "familia mannelli"],
+      "pistas": [
+        "La respuesta está en el propio nombre con el que se conoce la torre.",
+        "Es un apellido florentino, el mismo que da nombre a la torre: Torre dei ______.",
+        "Fue la familia Mannelli."
+      ],
+      "historia": "El resultado de aquel pulso se puede ver todavía hoy: el Corridoio Vasariano, casi un kilómetro de pasillo elevado, se aparta bruscamente de su línea recta justo en este punto, sostenido por ménsulas de piedra que lo hacen rodear la torre por fuera antes de continuar hacia el Palazzo Pitti. Es el único tramo de todo el corredor que no sigue una línea recta: la excepción que un solo apellido logró imponer a los Medici.",
+      "fuente": "Wikipedia — Torre dei Mannelli, Corridoio vasariano"
+    },
+    {
+      "n": 6,
+      "titulo": "La puerta que se convirtió en ventana",
+      "llegada": "Seguid por Via de' Guicciardini unos 5 minutos hasta la Piazza de' Pitti. Ante vosotros se abre la fachada de piedra del Palazzo Pitti: un muro casi liso de sillares enormes, sin apenas decoración, que ocupa toda la anchura de la plaza. Fijaos en el bloque central, más alto que las alas que lo rodean a ambos lados: es la parte más antigua del edificio.",
+      "enigma": "Cuando Luca Pitti encargó este palacio hacia 1458 —según un diseño atribuido a Filippo Brunelleschi—, la planta baja del bloque central se abría con tres grandes portones de piedra: uno en el centro y uno a cada lado. Un siglo más tarde, cuando los Medici compraron el palacio y encargaron a Bartolomeo Ammannati que lo ampliara, los dos portones laterales se taparon y se transformaron en ventanas arrodilladas —más altas que anchas, apoyadas sobre una repisa con volutas—, dejando solo uno en uso. Mirad con atención la planta baja del bloque central: de aquellos tres portones originales, ¿cuántos siguen siendo hoy una puerta real, por la que se puede entrar?",
+      "respuestas": ["1", "uno", "una"],
+      "pistas": [
+        "Los otros dos huecos siguen ahí, con la misma forma y el mismo tamaño que una puerta, pero ya no se puede entrar por ellos.",
+        "Se reconocen porque tienen una repisa con volutas de piedra a media altura, cerrando el hueco: son las ventanas que Ammannati llamó inginocchiate.",
+        "Hoy solo queda 1 puerta real: la del centro."
+      ],
+      "historia": "El palacio que veis hoy es mucho más ancho que el original: Eleonora de Toledo, esposa de Cosimo I, lo compró hacia 1550 como nueva residencia de la familia, y en los siglos siguientes los Medici y después los Lorena lo fueron ampliando con alas a ambos lados hasta multiplicar varias veces su anchura inicial. Aun así, el bloque central que tenéis delante, con sus sillares rústicos cada vez más pequeños según se sube de planta, sigue siendo reconocible como el núcleo del siglo XV.",
+      "fuente": "Wikipedia — Palazzo Pitti; FlorenceCity — La facciata barocca di Palazzo Pitti"
+    },
+    {
+      "n": 7,
+      "titulo": "La fachada que Brunelleschi dejó desnuda",
+      "llegada": "Caminad hasta la Piazza Santo Spirito, unos 5 minutos por Via Maggio y Sdrucciolo de' Pitti. Poneos frente a la Basilica di Santo Spirito y observad su fachada entera, de arriba abajo.",
+      "enigma": "Filippo Brunelleschi diseñó esta iglesia —una de las cumbres del Renacimiento florentino, junto con la cúpula del Duomo— pero murió en 1446, solo dos años después de empezar las obras, sin dejar un proyecto claro para la fachada exterior. Sus discípulos completaron el interior siguiendo sus planos, pero jamás construyeron la fachada monumental que un edificio así debería tener: hoy es un simple muro encalado, liso, sin una sola columna, estatua, relieve o rosetón. Contad cuántos elementos decorativos —estatuas, relieves, mosaicos— hay en esta fachada.",
+      "respuestas": ["0", "cero", "ninguno", "ninguna"],
+      "pistas": [
+        "No busquéis en detalle: es un muro completamente liso, encalado de blanco, casi sin relieve.",
+        "Comparad mentalmente con la fachada de Santa Croce que visitasteis al principio de la ruta, llena de mármoles y una estrella tallada: aquí no hay nada equivalente.",
+        "No hay ningún elemento decorativo: son 0."
+      ],
+      "historia": "El actual encalado blanco y liso de la fachada es de finales del siglo XVIII, pero la ausencia de decoración viene de origen. Por dentro, en cambio, Santo Spirito es de una riqueza enorme, con decenas de capillas laterales y obras de Filippino Lippi entre otros. Ese contraste entre un exterior pobre y un interior riquísimo se repite en varias iglesias florentinas de la época —empezando por la propia San Lorenzo de los Medici, cuya fachada de ladrillo visto sigue sin revestir casi 500 años después—, como si Florencia hubiera decidido guardar su dinero para lo que de verdad importaba: lo de dentro.",
+      "fuente": "Wikipedia — Basilica di Santo Spirito (Firenze)"
+    },
+    {
+      "n": 8,
+      "titulo": "Las manos que todavía trabajan",
+      "llegada": "Terminad paseando por cualquiera de las calles de artesanos que rodean esta plaza —Via di Santo Spirito, Via Maggio o, un poco más lejos, Borgo San Frediano—: elegid la que más os guste, todas están llenas de talleres con las puertas abiertas de par en par. Buscad un escaparate o una puerta de taller que lleve, a la vista, una pequeña placa o distintivo oficial.",
+      "enigma": "Oltrarno es el barrio de los artesanos de Florencia desde la Edad Media: aquí trabajaban curtidores, tallistas, doradores y orfebres para los palacios de la otra orilla, y muchos de esos oficios se siguen ejerciendo hoy, en los mismos locales, a veces por la misma familia durante generaciones. El Comune di Firenze mantiene un registro oficial de actividades históricas y tradicionales que reconoce y protege estos talleres, y exige un número mínimo de años de actividad ininterrumpida en el mismo local para poder entrar en él. ¿Cuántos años mínimos de actividad exige el reglamento del Comune di Firenze para que un taller o comercio sea reconocido como histórico?",
+      "respuestas": ["50", "cincuenta"],
+      "pistas": [
+        "No son 25 ni son 100: es una cifra intermedia, medio siglo.",
+        "Es el mismo número de años que dura, más o menos, una vida laboral completa.",
+        "Exige 50 años de actividad ininterrumpida."
+      ],
+      "historia": "Hoy hay más de 400 negocios y talleres reconocidos con este distintivo en toda Florencia, buena parte de ellos concentrados aquí, en Oltrarno, donde la tradición gremial nunca llegó a romperse del todo. Habéis cruzado el río siguiendo el rastro de un solo apellido —Buonarroti— convertido en genio y en museo; termináis la ruta rodeados de cientos de apellidos anónimos que, con las manos, siguen haciendo cada día la Florencia que no sale en las postales.",
+      "fuente": "Comune di Firenze — Regolamento delle botteghe storiche"
+    }
+  ],
+  "final": {
+    "titulo": "Habéis cruzado al otro lado de Florencia",
+    "texto": "Una estrella de seis puntas que un arquitecto judío escondió en la fachada de una basílica franciscana. Un disco de mármol de 1565 marcando el centro exacto de un campo de fútbol renacentista y violento. Tres estatuas velando al escultor más grande de todos. Un busto que llegó tres siglos tarde. Una torre que un solo apellido logró que ni los Medici pudieran tocar. Una puerta que se convirtió en ventana. Una fachada que su propio arquitecto dejó desnuda. Y un barrio entero que, ochocientos años después, sigue trabajando con las manos. Duomo y Piazza della Signoria son la Florencia que posa para la foto; Santa Croce y Oltrarno son la que sigue trabajando."
+  }
+}

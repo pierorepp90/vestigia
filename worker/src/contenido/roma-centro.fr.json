@@ -1,0 +1,125 @@
+{
+  "rutaId": "roma-centro",
+  "idioma": "fr",
+  "titulo": "Les énigmes du Centro Storico",
+  "intro": "Vous allez marcher au-dessus d'un stade romain, devant un temple qui ment sur son propre constructeur, et juste à côté de l'endroit exact où Jules César fut assassiné. Rome ne cache pas son histoire dans des musées : elle la laisse en pleine place, à la vue de quiconque s'arrête pour regarder. Comptez environ 2 km au total.",
+  "puntoPartida": "Piazza della Rotonda, face au Panthéon",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "L'édifice qui ment sur son nom",
+      "llegada": "Restez sur la Piazza della Rotonda, face aux colonnes du Panthéon. Pas besoin d'entrer : ce que vous cherchez se lit depuis la place, sur la bande de pierre juste au-dessus des colonnes.",
+      "enigma": "On y lit, en lettres de bronze incrustées : M·AGRIPPA·L·F·COS·TERTIVM·FECIT — « Marcus Agrippa, fils de Lucius, consul pour la troisième fois, l'a fait construire. » Le bâtiment devant vous date en réalité de 118-125 apr. J.-C., construit sur ordre de l'empereur Hadrien près de 150 ans après la mort d'Agrippa — mais Hadrien a choisi de conserver son nom sur la façade. Selon cette inscription, combien de fois Agrippa avait-il été consul ?",
+      "respuestas": ["3", "trois"],
+      "pistas": [
+        "Regardez le mot latin TERTIVM, le dernier avant FECIT (« l'a fait »).",
+        "TERTIVM signifie la même chose que « troisième » en français.",
+        "Il avait été consul trois fois."
+      ],
+      "historia": "Hadrien était réputé pour concevoir des bâtiments et laisser d'autres en récolter le mérite. C'est pourquoi le Panthéon, l'une des coupoles les plus audacieuses jamais construites — toujours la plus grande coupole en béton non armé au monde — porte le nom d'un homme mort depuis plus d'un siècle quand elle fut achevée.",
+      "fuente": "Parco archeologico del Colosseo — Pantheon ; inscription du portique"
+    },
+    {
+      "n": 2,
+      "titulo": "L'animal qui porte la sagesse",
+      "llegada": "Contournez le Panthéon par la gauche jusqu'à la Piazza della Minerva, juste derrière. Au centre se dresse un petit obélisque égyptien sur le dos d'un animal de marbre blanc.",
+      "enigma": "Il fut dessiné par le Bernin en 1667. La base porte une inscription latine qui dit en substance qu'il faut un esprit fort pour porter une sagesse solide — représentée ici par l'animal le plus fort, portant l'obélisque de la sagesse égyptienne. Quel est cet animal ?",
+      "respuestas": ["éléphant", "elephant"],
+      "pistas": [
+        "C'est le même animal qui, dans la fable, n'oublie jamais rien.",
+        "Il a une trompe et des défenses.",
+        "C'est un éléphant."
+      ],
+      "historia": "Les Romains l'appellent affectueusement il Pulcin della Minerva (« le poussin de la Minerve »), bien qu'il n'ait rien d'un poussin. L'obélisque qu'il porte est authentiquement égyptien, du VIe siècle av. J.-C. : le Bernin a réutilisé une véritable antiquité pour sa plaisanterie sculpturale sur le poids du savoir.",
+      "fuente": "Musei Vaticani — Bernin ; Sovraintendenza Capitolina"
+    },
+    {
+      "n": 3,
+      "titulo": "Neptune contre la mer",
+      "llegada": "Marchez jusqu'à la Piazza Navona et placez-vous à son extrémité nord, près de la fontaine la plus éloignée de l'église à coupole.",
+      "enigma": "Cette place a une forme ovale car elle est construite littéralement sur un stade du Ier siècle : celui de Domitien, où 30 000 spectateurs assistaient à des compétitions athlétiques. La fontaine devant vous montre Neptune en pleine bataille, entouré de néréides et de chérubins. Contre quelle créature marine se bat-il ?",
+      "respuestas": ["poulpe", "pieuvre", "un poulpe"],
+      "pistas": [
+        "Il a huit bras, ni écailles ni nageoires.",
+        "C'est le même animal appelé polpo en italien.",
+        "Neptune se bat contre un poulpe."
+      ],
+      "historia": "Cette fontaine est restée près de trois cents ans sans sculptures : le bassin fut réalisé par Giacomo della Porta en 1574, mais le groupe sculpté ne fut ajouté qu'en 1878, pour ne pas concurrencer la fontaine centrale du Bernin, bien plus célèbre. Sous le sol que vous foulez se trouvent encore les gradins du stade de Domitien — on peut les visiter au Stadio di Domiziano, juste sous la place.",
+      "fuente": "Turismo Roma — Fontana del Nettuno ; Sovraintendenza Capitolina"
+    },
+    {
+      "n": 4,
+      "titulo": "Le fleuve sans visage",
+      "llegada": "Marchez jusqu'au centre exact de la place, où un obélisque s'élève au-dessus de quatre figures de marbre allongées, une à chaque coin.",
+      "enigma": "C'est la Fontana dei Quattro Fiumi du Bernin (1651) : chaque figure représente un grand fleuve d'un continent alors connu — le Nil, le Gange, le Danube et le Río de la Plata. L'une des quatre a la tête couverte d'un voile de marbre. Quel fleuve est-ce — et pourquoi pensez-vous qu'il est voilé ? (le nom du fleuve suffit)",
+      "respuestas": ["nil", "le nil"],
+      "pistas": [
+        "C'est le fleuve qui représente l'Afrique.",
+        "Au XVIIe siècle, personne en Europe ne savait où ce fleuve prenait sa source.",
+        "C'est le Nil, voilé car sa source était un mystère."
+      ],
+      "historia": "La source du Nil ne fut documentée qu'au XIXe siècle, deux siècles après que le Bernin eut sculpté cette fontaine. Observez aussi l'obélisque : il semble flotter au-dessus d'un vide dans le rocher, touchant à peine sa base — une prouesse technique dont le Bernin se vantait ouvertement.",
+      "fuente": "Comune di Roma — Fontana dei Quattro Fiumi"
+    },
+    {
+      "n": 5,
+      "titulo": "La statue qui parlait",
+      "llegada": "Sortez de la place par le côté sud-ouest jusqu'à la petite Piazza di Pasquino, où se dresse un torse de marbre très érodé sur un piédestal.",
+      "enigma": "Cette sculpture romaine, retrouvée en 1501, devint la voix anonyme de Rome : la nuit, on y collait des feuilles avec des critiques satiriques contre le pape et les puissants, sachant que personne ne serait puni pour quelque chose dit « par la statue ». Ces feuilles avaient un nom propre, tiré du surnom donné à la statue. Vérifiez si quelque chose y est encore collé aujourd'hui — la coutume n'est pas tout à fait morte. Comment appelait-on ces messages ?",
+      "respuestas": ["pasquinades", "pasquinade"],
+      "pistas": [
+        "Le nom vient directement du surnom de la statue : Pasquino.",
+        "Ajoutez le suffixe « -ades » au nom de la statue.",
+        "On les appelait des pasquinades."
+      ],
+      "historia": "Un pape alla jusqu'à menacer de jeter la statue dans le Tibre ; un autre, en 1728, condamna à mort quiconque coller des pasquinades. Aucun n'y parvint : Pasquino fut le premier « mur libre » de Rome, des siècles avant que le mot presse libre n'existe.",
+      "fuente": "Turismo Roma — Pasquino ; Sovraintendenza Capitolina"
+    },
+    {
+      "n": 6,
+      "titulo": "Les quatre colonnes du crime",
+      "llegada": "Marchez vers le sud jusqu'au Largo di Torre Argentina, une place en contrebas entourée d'une grille : regardez vers le bas, pas besoin de descendre ni de payer d'entrée.",
+      "enigma": "Ces ruines sont quatre temples de la République romaine, les plus anciens conservés dans la ville. C'est ici même, dans ce qui était alors la Curie de Pompée, qu'un groupe de sénateurs poignarda Jules César 23 fois, aux ides de mars de l'an 44 av. J.-C. Comptez les temples que l'on distingue parmi les ruines.",
+      "respuestas": ["4", "quatre"],
+      "pistas": [
+        "Ils sont identifiés par des lettres, de A à D, sur les panneaux d'information.",
+        "Il y en a plus de trois.",
+        "Il y a quatre temples."
+      ],
+      "historia": "L'emplacement exact de l'assassinat de César, selon les archéologues, est aujourd'hui marqué par une structure en béton parmi les ruines. Depuis les années 1990, la place est aussi un refuge pour chats géré par des bénévoles : les chats de Rome gardent, sans le savoir, le théâtre de l'une des conspirations les plus célèbres de l'histoire.",
+      "fuente": "Sovraintendenza Capitolina — Area Sacra di Largo Argentina"
+    },
+    {
+      "n": 7,
+      "titulo": "Les fleurs de marbre",
+      "llegada": "Allez vers l'ouest jusqu'à la Piazza Farnese, devant le grand palais Renaissance (aujourd'hui ambassade de France).",
+      "enigma": "La place possède deux fontaines jumelles faites d'énormes vasques de granit égyptien ayant appartenu aux thermes de Caracalla. En 1626, l'architecte Girolamo Rainaldi les couronna de l'emblème de la famille qui donne son nom à la place. Quelle fleur héraldique surmonte chacune des deux fontaines ?",
+      "respuestas": ["lys", "fleur de lys", "fleur-de-lys"],
+      "pistas": [
+        "C'est le même symbole que sur le drapeau de Florence et sur les armoiries de nombreuses monarchies européennes.",
+        "En italien on l'appelle giglio ; en français, fleur de lys.",
+        "C'est un lys (fleur de lys), l'emblème des Farnèse."
+      ],
+      "historia": "Ces vasques de granit pèsent chacune plusieurs tonnes et ont voyagé depuis les thermes de Caracalla, à l'autre bout de la ville, pour finir par décorer la place de l'une des familles les plus puissantes de la Renaissance romaine. Les Farnèse donnèrent un pape à l'Église, Paul III, et leur palais reste, des siècles plus tard, un siège diplomatique — désormais celui de la France.",
+      "fuente": "Ambasciata di Francia a Roma — Palazzo Farnese ; Wikipédia — Fontane di Piazza Farnese"
+    },
+    {
+      "n": 8,
+      "titulo": "Là où l'hérétique a brûlé",
+      "llegada": "Marchez jusqu'au Campo de' Fiori voisin, la place du marché quotidien. En son centre, une silhouette encapuchonnée en bronze fixe le Vatican.",
+      "enigma": "C'est Giordano Bruno, philosophe condamné pour hérésie et brûlé vif exactement à cet endroit en 1600 pour avoir soutenu, entre autres idées, que l'univers était infini et contenait d'autres mondes. La statue fut installée près de trois siècles plus tard. Sur le piédestal, sous ses pieds, une date est gravée en chiffres romains : IX GIUGNO MDCCCLXXXIX. À quelle année correspond-elle ?",
+      "respuestas": ["1889"],
+      "pistas": [
+        "MDCCCLXXXIX se décompose en M (1000) + DCCC (800) + LXXX (80) + IX (9).",
+        "C'est une année du XIXe siècle, presque 300 ans après la mort de Bruno.",
+        "L'année est 1889."
+      ],
+      "historia": "L'inscription dit : « À Bruno — le siècle qu'il a annoncé — ici où brûla le bûcher. » Elle fut érigée en pleine querelle entre le royaume d'Italie et la papauté, comme monument à la liberté de pensée face à l'Inquisition. Chaque matin sauf le dimanche, le marché du Campo de' Fiori installe ses étals de fruits et de fleurs autour de la statue de l'homme que l'Église a voulu faire taire pour toujours.",
+      "fuente": "Comune di Roma — Monument à Giordano Bruno ; Ettore Ferrari, sculpteur (1889)"
+    }
+  ],
+  "final": {
+    "titulo": "Vous avez marché deux mille ans",
+    "texto": "D'une coupole qui ment sur son constructeur à une place qui fut un stade, d'un fleuve sans visage à l'endroit exact où César est mort, jusqu'aux cendres d'un homme puni pour avoir imaginé l'infini. Rome ne garde pas son histoire derrière une vitrine : elle la laisse dans la rue, attendant que quelqu'un s'arrête pour la lire. Vous venez de le faire."
+  }
+}

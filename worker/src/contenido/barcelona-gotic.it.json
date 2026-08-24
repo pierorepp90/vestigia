@@ -1,0 +1,125 @@
+{
+  "rutaId": "barcelona-gotic",
+  "idioma": "it",
+  "titulo": "Il segreto del Barrio Gótico",
+  "intro": "Il Barri Gòtic non è una cartolina medievale ferma nel tempo: è un collage di duemila anni, con strati romani, ebraici, gotici e del Novecento sovrapposti sulle stesse pietre. Camminerete per circa 1,5 km e dovrete guardare in alto, in basso e da vicino. Nessuno vi chiederà il telefono né un lucchetto: l'unica chiave è prestare attenzione.",
+  "puntoPartida": "Plaça Nova, di fronte alla facciata della Cattedrale di Barcellona",
+  "paradas": [
+    {
+      "n": 1,
+      "titulo": "La porta che non c'è più",
+      "llegada": "Mettetevi in piedi in Plaça Nova, di fronte alla facciata della Cattedrale. Alla vostra sinistra, addossata alla Casa de l'Ardiaca, c'è una torre circolare di pietra scura, più bassa e più antica di tutto ciò che la circonda.",
+      "enigma": "Quella torre e la sua gemella affiancavano una porta romana della città di Barcino. Nel 1958 fu ricostruita parte dell'acquedotto che vi arrivava: osservate gli archi di pietra chiara, più nuovi, appoggiati alla torre. Contate quanti archi completi formano quella ricostruzione.",
+      "respuestas": ["2", "due"],
+      "pistas": [
+        "Gli archi ricostruiti sono di una tonalità di pietra visibilmente più chiara della torre romana originale.",
+        "Sono impilati nella parte alta della torre di sinistra, non a livello strada.",
+        "Sono due archi."
+      ],
+      "historia": "Sotto i vostri piedi si trovava una delle quattro porte di Barcino, la colonia romana fondata in epoca augustea. Il cardo (la strada principale romana) partiva da qui e oggi si chiama carrer del Bisbe: la prima strada che percorrerete è, letteralmente, una strada romana. Un dato per spiazzare chi crede che la Cattedrale sia puramente medievale: la sua facciata principale, quella che avete davanti, non è del XV secolo come il resto dell'edificio, ma del 1913 — un capriccio neogotico pagato dal banchiere Manuel Girona.",
+      "fuente": "MUHBA (Museu d'Història de Barcelona); Ajuntament de Barcelona"
+    },
+    {
+      "n": 2,
+      "titulo": "La tartaruga e le cinque rondini",
+      "llegada": "Voltatevi verso la facciata della Casa de l'Ardiaca, la stessa torre di prima: accanto alla porta c'è una cassetta postale in bronzo modernista, all'altezza della vita.",
+      "enigma": "La cassetta fu disegnata da Lluís Domènech i Montaner nel 1902 per l'Ordine degli Avvocati: una tartaruga lenta raccoglie le lettere che uccelli veloci lasciano cadere, una battuta sulla lentezza della giustizia. Contate quanti di quegli uccelli — rondini — sono scolpiti sulla cassetta.",
+      "respuestas": ["5", "cinque"],
+      "pistas": [
+        "Cercate forme di ali in rilievo intorno alla fessura per le lettere, non solo sopra.",
+        "Sono più di tre e meno di sette.",
+        "Sono cinque rondini."
+      ],
+      "historia": "La tartaruga rappresenta la lentezza della giustizia; le rondini, la sua promessa di rapidità. Dal 1921 questo edificio ospita l'Archivio Storico della città — quindi, in un certo senso, la battuta modernista è ancora viva: qui dentro si conserva la memoria scritta di Barcellona.",
+      "fuente": "Arxiu Municipal de Barcelona; Ajuntament de Barcelona"
+    },
+    {
+      "n": 3,
+      "titulo": "Ciò che pende sotto il ponte",
+      "llegada": "Camminate lungo la carrer del Bisbe (l'antico cardo romano) fino al ponte neogotico che attraversa la strada in alto, decorato con trafori e gargoyle.",
+      "enigma": "Questo ponte sembra medievale ma è del 1928, opera dell'architetto Joan Rubió i Bellver. Sotto l'arco centrale, rivolto verso la strada, c'è un piccolo teschio di pietra trafitto da un oggetto affilato. Che oggetto è esattamente? Rispondete con una sola parola.",
+      "respuestas": ["pugnale", "daga"],
+      "pistas": [
+        "Dovete guardare dritto in alto, proprio al centro dell'arco del ponte, non ai lati.",
+        "È un'arma bianca corta, a uno o due tagli.",
+        "È un pugnale conficcato nel teschio."
+      ],
+      "historia": "Rubió i Bellver morì nel 1952 senza mai spiegare perché avesse messo lì quel teschio. La leggenda urbana dice che se qualcuno estraesse il pugnale, il ponte — e con lui Barcellona intera — crollerebbe. Un'altra versione, più gentile, dice che toccarlo ed esprimere un desiderio lo avvera. Nessuna delle due è documentata: è semplicemente il mistero che Rubió si è portato nella tomba.",
+      "fuente": "Ajuntament de Barcelona; cronache locali sul Pont del Bisbe"
+    },
+    {
+      "n": 4,
+      "titulo": "Il santo che non perde mai",
+      "llegada": "Proseguite fino alla Plaça de Sant Jaume, centro civico di Barcellona fin dall'epoca romana: da un lato l'Ajuntament (Casa de la Ciutat), dall'altro il Palau de la Generalitat.",
+      "enigma": "Sopra la porta principale del Palau de la Generalitat, sorretta da un cavaliere a cavallo, c'è una grande scultura di pietra. Il cavaliere è Sant Jordi (San Giorgio). Quale creatura giace sconfitta sotto la sua lancia? Una parola.",
+      "respuestas": ["drago"],
+      "pistas": [
+        "Guardate proprio sopra il portale in stile rinascimentale, non le finestre laterali.",
+        "È la stessa creatura della leggenda che dà il nome alla festa del 23 aprile.",
+        "È un drago."
+      ],
+      "historia": "Questa facciata, dall'aria italiana, è del 1596 — un secolo e mezzo dopo il resto del Palau, che è gotico. Sant Jordi è il patrono della Catalogna, e ogni 23 aprile questa piazza si riempie di bancarelle di libri e rose in suo onore: la festa che il mondo avrebbe poi conosciuto, tramite l'UNESCO, come la Giornata mondiale del libro.",
+      "fuente": "Palau de la Generalitat de Catalunya; Ajuntament de Barcelona"
+    },
+    {
+      "n": 5,
+      "titulo": "La luce che arde per sempre",
+      "llegada": "Da Sant Jaume, imboccate la carrer del Call e cercate la carrer de Marlet. Sulla facciata del numero 1, all'altezza degli occhi, c'è una pietra con caratteri ebraici e, accanto, una targa con la traduzione.",
+      "enigma": "Questa pietra faceva parte di una fondazione benefica ebraica medievale — ospedale, scuola e rifugio — dedicata dal rabbino Samuel Ha-Sardí. La targa tradotta dice che la sua luce arde permanentemente da un anno preciso. Che anno è, nel calendario che usiamo oggi?",
+      "respuestas": ["1314"],
+      "pistas": [
+        "Non è l'anno in numeri ebraici sulla pietra originale; è l'anno sulla targa tradotta, appena sotto o accanto.",
+        "È nel XIV secolo, lo stesso secolo in cui il Call visse il suo massimo splendore prima del 1391.",
+        "L'anno è il 1314."
+      ],
+      "historia": "Il Call fu uno dei quartieri ebraici più importanti della penisola iberica dal IX secolo fino al 1391, quando un pogrom pose fine alla comunità. Questa iscrizione — oggi una copia, l'originale è protetto — è una delle poche testimonianze fisiche rimaste di quella Barcellona, nascosta nella facciata di una casa come tante altre.",
+      "fuente": "MUHBA — El Call; Fidel Fita, studio epigrafico dell'iscrizione"
+    },
+    {
+      "n": 6,
+      "titulo": "Il tempio che è sopravvissuto",
+      "llegada": "Tornate verso Sant Jaume e prendete la carrer del Paradís. Al numero 10, un portone discreto (sede del Centre Excursionista de Catalunya) dà accesso a un piccolo cortile interno.",
+      "enigma": "In quel cortile si conserva parte di un tempio romano dedicato all'imperatore Augusto — l'edificio romano più alto ancora in piedi a Barcellona. Contate le colonne corinzie superstiti del tempio originale.",
+      "respuestas": ["4", "quattro"],
+      "pistas": [
+        "Sono tutte raggruppate nello stesso angolo del cortile, non sparse per lo spazio.",
+        "Il tempio originale ne aveva sei; non tutte sono sopravvissute.",
+        "Restano quattro colonne."
+      ],
+      "historia": "Queste colonne, alte quasi 9 metri, facevano parte di un tempio di fine I secolo a.C. dedicato al culto imperiale di Augusto. Che siano ancora in piedi, nascoste nel cortile di un club di montagna del XIX secolo, riassume bene Barcellona: la storia qui non sta dietro una vetrina, è integrata negli edifici in cui la gente continua a entrare ogni giorno.",
+      "fuente": "MUHBA — Temple d'August; Centre Excursionista de Catalunya"
+    },
+    {
+      "n": 7,
+      "titulo": "La piazza mai restaurata",
+      "llegada": "Camminate fino alla Plaça de Sant Felip Neri, una piccola piazza raccolta accanto alla Cattedrale. Osservate la facciata della chiesa che dà sulla piazza: è segnata da decine di piccoli crateri irregolari.",
+      "enigma": "Sono segni di schegge di un bombardamento dell'aviazione italiana durante la guerra civile, che uccise 42 persone — molte delle quali bambini. Non sono mai stati restaurati. Cercate la targa commemorativa sulla facciata: in che anno fu collocata?",
+      "respuestas": ["2007"],
+      "pistas": [
+        "La targa è un rettangolo discreto, a mezza altezza, non un grande monumento.",
+        "Fu collocata quasi 70 anni dopo il bombardamento, già nel XXI secolo.",
+        "Fu collocata nel 2007."
+      ],
+      "historia": "Il 30 gennaio 1938, due bombe caddero su questa piazza in appena mezz'ora. La facciata di Sant Felip Neri mostra ancora quelle ferite per scelta deliberata: non restaurarle è il modo in cui Barcellona ha deciso di non farle mai dimenticare.",
+      "fuente": "Ajuntament de Barcelona — Programma di Memoria Democratica; Wikipedia — Bombardamenti aerei di Barcellona del gennaio 1938"
+    },
+    {
+      "n": 8,
+      "titulo": "Tredici piume bianche",
+      "llegada": "Tornate alla Cattedrale ed entrate nel suo chiostro gotico (ingresso vicino alla facciata di Plaça Nova o dal Pla de la Seu). Al centro c'è un giardino con palme, una fontana e un laghetto.",
+      "enigma": "In quel laghetto vivono, da secoli, delle oche bianche. Il loro numero non è casuale: ricorda l'età in cui fu martirizzata Santa Eulalia, compatrona di Barcellona. Contate le oche e ditemi la sua età.",
+      "respuestas": ["13", "tredici"],
+      "pistas": [
+        "Una potrebbe nascondersi all'ombra o tra le piante: fate un giro completo del laghetto prima di arrendervi.",
+        "È un numero di due cifre, tra 10 e 15.",
+        "Sono 13 oche."
+      ],
+      "historia": "Secondo la tradizione, Eulalia subì tredici martiri, uno per ogni anno della sua vita, prima di morire durante le persecuzioni romane del IV secolo. Da allora, tredici oche custodiscono il suo chiostro — si dice anche per scacciare gli intrusi con i loro schiamazzi, come facevano le oche del Campidoglio nell'antica Roma. Siete arrivati camminando da una porta romana fino a un cortile che onora ancora una ragazzina di tredici anni: questo è, in fondo, il segreto del Barrio Gótico — non smette mai di essere abitato dalla propria storia.",
+      "fuente": "Cattedrale di Barcellona — Tradizioni; Ajuntament de Barcelona"
+    }
+  ],
+  "final": {
+    "titulo": "Avete letto la città",
+    "texto": "Otto tappe, duemila anni: da una porta romana a una cassetta postale modernista, da un pugnale mai spiegato a un drago di pietra, da una targa ebraica del 1314 alle ferite mai restaurate del 1938, fino a tredici oche che da secoli vegliano su un chiostro. La prossima volta che attraverserete il Gòtic, non sarà più solo una bella scenografia — saprete leggerlo."
+  }
+}
