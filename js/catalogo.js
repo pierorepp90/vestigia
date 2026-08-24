@@ -860,3 +860,28 @@ export function rutasPorCiudad(slug) {
 export function rutaPorId(id) {
   return RUTAS.find((r) => r.id === id) || null;
 }
+
+/** Otras rutas de la misma ciudad, sin incluir `rutaId`. */
+export function rutasHermanas(rutaId) {
+  const ruta = rutaPorId(rutaId);
+  if (!ruta) return [];
+  return rutasPorCiudad(ruta.ciudadSlug).filter((r) => r.id !== rutaId);
+}
+
+/**
+ * `cantidad` ciudades activas distintas de `slugActual`, para enlaces
+ * cruzados entre ciudades. Determinista: siempre las siguientes en el
+ * catálogo tras la actual (con vuelta al principio), así cada ciudad
+ * enlaza a un grupo distinto sin lógica de "cercanía" que mantener.
+ */
+export function ciudadesRelacionadas(slugActual, cantidad = 3) {
+  const activas = CIUDADES.filter((c) => c.activa);
+  const indiceActual = activas.findIndex((c) => c.slug === slugActual);
+  if (indiceActual === -1) return activas.filter((c) => c.slug !== slugActual).slice(0, cantidad);
+
+  const resultado = [];
+  for (let i = 1; resultado.length < cantidad && i <= activas.length - 1; i++) {
+    resultado.push(activas[(indiceActual + i) % activas.length]);
+  }
+  return resultado;
+}

@@ -74,6 +74,7 @@ export const DICT = {
     ciudad_volver: 'Todas las ciudades',
     ciudad_rutas_disponibles: 'Rutas en {ciudad}',
     ciudad_ruta_cta: 'Ver detalles',
+    ciudad_otras_titulo: 'Otras ciudades',
 
     // Ficha de ruta
     ruta_volver: 'Volver a {ciudad}',
@@ -92,6 +93,7 @@ export const DICT = {
     ruta_email_label: 'Tu email, para enviarte el acceso',
     ruta_email_placeholder: 'nombre@ejemplo.com',
     ruta_idiomas_label: 'Disponible en',
+    ruta_otras_titulo: 'Otras rutas en {ciudad}',
 
     // Pantalla de juego (jugar/index.html)
     juego_cargando: 'Cargando tu ruta…',
@@ -205,6 +207,7 @@ export const DICT = {
     ciudad_volver: 'All cities',
     ciudad_rutas_disponibles: 'Trails in {ciudad}',
     ciudad_ruta_cta: 'See details',
+    ciudad_otras_titulo: 'Other cities',
 
     // Trail page
     ruta_volver: 'Back to {ciudad}',
@@ -223,6 +226,7 @@ export const DICT = {
     ruta_email_label: 'Your email, so we can send you access',
     ruta_email_placeholder: 'name@example.com',
     ruta_idiomas_label: 'Available in',
+    ruta_otras_titulo: 'Other trails in {ciudad}',
 
     // Game screen (jugar/index.html)
     juego_cargando: 'Loading your trail…',
@@ -336,6 +340,7 @@ export const DICT = {
     ciudad_volver: 'Toutes les villes',
     ciudad_rutas_disponibles: 'Parcours à {ciudad}',
     ciudad_ruta_cta: 'Voir les détails',
+    ciudad_otras_titulo: 'Autres villes',
 
     // Fiche de parcours
     ruta_volver: 'Retour à {ciudad}',
@@ -354,6 +359,7 @@ export const DICT = {
     ruta_email_label: "Votre email, pour vous envoyer l'accès",
     ruta_email_placeholder: 'nom@exemple.com',
     ruta_idiomas_label: 'Disponible en',
+    ruta_otras_titulo: 'Autres parcours à {ciudad}',
 
     // Écran de jeu (jugar/index.html)
     juego_cargando: 'Chargement de votre parcours…',
@@ -467,6 +473,7 @@ export const DICT = {
     ciudad_volver: 'Tutte le città',
     ciudad_rutas_disponibles: 'Percorsi a {ciudad}',
     ciudad_ruta_cta: 'Vedi i dettagli',
+    ciudad_otras_titulo: 'Altre città',
 
     // Scheda del percorso
     ruta_volver: 'Torna a {ciudad}',
@@ -485,6 +492,7 @@ export const DICT = {
     ruta_email_label: "La tua email, per inviarti l'accesso",
     ruta_email_placeholder: 'nome@esempio.com',
     ruta_idiomas_label: 'Disponibile in',
+    ruta_otras_titulo: 'Altri percorsi a {ciudad}',
 
     // Schermata di gioco (jugar/index.html)
     juego_cargando: 'Caricamento del percorso…',

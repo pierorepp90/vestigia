@@ -3,7 +3,7 @@
 // (una URL por ciudad), pero delega el renderizado al mismo módulo: lee
 // `data-ciudad` del <body>, busca los datos en el catálogo y pinta el banner
 // y la lista de rutas disponibles.
-import { ciudadPorSlug, localizar, rutasPorCiudad } from './catalogo.js';
+import { ciudadPorSlug, ciudadesRelacionadas, localizar, rutasPorCiudad } from './catalogo.js';
 import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 
 export const ICONO_RELOJ =
@@ -72,6 +72,15 @@ function init() {
   const rutas = rutasPorCiudad(slug);
   document.getElementById('rutas-titulo').textContent = tf(lang, 'ciudad_rutas_disponibles', { ciudad: nombre });
   document.getElementById('grid-rutas').innerHTML = rutas.map((r) => tarjetaRuta(r, lang)).join('');
+
+  const otras = ciudadesRelacionadas(slug);
+  if (otras.length > 0) {
+    document.getElementById('ciudades-relacionadas').innerHTML = `
+      <h2 class="seccion-relacionadas__titulo">${t(lang, 'ciudad_otras_titulo')}</h2>
+      <div class="seccion-relacionadas__lista">
+        ${otras.map((c) => `<a class="btn btn-fantasma" href="${c.slug}.html">${localizar(c.nombre, lang)}</a>`).join('')}
+      </div>`;
+  }
 }
 
 // Solo se ejecuta en el navegador — este módulo también se importa desde

@@ -7,7 +7,7 @@
 // El botón de reservar crea una sesión de Stripe Checkout (worker/src/
 // stripe.js) y redirige allí; a la vuelta, jugar/gracias.html confirma el
 // pago y entrega el acceso.
-import { ciudadPorSlug, localizar, rutaPorId } from './catalogo.js';
+import { ciudadPorSlug, localizar, rutaPorId, rutasHermanas } from './catalogo.js';
 import { LANG_NAMES, aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 import { crearAccesoGratuito, crearCheckoutSession } from './api.js';
 
@@ -98,6 +98,15 @@ function init() {
 
   document.getElementById('ruta-volver').textContent = tf(lang, 'ruta_volver', { ciudad: nombreCiudad });
   document.getElementById('ruta-volver').href = `../ciudad/${ciudad.slug}.html`;
+
+  const hermanas = rutasHermanas(ruta.id);
+  if (hermanas.length > 0) {
+    document.getElementById('rutas-relacionadas').innerHTML = `
+      <h2 class="seccion-relacionadas__titulo">${tf(lang, 'ruta_otras_titulo', { ciudad: nombreCiudad })}</h2>
+      <div class="seccion-relacionadas__lista">
+        ${hermanas.map((r) => `<a class="btn btn-fantasma" href="${r.id}.html">${localizar(r.titulo, lang)}</a>`).join('')}
+      </div>`;
+  }
 }
 
 if (typeof document !== 'undefined') {

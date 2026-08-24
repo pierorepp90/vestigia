@@ -25,7 +25,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { CIUDADES, RUTAS, ciudadPorSlug, localizar, rutasPorCiudad } from '../js/catalogo.js';
+import { CIUDADES, RUTAS, ciudadPorSlug, ciudadesRelacionadas, localizar, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
 import { LANGS, LANG_NAMES, DEFAULT_LANG, t, tf } from '../js/i18n.js';
 import { tarjetaCiudad } from '../js/portada.js';
 import { tarjetaRuta } from '../js/ciudad.js';
@@ -218,6 +218,12 @@ function generarCiudad(ciudad, lang) {
   const gridRutas = rutas.map((r) => absolutizarImagenesDeTarjetas(tarjetaRuta(r, lang))).join('');
   html = conHTML(html, 'grid-rutas', gridRutas);
 
+  const otrasCiudades = ciudadesRelacionadas(ciudad.slug);
+  if (otrasCiudades.length > 0) {
+    const enlaces = otrasCiudades.map((c) => `<a class="btn btn-fantasma" href="${c.slug}.html">${escaparTexto(localizar(c.nombre, lang))}</a>`).join('');
+    html = conHTML(html, 'ciudades-relacionadas', `<h2 class="seccion-relacionadas__titulo">${escaparTexto(t(lang, 'ciudad_otras_titulo'))}</h2><div class="seccion-relacionadas__lista">${enlaces}</div>`);
+  }
+
   html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
   html = quitarScriptPieDerechos(html);
   html = absolutizarRecursosCompartidos(html);
@@ -285,6 +291,13 @@ function generarRuta(ruta, lang) {
 
   html = conAtributo(html, 'ruta-volver', 'href', `../ciudad/${ciudad.slug}.html`);
   html = conTexto(html, 'ruta-volver', tf(lang, 'ruta_volver', { ciudad: nombreCiudad }));
+
+  const hermanas = rutasHermanas(ruta.id);
+  if (hermanas.length > 0) {
+    const enlaces = hermanas.map((r) => `<a class="btn btn-fantasma" href="${r.id}.html">${escaparTexto(localizar(r.titulo, lang))}</a>`).join('');
+    const titulo = escaparTexto(tf(lang, 'ruta_otras_titulo', { ciudad: nombreCiudad }));
+    html = conHTML(html, 'rutas-relacionadas', `<h2 class="seccion-relacionadas__titulo">${titulo}</h2><div class="seccion-relacionadas__lista">${enlaces}</div>`);
+  }
 
   html = conTexto(html, 'panel-duracion', tf(lang, 'meta_duracion', { h: Math.round(ruta.duracionMin / 60) }));
   html = conTexto(html, 'panel-jugadores', tf(lang, 'meta_jugadores', { min: ruta.jugadoresMin, max: ruta.jugadoresMax }));

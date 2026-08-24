@@ -1144,6 +1144,32 @@ footer {
   font-size: 0.8rem;
 }
 
+.seccion-relacionadas {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 1px solid var(--paper-edge);
+}
+
+.seccion-relacionadas:empty {
+  display: none;
+}
+
+.seccion-relacionadas__titulo {
+  font-size: 1.1rem;
+  margin-bottom: 14px;
+}
+
+.seccion-relacionadas__lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.seccion-relacionadas__lista .btn {
+  padding: 9px 18px;
+  font-size: 0.88rem;
+}
+
 /* Panel lateral: ficha estilo billete */
 .panel-ficha {
   position: sticky;
