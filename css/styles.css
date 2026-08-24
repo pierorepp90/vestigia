@@ -1364,3 +1364,104 @@ footer {
     width: 100%;
   }
 }
+
+/* ---------- 13. Blog de historias ---------- */
+.grid-historias {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.tarjeta-historia {
+  display: block;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tarjeta-historia__foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radio);
+  margin-bottom: 10px;
+}
+
+.tarjeta-historia__titulo {
+  font-size: 1.05rem;
+  margin: 4px 0 0;
+}
+
+.historia-destacada {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 30px;
+  align-items: center;
+  margin-bottom: 50px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid var(--paper-edge);
+  text-decoration: none;
+  color: inherit;
+}
+
+.historia-destacada__foto {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radio);
+}
+
+.historia-destacada__titulo {
+  font-size: 1.9rem;
+  margin: 6px 0 12px;
+}
+
+.historia-destacada__resumen {
+  color: var(--ink-soft);
+}
+
+.seccion-relato {
+  margin: 26px 0;
+  padding: 22px 26px;
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
+  border-left: 3px solid var(--lacre);
+}
+
+.seccion-relato__titulo {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--lacre);
+  margin-bottom: 10px;
+}
+
+.seccion-relato__texto {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.enlace-editorial {
+  font-family: var(--font-display);
+  font-style: italic;
+  color: var(--lacre);
+  text-decoration: underline;
+  text-decoration-color: var(--paper-edge);
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 860px) {
+  .grid-historias {
+    grid-template-columns: 1fr 1fr;
+  }
+  .historia-destacada {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 560px) {
+  .grid-historias {
+    grid-template-columns: 1fr;
+  }
+}
