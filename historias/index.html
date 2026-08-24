@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Historias — Vestigia</title>
+<meta name="description" content="Curiosidades reales de cada ciudad, antes de pisarla.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f4ead0' stroke='%239c2b1f' stroke-width='5'/%3E%3Cpath d='M50 14 L60 45 L50 86 L40 45 Z' fill='%239c2b1f'/%3E%3Cpath d='M14 50 L45 40 L86 50 L45 60 Z' fill='%23241a10' opacity='0.65'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../index.html" aria-label="Vestigia — inicio">
+      <svg class="marca__icono" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="3" fill="currentColor"/>
+        <path d="M50 10 L58 42 L50 50 L42 42 Z" fill="currentColor"/>
+        <path d="M50 90 L58 58 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M10 50 L42 42 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M90 50 L58 58 L50 50 L58 42 Z" fill="currentColor" opacity="0.35"/>
+      </svg>
+      <span class="marca__texto">
+        <span class="marca__nombre">Vestigia</span>
+        <span class="marca__tagline" data-i18n="brand_tagline">Una manera divertida de conocer la ciudad</span>
+      </span>
+    </a>
+    <nav class="nav-principal" aria-label="Navegación principal">
+      <a href="../index.html#ciudades" data-i18n="nav_ciudades">Ciudades</a>
+      <a href="../index.html#como-funciona" data-i18n="nav_como_funciona">Cómo funciona</a>
+      <a href="index.html" data-i18n="nav_historias">Historias</a>
+      <div class="selector-idioma" id="selector-idioma" role="group" data-i18n-attr="aria-label:nav_idioma_label"></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="contenedor" style="padding-top:36px;">
+    <p class="eyebrow" data-i18n="historias_titulo">Historias</p>
+    <p class="seccion-ciudades__subtitulo" data-i18n="historias_subtitulo">Curiosidades reales de cada ciudad, antes de pisarla.</p>
+
+    <div id="historia-destacada"></div>
+    <div class="grid-historias" id="grid-historias"></div>
+  </div>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p class="pie__derechos" id="pie-derechos"></p>
+    <nav class="pie__enlaces" aria-label="Legal">
+      <a href="../legal/aviso.html" data-i18n="footer_legal_aviso">Aviso legal</a>
+      <a href="../legal/privacidad.html" data-i18n="footer_legal_privacidad">Privacidad</a>
+      <a href="../legal/condiciones.html" data-i18n="footer_legal_condiciones">Condiciones</a>
+      <a href="../assets/img/ciudades/CREDITOS.md" data-i18n="footer_creditos">Créditos de imágenes</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module" src="../js/historias.js"></script>
+<script type="module">
+  import { tf, detectarIdioma } from '../js/i18n.js';
+  document.getElementById('pie-derechos').textContent = tf(detectarIdioma(), 'footer_rights', { year: new Date().getFullYear() });
+</script>
+</body>
+</html>
