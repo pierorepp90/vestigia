@@ -316,8 +316,8 @@ git commit -m "CSS para el índice y la ficha del blog de historias"
 // js/historias.js
 // Índice del blog: un post destacado (el primero en HISTORIAS) + el resto
 // en cuadrícula. Mismo patrón que js/portada.js.
-import { HISTORIAS, ciudadPorSlug, localizar, urlRecurso } from './catalogo.js';
-import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t } from './i18n.js';
+import { HISTORIAS, ciudadPorSlug, localizar } from './catalogo.js';
+import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, urlRecurso } from './i18n.js';
 
 // urlRecurso(relativo, prefijoDesdeRaiz) — el segundo argumento es cuánto
 // subir para llegar a la raíz desde ESTA página cuando no lleva prefijo
