@@ -582,10 +582,46 @@ export function aplicarI18n(root, lang) {
   });
 }
 
+// Debe coincidir con BASE_URL en scripts/sitio-i18n.mjs — mismo dato,
+// mantenido en dos sitios porque js/ (navegador) y scripts/ (Node) no
+// comparten módulo por ahora. TODO: actualizar los dos junto con
+// SITE_URL/ALLOWED_ORIGIN en worker/wrangler.toml cuando haya dominio propio.
+const BASE_URL_SITIO = 'https://pierorepp90.github.io/vestigia';
+
+/**
+ * URL a un recurso compartido (foto, mapa…) que NO se duplica por idioma.
+ * `relativo` es la ruta tal como se guarda en catalogo.js (relativa a la
+ * raíz del sitio, p. ej. "assets/img/x.webp"). `prefijoDesdeRaiz` es cuánto
+ * hay que subir para llegar a la raíz desde ESTA página cuando NO lleva
+ * prefijo de idioma ("../" desde ciudad/ruta, "" desde portada — cada
+ * módulo conoce su propia profundidad, es un dato fijo del archivo, no de
+ * la petición). En páginas generadas por scripts/generar-i18n.mjs
+ * (con `data-idioma-pagina`) hace falta la URL absoluta en su lugar,
+ * porque esas páginas viven un nivel más adentro (/en/ciudad/, /en/ruta/)
+ * y el mismo "../" ya no llega a la raíz real.
+ */
+export function urlRecurso(relativo, prefijoDesdeRaiz = '') {
+  const paginaConPrefijo = typeof document !== 'undefined' && document.documentElement.getAttribute('data-idioma-pagina');
+  return paginaConPrefijo ? `${BASE_URL_SITIO}/${relativo}` : `${prefijoDesdeRaiz}${relativo}`;
+}
+
 const STORAGE_KEY = 'vestigia:idioma';
 
-/** Idioma preferido: localStorage → idioma del navegador → DEFAULT_LANG. */
+/**
+ * Idioma preferido: idioma fijo de la página → localStorage → idioma del
+ * navegador → DEFAULT_LANG. El "idioma fijo" lo llevan las páginas
+ * generadas por scripts/generar-i18n.mjs (/en/ /fr/ /it/) en
+ * `<html data-idioma-pagina="…">`, para que su contenido estático (lo que
+ * ve un buscador que no ejecuta JS) y lo que pinta este mismo script en el
+ * navegador sean siempre el mismo idioma — nunca depende de una
+ * preferencia guardada de una visita anterior. Las páginas en español de
+ * siempre (sin ese atributo) no cambian de comportamiento.
+ */
 export function detectarIdioma() {
+  if (typeof document !== 'undefined') {
+    const fijo = document.documentElement.getAttribute('data-idioma-pagina');
+    if (fijo && LANGS.includes(fijo)) return fijo;
+  }
   try {
     const guardado = localStorage.getItem(STORAGE_KEY);
     if (guardado && LANGS.includes(guardado)) return guardado;
@@ -603,4 +639,64 @@ export function guardarIdioma(lang) {
   } catch {
     // Sin persistencia disponible: el idioma solo dura la sesión de navegación actual.
   }
+}
+
+/**
+ * Calcula la ruta de la misma página en `lang` a partir de un pathname.
+ * Español no lleva prefijo; en/fr/it viven bajo /en/ /fr/ /it/ con la
+ * misma estructura de carpetas que el español (ver
+ * scripts/generar-i18n.mjs). Devuelve null si no hace falta navegar
+ * (ya estamos en `lang` y la URL no lleva prefijo que quitar).
+ */
+export function urlParaIdioma(lang, pathname) {
+  const segmentos = pathname.split('/');
+  const idxPrefijo = segmentos.findIndex((s) => s === 'en' || s === 'fr' || s === 'it');
+
+  if (idxPrefijo !== -1) {
+    if (lang === DEFAULT_LANG) {
+      segmentos.splice(idxPrefijo, 1);
+    } else {
+      segmentos[idxPrefijo] = lang;
+    }
+    return segmentos.join('/');
+  }
+
+  if (lang === DEFAULT_LANG) return null;
+
+  const idxSeccion = segmentos.findIndex((s) => s === 'ciudad' || s === 'ruta');
+  const posicion = idxSeccion !== -1 ? idxSeccion : segmentos.length - 1;
+  segmentos.splice(posicion, 0, lang);
+  return segmentos.join('/');
+}
+
+/** HTML de las "pastillas" de idioma — compartido con scripts/generar-i18n.mjs. */
+export function selectorIdiomaHTML(lang) {
+  return LANGS.map((code, i) => {
+    const separador = i > 0 ? '<span class="selector-idioma__separador" aria-hidden="true">·</span>' : '';
+    const activa = code === lang ? ' activa' : '';
+    return `${separador}<button type="button" class="selector-idioma__opcion${activa}" data-lang="${code}" aria-pressed="${code === lang}">${code.toUpperCase()}</button>`;
+  }).join('');
+}
+
+/**
+ * Pinta el selector de idioma y engancha la navegación entre versiones
+ * por idioma de la página actual. Compartido por portada.js, ciudad.js y
+ * ruta.js (antes cada uno tenía su propia copia idéntica).
+ */
+export function poblarSelectorIdioma(lang) {
+  const cont = document.getElementById('selector-idioma');
+  if (!cont) return;
+  cont.innerHTML = selectorIdiomaHTML(lang);
+  cont.querySelectorAll('button').forEach((boton) => {
+    boton.addEventListener('click', () => {
+      const destino = boton.dataset.lang;
+      guardarIdioma(destino);
+      const url = urlParaIdioma(destino, location.pathname);
+      if (url) {
+        location.href = url + location.hash;
+      } else {
+        location.reload();
+      }
+    });
+  });
 }

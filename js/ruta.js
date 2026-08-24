@@ -8,24 +8,8 @@
 // stripe.js) y redirige allí; a la vuelta, jugar/gracias.html confirma el
 // pago y entrega el acceso.
 import { ciudadPorSlug, localizar, rutaPorId } from './catalogo.js';
-import { LANGS, LANG_NAMES, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
+import { LANG_NAMES, aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 import { crearAccesoGratuito, crearCheckoutSession } from './api.js';
-
-function poblarSelectorIdioma(lang) {
-  const cont = document.getElementById('selector-idioma');
-  if (!cont) return;
-  cont.innerHTML = LANGS.map((code, i) => {
-    const separador = i > 0 ? '<span class="selector-idioma__separador" aria-hidden="true">·</span>' : '';
-    const activa = code === lang ? ' activa' : '';
-    return `${separador}<button type="button" class="selector-idioma__opcion${activa}" data-lang="${code}" aria-pressed="${code === lang}">${code.toUpperCase()}</button>`;
-  }).join('');
-  cont.querySelectorAll('button').forEach((boton) => {
-    boton.addEventListener('click', () => {
-      guardarIdioma(boton.dataset.lang);
-      location.reload();
-    });
-  });
-}
 
 function init() {
   const id = document.body.dataset.ruta;
@@ -55,13 +39,13 @@ function init() {
   document.getElementById('migas-ruta').textContent = tituloRuta;
 
   // Cuerpo principal
-  document.getElementById('ruta-foto').src = `../${ruta.imgHero}`;
+  document.getElementById('ruta-foto').src = urlRecurso(ruta.imgHero, '../');
   document.getElementById('ruta-foto').alt = tituloRuta;
   document.getElementById('ruta-zona-eyebrow').textContent = ruta.zona;
   document.getElementById('ruta-titulo').textContent = tituloRuta;
   document.getElementById('ruta-resumen').textContent = localizar(ruta.resumen, lang);
   document.getElementById('adelanto-texto').textContent = `“${localizar(ruta.acertijoMuestra, lang)}”`;
-  document.getElementById('mapa-zona-img').src = `../${ruta.imgMapa}`;
+  document.getElementById('mapa-zona-img').src = urlRecurso(ruta.imgMapa, '../');
   document.getElementById('mapa-zona-img').alt = tf(lang, 'ruta_mapa_alt', { zona: ruta.zona });
   document.getElementById('mapa-zona-caption').textContent = ruta.zona;
 
@@ -97,7 +81,8 @@ function init() {
     try {
       if (esGratis) {
         const resultado = await crearAccesoGratuito(ruta.id, lang, inputEmail.value.trim());
-        location.href = `../jugar/gracias.html?ruta=${resultado.rutaId}&idioma=${encodeURIComponent(resultado.idioma)}&t=${encodeURIComponent(resultado.token)}&gratis=1`;
+        const paginaGracias = urlRecurso('jugar/gracias.html', '../');
+        location.href = `${paginaGracias}?ruta=${resultado.rutaId}&idioma=${encodeURIComponent(resultado.idioma)}&t=${encodeURIComponent(resultado.token)}&gratis=1`;
       } else {
         const url = await crearCheckoutSession(ruta.id, lang);
         location.href = url;
@@ -115,8 +100,10 @@ function init() {
   document.getElementById('ruta-volver').href = `../ciudad/${ciudad.slug}.html`;
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 }

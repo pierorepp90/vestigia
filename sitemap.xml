@@ -1,87 +1,339 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://pierorepp90.github.io/vestigia/</loc>
+    <loc>https://pierorepp90.github.io/vestigia/index.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/index.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/index.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/index.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/barcelona.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/barcelona.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/barcelona.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/barcelona.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/roma.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/roma.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/roma.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/roma.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/paris.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/paris.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/paris.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/paris.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/lisboa.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/lisboa.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/lisboa.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/lisboa.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/florencia.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/florencia.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/florencia.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/florencia.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/madrid.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/madrid.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/madrid.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/madrid.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/valencia.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/valencia.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/valencia.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/valencia.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/napoles.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/napoles.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/napoles.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/napoles.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/toulouse.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/toulouse.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/toulouse.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/toulouse.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/berlin.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/berlin.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/berlin.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/berlin.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ciudad/istanbul.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ciudad/istanbul.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ciudad/istanbul.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ciudad/istanbul.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/barcelona-gotic.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/barcelona-gotic.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/barcelona-gotic.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/barcelona-gotic.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/roma-centro.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/roma-centro.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/roma-centro.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/roma-centro.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/paris-marais.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/paris-marais.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/paris-marais.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/paris-marais.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/barcelona-born.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/barcelona-born.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/barcelona-born.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/barcelona-born.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/barcelona-raval.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/barcelona-raval.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/barcelona-raval.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/barcelona-raval.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/lisboa-alfama.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/lisboa-alfama.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/lisboa-alfama.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/lisboa-alfama.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/florencia-centro.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/florencia-centro.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/florencia-centro.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/florencia-centro.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/madrid-austrias.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/madrid-austrias.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/madrid-austrias.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/madrid-austrias.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/valencia-carmen.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/valencia-carmen.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/valencia-carmen.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/valencia-carmen.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/napoles-spaccanapoli.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/napoles-spaccanapoli.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/napoles-spaccanapoli.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/napoles-spaccanapoli.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/toulouse-capitole.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/toulouse-capitole.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/toulouse-capitole.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/toulouse-capitole.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/berlin-mitte.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/berlin-mitte.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/berlin-mitte.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/berlin-mitte.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/istanbul-sultanahmet.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/istanbul-sultanahmet.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/istanbul-sultanahmet.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/istanbul-sultanahmet.html</loc>
   </url>
   <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/roma-trastevere.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/roma-trastevere.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/roma-trastevere.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/roma-trastevere.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/florencia-santacroce.html</loc>
   </url>
   <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/florencia-santacroce.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/florencia-santacroce.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/florencia-santacroce.html</loc>
+  </url>
+  <url>
     <loc>https://pierorepp90.github.io/vestigia/ruta/paris-montmartre.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/en/ruta/paris-montmartre.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/fr/ruta/paris-montmartre.html</loc>
+  </url>
+  <url>
+    <loc>https://pierorepp90.github.io/vestigia/it/ruta/paris-montmartre.html</loc>
   </url>
 </urlset>

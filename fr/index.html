@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="fr" data-idioma-pagina="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vestigia — Escape games urbains en plein air</title>
+<meta name="description" content="Des parcours d'énigmes dans le centre historique des grandes villes. Chaque indice se cache dans ce que vous avez déjà sous les yeux : une date, une…">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f4ead0' stroke='%239c2b1f' stroke-width='5'/%3E%3Cpath d='M50 14 L60 45 L50 86 L40 45 Z' fill='%239c2b1f'/%3E%3Cpath d='M14 50 L45 40 L86 50 L45 60 Z' fill='%23241a10' opacity='0.65'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="https://pierorepp90.github.io/vestigia/css/styles.css">
+<link rel="canonical" href="https://pierorepp90.github.io/vestigia/fr/index.html">
+<link rel="alternate" hreflang="es" href="https://pierorepp90.github.io/vestigia/index.html">
+<link rel="alternate" hreflang="en" href="https://pierorepp90.github.io/vestigia/en/index.html">
+<link rel="alternate" hreflang="fr" href="https://pierorepp90.github.io/vestigia/fr/index.html">
+<link rel="alternate" hreflang="it" href="https://pierorepp90.github.io/vestigia/it/index.html">
+<link rel="alternate" hreflang="x-default" href="https://pierorepp90.github.io/vestigia/index.html">
+<meta property="og:title" content="Vestigia — Une façon amusante de découvrir la ville">
+<meta property="og:description" content="Escape games urbains en plein air">
+<meta property="og:type" content="website">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="index.html" aria-label="Vestigia — inicio">
+      <svg class="marca__icono" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="3" fill="currentColor"/>
+        <path d="M50 10 L58 42 L50 50 L42 42 Z" fill="currentColor"/>
+        <path d="M50 90 L58 58 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M10 50 L42 42 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M90 50 L58 58 L50 50 L58 42 Z" fill="currentColor" opacity="0.35"/>
+      </svg>
+      <span class="marca__texto">
+        <span class="marca__nombre">Vestigia</span>
+        <span class="marca__tagline" data-i18n="brand_tagline">Une façon amusante de découvrir la ville</span>
+      </span>
+    </a>
+    <nav class="nav-principal" aria-label="Navegación principal">
+      <a href="#ciudades" data-i18n="nav_ciudades">Villes</a>
+      <a href="#como-funciona" data-i18n="nav_como_funciona">Comment ça marche</a>
+      <div class="selector-idioma" id="selector-idioma" role="group" data-i18n-attr="aria-label:nav_idioma_label" aria-label="Langue"></div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero contenedor">
+    <p class="eyebrow" data-i18n="hero_eyebrow">Escape games urbains en plein air</p>
+    <h1 class="hero__titulo" data-i18n="hero_title">Suivez les vestiges.</h1>
+    <p class="hero__subtitulo" data-i18n="hero_subtitle">Des parcours d'énigmes dans le centre historique des grandes villes. Chaque indice se cache dans ce que vous avez déjà sous les yeux : une date, une sculpture, une marque dans la pierre.</p>
+    <div class="hero__cta">
+      <a class="btn btn-lacre" href="#ciudades" data-i18n="hero_cta">Choisissez votre ville</a>
+    </div>
+
+    <svg class="ruta-decorativa" viewBox="0 0 420 70" aria-hidden="true">
+      <path class="trazo" d="M40 46 Q 130 8, 210 30 T 380 46" />
+      <g>
+        <circle class="punto-anillo" cx="40" cy="46" r="9"/>
+        <circle class="punto" cx="40" cy="46" r="3.5"/>
+      </g>
+      <g>
+        <circle class="punto-anillo" cx="210" cy="30" r="9"/>
+        <circle class="punto" cx="210" cy="30" r="3.5"/>
+      </g>
+      <g>
+        <circle class="punto-anillo" cx="380" cy="46" r="9"/>
+        <circle class="punto" cx="380" cy="46" r="3.5"/>
+      </g>
+      <text x="40" y="64" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1" fill="currentColor" opacity="0.75">BCN</text>
+      <text x="210" y="48" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1" fill="currentColor" opacity="0.75">ROMA</text>
+      <text x="380" y="64" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1" fill="currentColor" opacity="0.75">PARÍS</text>
+    </svg>
+  </section>
+
+  <section class="como-funciona contenedor" id="como-funciona">
+    <h2 class="como-funciona__titulo" data-i18n="como_funciona_title">Comment ça marche</h2>
+    <div class="pasos">
+      <div class="paso">
+        <span class="paso__numero">I</span>
+        <h3 class="paso__titulo" data-i18n="como_1_title">Choisissez ville et parcours</h3>
+        <p class="paso__texto" data-i18n="como_1_texto">Chaque ville propose un parcours jouable dans son centre historique, pensé pour 2 à 6 joueurs.</p>
+      </div>
+      <div class="paso">
+        <span class="paso__numero">II</span>
+        <h3 class="paso__titulo" data-i18n="como_2_title">Réservez votre partie</h3>
+        <p class="paso__texto" data-i18n="como_2_texto">Paiement unique par équipe. Accès immédiat par email, sans date limite.</p>
+      </div>
+      <div class="paso">
+        <span class="paso__numero">III</span>
+        <h3 class="paso__titulo" data-i18n="como_3_title">Descendez dans la rue</h3>
+        <p class="paso__texto" data-i18n="como_3_texto">Huit étapes, huit énigmes qui se résolvent en observant les lieux réels — pas un écran.</p>
+      </div>
+      <div class="paso">
+        <span class="paso__numero">IV</span>
+        <h3 class="paso__titulo" data-i18n="como_4_title">Découvrez l'histoire</h3>
+        <p class="paso__texto" data-i18n="como_4_texto">Chaque bonne réponse débloque le vrai récit du lieu où vous vous trouvez.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-ciudades contenedor" id="ciudades">
+    <div class="seccion-ciudades__cabecera">
+      <h2 class="seccion-ciudades__titulo" data-i18n="ciudades_title">Villes disponibles</h2>
+      <p class="seccion-ciudades__subtitulo" data-i18n="ciudades_subtitle">Une ville, un parcours différent dans son centre historique.</p>
+    </div>
+    <div class="grid-ciudades" id="grid-ciudades">
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:0ms" href="ciudad/barcelona.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/barcelona-card.webp" alt="Barcelone" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-0" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-0" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-0" startOffset="50%" text-anchor="middle">Espagne</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-0" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Espagne</span>
+      <h3 class="tarjeta-ciudad__nombre">Barcelone</h3>
+      <p class="tarjeta-ciudad__resumen">Sous le Barri Gòtic se cachent deux mille ans de strates : un mur romain, l'ancien quartier juif et les cicatrices d'une guerre civile encore lisibles dans la pierre.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--media">Moyenne</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:90ms" href="ciudad/roma.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/roma-card.webp" alt="Rome" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-1" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-1" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-1" startOffset="50%" text-anchor="middle">Italie</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-1" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Italie</span>
+      <h3 class="tarjeta-ciudad__nombre">Rome</h3>
+      <p class="tarjeta-ciudad__resumen">Le Centro Storico est un musée sans vitrines : colonnes romaines réemployées, places baroques et fontaines qui cachent plus qu'elles ne montrent.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--dificil">Difficile</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:180ms" href="ciudad/paris.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/paris-card.webp" alt="Paris" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-2" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-2" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-2" startOffset="50%" text-anchor="middle">France</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-2" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">France</span>
+      <h3 class="tarjeta-ciudad__nombre">Paris</h3>
+      <p class="tarjeta-ciudad__resumen">Le Marais a survécu à Haussmann presque intact : hôtels particuliers aristocratiques, places royales et un quartier juif à la mémoire propre.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--media">Moyenne</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:270ms" href="ciudad/lisboa.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/lisboa-card.webp" alt="Lisbonne" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-3" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-3" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-3" startOffset="50%" text-anchor="middle">Portugal</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-3" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Portugal</span>
+      <h3 class="tarjeta-ciudad__nombre">Lisbonne</h3>
+      <p class="tarjeta-ciudad__resumen">Alfama est un labyrinthe de ruelles que même le grand séisme de 1755 n'a pas réussi à redresser : le fado y est né, et chaque azulejo semble garder une histoire.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--dificil">Difficile</span>
+       </div>
+    </div>
+  </a>
+  <div class="tarjeta-ciudad tarjeta-ciudad--inactiva"
+     style="--retraso:360ms" >
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/praga-card.webp" alt="Prague" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-4" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-4" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-4" startOffset="50%" text-anchor="middle">Tchéquie</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-4" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      <div class="cinta-proximamente">Bientôt disponible</div>
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Tchéquie</span>
+      <h3 class="tarjeta-ciudad__nombre">Prague</h3>
+      <p class="tarjeta-ciudad__resumen">La Vieille Ville et son astronome de pierre cachent plus d'un secret. Bientôt disponible.</p>
+      
+    </div>
+  </div>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:450ms" href="ciudad/florencia.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/florencia-card.webp" alt="Florence" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-5" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-5" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-5" startOffset="50%" text-anchor="middle">Italie</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-5" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Italie</span>
+      <h3 class="tarjeta-ciudad__nombre">Florence</h3>
+      <p class="tarjeta-ciudad__resumen">Berceau de la Renaissance : chaque coupole, chaque statue et chaque tour du centre est, au fond, la réponse à une rivalité entre corporations, familles et architectes.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--facil">Facile</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:540ms" href="ciudad/madrid.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/madrid-card.webp" alt="Madrid" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-6" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-6" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-6" startOffset="50%" text-anchor="middle">Espagne</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-6" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Espagne</span>
+      <h3 class="tarjeta-ciudad__nombre">Madrid</h3>
+      <p class="tarjeta-ciudad__resumen">Le Madrid des Habsbourg garde ses meilleurs détails à hauteur d'yeux : un animal fantastique qui n'apparaît plus sur le blason de la ville, une boule qui ne tombe qu'une nuit par an, un ours qui prend une pose différente à chaque coin de rue.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--dificil">Difficile</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:630ms" href="ciudad/valencia.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/valencia-card.webp" alt="Valence" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-7" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-7" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-7" startOffset="50%" text-anchor="middle">Espagne</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-7" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Espagne</span>
+      <h3 class="tarjeta-ciudad__nombre">Valence</h3>
+      <p class="tarjeta-ciudad__resumen">El Carmen est le plus ancien quartier de Valence, entre la Bourse de la soie et une cathédrale qui garde une coupe que certains croient être le Saint Graal.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--facil">Facile</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:720ms" href="ciudad/napoles.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/napoles-card.webp" alt="Naples" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-8" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-8" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-8" startOffset="50%" text-anchor="middle">Italie</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-8" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Italie</span>
+      <h3 class="tarjeta-ciudad__nombre">Naples</h3>
+      <p class="tarjeta-ciudad__resumen">Spaccanapoli coupe en deux le centre historique en suivant le tracé d'une rue grecque vieille de 2500 ans, entre un Duomo à la rosace sans vitraux et une façade que personne n'a jamais réussi à lire entièrement.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--media">Moyenne</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:810ms" href="ciudad/toulouse.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/toulouse-card.webp" alt="Toulouse" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-9" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-9" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-9" startOffset="50%" text-anchor="middle">France</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-9" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">France</span>
+      <h3 class="tarjeta-ciudad__nombre">Toulouse</h3>
+      <p class="tarjeta-ciudad__resumen">La Ville Rose doit son surnom à la brique qui recouvre presque tous ses bâtiments depuis huit siècles, de la place des anciens capitouls à la plus grande basilique romane d'Europe.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--media">Moyenne</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:900ms" href="ciudad/berlin.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/berlin-card.webp" alt="Berlin" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-10" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-10" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-10" startOffset="50%" text-anchor="middle">Allemagne</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-10" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Allemagne</span>
+      <h3 class="tarjeta-ciudad__nombre">Berlin</h3>
+      <p class="tarjeta-ciudad__resumen">Berlin ne garde pas son histoire du XXe siècle sous vitrine : elle la laisse gravée dans la pierre, le métal et le verre de ses propres rues, entre deux coupoles jumelles qui en réalité ne se ressemblent pas et une bibliothèque vide cachée sous les pavés.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--dificil">Difficile</span>
+       </div>
+    </div>
+  </a>
+  <a class="tarjeta-ciudad tarjeta-ciudad--activa"
+     style="--retraso:990ms" href="ciudad/istanbul.html">
+    <div class="tarjeta-ciudad__marco">
+      <img class="tarjeta-ciudad__foto" src="https://pierorepp90.github.io/vestigia/assets/img/ciudades/istanbul-card.webp" alt="Istanbul" loading="lazy" width="900" height="600">
+      
+  <svg class="matasellos" viewBox="0 0 84 84" aria-hidden="true">
+    <defs>
+      <path id="curva-arriba-11" d="M 10,44 A 34,34 0 0 1 74,44" />
+      <path id="curva-abajo-11" d="M 12,46 A 32,32 0 0 0 72,46" />
+    </defs>
+    <circle cx="42" cy="42" r="38" stroke-width="1.4" />
+    <circle cx="42" cy="42" r="33" stroke-width="0.8" stroke-dasharray="1 3" />
+    <line x1="42" y1="14" x2="42" y2="20" stroke-width="1.2" />
+    <line x1="42" y1="64" x2="42" y2="70" stroke-width="1.2" />
+    <text><textPath href="#curva-arriba-11" startOffset="50%" text-anchor="middle">Turquie</textPath></text>
+    <text y="60"><textPath href="#curva-abajo-11" startOffset="50%" text-anchor="middle">· VESTIGIA ·</textPath></text>
+  </svg>
+      <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
+      
+    </div>
+    <div class="tarjeta-ciudad__cuerpo">
+      <span class="tarjeta-ciudad__pais">Turquie</span>
+      <h3 class="tarjeta-ciudad__nombre">Istanbul</h3>
+      <p class="tarjeta-ciudad__resumen">La seule ville au monde à avoir été la capitale de deux empires sans jamais changer d'emplacement : Constantinople et Istanbul se marchent dessus à chaque coin de rue de Sultanahmet, entre des têtes de serpent disparues depuis longtemps et un graffiti viking gravé il y a mille ans.</p>
+      <div class="tarjeta-ciudad__meta">
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+         <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 2–6 joueurs</span>
+         <span class="badge-dificultad badge-dificultad--media">Moyenne</span>
+       </div>
+    </div>
+  </a></div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="contenedor">
+    <p class="pie__derechos" id="pie-derechos">© 2026 Vestigia. Tous droits réservés.</p>
+    <nav class="pie__enlaces" aria-label="Legal">
+      <a href="https://pierorepp90.github.io/vestigia/legal/aviso.html" data-i18n="footer_legal_aviso">Mentions légales</a>
+      <a href="https://pierorepp90.github.io/vestigia/legal/privacidad.html" data-i18n="footer_legal_privacidad">Confidentialité</a>
+      <a href="https://pierorepp90.github.io/vestigia/legal/condiciones.html" data-i18n="footer_legal_condiciones">Conditions</a>
+      <a href="https://pierorepp90.github.io/vestigia/assets/img/ciudades/CREDITOS.md" data-i18n="footer_creditos">Crédits photo</a>
+    </nav>
+  </div>
+</footer>
+
+<script type="module" src="https://pierorepp90.github.io/vestigia/js/portada.js"></script>
+</body>
+</html>

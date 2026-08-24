@@ -4,16 +4,16 @@
 // `data-ciudad` del <body>, busca los datos en el catálogo y pinta el banner
 // y la lista de rutas disponibles.
 import { ciudadPorSlug, localizar, rutasPorCiudad } from './catalogo.js';
-import { LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
+import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 
-const ICONO_RELOJ =
+export const ICONO_RELOJ =
   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg>';
-const ICONO_PERSONAS =
+export const ICONO_PERSONAS =
   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg>';
 const ICONO_MAPA =
   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 14.5s5-4.6 5-8.5a5 5 0 1 0-10 0c0 3.9 5 8.5 5 8.5Z"/><circle cx="8" cy="6" r="1.8"/></svg>';
 
-function tarjetaRuta(ruta, lang) {
+export function tarjetaRuta(ruta, lang) {
   const titulo = localizar(ruta.titulo, lang);
   const precioTexto = ruta.precio === 0
     ? t(lang, 'precio_gratis')
@@ -21,7 +21,7 @@ function tarjetaRuta(ruta, lang) {
   return `
   <a class="tarjeta-ruta" href="../ruta/${ruta.id}.html">
     <div class="tarjeta-ruta__foto-envoltorio">
-      <img class="tarjeta-ruta__foto" src="../${ruta.imgCard}" alt="${titulo}" loading="lazy" width="900" height="600">
+      <img class="tarjeta-ruta__foto" src="${urlRecurso(ruta.imgCard, '../')}" alt="${titulo}" loading="lazy" width="900" height="600">
     </div>
     <div class="tarjeta-ruta__cuerpo">
       <span class="tarjeta-ruta__zona">${ICONO_MAPA} ${ruta.zona}</span>
@@ -35,22 +35,6 @@ function tarjetaRuta(ruta, lang) {
       </div>
     </div>
   </a>`;
-}
-
-function poblarSelectorIdioma(lang) {
-  const cont = document.getElementById('selector-idioma');
-  if (!cont) return;
-  cont.innerHTML = LANGS.map((code, i) => {
-    const separador = i > 0 ? '<span class="selector-idioma__separador" aria-hidden="true">·</span>' : '';
-    const activa = code === lang ? ' activa' : '';
-    return `${separador}<button type="button" class="selector-idioma__opcion${activa}" data-lang="${code}" aria-pressed="${code === lang}">${code.toUpperCase()}</button>`;
-  }).join('');
-  cont.querySelectorAll('button').forEach((boton) => {
-    boton.addEventListener('click', () => {
-      guardarIdioma(boton.dataset.lang);
-      location.reload();
-    });
-  });
 }
 
 function init() {
@@ -76,7 +60,7 @@ function init() {
 
   const hero = document.getElementById('ciudad-hero');
   hero.innerHTML = `
-    <img class="ciudad-hero__foto" src="../${ciudad.imgHero}" alt="${nombre}">
+    <img class="ciudad-hero__foto" src="${urlRecurso(ciudad.imgHero, '../')}" alt="${nombre}">
     <div class="ciudad-hero__velo" aria-hidden="true"></div>
     <div class="ciudad-hero__contenido">
       <p class="eyebrow">${t(lang, 'hero_eyebrow')}</p>
@@ -90,8 +74,13 @@ function init() {
   document.getElementById('grid-rutas').innerHTML = rutas.map((r) => tarjetaRuta(r, lang)).join('');
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
+// Solo se ejecuta en el navegador — este módulo también se importa desde
+// scripts/generar-i18n.mjs (Node, sin `document`) para reutilizar
+// tarjetaRuta() al generar las páginas estáticas.
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 }

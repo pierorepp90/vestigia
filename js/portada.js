@@ -2,15 +2,15 @@
 // Renderiza la cuadrícula de ciudades de la portada a partir del catálogo
 // público (js/catalogo.js) y aplica el idioma activo.
 import { CIUDADES, localizar, rutasPorCiudad } from './catalogo.js';
-import { LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
+import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 
-const ICONO_RELOJ =
+export const ICONO_RELOJ =
   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg>';
-const ICONO_PERSONAS =
+export const ICONO_PERSONAS =
   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg>';
 
 /** SVG de matasellos circular con el país curvado arriba y "VESTIGIA" abajo. */
-function matasellosSVG(pais, indice) {
+export function matasellosSVG(pais, indice) {
   const idArriba = `curva-arriba-${indice}`;
   const idAbajo = `curva-abajo-${indice}`;
   return `
@@ -28,7 +28,7 @@ function matasellosSVG(pais, indice) {
   </svg>`;
 }
 
-function tarjetaCiudad(ciudad, indice, lang) {
+export function tarjetaCiudad(ciudad, indice, lang) {
   const activa = ciudad.activa;
   const rutas = activa ? rutasPorCiudad(ciudad.slug) : [];
   const primera = rutas[0];
@@ -49,7 +49,7 @@ function tarjetaCiudad(ciudad, indice, lang) {
   <${Tag} class="tarjeta-ciudad ${activa ? 'tarjeta-ciudad--activa' : 'tarjeta-ciudad--inactiva'}"
      style="--retraso:${(indice * 90)}ms" ${href ? `href="${href}"` : ''}>
     <div class="tarjeta-ciudad__marco">
-      <img class="tarjeta-ciudad__foto" src="${ciudad.imgCard}" alt="${nombre}" loading="lazy" width="900" height="600">
+      <img class="tarjeta-ciudad__foto" src="${urlRecurso(ciudad.imgCard)}" alt="${nombre}" loading="lazy" width="900" height="600">
       ${matasellosSVG(pais, indice)}
       <div class="tarjeta-ciudad__solapa" aria-hidden="true"></div>
       ${!activa ? `<div class="cinta-proximamente">${t(lang, 'badge_proximamente')}</div>` : ''}
@@ -69,22 +69,6 @@ function renderCiudades(lang) {
   contenedor.innerHTML = CIUDADES.map((c, i) => tarjetaCiudad(c, i, lang)).join('');
 }
 
-function poblarSelectorIdioma(lang) {
-  const cont = document.getElementById('selector-idioma');
-  if (!cont) return;
-  cont.innerHTML = LANGS.map((code, i) => {
-    const separador = i > 0 ? '<span class="selector-idioma__separador" aria-hidden="true">·</span>' : '';
-    const activa = code === lang ? ' activa' : '';
-    return `${separador}<button type="button" class="selector-idioma__opcion${activa}" data-lang="${code}" aria-pressed="${code === lang}">${code.toUpperCase()}</button>`;
-  }).join('');
-  cont.querySelectorAll('button').forEach((boton) => {
-    boton.addEventListener('click', () => {
-      guardarIdioma(boton.dataset.lang);
-      location.reload();
-    });
-  });
-}
-
 function init() {
   const lang = detectarIdioma();
   document.documentElement.lang = lang;
@@ -93,8 +77,13 @@ function init() {
   renderCiudades(lang);
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
+// Solo se ejecuta en el navegador — este módulo también se importa desde
+// scripts/generar-i18n.mjs (Node, sin `document`) para reutilizar
+// tarjetaCiudad()/matasellosSVG() al generar las páginas estáticas.
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 }
