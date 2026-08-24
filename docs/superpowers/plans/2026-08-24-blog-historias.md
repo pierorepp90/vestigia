@@ -562,7 +562,7 @@ git commit -m "Añade historias/index.html"
 ### Task 7: historias/<slug>.html — plantilla + 11 páginas
 
 **Files:**
-- Create: `historias/barcelona.html`, `historias/roma.html`, `historias/paris.html`, `historias/lisboa.html`, `historias/florencia.html`, `historias/madrid.html`, `historias/valencia.html`, `historias/napoles.html`, `historias/toulouse.html`, `historias/berlin.html`, `historias/estambul.html`
+- Create: `historias/barcelona.html`, `historias/roma.html`, `historias/paris.html`, `historias/lisboa.html`, `historias/florencia.html`, `historias/madrid.html`, `historias/valencia.html`, `historias/napoles.html`, `historias/toulouse.html`, `historias/berlin.html`, `historias/istanbul.html`
 
 - [ ] **Step 1: Leer `ruta/roma-centro.html` para copiar el patrón de migas de pan + hero + secciones + footer**
 
@@ -653,7 +653,7 @@ Run: `cat ruta/roma-centro.html`
 - [ ] **Step 3: Duplicar para las otras 10 ciudades vía sed**
 
 ```bash
-for slug in roma paris lisboa florencia madrid valencia napoles toulouse berlin estambul; do
+for slug in roma paris lisboa florencia madrid valencia napoles toulouse berlin istanbul; do
   sed "s/data-historia=\"barcelona\"/data-historia=\"$slug\"/" historias/barcelona.html > "historias/$slug.html"
 done
 ```
@@ -1021,7 +1021,7 @@ git commit -m "generar-i18n.mjs: genera /en/ /fr/ /it/ para historias/"
 | `napoles` | napoles-spaccanapoli | Nápoles tuvo una ciudad griega predecesora, Paleópolis, antes de Neápolis ("ciudad nueva"); la red de canteras/túneles bajo la ciudad, cavada por griegos, reutilizada como acueducto romano y como refugio antiaéreo en la Segunda Guerra Mundial |
 | `toulouse` | toulouse-capitole | El ladrillo no fue elección estética sino necesidad: la cuenca del Garona no tiene canteras de piedra cercanas pero sí arcilla; el apodo "Ciudad Rosa" describe específicamente el color al atardecer, no el material en sí; Toulouse fue capital de un condado semi-independiente hasta la cruzada albigense (s. XIII) |
 | `berlin` | berlin-mitte | Los Stolpersteine ("piedras de tropiezo"): placas de latón incrustadas en la propia acera frente al último domicilio conocido de víctimas del Holocausto — el memorial descentralizado más grande del mundo (más de 100.000 en toda Europa), que se pisa a diario sin que la mayoría note qué es |
-| `estambul` | istanbul-sultanahmet | La ciudad tuvo tres nombres oficiales en su historia (Bizancio → Constantinopla → Estambul, este último oficial recién en 1930); teoría del origen del nombre "Estambul" en la expresión griega *eis tin polin* ("hacia la ciudad"), no en una palabra turca |
+| `istanbul` | istanbul-sultanahmet | La ciudad tuvo tres nombres oficiales en su historia (Bizancio → Constantinopla → Estambul, este último oficial recién en 1930); teoría del origen del nombre "Estambul" en la expresión griega *eis tin polin* ("hacia la ciudad"), no en una palabra turca |
 
 - [ ] **Step 1: Confirmar que ninguno de los ángulos de arriba aparece en el archivo `.es.json` correspondiente**
 
