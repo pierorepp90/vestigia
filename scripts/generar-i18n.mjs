@@ -263,7 +263,12 @@ function jsonLdRuta(ruta, lang) {
       availability: 'https://schema.org/InStock',
     },
   };
-  return `<script type="application/ld+json" id="ld-producto">\n${JSON.stringify(datos, null, 2)}\n</script>`;
+  // Mismo arreglo que generarHistoria() más abajo y que generar-seo.mjs/
+  // generar-historias.mjs (commit aa37e36): JSON.stringify no escapa '<',
+  // y un texto real que contuviera el cierre de <script> rompería la
+  // página y el reemplazo idempotente de la próxima ejecución.
+  const json = JSON.stringify(datos, null, 2).replace(/</g, '\\u003c');
+  return `<script type="application/ld+json" id="ld-producto">\n${json}\n</script>`;
 }
 
 function generarRuta(ruta, lang) {
