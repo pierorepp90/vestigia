@@ -36,13 +36,19 @@ ya se aplicó a la investigación histórica de las rutas — hechos
 verificables, no relleno genérico de guía turística.
 
 **Los 11 títulos** (ES, ya validados con el usuario; EN/FR/IT se traducen
-en el mismo paso que traduce el resto del post):
+en el mismo paso que traduce el resto del post). **Nota posterior a la
+aprobación:** al preparar los briefs de contenido (plan de
+implementación, Task 12) se cruzó cada ángulo contra el enigma real de su
+ruta y aparecieron 2 solapes — el título de París cambió porque el
+ángulo original (Bateau-Lavoir) resultó ser la parada 3 completa de esa
+misma ruta, enigma incluido; el de Lisboa se mantuvo pero con el ángulo
+de apoyo ajustado (ver el plan para el detalle):
 
 | Ciudad | Título |
 |---|---|
 | Barcelona | ¿Por qué el Barrio Gótico no es tan gótico como parece? |
 | Roma | Lo que Trastevere lleva siglos mostrando sin que nadie mire |
-| París | El mito del Bateau-Lavoir que hasta las guías repiten mal |
+| París | Por qué Sacré-Cœur es un monumento a una derrota, no una victoria |
 | Lisboa | Alfama sobrevivió al terremoto que borró media Lisboa: así se nota todavía |
 | Florencia | La rivalidad que Florencia construyó en piedra, cúpula a cúpula |
 | Madrid | El animal mitológico que ya no está en el escudo de Madrid |
