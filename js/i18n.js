@@ -586,6 +586,22 @@ export function tf(lang, key, vars = {}) {
 }
 
 /**
+ * Escapa un texto para insertarlo con seguridad dentro de HTML — como
+ * contenido de texto o como valor de atributo entre comillas dobles. Los
+ * textos del catálogo (títulos, resúmenes) se interpolan directamente en
+ * plantillas `innerHTML` (tarjetaCiudad, tarjetaRuta, tarjetaHistoria); sin
+ * esto, una comilla en un `alt="…"` rompería el atributo, y un "menor que"
+ * se leería como el inicio de una etiqueta.
+ */
+export function escaparHtml(s) {
+  return String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+/**
  * Recorre `root` buscando [data-i18n] (rellena textContent) y
  * [data-i18n-attr="attr:key|attr2:key2"] (rellena atributos, p. ej.
  * aria-label o placeholder). Pensado para las pantallas de juego/pago, que

@@ -2,7 +2,7 @@
 // Renderiza la cuadrícula de ciudades de la portada a partir del catálogo
 // público (js/catalogo.js) y aplica el idioma activo.
 import { CIUDADES, localizar, rutasPorCiudad } from './catalogo.js';
-import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
+import { aplicarI18n, detectarIdioma, escaparHtml, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 
 export const ICONO_RELOJ =
   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg>';
@@ -34,8 +34,8 @@ export function tarjetaCiudad(ciudad, indice, lang) {
   const primera = rutas[0];
   const href = activa ? `ciudad/${ciudad.slug}.html` : undefined;
   const Tag = activa ? 'a' : 'div';
-  const nombre = localizar(ciudad.nombre, lang);
-  const pais = localizar(ciudad.pais, lang);
+  const nombre = escaparHtml(localizar(ciudad.nombre, lang));
+  const pais = escaparHtml(localizar(ciudad.pais, lang));
 
   const metaHtml = primera
     ? `<div class="tarjeta-ciudad__meta">
@@ -57,7 +57,7 @@ export function tarjetaCiudad(ciudad, indice, lang) {
     <div class="tarjeta-ciudad__cuerpo">
       <span class="tarjeta-ciudad__pais">${pais}</span>
       <h3 class="tarjeta-ciudad__nombre">${nombre}</h3>
-      <p class="tarjeta-ciudad__resumen">${localizar(ciudad.resumen, lang)}</p>
+      <p class="tarjeta-ciudad__resumen">${escaparHtml(localizar(ciudad.resumen, lang))}</p>
       ${metaHtml}
     </div>
   </${Tag}>`;

@@ -3,14 +3,18 @@
 // datos en el catálogo y arma el cuerpo del artículo, incluido el enlace
 // editorial de cierre (sin botón — ver spec, sección "Diseño visual").
 import { ciudadPorSlug, historiaPorSlug, localizar, rutaPorId } from './catalogo.js';
-import { aplicarI18n, detectarIdioma, poblarSelectorIdioma, t, urlRecurso } from './i18n.js';
+import { aplicarI18n, detectarIdioma, escaparHtml, poblarSelectorIdioma, t, urlRecurso } from './i18n.js';
 
 /** Sustituye {ruta1}/{ruta2} en `cierre` por el enlace editorial real a esa ruta. */
 export function cierreConEnlaces(historia, lang) {
-  let texto = localizar(historia.cierre, lang);
+  // Se escapa el texto ANTES de sustituir los placeholders: {ruta1}/{ruta2}
+  // no contienen caracteres especiales, así que sobreviven el escapado y
+  // el enlace real (ya con su propio escapado) se inserta después, sin
+  // quedar doblemente escapado.
+  let texto = escaparHtml(localizar(historia.cierre, lang));
   historia.enlacesRutas.forEach((rutaId, i) => {
     const ruta = rutaPorId(rutaId);
-    const enlace = `<a class="enlace-editorial" href="../ruta/${rutaId}.html">${localizar(ruta.titulo, lang)}</a>`;
+    const enlace = `<a class="enlace-editorial" href="../ruta/${rutaId}.html">${escaparHtml(localizar(ruta.titulo, lang))}</a>`;
     texto = texto.replace(`{ruta${i + 1}}`, enlace);
   });
   return texto;
@@ -19,8 +23,8 @@ export function cierreConEnlaces(historia, lang) {
 function seccionHTML(seccion, lang) {
   return `
     <div class="seccion-relato">
-      <p class="seccion-relato__titulo">${localizar(seccion.titulo, lang)}</p>
-      <p class="seccion-relato__texto">${localizar(seccion.texto, lang)}</p>
+      <p class="seccion-relato__titulo">${escaparHtml(localizar(seccion.titulo, lang))}</p>
+      <p class="seccion-relato__texto">${escaparHtml(localizar(seccion.texto, lang))}</p>
     </div>`;
 }
 
