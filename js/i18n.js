@@ -624,9 +624,9 @@ export function aplicarI18n(root, lang) {
 
 // Debe coincidir con BASE_URL en scripts/sitio-i18n.mjs — mismo dato,
 // mantenido en dos sitios porque js/ (navegador) y scripts/ (Node) no
-// comparten módulo por ahora. TODO: actualizar los dos junto con
-// SITE_URL/ALLOWED_ORIGIN en worker/wrangler.toml cuando haya dominio propio.
-const BASE_URL_SITIO = 'https://pierorepp90.github.io/vestigia';
+// comparten módulo por ahora. Coincide también con SITE_URL/ALLOWED_ORIGIN
+// en worker/wrangler.toml.
+const BASE_URL_SITIO = 'https://vestigia.fun';
 
 /**
  * URL a un recurso compartido (foto, mapa…) que NO se duplica por idioma.

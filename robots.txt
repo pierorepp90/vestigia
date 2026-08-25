@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /jugar/
 
-Sitemap: https://pierorepp90.github.io/vestigia/sitemap.xml
+Sitemap: https://vestigia.fun/sitemap.xml

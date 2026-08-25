@@ -4,14 +4,13 @@ compatibility_date = "2026-07-29"
 account_id = "a758cd1019845ef9a66297e93da0c5b0"
 
 [vars]
-# TODO: actualizar cuando se confirme el dominio definitivo (ver plan,
-# "Pendiente de ti"). Por ahora apunta al sitio publicado en GitHub Pages
-# (github.io/vestigia) — sin dominio propio todavía. ALLOWED_ORIGIN es solo
-# esquema+host (así funciona el header Origin del navegador, sin ruta);
-# SITE_URL sí lleva la ruta del proyecto porque se concatena en enlaces
-# completos (ver worker/src/stripe.js y worker/src/resend.js).
-SITE_URL = "https://pierorepp90.github.io/vestigia"
-ALLOWED_ORIGIN = "https://pierorepp90.github.io"
+# vestigia.fun es el dominio propio del sitio (GitHub Pages con CNAME).
+# ALLOWED_ORIGIN es solo esquema+host (así funciona el header Origin del
+# navegador, sin ruta); SITE_URL se concatena en enlaces completos (ver
+# worker/src/stripe.js y worker/src/resend.js). Debe coincidir con BASE_URL
+# en scripts/sitio-i18n.mjs y BASE_URL_SITIO en js/i18n.js.
+SITE_URL = "https://vestigia.fun"
+ALLOWED_ORIGIN = "https://vestigia.fun"
 OWNER_EMAIL = "pierorepp90@gmail.com"
 
 # Secretos (NUNCA en este archivo — se versiona en git). Configurar con:

@@ -5,9 +5,9 @@
 // que el cálculo no se desincronice entre los dos scripts.
 import { LANGS, DEFAULT_LANG } from '../js/i18n.js';
 
-// TODO: actualizar junto con SITE_URL/ALLOWED_ORIGIN en worker/wrangler.toml
-// cuando haya dominio propio (ver README, "Pendiente, con dueño claro").
-export const BASE_URL = 'https://pierorepp90.github.io/vestigia';
+// Debe coincidir con SITE_URL/ALLOWED_ORIGIN en worker/wrangler.toml y con
+// BASE_URL_SITIO en js/i18n.js — mismo dominio, tres sitios.
+export const BASE_URL = 'https://vestigia.fun';
 
 export function rutaRelativa(tipo, params = {}) {
   if (tipo === 'index') return 'index.html';
