@@ -41,7 +41,15 @@ function jsonLdHistoria(historia) {
     author: { '@type': 'Organization', name: 'Vestigia' },
     publisher: { '@type': 'Organization', name: 'Vestigia' },
   };
-  return `<script type="application/ld+json" id="ld-articulo">\n${JSON.stringify(datos, null, 2)}\n</script>`;
+  // JSON.stringify no escapa el símbolo "menor que" — un texto real que
+  // contenga el cierre de una etiqueta <script> cerraría la etiqueta
+  // antes de tiempo y además rompería el reemplazo idempotente de la
+  // próxima ejecución (deja fragmentos de JSON sueltos). Mitigación
+  // estándar para JSON embebido en <script>: sustituir ese símbolo por su
+  // punto de código Unicode en notación \uXXXX, que JSON.parse interpreta
+  // igual que el carácter original.
+  const json = JSON.stringify(datos, null, 2).replace(/</g, '\\u003c');
+  return `<script type="application/ld+json" id="ld-articulo">\n${json}\n</script>`;
 }
 
 function actualizarHistoria(historia) {
