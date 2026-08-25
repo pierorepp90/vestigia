@@ -9,6 +9,11 @@ export const ICONO_RELOJ =
 export const ICONO_PERSONAS =
   '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg>';
 
+// Orden fijo para mostrar los badges de dificultad de una ciudad con varias
+// rutas: siempre de más fácil a más difícil, nunca en el orden en que
+// aparecen en RUTAS.
+const ORDEN_DIFICULTAD = ['facil', 'media', 'dificil'];
+
 /** SVG de matasellos circular con el país curvado arriba y "VESTIGIA" abajo. */
 export function matasellosSVG(pais, indice) {
   const idArriba = `curva-arriba-${indice}`;
@@ -37,13 +42,25 @@ export function tarjetaCiudad(ciudad, indice, lang) {
   const nombre = escaparHtml(localizar(ciudad.nombre, lang));
   const pais = escaparHtml(localizar(ciudad.pais, lang));
 
-  const metaHtml = primera
-    ? `<div class="tarjeta-ciudad__meta">
+  let metaHtml = '';
+  if (primera) {
+    // Con varias rutas por ciudad, jugadores y dificultad deben reflejar el
+    // conjunto entero, no solo la primera ruta: el rango de jugadores es el
+    // mínimo y máximo entre todas, y se muestra un badge por cada dificultad
+    // distinta presente (una ciudad con rutas fácil y difícil muestra las
+    // dos, no solo una).
+    const jugadoresMin = Math.min(...rutas.map((r) => r.jugadoresMin));
+    const jugadoresMax = Math.max(...rutas.map((r) => r.jugadoresMax));
+    const dificultades = ORDEN_DIFICULTAD.filter((d) => rutas.some((r) => r.dificultad === d));
+    const badgesHtml = dificultades
+      .map((d) => `<span class="badge-dificultad badge-dificultad--${d}">${t(lang, 'dificultad_' + d)}</span>`)
+      .join('');
+    metaHtml = `<div class="tarjeta-ciudad__meta">
          <span class="meta-item">${ICONO_RELOJ} ${tf(lang, 'meta_duracion', { h: Math.round(primera.duracionMin / 60) })}</span>
-         <span class="meta-item">${ICONO_PERSONAS} ${tf(lang, 'meta_jugadores', { min: primera.jugadoresMin, max: primera.jugadoresMax })}</span>
-         <span class="badge-dificultad badge-dificultad--${primera.dificultad}">${t(lang, 'dificultad_' + primera.dificultad)}</span>
-       </div>`
-    : '';
+         <span class="meta-item">${ICONO_PERSONAS} ${tf(lang, 'meta_jugadores', { min: jugadoresMin, max: jugadoresMax })}</span>
+         <span class="tarjeta-ciudad__dificultades">${badgesHtml}</span>
+       </div>`;
+  }
 
   return `
   <${Tag} class="tarjeta-ciudad ${activa ? 'tarjeta-ciudad--activa' : 'tarjeta-ciudad--inactiva'}"

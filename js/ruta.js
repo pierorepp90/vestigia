@@ -7,7 +7,7 @@
 // El botón de reservar crea una sesión de Stripe Checkout (worker/src/
 // stripe.js) y redirige allí; a la vuelta, jugar/gracias.html confirma el
 // pago y entrega el acceso.
-import { ciudadPorSlug, localizar, rutaPorId, rutasHermanas } from './catalogo.js';
+import { ciudadPorSlug, historiaPorSlug, localizar, rutaPorId, rutasHermanas } from './catalogo.js';
 import { LANG_NAMES, aplicarI18n, detectarIdioma, escaparHtml, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 import { crearAccesoGratuito, crearCheckoutSession } from './api.js';
 
@@ -107,6 +107,15 @@ function init() {
         ${hermanas.map((r) => `<a class="btn btn-fantasma" href="${r.id}.html">${escaparHtml(localizar(r.titulo, lang))}</a>`).join('')}
       </div>`;
   }
+
+  // Cierre de la página: siempre se puede volver a ver todas las ciudades;
+  // el enlace a la historia del blog solo aparece si esta ciudad tiene una
+  // (hoy las 11 activas la tienen, pero una ciudad nueva podría no tenerla
+  // todavía el día que se publique su primera ruta).
+  const historia = historiaPorSlug(ciudad.slug);
+  document.getElementById('ruta-enlaces-finales').innerHTML = `
+    <p><a class="btn btn-fantasma" href="../index.html">${t(lang, 'ruta_todas_ciudades')}</a></p>
+    ${historia ? `<p><a class="enlace-editorial" href="../historias/${historia.id}.html">${escaparHtml(tf(lang, 'ruta_leer_historia', { ciudad: nombreCiudad }))}</a></p>` : ''}`;
 }
 
 if (typeof document !== 'undefined') {

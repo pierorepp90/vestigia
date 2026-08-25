@@ -25,7 +25,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { CIUDADES, RUTAS, HISTORIAS, ciudadPorSlug, ciudadesRelacionadas, localizar, rutaPorId, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
+import { CIUDADES, RUTAS, HISTORIAS, ciudadPorSlug, ciudadesRelacionadas, historiaPorSlug, localizar, rutaPorId, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
 import { LANGS, LANG_NAMES, DEFAULT_LANG, t, tf } from '../js/i18n.js';
 import { tarjetaCiudad } from '../js/portada.js';
 import { tarjetaRuta } from '../js/ciudad.js';
@@ -315,6 +315,16 @@ function generarRuta(ruta, lang) {
     const titulo = escaparTexto(tf(lang, 'ruta_otras_titulo', { ciudad: nombreCiudad }));
     html = conHTML(html, 'rutas-relacionadas', `<h2 class="seccion-relacionadas__titulo">${titulo}</h2><div class="seccion-relacionadas__lista">${enlaces}</div>`);
   }
+
+  const historia = historiaPorSlug(ciudad.slug);
+  const enlaceHistoria = historia
+    ? `<p><a class="enlace-editorial" href="../historias/${historia.id}.html">${escaparTexto(tf(lang, 'ruta_leer_historia', { ciudad: nombreCiudad }))}</a></p>`
+    : '';
+  html = conHTML(
+    html,
+    'ruta-enlaces-finales',
+    `<p><a class="btn btn-fantasma" href="../index.html">${escaparTexto(t(lang, 'ruta_todas_ciudades'))}</a></p>${enlaceHistoria}`,
+  );
 
   html = conTexto(html, 'panel-duracion', tf(lang, 'meta_duracion', { h: Math.round(ruta.duracionMin / 60) }));
   html = conTexto(html, 'panel-jugadores', tf(lang, 'meta_jugadores', { min: ruta.jugadoresMin, max: ruta.jugadoresMax }));

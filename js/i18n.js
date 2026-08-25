@@ -82,6 +82,8 @@ export const DICT = {
 
     // Ficha de ruta
     ruta_volver: 'Volver a {ciudad}',
+    ruta_todas_ciudades: 'Volver a todas las ciudades',
+    ruta_leer_historia: 'Leer curiosidades de {ciudad}',
     ruta_zona_label: 'Zona de juego',
     ruta_punto_partida_label: 'Punto de partida',
     ruta_muestra_title: 'Un adelanto',
@@ -219,6 +221,8 @@ export const DICT = {
 
     // Trail page
     ruta_volver: 'Back to {ciudad}',
+    ruta_todas_ciudades: 'Back to all cities',
+    ruta_leer_historia: 'Read curiosities about {ciudad}',
     ruta_zona_label: 'Play area',
     ruta_punto_partida_label: 'Starting point',
     ruta_muestra_title: 'A sneak peek',
@@ -356,6 +360,8 @@ export const DICT = {
 
     // Fiche de parcours
     ruta_volver: 'Retour à {ciudad}',
+    ruta_todas_ciudades: 'Retour à toutes les villes',
+    ruta_leer_historia: 'Lire des curiosités sur {ciudad}',
     ruta_zona_label: 'Zone de jeu',
     ruta_punto_partida_label: 'Point de départ',
     ruta_muestra_title: 'Un avant-goût',
@@ -493,6 +499,8 @@ export const DICT = {
 
     // Scheda del percorso
     ruta_volver: 'Torna a {ciudad}',
+    ruta_todas_ciudades: 'Torna a tutte le città',
+    ruta_leer_historia: 'Leggi curiosità su {ciudad}',
     ruta_zona_label: "Zona di gioco",
     ruta_punto_partida_label: 'Punto di partenza',
     ruta_muestra_title: 'Un assaggio',

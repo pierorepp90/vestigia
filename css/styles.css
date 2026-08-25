@@ -612,6 +612,19 @@ footer {
   color: var(--lacre);
 }
 
+/* Portada: una ciudad con varias rutas puede mostrar 2-3 badges de
+   dificultad juntos — más chicos que el badge suelto de ciudad/ruta para
+   que no compitan por espacio con la duración y los jugadores. */
+.tarjeta-ciudad__dificultades {
+  display: inline-flex;
+  gap: 5px;
+}
+
+.tarjeta-ciudad__dificultades .badge-dificultad {
+  font-size: 0.62rem;
+  padding: 1px 7px;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;
@@ -1176,6 +1189,18 @@ footer {
 .seccion-relacionadas__lista .btn {
   padding: 9px 18px;
   font-size: 0.88rem;
+}
+
+.ruta-enlaces-finales {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.ruta-enlaces-finales:empty {
+  display: none;
 }
 
 /* Panel lateral: ficha estilo billete */
