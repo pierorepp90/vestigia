@@ -25,10 +25,12 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { CIUDADES, RUTAS, ciudadPorSlug, ciudadesRelacionadas, localizar, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
+import { CIUDADES, RUTAS, HISTORIAS, ciudadPorSlug, ciudadesRelacionadas, localizar, rutaPorId, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
 import { LANGS, LANG_NAMES, DEFAULT_LANG, t, tf } from '../js/i18n.js';
 import { tarjetaCiudad } from '../js/portada.js';
 import { tarjetaRuta } from '../js/ciudad.js';
+import { tarjetaHistoria } from '../js/historias.js';
+import { cierreConEnlaces } from '../js/historia.js';
 import { BASE_URL, urlPagina, bloqueCanonicalYHreflang } from './sitio-i18n.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
@@ -128,8 +130,18 @@ function absolutizarImagenesDeTarjetas(html) {
 }
 
 function reescribirEnlacesInicio(html, lang) {
+  // Solo "../index.html" (subir a la raíz) se reescribe aquí. Un
+  // "index.html" a secas es un enlace relativo DENTRO de la misma familia
+  // de páginas (p. ej. historias/<slug>.html → historias/index.html, o
+  // historias/index.html consigo misma): al espejar la misma estructura de
+  // carpetas por idioma, ya resuelve bien sin tocarlo — igual que
+  // "${id}.html" entre rutas hermanas. Antes esta función también
+  // reescribía ese caso a secas, pero nada lo necesitaba (ciudad/ruta no
+  // tienen ningún "index.html" a secas en sus plantillas) y, al añadir
+  // historias/, sí rompía el enlace "Historias" / "Todas las historias":
+  // pasaban a apuntar a la portada del sitio en vez de al índice del blog.
   const inicio = urlPagina(lang, 'index', {});
-  return html.replace(/href="\.\.\/index\.html(#[\w-]+)?"/g, (_m, hash) => `href="${inicio}${hash || ''}"`).replace(/href="index\.html"/g, `href="${inicio}"`);
+  return html.replace(/href="\.\.\/index\.html(#[\w-]+)?"/g, (_m, hash) => `href="${inicio}${hash || ''}"`);
 }
 
 function quitarScriptPieDerechos(html) {
@@ -323,6 +335,105 @@ function generarRuta(ruta, lang) {
   writeFileSync(destino, html, 'utf8');
 }
 
+// ---- Páginas de historias ----------------------------------------------
+
+function generarHistoriasIndice(lang) {
+  const plantilla = readFileSync(path.join(RAIZ, 'historias', 'index.html'), 'utf8');
+  let html = quitarBloqueCanonicalExistente(plantilla.replace(/<html lang="es">/, `<html lang="${lang}" data-idioma-pagina="${lang}">`));
+
+  html = html.replace(/<title>.*?<\/title>/, `<title>${escaparTexto(t(lang, 'historias_titulo'))} — Vestigia</title>`);
+  html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${escaparAtributo(truncar(t(lang, 'historias_subtitulo'), 155))}">`);
+
+  const bloque = bloqueCanonicalYHreflang(lang, 'historia-indice', {});
+  html = html.replace('<link rel="stylesheet" href="../css/styles.css">', `<link rel="stylesheet" href="${BASE_URL}/css/styles.css">\n${bloque}`);
+
+  html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
+  html = reescribirEnlacesInicio(html, lang);
+
+  if (HISTORIAS.length > 0) {
+    const [destacada, ...resto] = HISTORIAS;
+    const destacadaHTML = absolutizarImagenesDeTarjetas(`
+      <a class="historia-destacada" href="${destacada.id}.html">
+        <img class="historia-destacada__foto" src="../${destacada.imgHero}" alt="${escaparAtributo(localizar(destacada.titulo, lang))}">
+        <div>
+          <p class="eyebrow">${escaparTexto(localizar(ciudadPorSlug(destacada.ciudadSlug).nombre, lang))}</p>
+          <h2 class="historia-destacada__titulo">${escaparTexto(localizar(destacada.titulo, lang))}</h2>
+          <p class="historia-destacada__resumen">${escaparTexto(localizar(destacada.resumen, lang))}</p>
+        </div>
+      </a>`);
+    html = conHTML(html, 'historia-destacada', destacadaHTML);
+
+    const gridHTML = resto.map((h) => absolutizarImagenesDeTarjetas(tarjetaHistoria(h, lang))).join('');
+    html = conHTML(html, 'grid-historias', gridHTML);
+  }
+
+  html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
+  html = quitarScriptPieDerechos(html);
+  html = absolutizarRecursosCompartidos(html);
+
+  const destino = path.join(RAIZ, lang, 'historias', 'index.html');
+  mkdirSync(path.dirname(destino), { recursive: true });
+  writeFileSync(destino, html, 'utf8');
+}
+
+function generarHistoria(historia, lang) {
+  const plantilla = readFileSync(path.join(RAIZ, 'historias', `${historia.id}.html`), 'utf8');
+  const ciudad = ciudadPorSlug(historia.ciudadSlug);
+
+  let html = quitarBloqueCanonicalExistente(plantilla.replace(/<html lang="es">/, `<html lang="${lang}" data-idioma-pagina="${lang}">`));
+
+  const titulo = localizar(historia.titulo, lang);
+  const nombreCiudad = localizar(ciudad.nombre, lang);
+
+  html = html.replace(/<title>.*?<\/title>/, `<title>${escaparTexto(`${titulo} — Vestigia`)}</title>`);
+  html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${escaparAtributo(truncar(localizar(historia.resumen, lang), 155))}">`);
+
+  const bloque = bloqueCanonicalYHreflang(lang, 'historia', { id: historia.id });
+  html = html.replace('<link rel="stylesheet" href="../css/styles.css">', `<link rel="stylesheet" href="${BASE_URL}/css/styles.css">\n${bloque}`);
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: titulo,
+    description: localizar(historia.resumen, lang),
+    image: `${BASE_URL}/${historia.imgHero}`,
+    author: { '@type': 'Organization', name: 'Vestigia' },
+    publisher: { '@type': 'Organization', name: 'Vestigia' },
+  };
+  // Mismo arreglo que jsonLdHistoria() en generar-historias.mjs (ver commit
+  // aa37e36): JSON.stringify no escapa '<', y un texto real que contuviera
+  // "</script>" cerraría la etiqueta antes de tiempo.
+  const json = JSON.stringify(jsonLd, null, 2).replace(/</g, '\\u003c');
+  const ldTag = `<script type="application/ld+json" id="ld-articulo">\n${json}\n</script>`;
+  const idLd = /<script type="application\/ld\+json" id="ld-articulo">[\s\S]*?<\/script>/;
+  html = idLd.test(html) ? html.replace(idLd, ldTag) : html.replace('</head>', `${ldTag}\n</head>`);
+
+  html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
+  html = reescribirEnlacesInicio(html, lang);
+
+  html = conTexto(html, 'migas-ciudad', nombreCiudad);
+  html = conTexto(html, 'migas-historia', titulo);
+  html = conAtributo(html, 'historia-foto', 'src', `${BASE_URL}/${historia.imgHero}`);
+  html = conAtributo(html, 'historia-foto', 'alt', titulo);
+  html = conTexto(html, 'historia-eyebrow', nombreCiudad);
+  html = conTexto(html, 'historia-titulo', titulo);
+  html = conTexto(html, 'historia-resumen', localizar(historia.resumen, lang));
+
+  const seccionesHTML = historia.secciones
+    .map((s) => `<div class="seccion-relato"><p class="seccion-relato__titulo">${escaparTexto(localizar(s.titulo, lang))}</p><p class="seccion-relato__texto">${escaparTexto(localizar(s.texto, lang))}</p></div>`)
+    .join('');
+  html = conHTML(html, 'historia-secciones', seccionesHTML);
+  html = conHTML(html, 'historia-cierre', cierreConEnlaces(historia, lang));
+
+  html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
+  html = quitarScriptPieDerechos(html);
+  html = absolutizarRecursosCompartidos(html);
+
+  const destino = path.join(RAIZ, lang, 'historias', `${historia.id}.html`);
+  mkdirSync(path.dirname(destino), { recursive: true });
+  writeFileSync(destino, html, 'utf8');
+}
+
 // ---- Canonical/hreflang en las páginas en español existentes ----------
 // (ruta/*.html ya las lleva — las pone generar-seo.mjs)
 
@@ -346,12 +457,20 @@ function agregarHreflangCiudadEs(ciudad) {
   writeFileSync(destino, html, 'utf8');
 }
 
+function agregarHreflangHistoriasIndiceEs() {
+  const destino = path.join(RAIZ, 'historias', 'index.html');
+  let html = readFileSync(destino, 'utf8');
+  html = insertarBloqueIdempotente(html, '<link rel="stylesheet" href="../css/styles.css">', bloqueCanonicalYHreflang(DEFAULT_LANG, 'historia-indice', {}));
+  writeFileSync(destino, html, 'utf8');
+}
+
 // ---- sitemap.xml (todas las páginas × los 4 idiomas) --------------------
 
 function generarSitemap() {
-  const paginas = [{ tipo: 'index', params: {} }];
+  const paginas = [{ tipo: 'index', params: {} }, { tipo: 'historia-indice', params: {} }];
   for (const c of CIUDADES_ACTIVAS) paginas.push({ tipo: 'ciudad', params: { slug: c.slug } });
   for (const r of RUTAS) paginas.push({ tipo: 'ruta', params: { id: r.id } });
+  for (const h of HISTORIAS) paginas.push({ tipo: 'historia', params: { id: h.id } });
 
   const urls = paginas.flatMap(({ tipo, params }) => LANGS.map((lang) => urlPagina(lang, tipo, params)));
   const cuerpo = urls.map((url) => `  <url>\n    <loc>${escaparTexto(url)}</loc>\n  </url>`).join('\n');
@@ -364,7 +483,8 @@ function generarSitemap() {
 // ---- Ejecución --------------------------------------------------------
 
 agregarHreflangIndiceEs();
-console.log('index.html (es): canonical/hreflang añadidos');
+agregarHreflangHistoriasIndiceEs();
+console.log('index.html + historias/index.html (es): canonical/hreflang añadidos');
 for (const ciudad of CIUDADES_ACTIVAS) {
   agregarHreflangCiudadEs(ciudad);
 }
@@ -372,9 +492,11 @@ console.log(`ciudad/*.html (es): canonical/hreflang añadidos en ${CIUDADES_ACTI
 
 for (const lang of IDIOMAS_NUEVOS) {
   generarIndice(lang);
+  generarHistoriasIndice(lang);
   for (const ciudad of CIUDADES_ACTIVAS) generarCiudad(ciudad, lang);
   for (const ruta of RUTAS) generarRuta(ruta, lang);
-  console.log(`${lang}/: portada + ${CIUDADES_ACTIVAS.length} ciudades + ${RUTAS.length} rutas generadas`);
+  for (const historia of HISTORIAS) generarHistoria(historia, lang);
+  console.log(`${lang}/: portada + historias + ${CIUDADES_ACTIVAS.length} ciudades + ${RUTAS.length} rutas + ${HISTORIAS.length} historias generadas`);
 }
 
 generarSitemap();
