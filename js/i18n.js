@@ -703,7 +703,7 @@ export function urlParaIdioma(lang, pathname) {
 
   if (lang === DEFAULT_LANG) return null;
 
-  const idxSeccion = segmentos.findIndex((s) => s === 'ciudad' || s === 'ruta');
+  const idxSeccion = segmentos.findIndex((s) => s === 'ciudad' || s === 'ruta' || s === 'historias');
   const posicion = idxSeccion !== -1 ? idxSeccion : segmentos.length - 1;
   segmentos.splice(posicion, 0, lang);
   return segmentos.join('/');

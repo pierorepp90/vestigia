@@ -1,7 +1,7 @@
 // tests/i18n.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { DICT, LANGS, DEFAULT_LANG, t, tf } from '../js/i18n.js';
+import { DICT, LANGS, DEFAULT_LANG, t, tf, urlParaIdioma } from '../js/i18n.js';
 
 test('los 4 idiomas declarados en LANGS tienen entrada en DICT', () => {
   for (const lang of LANGS) {
@@ -53,4 +53,18 @@ test('tf() interpola placeholders correctamente en cada idioma', () => {
   assert.equal(tf('en', 'juego_parada_de', { actual: 3, total: 8 }), 'Stop 3 of 8');
   assert.equal(tf('fr', 'juego_parada_de', { actual: 3, total: 8 }), 'Étape 3 sur 8');
   assert.equal(tf('it', 'juego_parada_de', { actual: 3, total: 8 }), 'Tappa 3 di 8');
+});
+
+test('urlParaIdioma() inserta el prefijo de idioma antes de la sección (ciudad/ruta/historias), no antes del archivo', () => {
+  assert.equal(urlParaIdioma('fr', '/vestigia/ciudad/barcelona.html'), '/vestigia/fr/ciudad/barcelona.html');
+  assert.equal(urlParaIdioma('fr', '/vestigia/ruta/barcelona-gotic.html'), '/vestigia/fr/ruta/barcelona-gotic.html');
+  assert.equal(urlParaIdioma('fr', '/vestigia/historias/florencia.html'), '/vestigia/fr/historias/florencia.html');
+  assert.equal(urlParaIdioma('fr', '/vestigia/historias/index.html'), '/vestigia/fr/historias/index.html');
+  assert.equal(urlParaIdioma('fr', '/vestigia/index.html'), '/vestigia/fr/index.html');
+});
+
+test('urlParaIdioma() vuelve a español quitando el prefijo, y cambia entre dos idiomas ya prefijados', () => {
+  assert.equal(urlParaIdioma('es', '/vestigia/en/historias/florencia.html'), '/vestigia/historias/florencia.html');
+  assert.equal(urlParaIdioma('it', '/vestigia/en/historias/florencia.html'), '/vestigia/it/historias/florencia.html');
+  assert.equal(urlParaIdioma('es', '/vestigia/fr/ciudad/roma.html'), '/vestigia/ciudad/roma.html');
 });
