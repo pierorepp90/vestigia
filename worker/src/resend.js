@@ -1,15 +1,9 @@
 // worker/src/resend.js — mismo patrón que grip-la-seu/worker/src/resend.js.
 //
-// TODO: cambiar FROM_ADDRESS cuando se confirme el dominio definitivo (ver
-// wrangler.toml). Resend exige que el dominio del remitente esté
-// verificado en su panel antes de poder enviar con él — 'vestigia.es' no lo
-// está todavía (ni siquiera está confirmada la compra del dominio), así que
-// cualquier envío con esa dirección lo rechaza con un error que hoy sube
-// como 500 al cliente. Mientras tanto se usa el remitente de pruebas propio
-// de Resend, que no requiere verificación pero solo entrega al email con el
-// que se creó la cuenta de Resend — suficiente para probar el flujo, no
-// para vender de verdad.
-const FROM_ADDRESS = 'Vestigia <onboarding@resend.dev>';
+// vestigia.fun ya está verificado en Resend (DKIM en resend._domainkey +
+// SPF/MX en send.vestigia.fun), así que se puede enviar directo desde el
+// dominio propio en vez del remitente de pruebas.
+const FROM_ADDRESS = 'Vestigia <hola@vestigia.fun>';
 
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (char) => ({
