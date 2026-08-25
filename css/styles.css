@@ -564,6 +564,8 @@ footer {
   font-size: 0.9rem;
   color: var(--ink-soft);
   margin-bottom: 14px;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .tarjeta-ciudad__meta {
@@ -887,6 +889,8 @@ footer {
   opacity: 0.92;
   font-size: 1.05rem;
   margin: 0;
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* =============================================================
@@ -969,6 +973,8 @@ footer {
   color: var(--ink-soft);
   font-size: 0.95rem;
   margin: 0;
+  text-align: justify;
+  hyphens: auto;
 }
 
 .tarjeta-ruta__pie {
@@ -1037,6 +1043,8 @@ footer {
   font-size: 1.06rem;
   color: var(--ink-soft);
   max-width: 68ch;
+  text-align: justify;
+  hyphens: auto;
 }
 
 /* Adelanto: caja de "nota encontrada", con esquina doblada */
@@ -1418,6 +1426,8 @@ footer {
 
 .historia-destacada__resumen {
   color: var(--ink-soft);
+  text-align: justify;
+  hyphens: auto;
 }
 
 .seccion-relato {
@@ -1440,6 +1450,13 @@ footer {
 .seccion-relato__texto {
   margin: 0;
   color: var(--ink-soft);
+  text-align: justify;
+  hyphens: auto;
+}
+
+#historia-cierre {
+  text-align: justify;
+  hyphens: auto;
 }
 
 .enlace-editorial {
