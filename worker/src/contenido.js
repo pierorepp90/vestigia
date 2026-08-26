@@ -37,6 +37,42 @@ import florenciaCentroEs from './contenido/florencia-centro.es.json' with { type
 import florenciaCentroEn from './contenido/florencia-centro.en.json' with { type: 'json' };
 import florenciaCentroFr from './contenido/florencia-centro.fr.json' with { type: 'json' };
 import florenciaCentroIt from './contenido/florencia-centro.it.json' with { type: 'json' };
+import berlinMitteEs from './contenido/berlin-mitte.es.json' with { type: 'json' };
+import berlinMitteEn from './contenido/berlin-mitte.en.json' with { type: 'json' };
+import berlinMitteFr from './contenido/berlin-mitte.fr.json' with { type: 'json' };
+import berlinMitteIt from './contenido/berlin-mitte.it.json' with { type: 'json' };
+import florenciaSantacroceEs from './contenido/florencia-santacroce.es.json' with { type: 'json' };
+import florenciaSantacroceEn from './contenido/florencia-santacroce.en.json' with { type: 'json' };
+import florenciaSantacroceFr from './contenido/florencia-santacroce.fr.json' with { type: 'json' };
+import florenciaSantacroceIt from './contenido/florencia-santacroce.it.json' with { type: 'json' };
+import istanbulSultanahmetEs from './contenido/istanbul-sultanahmet.es.json' with { type: 'json' };
+import istanbulSultanahmetEn from './contenido/istanbul-sultanahmet.en.json' with { type: 'json' };
+import istanbulSultanahmetFr from './contenido/istanbul-sultanahmet.fr.json' with { type: 'json' };
+import istanbulSultanahmetIt from './contenido/istanbul-sultanahmet.it.json' with { type: 'json' };
+import madridAustriasEs from './contenido/madrid-austrias.es.json' with { type: 'json' };
+import madridAustriasEn from './contenido/madrid-austrias.en.json' with { type: 'json' };
+import madridAustriasFr from './contenido/madrid-austrias.fr.json' with { type: 'json' };
+import madridAustriasIt from './contenido/madrid-austrias.it.json' with { type: 'json' };
+import napolesSpaccanapoliEs from './contenido/napoles-spaccanapoli.es.json' with { type: 'json' };
+import napolesSpaccanapoliEn from './contenido/napoles-spaccanapoli.en.json' with { type: 'json' };
+import napolesSpaccanapoliFr from './contenido/napoles-spaccanapoli.fr.json' with { type: 'json' };
+import napolesSpaccanapoliIt from './contenido/napoles-spaccanapoli.it.json' with { type: 'json' };
+import parisMontmartreEs from './contenido/paris-montmartre.es.json' with { type: 'json' };
+import parisMontmartreEn from './contenido/paris-montmartre.en.json' with { type: 'json' };
+import parisMontmartreFr from './contenido/paris-montmartre.fr.json' with { type: 'json' };
+import parisMontmartreIt from './contenido/paris-montmartre.it.json' with { type: 'json' };
+import romaTrastevereEs from './contenido/roma-trastevere.es.json' with { type: 'json' };
+import romaTrastevereEn from './contenido/roma-trastevere.en.json' with { type: 'json' };
+import romaTrastevereFr from './contenido/roma-trastevere.fr.json' with { type: 'json' };
+import romaTrastevereIt from './contenido/roma-trastevere.it.json' with { type: 'json' };
+import toulouseCapitoleEs from './contenido/toulouse-capitole.es.json' with { type: 'json' };
+import toulouseCapitoleEn from './contenido/toulouse-capitole.en.json' with { type: 'json' };
+import toulouseCapitoleFr from './contenido/toulouse-capitole.fr.json' with { type: 'json' };
+import toulouseCapitoleIt from './contenido/toulouse-capitole.it.json' with { type: 'json' };
+import valenciaCarmenEs from './contenido/valencia-carmen.es.json' with { type: 'json' };
+import valenciaCarmenEn from './contenido/valencia-carmen.en.json' with { type: 'json' };
+import valenciaCarmenFr from './contenido/valencia-carmen.fr.json' with { type: 'json' };
+import valenciaCarmenIt from './contenido/valencia-carmen.it.json' with { type: 'json' };
 
 const CONTENIDO = {
   'barcelona-gotic.es': barcelonaGoticEs,
@@ -67,6 +103,42 @@ const CONTENIDO = {
   'florencia-centro.en': florenciaCentroEn,
   'florencia-centro.fr': florenciaCentroFr,
   'florencia-centro.it': florenciaCentroIt,
+  'berlin-mitte.es': berlinMitteEs,
+  'berlin-mitte.en': berlinMitteEn,
+  'berlin-mitte.fr': berlinMitteFr,
+  'berlin-mitte.it': berlinMitteIt,
+  'florencia-santacroce.es': florenciaSantacroceEs,
+  'florencia-santacroce.en': florenciaSantacroceEn,
+  'florencia-santacroce.fr': florenciaSantacroceFr,
+  'florencia-santacroce.it': florenciaSantacroceIt,
+  'istanbul-sultanahmet.es': istanbulSultanahmetEs,
+  'istanbul-sultanahmet.en': istanbulSultanahmetEn,
+  'istanbul-sultanahmet.fr': istanbulSultanahmetFr,
+  'istanbul-sultanahmet.it': istanbulSultanahmetIt,
+  'madrid-austrias.es': madridAustriasEs,
+  'madrid-austrias.en': madridAustriasEn,
+  'madrid-austrias.fr': madridAustriasFr,
+  'madrid-austrias.it': madridAustriasIt,
+  'napoles-spaccanapoli.es': napolesSpaccanapoliEs,
+  'napoles-spaccanapoli.en': napolesSpaccanapoliEn,
+  'napoles-spaccanapoli.fr': napolesSpaccanapoliFr,
+  'napoles-spaccanapoli.it': napolesSpaccanapoliIt,
+  'paris-montmartre.es': parisMontmartreEs,
+  'paris-montmartre.en': parisMontmartreEn,
+  'paris-montmartre.fr': parisMontmartreFr,
+  'paris-montmartre.it': parisMontmartreIt,
+  'roma-trastevere.es': romaTrastevereEs,
+  'roma-trastevere.en': romaTrastevereEn,
+  'roma-trastevere.fr': romaTrastevereFr,
+  'roma-trastevere.it': romaTrastevereIt,
+  'toulouse-capitole.es': toulouseCapitoleEs,
+  'toulouse-capitole.en': toulouseCapitoleEn,
+  'toulouse-capitole.fr': toulouseCapitoleFr,
+  'toulouse-capitole.it': toulouseCapitoleIt,
+  'valencia-carmen.es': valenciaCarmenEs,
+  'valencia-carmen.en': valenciaCarmenEn,
+  'valencia-carmen.fr': valenciaCarmenFr,
+  'valencia-carmen.it': valenciaCarmenIt,
 };
 
 const IDIOMA_POR_DEFECTO = 'es';

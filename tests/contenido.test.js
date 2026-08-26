@@ -11,6 +11,7 @@ import { readdirSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
 import { RUTAS } from '../js/catalogo.js';
+import { tieneSubpreguntas } from '../js/juego/respuestas.js';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const DIR_CONTENIDO = path.join(AQUI, '..', 'worker', 'src', 'contenido');
@@ -69,9 +70,19 @@ test('cada parada tiene respuestas, exactamente 3 pistas, y ningún campo de tex
         assert.ok(typeof parada[campo] === 'string' && parada[campo].trim().length > 0, `${etiqueta}: falta "${campo}"`);
       }
 
-      assert.ok(Array.isArray(parada.respuestas) && parada.respuestas.length > 0, `${etiqueta}: sin respuestas válidas`);
-      for (const r of parada.respuestas) {
-        assert.ok(typeof r === 'string' && r.trim().length > 0, `${etiqueta}: respuesta vacía en la lista`);
+      if (tieneSubpreguntas(parada)) {
+        for (const sub of parada.subpreguntas) {
+          assert.ok(typeof sub.texto === 'string' && sub.texto.trim().length > 0, `${etiqueta}: subpregunta sin texto`);
+          assert.ok(Array.isArray(sub.respuestas) && sub.respuestas.length > 0, `${etiqueta}: subpregunta sin respuestas válidas`);
+          for (const r of sub.respuestas) {
+            assert.ok(typeof r === 'string' && r.trim().length > 0, `${etiqueta}: respuesta vacía en una subpregunta`);
+          }
+        }
+      } else {
+        assert.ok(Array.isArray(parada.respuestas) && parada.respuestas.length > 0, `${etiqueta}: sin respuestas válidas`);
+        for (const r of parada.respuestas) {
+          assert.ok(typeof r === 'string' && r.trim().length > 0, `${etiqueta}: respuesta vacía en la lista`);
+        }
       }
 
       assert.equal(Array.isArray(parada.pistas) && parada.pistas.length, 3, `${etiqueta}: debe tener exactamente 3 pistas`);

@@ -91,6 +91,29 @@
   color: var(--ink-soft);
 }
 
+/* Figuras de los enigmas visuales. Los SVG (js/juego/figuras.js) se trazan
+ * con `currentColor`, así que en papel salen en tinta; el acento que señala
+ * la pregunta se imprime en gris oscuro para que aguante el blanco y negro. */
+.figura-impresa {
+  margin: 14px 0 0;
+  padding: 10px 0;
+  color: var(--ink);
+  break-inside: avoid;
+}
+
+.figura-impresa svg {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  margin: 0 auto;
+  font-family: var(--font-display);
+}
+
+.figura-impresa .figura__acento {
+  color: var(--lacre);
+}
+
 .parada-impresa__casilla {
   margin-top: 14px;
   border: 1px solid var(--ink-faint);
@@ -102,6 +125,28 @@
   font-family: var(--font-mono);
   font-size: 0.8rem;
   color: var(--ink-faint);
+}
+
+/* Cuando la parada pide varias respuestas, cada casilla lleva su pregunta
+ * a la izquierda y deja el hueco para escribir a la derecha. */
+.parada-impresa__casilla--etiquetada {
+  margin-top: 8px;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.parada-impresa__casilla-texto {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+
+.parada-impresa__casilla--etiquetada::after {
+  content: '';
+  flex: 0 0 90px;
+  border-bottom: 1px dotted var(--ink-faint);
+  align-self: flex-end;
+  margin-bottom: 12px;
 }
 
 /* ---------- Sección de respuestas (boca abajo al imprimir) ---------- */

@@ -67,21 +67,13 @@
     <div class="bloque bloque--enigma">
       <span class="bloque__etiqueta" data-i18n="juego_enigma_titulo"></span>
       <p class="bloque__texto" id="txt-enigma"></p>
+      <figure class="figura" id="figura-enigma" hidden></figure>
     </div>
 
     <div id="feedback" class="feedback" role="status" aria-live="polite"></div>
 
     <form id="form-respuesta" class="form-respuesta">
-      <label class="sr-only" for="input-respuesta" data-i18n="juego_input_placeholder">Escribe vuestra respuesta</label>
-      <input
-        id="input-respuesta"
-        class="input-respuesta"
-        type="text"
-        autocomplete="off"
-        autocapitalize="off"
-        spellcheck="false"
-        data-i18n-attr="placeholder:juego_input_placeholder"
-      >
+      <div class="form-respuesta__campos" id="campos-respuesta"></div>
       <button type="submit" class="btn btn-lacre" data-i18n="juego_btn_comprobar">Comprobar</button>
     </form>
 

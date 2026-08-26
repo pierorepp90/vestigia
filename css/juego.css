@@ -161,11 +161,92 @@
   font-size: 1.2rem;
 }
 
+/* ---------- Figura del enigma ---------- */
+/* Los SVG de js/juego/figuras.js se dibujan con `currentColor`, así que aquí
+ * solo hace falta fijar el color del bloque: heredan el del tema. */
+.figura {
+  margin: 18px 0 0;
+  padding: 14px;
+  background: var(--j-superficie-alta);
+  border: 1px solid var(--j-borde);
+  border-radius: var(--radio);
+  color: var(--j-texto);
+}
+
+.figura svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font-display);
+}
+
+/* Lo que señala la pregunta (el hueco a rellenar, las zonas numeradas).
+ * Solo cambiamos `color`: cada elemento del SVG ya declara si se rellena o
+ * solo se traza, y ambos resuelven contra `currentColor`. */
+.figura__acento {
+  color: var(--j-lacre);
+}
+
 /* ---------- Formulario de respuesta ---------- */
 .form-respuesta {
   display: flex;
   gap: 10px;
   margin-bottom: 14px;
+}
+
+.form-respuesta__campos {
+  display: contents;
+}
+
+/* Con varias preguntas el formulario deja de ser una fila: cada pregunta
+ * ocupa su propia línea y el botón queda debajo de todas. */
+.form-respuesta--multiple {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form-respuesta--multiple .form-respuesta__campos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.campo-multiple {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  background: var(--j-superficie);
+  border: 1px solid var(--j-borde);
+  border-radius: var(--radio);
+}
+
+.campo-multiple--ok {
+  border-color: color-mix(in srgb, var(--j-exito) 55%, transparent);
+  background: color-mix(in srgb, var(--j-exito) 12%, var(--j-superficie));
+}
+
+.campo-multiple__etiqueta {
+  flex: 1;
+  font-size: 0.95rem;
+  color: var(--j-texto);
+}
+
+.input-respuesta--corta {
+  flex: 0 0 8.5rem;
+  text-align: center;
+}
+
+@media (max-width: 520px) {
+  .campo-multiple {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .input-respuesta--corta {
+    flex: 1;
+  }
 }
 
 .input-respuesta {

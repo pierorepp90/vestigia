@@ -5,6 +5,8 @@
 // estado de partida que guardar — esto es solo lectura.
 import { obtenerRuta } from './api.js';
 import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
+import { figuraSvg } from './juego/figuras.js';
+import { tieneSubpreguntas } from './juego/respuestas.js';
 
 const els = {};
 function refEls() {
@@ -14,6 +16,21 @@ function refEls() {
 
 function mostrar(idVisible) {
   for (const id of ['vista-cargando', 'vista-error', 'hoja']) els[id].hidden = id !== idVisible;
+}
+
+/** Una casilla por pregunta: las paradas con figura pueden pedir varias cosas. */
+function renderCasillas(parada, lang) {
+  if (!tieneSubpreguntas(parada)) {
+    return `<div class="parada-impresa__casilla">${t(lang, 'imprimir_casilla_placeholder')}</div>`;
+  }
+  return parada.subpreguntas
+    .map(
+      (sub) => `
+      <div class="parada-impresa__casilla parada-impresa__casilla--etiquetada">
+        <span class="parada-impresa__casilla-texto">${sub.texto}</span>
+      </div>`,
+    )
+    .join('');
 }
 
 function renderParadas(ruta, lang) {
@@ -30,11 +47,18 @@ function renderParadas(ruta, lang) {
       <div class="parada-impresa__bloque">
         <span class="parada-impresa__etiqueta">${t(lang, 'imprimir_enigma_label')}</span>
         <p class="parada-impresa__texto">${p.enigma}</p>
+        ${p.figuraId ? `<figure class="figura-impresa">${figuraSvg(p.figuraId)}</figure>` : ''}
       </div>
-      <div class="parada-impresa__casilla">${t(lang, 'imprimir_casilla_placeholder')}</div>
+      ${renderCasillas(p, lang)}
     </div>`,
     )
     .join('');
+}
+
+/** Texto de la solución: la respuesta sola, o "pregunta → respuesta" si hay varias. */
+function solucionImpresa(parada) {
+  if (!tieneSubpreguntas(parada)) return parada.respuestas[0];
+  return parada.subpreguntas.map((sub) => `${sub.texto} ${sub.respuestas[0]}`).join(' · ');
 }
 
 function renderRespuestas(ruta, lang) {
@@ -42,7 +66,7 @@ function renderRespuestas(ruta, lang) {
     .map(
       (p) => `
     <div class="respuesta-impresa">
-      <h3 class="respuesta-impresa__titulo">${p.n}. ${p.titulo} — <span class="respuesta-impresa__valor">${p.respuestas[0]}</span></h3>
+      <h3 class="respuesta-impresa__titulo">${p.n}. ${p.titulo} — <span class="respuesta-impresa__valor">${solucionImpresa(p)}</span></h3>
       <p class="parada-impresa__etiqueta">${t(lang, 'imprimir_pistas_label')}</p>
       <ul class="respuesta-impresa__pistas">${p.pistas.map((pista) => `<li>${pista}</li>`).join('')}</ul>
       <p class="respuesta-impresa__historia"><strong>${t(lang, 'imprimir_historia_label')}:</strong> ${p.historia}</p>

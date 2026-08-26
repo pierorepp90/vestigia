@@ -7,6 +7,8 @@
 import { obtenerRuta } from './api.js';
 import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
 import { obtenerParada, responder, progresoPorcentaje } from './juego/motor.js';
+import { tieneSubpreguntas } from './juego/respuestas.js';
+import { figuraSvg } from './juego/figuras.js';
 import { cargarProgreso, guardarProgreso, estadoInicial } from './juego/progreso.js';
 import { pedirPista, pistasReveladas, quedanPistas } from './juego/pistas.js';
 import { tiempoTranscurridoMs, formatearDuracion } from './juego/cronometro.js';
@@ -20,7 +22,7 @@ function refEls() {
     'barra-superior', 'txt-parada', 'txt-tiempo', 'barra-relleno', 'aviso-offline',
     'vista-cargando', 'vista-error', 'txt-error',
     'vista-jugando', 'txt-parada-numero', 'txt-parada-titulo', 'txt-llegada', 'txt-enigma',
-    'feedback', 'form-respuesta', 'input-respuesta', 'lista-pistas', 'btn-pista',
+    'figura-enigma', 'feedback', 'form-respuesta', 'campos-respuesta', 'lista-pistas', 'btn-pista',
     'vista-revelando', 'txt-historia', 'txt-fuente', 'btn-siguiente',
     'vista-completada', 'txt-final-titulo', 'txt-final-texto', 'txt-final-tiempo', 'link-imprimir',
   ];
@@ -77,6 +79,61 @@ function renderPistas() {
   els['btn-pista'].textContent = quedan ? t(app.lang, 'juego_btn_pista') : t(app.lang, 'juego_btn_pista_agotadas');
 }
 
+/** Dibuja (o esconde) la figura del enigma: patrones, siluetas, esquemas. */
+function renderFigura(parada) {
+  const svg = figuraSvg(parada.figuraId);
+  els['figura-enigma'].innerHTML = svg;
+  els['figura-enigma'].hidden = !svg;
+}
+
+/**
+ * Construye los campos de respuesta de la parada actual: uno solo en las
+ * paradas normales, o uno por pregunta en las que piden varias cosas a la vez.
+ * Se generan aquí en vez de vivir en el HTML porque su número cambia con cada
+ * parada; el `<form>` de alrededor y el botón son siempre los mismos.
+ */
+function renderCampos(parada) {
+  const contenedor = els['campos-respuesta'];
+  const multiple = tieneSubpreguntas(parada);
+  els['form-respuesta'].classList.toggle('form-respuesta--multiple', multiple);
+
+  if (!multiple) {
+    contenedor.innerHTML = `
+      <label class="sr-only" for="respuesta-0">${t(app.lang, 'juego_input_placeholder')}</label>
+      <input id="respuesta-0" class="input-respuesta" type="text" autocomplete="off"
+             autocapitalize="off" spellcheck="false"
+             placeholder="${t(app.lang, 'juego_input_placeholder')}">`;
+    return;
+  }
+
+  contenedor.innerHTML = parada.subpreguntas
+    .map(
+      (sub, i) => `
+      <div class="campo-multiple" data-indice="${i}">
+        <label class="campo-multiple__etiqueta" for="respuesta-${i}">${sub.texto}</label>
+        <input id="respuesta-${i}" class="input-respuesta input-respuesta--corta" type="text"
+               autocomplete="off" autocapitalize="off" spellcheck="false"
+               placeholder="${t(app.lang, 'juego_input_placeholder_corto')}">
+      </div>`,
+    )
+    .join('');
+}
+
+/** Lee lo tecleado: un string, o un array cuando la parada tiene varias preguntas. */
+function leerEntrada(parada) {
+  const inputs = [...els['campos-respuesta'].querySelectorAll('input')];
+  if (!tieneSubpreguntas(parada)) return inputs[0]?.value ?? '';
+  return inputs.map((input) => input.value);
+}
+
+/** Marca en verde los huecos ya acertados cuando la respuesta es parcial. */
+function marcarDetalle(detalle) {
+  if (!Array.isArray(detalle)) return;
+  els['campos-respuesta'].querySelectorAll('.campo-multiple').forEach((campo, i) => {
+    campo.classList.toggle('campo-multiple--ok', detalle[i] === 'correcto');
+  });
+}
+
 function renderBarraSuperior() {
   const total = app.ruta.paradas.length;
   const actual = Math.min(app.estado.paradaActual, total);
@@ -106,14 +163,15 @@ function renderJugando() {
   els['txt-parada-titulo'].textContent = parada.titulo;
   els['txt-llegada'].textContent = parada.llegada;
   els['txt-enigma'].textContent = parada.enigma;
+  renderFigura(parada);
   els['feedback'].className = 'feedback';
   els['feedback'].textContent = '';
-  els['input-respuesta'].value = '';
+  renderCampos(parada);
   renderPistas();
   renderBarraSuperior();
   mostrarVista('vista-jugando');
   iniciarCronometro();
-  els['input-respuesta'].focus({ preventScroll: true });
+  els['campos-respuesta'].querySelector('input')?.focus({ preventScroll: true });
 }
 
 function renderRevelando(paradaCompletada) {
@@ -147,11 +205,18 @@ function render() {
 
 function manejarEnvioRespuesta(evento) {
   evento.preventDefault();
-  const entrada = els['input-respuesta'].value;
-  if (!entrada.trim()) return;
-
   const parada = obtenerParada(app.ruta, app.estado);
-  const { resultado, estado: nuevoEstado } = responder(app.ruta, app.estado, entrada);
+  const entrada = leerEntrada(parada);
+
+  // En las paradas de varias preguntas exigimos que estén todas rellenas: si
+  // no, el jugador recibiría un "incorrecto" por un hueco que solo olvidó.
+  const vacia = Array.isArray(entrada)
+    ? entrada.some((valor) => !valor.trim())
+    : !entrada.trim();
+  if (vacia) return;
+
+  const { resultado, estado: nuevoEstado, detalle } = responder(app.ruta, app.estado, entrada);
+  marcarDetalle(detalle);
 
   const feedback = els['feedback'];
   feedback.className = `feedback visible feedback--${resultado}`;

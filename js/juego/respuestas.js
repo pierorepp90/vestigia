@@ -12,11 +12,14 @@
 //   2. Coincidencia exacta tras normalizar → 'correcto'.
 //   3. Si la variante es puramente numérica, NO se admite tolerancia a
 //      errores: "13" y "14" son respuestas distintas, no una errata la una
-//      de la otra.
-//   4. Si la variante es texto y la distancia de Levenshtein está dentro del
-//      umbral (que crece con la longitud), se responde 'casi' en vez de
-//      'incorrecto' — importa más no castigar una errata que dar el pie con
-//      la solución.
+//      de la otra. Lo mismo con las variantes de una o dos letras: en los
+//      enigmas con figura la respuesta es una opción ("A", "B", "2"), y ahí
+//      cualquier otra letra está a distancia 1 de la correcta — sin esta
+//      excepción, fallar del todo se anunciaría como "casi".
+//   4. Si la variante es texto de tres letras o más y la distancia de
+//      Levenshtein está dentro del umbral (que crece con la longitud), se
+//      responde 'casi' en vez de 'incorrecto' — importa más no castigar una
+//      errata que dar el pie con la solución.
 
 /** Minúsculas, sin diacríticos, sin puntuación, espacios colapsados. */
 export function normalizar(texto) {
@@ -29,8 +32,14 @@ export function normalizar(texto) {
     .trim();
 }
 
-function esNumerica(normalizado) {
-  return /^\d+$/.test(normalizado);
+/**
+ * Variantes que se comparan solo por igualdad exacta. Son las que, por cortas,
+ * quedarían a distancia 1 de otra respuesta perfectamente válida: los números
+ * y las opciones de una figura ("A", "B", "2").
+ */
+function sinTolerancia(normalizado) {
+  const longitud = normalizado.replace(/\s/g, '').length;
+  return /^\d+$/.test(normalizado) || longitud < 3;
 }
 
 function umbralTolerancia(normalizado) {
@@ -78,7 +87,7 @@ export function evaluarRespuesta(entrada, respuestasValidas) {
 
   let mejorEsCasi = false;
   for (const normVariante of normalizadas) {
-    if (esNumerica(normVariante)) continue; // sin tolerancia en respuestas numéricas
+    if (sinTolerancia(normVariante)) continue; // números y opciones de figura: solo coincidencia exacta
     const distancia = distanciaLevenshtein(normEntrada, normVariante);
     if (distancia > 0 && distancia <= umbralTolerancia(normVariante)) {
       mejorEsCasi = true;
@@ -87,4 +96,29 @@ export function evaluarRespuesta(entrada, respuestasValidas) {
   }
 
   return mejorEsCasi ? 'casi' : 'incorrecto';
+}
+
+/** ¿Esta parada se responde con varias respuestas en vez de una sola? */
+export function tieneSubpreguntas(parada) {
+  return Array.isArray(parada?.subpreguntas) && parada.subpreguntas.length > 0;
+}
+
+/**
+ * Evalúa una parada de varias respuestas (p. ej. "¿qué arco tiene A? ¿y B?").
+ * `entradas` es un array paralelo a `subpreguntas`.
+ *
+ * Solo se da por buena la parada si TODAS aciertan; si alguna cae pero otras
+ * no, se responde 'casi' — el jugador va bien encaminado y merece saberlo sin
+ * que le regalemos cuál falla. `detalle` sí lleva el resultado por hueco, para
+ * que la interfaz pueda marcar los aciertos ya conseguidos.
+ */
+export function evaluarSubpreguntas(entradas, subpreguntas) {
+  const lista = Array.isArray(subpreguntas) ? subpreguntas : [];
+  if (lista.length === 0) return { resultado: 'incorrecto', detalle: [] };
+
+  const detalle = lista.map((sub, i) => evaluarRespuesta(entradas?.[i], sub.respuestas));
+
+  if (detalle.every((r) => r === 'correcto')) return { resultado: 'correcto', detalle };
+  const algunaEncaminada = detalle.some((r) => r === 'correcto' || r === 'casi');
+  return { resultado: algunaEncaminada ? 'casi' : 'incorrecto', detalle };
 }
