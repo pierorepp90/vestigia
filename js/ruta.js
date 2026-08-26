@@ -65,6 +65,12 @@ function init() {
   const inputEmail = document.getElementById('input-email-gratis');
   panelEmail.hidden = !esGratis;
 
+  const panelCondiciones = document.getElementById('panel-condiciones');
+  const inputCondiciones = document.getElementById('input-condiciones');
+  panelCondiciones.hidden = esGratis;
+  const enlaceCondiciones = `<a href="${urlRecurso('legal/condiciones.html', '../')}" target="_blank" rel="noopener">${t(lang, 'ruta_condiciones_enlace')}</a>`;
+  document.getElementById('condiciones-texto').innerHTML = tf(lang, 'ruta_condiciones_texto', { link: enlaceCondiciones });
+
   const cta = document.getElementById('cta-reservar');
   const textoOriginal = esGratis
     ? t(lang, 'ruta_jugar_gratis_cta')
@@ -75,6 +81,7 @@ function init() {
     evento.preventDefault();
     if (cta.getAttribute('aria-busy') === 'true') return; // evita doble clic mientras carga
     if (esGratis && !inputEmail.reportValidity()) return;
+    if (!esGratis && !inputCondiciones.reportValidity()) return;
 
     cta.setAttribute('aria-busy', 'true');
     cta.textContent = t(lang, esGratis ? 'ruta_enviando_acceso' : 'ruta_reservando');

@@ -32,9 +32,9 @@ test('buildCheckoutSessionParams guarda rutaId, idioma y orderId en metadata par
   assert.equal(params.get('metadata[order_id]'), 'ord_3');
 });
 
-test('buildCheckoutSessionParams exige aceptar condiciones antes de pagar (renuncia al derecho de desistimiento)', () => {
+test('buildCheckoutSessionParams no depende de consent_collection de Stripe (la aceptación de condiciones va por checkbox propio)', () => {
   const params = buildCheckoutSessionParams({ rutaId: 'barcelona-gotic', orderId: 'ord_1' }, 'https://vestigia.es');
-  assert.equal(params.get('consent_collection[terms_of_service]'), 'required');
+  assert.equal(params.has('consent_collection[terms_of_service]'), false);
 });
 
 test('buildCheckoutSessionParams rechaza una ruta que no existe en precios.js', () => {
@@ -82,8 +82,21 @@ test('createStripeSession envía Authorization Bearer y el body form-encoded cor
   assert.equal(resultado.url, 'https://checkout.stripe.com/pay/cs_test_123');
 });
 
-test('createStripeSession lanza si Stripe responde con error', async () => {
-  const fetchFalso = async () => ({ ok: false });
+test('createStripeSession lanza con el mensaje de error real de Stripe', async () => {
+  const fetchFalso = async () => ({
+    ok: false,
+    status: 400,
+    text: async () => JSON.stringify({ error: { message: 'Terms of service URL no configurada', type: 'invalid_request_error' } }),
+  });
+  const params = buildCheckoutSessionParams({ rutaId: 'barcelona-gotic', orderId: 'ord_1' }, 'https://vestigia.es');
+  await assert.rejects(
+    () => createStripeSession(params, 'sk_test_falsa', fetchFalso),
+    /Terms of service URL no configurada/,
+  );
+});
+
+test('createStripeSession lanza un mensaje genérico si el error de Stripe no es JSON', async () => {
+  const fetchFalso = async () => ({ ok: false, status: 500, text: async () => 'gateway timeout' });
   const params = buildCheckoutSessionParams({ rutaId: 'barcelona-gotic', orderId: 'ord_1' }, 'https://vestigia.es');
   await assert.rejects(() => createStripeSession(params, 'sk_test_falsa', fetchFalso));
 });

@@ -1286,6 +1286,33 @@ footer {
   outline-offset: 1px;
 }
 
+.panel-ficha__condiciones {
+  margin: 4px 0 14px;
+}
+
+.panel-ficha__condiciones label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  line-height: 1.4;
+  color: var(--ink-faint);
+}
+
+.panel-ficha__condiciones input[type='checkbox'] {
+  flex: none;
+  margin-top: 2px;
+  width: 15px;
+  height: 15px;
+  accent-color: var(--lacre);
+}
+
+.panel-ficha__condiciones a {
+  color: var(--lacre);
+  text-decoration: underline;
+}
+
 .panel-ficha .btn {
   width: 100%;
   justify-content: center;

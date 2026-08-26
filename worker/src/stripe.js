@@ -26,13 +26,12 @@ export function buildCheckoutSessionParams({ rutaId, idioma, orderId, tituloRuta
   params.set('metadata[idioma]', idioma || 'es');
   params.set('metadata[order_id]', orderId);
 
-  // Exige aceptar las condiciones (incluye la renuncia al derecho de
+  // La aceptación de condiciones (incluye la renuncia al derecho de
   // desistimiento de 14 días para contenido digital de entrega inmediata,
-  // ver legal/condiciones.html §5) antes de pagar. Requiere haber
-  // configurado una "Terms of service URL" en el Dashboard de Stripe
-  // (Settings → Business → Public details); sin eso, Stripe ignora o
-  // rechaza este parámetro.
-  params.set('consent_collection[terms_of_service]', 'required');
+  // ver legal/condiciones.html §5) se exige con un checkbox propio en
+  // ruta/*.html antes de llegar aquí — no con consent_collection de Stripe,
+  // que requiere activar la cuenta y configurar una "Terms of service URL"
+  // en el Dashboard.
   return params;
 }
 
@@ -61,7 +60,14 @@ export async function createStripeSession(params, secretKey, fetchFn = fetch) {
     body: params.toString(),
   });
   if (!response.ok) {
-    throw new Error('Stripe rechazó la creación de la sesión');
+    const cuerpo = await response.text();
+    let mensaje;
+    try {
+      mensaje = JSON.parse(cuerpo)?.error?.message;
+    } catch {
+      // cuerpo no es JSON (p. ej. error de gateway) — se usa el genérico de abajo.
+    }
+    throw new Error(mensaje || 'Stripe rechazó la creación de la sesión');
   }
   return response.json();
 }
