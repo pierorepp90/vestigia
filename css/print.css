@@ -1,9 +1,10 @@
 /* css/print.css
- * Versión imprimible de una ruta. Enigmas visibles desde el principio;
- * respuestas, pistas, historia y "saber más" viven en una sección final que
- * se imprime boca abajo (@media print) — el truco clásico de los libros de
- * acertijos: nadie las lee "sin querer" mientras resuelve, pero siguen ahí
- * si hace falta rendirse y consultar.
+ * Versión imprimible de una ruta. Cada parada trae enigma, casilla de
+ * respuesta e historia seguidos, para leer la recompensa nada más resolver
+ * sin saltar de página. Las pistas y "sobre este lugar" —lo único que sí
+ * sería spoiler ver "sin querer" antes de intentarlo— viven en una sección
+ * final agrupada por parada, que se imprime boca abajo (@media print): el
+ * truco clásico de los libros de acertijos.
  */
 
 .hoja-imprimir {
@@ -50,6 +51,15 @@
   margin: 26px 0 36px;
 }
 
+.hoja-imprimir__aviso {
+  text-align: center;
+  font-style: italic;
+  font-size: 0.85rem;
+  color: var(--ink-faint);
+  max-width: 50ch;
+  margin: -12px auto 30px;
+}
+
 /* ---------- Paradas ---------- */
 .parada-impresa {
   padding: 26px 0;
@@ -89,6 +99,16 @@
 .parada-impresa__texto {
   margin: 0;
   color: var(--ink-soft);
+}
+
+.parada-impresa__bloque--historia {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px dotted var(--paper-edge);
+}
+
+.parada-impresa__bloque--historia .parada-impresa__etiqueta {
+  color: var(--lacre);
 }
 
 /* Figuras de los enigmas visuales. Los SVG (js/juego/figuras.js) se trazan
@@ -175,30 +195,26 @@
   margin-bottom: 6px;
 }
 
-.respuesta-impresa__valor {
-  font-weight: 700;
-  color: var(--lacre);
-}
-
-.respuesta-impresa__pistas {
-  margin: 6px 0 0;
-  padding-left: 18px;
-  color: var(--ink-soft);
-  font-size: 0.92rem;
-}
-
-.respuesta-impresa__historia {
-  font-size: 0.9rem;
-  color: var(--ink-faint);
-  margin-top: 6px;
-}
-
 .respuesta-impresa__sabermas {
   font-size: 0.9rem;
   color: var(--ink-faint);
   margin-top: 6px;
-  padding-top: 12px;
-  border-top: 1px dotted var(--paper-edge);
+  padding-bottom: 12px;
+  border-bottom: 1px dotted var(--paper-edge);
+}
+
+/* Una pista por bloque, bien espaciadas (mínimo un renglón entre ellas) para
+ * poder consultarlas de una en una sin que el ojo salte a las siguientes. */
+.respuesta-impresa__pista {
+  margin-top: 1.4em;
+}
+
+.respuesta-impresa__pista .parada-impresa__texto {
+  font-size: 0.92rem;
+}
+
+.respuesta-impresa__pista--solucion .parada-impresa__etiqueta {
+  color: var(--lacre);
 }
 
 /* ---------- Solo pantalla ---------- */

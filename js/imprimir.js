@@ -1,8 +1,11 @@
 // js/imprimir.js
-// Genera la versión imprimible de una ruta: enigmas primero, respuestas y
-// pistas en una sección final (que css/print.css gira 180° al imprimir).
-// Comparte token, caché y patrón de carga con js/jugar.js, pero no hay
-// estado de partida que guardar — esto es solo lectura.
+// Genera la versión imprimible de una ruta: cada parada trae su enigma,
+// casilla de respuesta e historia seguidos, para leer la recompensa nada
+// más resolver sin saltar de página. Las pistas y "sobre este lugar" —lo
+// único que sí sería spoiler ver "sin querer" antes de intentarlo— viven en
+// una sección final agrupada por parada, que css/print.css gira 180° al
+// imprimir. Comparte token, caché y patrón de carga con js/jugar.js, pero
+// no hay estado de partida que guardar — esto es solo lectura.
 import { obtenerRuta } from './api.js';
 import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
 import { figuraSvg } from './juego/figuras.js';
@@ -50,15 +53,33 @@ function renderParadas(ruta, lang) {
         ${p.figuraId ? `<figure class="figura-impresa">${figuraSvg(p.figuraId)}</figure>` : ''}
       </div>
       ${renderCasillas(p, lang)}
+      <div class="parada-impresa__bloque parada-impresa__bloque--historia">
+        <span class="parada-impresa__etiqueta">${t(lang, 'imprimir_historia_label')}</span>
+        <p class="parada-impresa__texto">${p.historia}</p>
+      </div>
     </div>`,
     )
     .join('');
 }
 
-/** Texto de la solución: la respuesta sola, o "pregunta → respuesta" si hay varias. */
-function solucionImpresa(parada) {
-  if (!tieneSubpreguntas(parada)) return parada.respuestas[0];
-  return parada.subpreguntas.map((sub) => `${sub.texto} ${sub.respuestas[0]}`).join(' · ');
+/**
+ * Pistas de una parada, una por bloque: numeradas, y la última —siempre lo
+ * bastante reveladora como para dar la respuesta (ver tests/contenido.test.js)—
+ * relabeleada "Solución" en vez de seguir contando como pista.
+ */
+function renderPistasImpresas(parada, lang) {
+  return parada.pistas
+    .map((pista, i) => {
+      const esUltima = i === parada.pistas.length - 1;
+      const etiqueta = esUltima ? t(lang, 'imprimir_solucion_label') : tf(lang, 'imprimir_pista_label', { n: i + 1 });
+      const clase = esUltima ? 'respuesta-impresa__pista respuesta-impresa__pista--solucion' : 'respuesta-impresa__pista';
+      return `
+      <div class="${clase}">
+        <span class="parada-impresa__etiqueta">${etiqueta}</span>
+        <p class="parada-impresa__texto">${pista}</p>
+      </div>`;
+    })
+    .join('');
 }
 
 function renderRespuestas(ruta, lang) {
@@ -66,11 +87,9 @@ function renderRespuestas(ruta, lang) {
     .map(
       (p) => `
     <div class="respuesta-impresa">
-      <h3 class="respuesta-impresa__titulo">${p.n}. ${p.titulo} — <span class="respuesta-impresa__valor">${solucionImpresa(p)}</span></h3>
-      <p class="parada-impresa__etiqueta">${t(lang, 'imprimir_pistas_label')}</p>
-      <ul class="respuesta-impresa__pistas">${p.pistas.map((pista) => `<li>${pista}</li>`).join('')}</ul>
-      <p class="respuesta-impresa__historia"><strong>${t(lang, 'imprimir_historia_label')}:</strong> ${p.historia}</p>
+      <h3 class="respuesta-impresa__titulo">${p.n}. ${p.titulo}</h3>
       ${p.saberMas ? `<p class="respuesta-impresa__sabermas"><strong>${t(lang, 'imprimir_sabermas_label')}:</strong> ${p.saberMas}</p>` : ''}
+      ${renderPistasImpresas(p, lang)}
     </div>`,
     )
     .join('');
