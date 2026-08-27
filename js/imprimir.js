@@ -70,6 +70,7 @@ function renderRespuestas(ruta, lang) {
       <p class="parada-impresa__etiqueta">${t(lang, 'imprimir_pistas_label')}</p>
       <ul class="respuesta-impresa__pistas">${p.pistas.map((pista) => `<li>${pista}</li>`).join('')}</ul>
       <p class="respuesta-impresa__historia"><strong>${t(lang, 'imprimir_historia_label')}:</strong> ${p.historia}</p>
+      ${p.saberMas ? `<p class="respuesta-impresa__sabermas"><strong>${t(lang, 'imprimir_sabermas_label')}:</strong> ${p.saberMas}</p>` : ''}
     </div>`,
     )
     .join('');

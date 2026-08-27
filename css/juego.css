@@ -406,6 +406,26 @@
   margin-bottom: 26px;
 }
 
+.revelacion__sabermas {
+  text-align: left;
+  margin: -14px 0 26px;
+}
+
+.revelacion__sabermas summary {
+  cursor: pointer;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  color: var(--j-lacre);
+}
+
+.revelacion__sabermas p {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--j-texto-tenue);
+}
+
 /* ---------- Carga / error / final (tema oscuro) ---------- */
 /* El layout base de .pantalla-centrada y .girando vive en styles.css (lo
    comparte jugar/imprimir.html, que no carga este archivo); aquí solo se

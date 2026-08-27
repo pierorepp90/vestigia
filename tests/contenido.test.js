@@ -105,6 +105,19 @@ test('la última pista de cada parada es lo bastante larga como para poder revel
   }
 });
 
+test('cuando una parada declara saberMas, no está vacío', () => {
+  // saberMas es opcional a propósito: de momento solo lo tienen las 3 rutas
+  // de Barcelona, el resto lo va incorporando ruta a ruta. Este test no
+  // exige que exista, solo que si existe no sea un string vacío olvidado.
+  for (const { archivo, datos } of cargarContenido()) {
+    for (const parada of datos.paradas) {
+      if ('saberMas' in parada) {
+        assert.ok(parada.saberMas.trim().length > 0, `${archivo} parada ${parada.n}: saberMas está vacío`);
+      }
+    }
+  }
+});
+
 test('intro, puntoPartida y final están presentes y no vacíos', () => {
   for (const { archivo, datos } of cargarContenido()) {
     assert.ok(datos.intro?.trim().length > 0, `${archivo}: falta intro`);

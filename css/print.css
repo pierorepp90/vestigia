@@ -1,9 +1,9 @@
 /* css/print.css
  * Versión imprimible de una ruta. Enigmas visibles desde el principio;
- * respuestas, pistas e historia viven en una sección final que se imprime
- * boca abajo (@media print) — el truco clásico de los libros de acertijos:
- * nadie las lee "sin querer" mientras resuelve, pero siguen ahí si hace
- * falta rendirse y consultar.
+ * respuestas, pistas, historia y "saber más" viven en una sección final que
+ * se imprime boca abajo (@media print) — el truco clásico de los libros de
+ * acertijos: nadie las lee "sin querer" mientras resuelve, pero siguen ahí
+ * si hace falta rendirse y consultar.
  */
 
 .hoja-imprimir {
@@ -191,6 +191,14 @@
   font-size: 0.9rem;
   color: var(--ink-faint);
   margin-top: 6px;
+}
+
+.respuesta-impresa__sabermas {
+  font-size: 0.9rem;
+  color: var(--ink-faint);
+  margin-top: 6px;
+  padding-top: 12px;
+  border-top: 1px dotted var(--paper-edge);
 }
 
 /* ---------- Solo pantalla ---------- */

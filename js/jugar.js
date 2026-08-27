@@ -23,7 +23,7 @@ function refEls() {
     'vista-cargando', 'vista-error', 'txt-error',
     'vista-jugando', 'txt-parada-numero', 'txt-parada-titulo', 'txt-llegada', 'txt-enigma',
     'figura-enigma', 'feedback', 'form-respuesta', 'campos-respuesta', 'lista-pistas', 'btn-pista',
-    'vista-revelando', 'txt-historia', 'txt-fuente', 'btn-siguiente',
+    'vista-revelando', 'txt-historia', 'txt-fuente', 'bloque-sabermas', 'txt-sabermas', 'btn-siguiente',
     'vista-completada', 'txt-final-titulo', 'txt-final-texto', 'txt-final-tiempo', 'link-imprimir',
   ];
   for (const id of ids) els[id] = document.getElementById(id);
@@ -177,6 +177,9 @@ function renderJugando() {
 function renderRevelando(paradaCompletada) {
   els['txt-historia'].textContent = paradaCompletada.historia;
   els['txt-fuente'].textContent = paradaCompletada.fuente ? `Fuente: ${paradaCompletada.fuente}` : '';
+  els['bloque-sabermas'].hidden = !paradaCompletada.saberMas;
+  els['bloque-sabermas'].open = false;
+  els['txt-sabermas'].textContent = paradaCompletada.saberMas || '';
   const esFinal = app.estado.completada;
   els['btn-siguiente'].textContent = t(app.lang, esFinal ? 'juego_btn_siguiente_final' : 'juego_btn_siguiente');
   renderBarraSuperior();

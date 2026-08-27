@@ -121,6 +121,7 @@ export const DICT = {
     juego_feedback_casi: 'Casi... revisad la respuesta, puede que sea un error tipográfico.',
     juego_feedback_incorrecto: 'No es eso. Mirad de nuevo a vuestro alrededor.',
     juego_historia_titulo: 'Lo que acabáis de descubrir',
+    juego_saber_mas_btn: 'Saber más sobre este lugar',
     juego_btn_siguiente: 'Siguiente parada',
     juego_btn_siguiente_final: 'Ver el final de la ruta',
     juego_final_tiempo: 'Tiempo total: {tiempo}',
@@ -139,6 +140,7 @@ export const DICT = {
     imprimir_respuesta_label: 'Respuesta',
     imprimir_pistas_label: 'Pistas',
     imprimir_historia_label: 'La historia',
+    imprimir_sabermas_label: 'Sobre este lugar',
 
     // Página de gracias tras el pago (jugar/gracias.html)
     gracias_verificando: 'Verificando tu pago…',
@@ -263,6 +265,7 @@ export const DICT = {
     juego_feedback_casi: "Almost... double-check your answer, it might just be a typo.",
     juego_feedback_incorrecto: "That's not it. Take another look around you.",
     juego_historia_titulo: 'What you just discovered',
+    juego_saber_mas_btn: 'More about this place',
     juego_btn_siguiente: 'Next stop',
     juego_btn_siguiente_final: 'See the end of the trail',
     juego_final_tiempo: 'Total time: {tiempo}',
@@ -281,6 +284,7 @@ export const DICT = {
     imprimir_respuesta_label: 'Answer',
     imprimir_pistas_label: 'Hints',
     imprimir_historia_label: 'The story',
+    imprimir_sabermas_label: 'About this place',
 
     // Thank-you page after payment (jugar/gracias.html)
     gracias_verificando: 'Verifying your payment…',
@@ -405,6 +409,7 @@ export const DICT = {
     juego_feedback_casi: "Presque... vérifiez votre réponse, c'est peut-être une faute de frappe.",
     juego_feedback_incorrecto: "Ce n'est pas ça. Regardez encore autour de vous.",
     juego_historia_titulo: 'Ce que vous venez de découvrir',
+    juego_saber_mas_btn: 'En savoir plus sur ce lieu',
     juego_btn_siguiente: 'Étape suivante',
     juego_btn_siguiente_final: 'Voir la fin du parcours',
     juego_final_tiempo: 'Temps total : {tiempo}',
@@ -423,6 +428,7 @@ export const DICT = {
     imprimir_respuesta_label: 'Réponse',
     imprimir_pistas_label: 'Indices',
     imprimir_historia_label: "L'histoire",
+    imprimir_sabermas_label: 'À propos de ce lieu',
 
     // Page de remerciement après paiement (jugar/gracias.html)
     gracias_verificando: 'Vérification de votre paiement…',
@@ -547,6 +553,7 @@ export const DICT = {
     juego_feedback_casi: 'Quasi... controllate la risposta, potrebbe essere un errore di battitura.',
     juego_feedback_incorrecto: 'Non è questo. Guardatevi di nuovo intorno.',
     juego_historia_titulo: 'Cosa avete appena scoperto',
+    juego_saber_mas_btn: 'Scopri di più su questo luogo',
     juego_btn_siguiente: 'Tappa successiva',
     juego_btn_siguiente_final: 'Vedi il finale del percorso',
     juego_final_tiempo: 'Tempo totale: {tiempo}',
@@ -565,6 +572,7 @@ export const DICT = {
     imprimir_respuesta_label: 'Risposta',
     imprimir_pistas_label: 'Indizi',
     imprimir_historia_label: 'La storia',
+    imprimir_sabermas_label: 'Su questo luogo',
 
     // Pagina di ringraziamento dopo il pagamento (jugar/gracias.html)
     gracias_verificando: 'Verifica del pagamento…',
