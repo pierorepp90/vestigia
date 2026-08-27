@@ -122,6 +122,59 @@ export const RECOMENDACIONES_POR_RUTA = {
       mapsUrl: mapsUrl('Place du Capitole, Toulouse'),
     },
   },
+
+  'madrid-austrias': {
+    mirador: {
+      nombre: 'Terraza de El Corte Inglés (Plaza de Callao)',
+      texto: 'Novena planta, unos 5-7 min a pie desde Sol por la calle Preciados. Acceso libre en ascensor hasta el espacio Gourmet Experience, sin consumición mínima, con vistas a la Gran Vía, las torres de Plaza de España, la cúpula del Teatro Real, el Palacio Real y la Catedral de la Almudena.',
+      // Fuente: verificado con búsquedas (miradormadrid.com, tranbel.com):
+      // terraza gratuita en la 9ª planta de El Corte Inglés de Callao (Plaza
+      // de Callao, 2), acceso directo por ascensor, sin consumición
+      // obligatoria — mismo modelo que la terraza de Plaça Catalunya en
+      // Barcelona. Comprobar horario antes de enviar si cambia.
+      mapsUrl: mapsUrl('El Corte Inglés, Plaza de Callao 2, Madrid'),
+    },
+    comida: {
+      nombre: 'Chocolatería San Ginés',
+      texto: 'Pasadizo de San Ginés, 5, a unos 5 min de Sol. Churrería desde 1894, abierta 24 horas, la más famosa de Madrid — chocolate con churros junto a la iglesia de San Ginés.',
+      url: 'https://chocolateriasangines.com/',
+      // Fuente: web oficial (chocolateriasangines.com/historia) — abierta en
+      // 1894, ubicación en el Pasadizo de San Ginés junto a la iglesia del
+      // mismo nombre, muy cerca de Puerta del Sol.
+      mapsUrl: mapsUrl('Chocolatería San Ginés, Pasadizo de San Ginés 5, Madrid'),
+    },
+    movilidad: {
+      // Mismo lugar que `puntoPartida` de esta ruta en js/catalogo.js.
+      nombre: 'Puerta del Sol',
+      texto: 'Estación de Sol (Metro líneas 1, 2 y 3, y Cercanías C-3/C-4), justo debajo de la plaza.',
+      mapsUrl: mapsUrl('Puerta del Sol, Madrid'),
+    },
+  },
+
+  'valencia-carmen': {
+    mirador: {
+      nombre: 'Torres de Serranos',
+      texto: 'En el borde del Carmen, junto al antiguo cauce del Turia, unos 15 min a pie desde la Lonja. Subir a las almenas cuesta 2€ entre semana y sábados, pero la entrada es gratis los domingos y festivos (10:00-14:00) — vistas 360° sobre el Carmen y la ciudad.',
+      // Fuente: verificado con búsquedas — entrada general 2€/reducida 1€,
+      // gratis domingos y festivos de 10:00 a 14:00 (horario habitual L-S
+      // 10:00-19:00). Comprobar horario antes de enviar si cambia.
+      mapsUrl: mapsUrl('Torres de Serranos, Valencia'),
+    },
+    comida: {
+      nombre: 'Horchatería Santa Catalina',
+      texto: 'Plaza de Santa Catalina, 6, junto a la Plaza Redonda y la Catedral. Horchatería centenaria (desde principios del s. XX, cuarta generación de la familia Gargallo) — horchata y fartons, o chocolate con churros, en un local de azulejo valenciano clásico.',
+      // Fuente: verificado con búsquedas (valenciasecreta.com) — fundada por
+      // Vicente Gargallo, edificio de 1890, hoy regentada por la cuarta
+      // generación de la familia; dirección Plaza Santa Catalina 6.
+      mapsUrl: mapsUrl('Horchatería Santa Catalina, Plaza Santa Catalina 6, Valencia'),
+    },
+    movilidad: {
+      // Mismo lugar que `puntoPartida` de esta ruta en js/catalogo.js.
+      nombre: 'La Lonja de la Seda',
+      texto: 'Metro Xàtiva (líneas 3, 5 y 9), frente a la Estación del Norte, unos 10 min a pie.',
+      mapsUrl: mapsUrl('La Lonja de la Seda, Valencia'),
+    },
+  },
 };
 
 /**
@@ -155,6 +208,28 @@ export const PASES_POR_CIUDAD = {
       // Fuente: web oficial de Toulouse Tourisme (toulouse-tourisme.com),
       // el organismo oficial de turismo de la ciudad — mismo criterio que
       // Barcelona Card (consorcio oficial, no revendedor).
+    },
+  ],
+
+  madrid: [
+    {
+      nombre: 'Madrid City Card',
+      texto: 'Transporte ilimitado (bus EMT y metro zona A) + entrada gratis o con descuento a museos como el Prado, el Reina Sofía o el Thyssen, además de acceso sin colas a varias atracciones. Emitida por el Ayuntamiento de Madrid, válida de 1 a 5 días.',
+      url: 'https://citycard.esmadrid.com/',
+      // Fuente: web oficial (citycard.esmadrid.com), la tarjeta turística
+      // del Ayuntamiento de Madrid a través de Madrid Destino — mismo
+      // criterio que Barcelona Card (consorcio oficial, no revendedor).
+    },
+  ],
+
+  valencia: [
+    {
+      nombre: 'Valencia Tourist Card',
+      texto: 'Transporte ilimitado (EMT, metro, tranvía, Metrobus y Cercanías, incluido el trayecto al aeropuerto) + entrada gratis a museos y monumentos municipales — entre ellos la propia Lonja de la Seda y las Torres de Serranos — más descuentos en atracciones como la Ciudad de las Artes y las Ciencias. Válida 24h, 48h o 72h.',
+      url: 'https://www.visitvalencia.com/valencia-tourist-card/valencia-tourist-card',
+      // Fuente: web oficial de Visit València (visitvalencia.com), la
+      // agencia de turismo del Ayuntamiento de Valencia — mismo criterio
+      // que Barcelona Card (consorcio oficial, no revendedor).
     },
   ],
 };
