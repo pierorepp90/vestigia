@@ -287,6 +287,21 @@
   box-shadow: none;
 }
 
+.tema-juego .btn-fantasma {
+  color: var(--j-texto-tenue);
+  border-color: var(--j-texto-tenue);
+}
+
+.tema-juego .btn-fantasma:hover {
+  background: var(--j-texto-tenue);
+  color: var(--j-fondo);
+}
+
+.tema-juego .btn-fantasma:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
 /* ---------- Feedback ---------- */
 .feedback {
   display: none;
