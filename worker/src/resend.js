@@ -3,6 +3,9 @@
 // vestigia.fun ya está verificado en Resend (DKIM en resend._domainkey +
 // SPF/MX en send.vestigia.fun), así que se puede enviar directo desde el
 // dominio propio en vez del remitente de pruebas.
+import { recomendacionesDeRuta } from '../../js/recomendaciones.js';
+import { rutaPorId } from '../../js/catalogo.js';
+
 const FROM_ADDRESS = 'Vestigia <hola@vestigia.fun>';
 
 function escapeHtml(value) {
@@ -55,6 +58,54 @@ export function buildOwnerEmail({ rutaId, orderId, email, importe }, ownerEmail)
   };
 }
 
+/** Un mirador, una comida, un pase o la movilidad: misma maquetación de
+ * tarjeta para los cuatro. `item.nombre` es opcional (la movilidad solo
+ * lleva `texto`, sin un nombre propio que destacar). */
+function bloqueRecomendacion(etiqueta, item) {
+  if (!item) return '';
+  const enlace = item.url
+    ? ` — <a href="${escapeHtml(item.url)}">${item.url.replace(/^https?:\/\//, '')}</a>`
+    : '';
+  const nombre = item.nombre ? `<p style="margin:0; font-weight:600;">${escapeHtml(item.nombre)}</p>` : '';
+  return `
+    <tr>
+      <td style="padding:10px 0; border-bottom:1px solid #e6ddc8;">
+        <p style="margin:0 0 2px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">${escapeHtml(etiqueta)}</p>
+        ${nombre}
+        <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(item.texto)}${enlace}</p>
+      </td>
+    </tr>`;
+}
+
+/** Sección "recomendaciones gratis de la zona" del email — vacía (string
+ * vacío) si la ruta no tiene datos en js/recomendaciones.js, para que las
+ * ciudades sin este contenido todavía reciban el email de siempre. */
+function seccionRecomendaciones(rutaId) {
+  const ruta = rutaPorId(rutaId);
+  const recomendaciones = recomendacionesDeRuta(rutaId, ruta?.ciudadSlug);
+  if (!recomendaciones) return '';
+
+  const filasZona = recomendaciones.zona
+    ? [
+        bloqueRecomendacion('Mirador gratis', recomendaciones.zona.mirador),
+        bloqueRecomendacion('Para comer', recomendaciones.zona.comida),
+        bloqueRecomendacion('Cómo llegar', recomendaciones.zona.movilidad),
+      ].join('')
+    : '';
+
+  const filasPases = recomendaciones.pases
+    .map((pase) => bloqueRecomendacion('Pase oficial', pase))
+    .join('');
+
+  return `
+    <h3 style="margin-top:28px;">Antes de ir: unas recomendaciones gratis de la zona</h3>
+    <table role="presentation" width="100%" style="border-collapse:collapse;">
+      ${filasZona}${filasPases}
+    </table>
+    <p style="font-size:12px; color:#83714f;">Esto no es publicidad pagada: son sitios que nos gustan de verdad. Comprobad horarios antes de ir, que a veces cambian.</p>
+  `;
+}
+
 export function buildCustomerEmail({ rutaId, orderId, idioma, email, token, tituloRuta }, siteUrl) {
   const jugarUrl = enlaceJuego(siteUrl, rutaId, token, idioma);
   const imprimirUrl = enlaceImprimir(siteUrl, rutaId, token, idioma);
@@ -70,6 +121,7 @@ export function buildCustomerEmail({ rutaId, orderId, idioma, email, token, titu
       <p>Guardad este email: el enlace de arriba es vuestra llave de acceso durante un año.
          Funciona incluso sin cobertura una vez lo hayáis abierto una primera vez.</p>
       <p>¿Preferís ir sin móvil? <a href="${imprimirUrl}">Descargad la versión imprimible</a>.</p>
+      ${seccionRecomendaciones(rutaId)}
       <p>¡Que disfrutéis la ruta!</p>
     `,
   };

@@ -43,6 +43,30 @@ test('buildCustomerEmail funciona sin tituloRuta (usa el rutaId igualmente en el
   assert.match(email.subject, /paris-marais/);
 });
 
+test('buildCustomerEmail añade las recomendaciones de la zona y los pases de la ciudad cuando existen', () => {
+  const email = buildCustomerEmail(
+    { rutaId: 'barcelona-born', orderId: 'ord_4', email: 'x@example.com', token: 'T' },
+    'https://vestigia.es',
+  );
+  // zona (barcelona-born)
+  assert.match(email.html, /Moll de la Fusta/);
+  assert.match(email.html, /El Xampanyet/);
+  assert.match(email.html, /Arc de Triomf/);
+  // pases de ciudad (barcelona, compartidos por las 3 rutas de la ciudad)
+  assert.match(email.html, /Hola Barcelona Travel Card/);
+  assert.match(email.html, /Articket BCN/);
+  assert.match(email.html, /Barcelona Card/);
+  assert.match(email.html, /articketbcn\.org/);
+});
+
+test('buildCustomerEmail no añade la sección de recomendaciones si la ruta no tiene datos ni ciudad con pases', () => {
+  const email = buildCustomerEmail(
+    { rutaId: 'ruta-inexistente', orderId: 'ord_5', email: 'x@example.com', token: 'T' },
+    'https://vestigia.es',
+  );
+  assert.ok(!email.html.includes('recomendaciones gratis'));
+});
+
 test('sendEmail manda Authorization y Content-Type correctos, y devuelve el JSON de respuesta', async () => {
   let capturada;
   const fetchFalso = async (url, opciones) => {
