@@ -58,21 +58,50 @@ export function buildOwnerEmail({ rutaId, orderId, email, importe }, ownerEmail)
   };
 }
 
-/** Un mirador, una comida, un pase o la movilidad: misma maquetación de
- * tarjeta para los cuatro. `item.nombre` es opcional (la movilidad solo
- * lleva `texto`, sin un nombre propio que destacar). */
-function bloqueRecomendacion(etiqueta, item) {
+/** Un mirador, una comida o la movilidad: misma maquetación de tarjeta para
+ * los tres. Si `item.mapsUrl` existe, el nombre se convierte en enlace a
+ * Google Maps con un pin al lado — para "Cómo llegar" apunta al punto de
+ * partida de la ruta; para mirador/comida, al propio sitio. */
+function bloqueRecomendacion(emoji, etiqueta, item) {
   if (!item) return '';
   const enlace = item.url
-    ? ` — <a href="${escapeHtml(item.url)}">${item.url.replace(/^https?:\/\//, '')}</a>`
+    ? ` — <a href="${escapeHtml(item.url)}" style="color:#9c2b1f;">${item.url.replace(/^https?:\/\//, '')}</a>`
     : '';
-  const nombre = item.nombre ? `<p style="margin:0; font-weight:600;">${escapeHtml(item.nombre)}</p>` : '';
+  const nombre = item.nombre
+    ? item.mapsUrl
+      ? `<p style="margin:0; font-weight:600;"><a href="${escapeHtml(item.mapsUrl)}" style="color:#241a10; text-decoration:none;">📍 ${escapeHtml(item.nombre)}</a></p>`
+      : `<p style="margin:0; font-weight:600;">${escapeHtml(item.nombre)}</p>`
+    : '';
   return `
     <tr>
       <td style="padding:10px 0; border-bottom:1px solid #e6ddc8;">
-        <p style="margin:0 0 2px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">${escapeHtml(etiqueta)}</p>
+        <p style="margin:0 0 2px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">${emoji} ${escapeHtml(etiqueta)}</p>
         ${nombre}
         <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(item.texto)}${enlace}</p>
+      </td>
+    </tr>`;
+}
+
+/** Los pases oficiales de la ciudad, unificados bajo una sola cabecera
+ * "🎫 Pases oficiales" en vez de repetir la etiqueta por cada pase. */
+function bloquePases(pases) {
+  if (!pases || pases.length === 0) return '';
+  const filas = pases
+    .map(
+      (pase) => `
+        <tr>
+          <td style="padding:8px 0 8px 16px; border-bottom:1px solid #e6ddc8;">
+            <p style="margin:0; font-weight:600;">${escapeHtml(pase.nombre)}</p>
+            <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(pase.texto)} — <a href="${escapeHtml(pase.url)}" style="color:#9c2b1f;">${pase.url.replace(/^https?:\/\//, '')}</a></p>
+          </td>
+        </tr>`,
+    )
+    .join('');
+  return `
+    <tr>
+      <td style="padding:10px 0 4px;">
+        <p style="margin:0 0 4px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">🎫 Pases oficiales</p>
+        <table role="presentation" width="100%" style="border-collapse:collapse;">${filas}</table>
       </td>
     </tr>`;
 }
@@ -87,15 +116,13 @@ function seccionRecomendaciones(rutaId) {
 
   const filasZona = recomendaciones.zona
     ? [
-        bloqueRecomendacion('Mirador gratis', recomendaciones.zona.mirador),
-        bloqueRecomendacion('Para comer', recomendaciones.zona.comida),
-        bloqueRecomendacion('Cómo llegar', recomendaciones.zona.movilidad),
+        bloqueRecomendacion('📍', 'Cómo llegar', recomendaciones.zona.movilidad),
+        bloqueRecomendacion('🔭', 'Mirador gratis', recomendaciones.zona.mirador),
+        bloqueRecomendacion('🍽️', 'Para comer', recomendaciones.zona.comida),
       ].join('')
     : '';
 
-  const filasPases = recomendaciones.pases
-    .map((pase) => bloqueRecomendacion('Pase oficial', pase))
-    .join('');
+  const filasPases = bloquePases(recomendaciones.pases);
 
   return `
     <h3 style="margin-top:28px;">Antes de ir: unas recomendaciones gratis de la zona</h3>
@@ -117,10 +144,14 @@ export function buildCustomerEmail({ rutaId, orderId, idioma, email, token, titu
     html: `
       <h2>¡Ya tenéis acceso a vuestra ruta!</h2>
       <p>Referencia del pedido: <strong>${escapeHtml(orderId)}</strong></p>
-      <p><a href="${jugarUrl}">Empezar a jugar →</a></p>
+      <p style="margin:24px 0;">
+        <a href="${jugarUrl}" style="display:inline-block; background:#9c2b1f; color:#fbe9df; font-family:Arial, 'Segoe UI', sans-serif; font-weight:700; font-size:16px; text-decoration:none; padding:14px 28px; border-radius:999px;">Empezar a jugar →</a>
+      </p>
       <p>Guardad este email: el enlace de arriba es vuestra llave de acceso durante un año.
          Funciona incluso sin cobertura una vez lo hayáis abierto una primera vez.</p>
-      <p>¿Preferís ir sin móvil? <a href="${imprimirUrl}">Descargad la versión imprimible</a>.</p>
+      <p style="margin:16px 0 24px;">
+        <a href="${imprimirUrl}" style="display:inline-block; background:transparent; color:#241a10; font-family:Arial, 'Segoe UI', sans-serif; font-weight:700; font-size:14px; text-decoration:none; padding:10px 22px; border-radius:999px; border:1px solid #241a10;">🖨️ Descargar la versión imprimible</a>
+      </p>
       ${seccionRecomendaciones(rutaId)}
       <p>¡Que disfrutéis la ruta!</p>
     `,

@@ -16,6 +16,17 @@
 // siguiendo el mismo patrón { es, en, fr, it } que catalogo.js.
 
 /**
+ * Enlace de Google Maps para un lugar, usando el esquema de URL público y
+ * documentado de Google (Maps URLs — Search Action):
+ * https://developers.google.com/maps/documentation/urls/get-started#search-action
+ * No hace falta API key ni coordenadas: Maps resuelve la búsqueda igual que
+ * si el usuario la escribiera a mano, y en móvil abre la app nativa.
+ */
+function mapsUrl(query) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+/**
  * Recomendaciones por ruta (zona). Claves = `id` de js/catalogo.js.
  * Cada categoría es opcional: si una zona no tiene mirador razonable, se
  * omite el campo en vez de forzar una recomendación floja.
@@ -30,14 +41,19 @@ export const RECOMENDACIONES_POR_RUTA = {
       // acceso libre al centro comercial, consumición esperada en la terraza
       // (no es una entrada de pago tipo La Pedrera). Horario habitual L-S
       // 9:30-22:00, cerrado domingos — comprobar antes de enviar si cambia.
+      mapsUrl: mapsUrl('El Corte Inglés, Plaça Catalunya, Barcelona'),
     },
     comida: {
       nombre: 'Can Culleretes',
       texto: 'Carrer d\'en Quintana, 5. El restaurante más antiguo de Catalunya (desde 1786, récord Guinness), cocina catalana tradicional a pocos pasos de la ruta.',
       url: 'https://culleretes.com/',
+      mapsUrl: mapsUrl("Can Culleretes, Carrer d'en Quintana 5, Barcelona"),
     },
     movilidad: {
+      // Mismo lugar que `puntoPartida` de esta ruta en js/catalogo.js.
+      nombre: 'Plaça Nova (Catedral de Barcelona)',
       texto: 'Metro Jaume I (L4, amarilla), a un par de minutos de la Catedral.',
+      mapsUrl: mapsUrl('Plaça Nova, Barcelona'),
     },
   },
 
@@ -45,13 +61,18 @@ export const RECOMENDACIONES_POR_RUTA = {
     mirador: {
       nombre: 'Moll de la Fusta / Port Vell',
       texto: 'Paseo junto al puerto con vistas al mar, gratis, unos 10-12 min a pie desde el Born. Si os sobra tiempo, los Bunkers del Carmel (ver ruta del Gòtic) tienen la mejor vista de la ciudad, pero está más lejos.',
+      mapsUrl: mapsUrl('Moll de la Fusta, Barcelona'),
     },
     comida: {
       nombre: 'El Xampanyet',
       texto: 'Carrer de Montcada, 22, junto al Museu Picasso. Bar de tapas y cava desde 1929, icónico del Born — anchoas, tortilla y cava por copas. No reservan mesa, así que armaos de paciencia si hay cola.',
+      mapsUrl: mapsUrl('El Xampanyet, Carrer de Montcada 22, Barcelona'),
     },
     movilidad: {
+      // Mismo lugar que `puntoPartida` de esta ruta en js/catalogo.js.
+      nombre: 'Arc de Triomf',
       texto: 'Metro Arc de Triomf (L1, roja), junto al punto de partida de la ruta. También conecta con Rodalies R1/R3/R4.',
+      mapsUrl: mapsUrl('Arc de Triomf, Barcelona'),
     },
   },
 
@@ -59,13 +80,18 @@ export const RECOMENDACIONES_POR_RUTA = {
     mirador: {
       nombre: 'Las Arenas (antigua plaza de toros)',
       texto: 'Subiendo por dentro del centro comercial en Plaça Espanya se llega gratis a una pasarela circular con vistas 360°: Montjuïc, la Font Màgica, Sagrada Família al fondo. Solo cobran 1€ si usáis el ascensor directo en vez de las escaleras mecánicas. Unos 10-15 min desde el Raval (metro L1/L3 hasta Espanya).',
+      mapsUrl: mapsUrl("Las Arenas de Barcelona, Plaça d'Espanya"),
     },
     comida: {
       nombre: 'Granja M. Viader',
       texto: 'Carrer d\'en Xuclà, 4-6. Granja centenaria (desde 1870), cuna del Cacaolat — perfecta para probar un "suís" (chocolate caliente con nata) como merienda a media ruta.',
+      mapsUrl: mapsUrl("Granja M. Viader, Carrer d'en Xuclà 4, Barcelona"),
     },
     movilidad: {
+      // Mismo lugar que `puntoPartida` de esta ruta en js/catalogo.js.
+      nombre: 'Mercat de la Boqueria',
       texto: 'Metro Liceu (L3, verde), sale justo al lado del Mercat de la Boqueria.',
+      mapsUrl: mapsUrl('Mercat de la Boqueria, Barcelona'),
     },
   },
 };
