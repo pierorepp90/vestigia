@@ -75,7 +75,7 @@ function bloqueRecomendacion(emoji, etiqueta, item) {
   return `
     <tr>
       <td style="padding:10px 0; border-bottom:1px solid #e6ddc8;">
-        <p style="margin:0 0 2px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">${emoji} ${escapeHtml(etiqueta)}</p>
+        <p style="margin:0 0 2px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">${escapeHtml(etiqueta)} ${emoji}</p>
         ${nombre}
         <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(item.texto)}${enlace}</p>
       </td>
@@ -83,7 +83,7 @@ function bloqueRecomendacion(emoji, etiqueta, item) {
 }
 
 /** Los pases oficiales de la ciudad, unificados bajo una sola cabecera
- * "🎫 Pases oficiales" en vez de repetir la etiqueta por cada pase. */
+ * "Pases oficiales 🎫" en vez de repetir la etiqueta por cada pase. */
 function bloquePases(pases) {
   if (!pases || pases.length === 0) return '';
   const filas = pases
@@ -100,7 +100,7 @@ function bloquePases(pases) {
   return `
     <tr>
       <td style="padding:10px 0 4px;">
-        <p style="margin:0 0 4px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">🎫 Pases oficiales</p>
+        <p style="margin:0 0 4px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">Pases oficiales 🎫</p>
         <table role="presentation" width="100%" style="border-collapse:collapse;">${filas}</table>
       </td>
     </tr>`;
@@ -116,7 +116,7 @@ function seccionRecomendaciones(rutaId) {
 
   const filasZona = recomendaciones.zona
     ? [
-        bloqueRecomendacion('📍', 'Cómo llegar', recomendaciones.zona.movilidad),
+        bloqueRecomendacion('🗺️', 'Cómo llegar', recomendaciones.zona.movilidad),
         bloqueRecomendacion('🔭', 'Mirador gratis', recomendaciones.zona.mirador),
         bloqueRecomendacion('🍽️', 'Para comer', recomendaciones.zona.comida),
       ].join('')
