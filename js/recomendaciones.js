@@ -94,6 +94,34 @@ export const RECOMENDACIONES_POR_RUTA = {
       mapsUrl: mapsUrl('Mercat de la Boqueria, Barcelona'),
     },
   },
+
+  'toulouse-capitole': {
+    mirador: {
+      nombre: 'Quai Lucien Lombard (orilla del Garona)',
+      texto: 'Paseo gratuito junto al río, en el tramo entre el Pont Neuf y el Pont Saint-Pierre — el más bonito de la ciudad. Al otro lado del agua se ve la silueta del Hôtel-Dieu Saint-Jacques y su cúpula ("dôme de la Grave"), sobre todo espectacular a la puesta de sol. Unos 10 min a pie desde el Capitole.',
+      // Fuente: Toulouse Tourisme (toulouse-tourisme.com/nos-incontournables/
+      // les-bords-de-garonne) sobre la vista del Hôtel-Dieu Saint-Jacques y
+      // el dôme de la Grave desde el Garona, y krisporelmundo.com sobre el
+      // Quai Lucien Lombard como mejor tramo (entre Pont Neuf y Pont
+      // Saint-Pierre) y punto popular al atardecer.
+      mapsUrl: mapsUrl('Quai Lucien Lombard, Toulouse'),
+    },
+    comida: {
+      nombre: 'Restaurant Emile',
+      texto: '13 Place Saint-Georges, a un par de minutos del Capitole. Institución tolosana desde los años 40, célebre por su cassoulet.',
+      url: 'https://www.restaurant-emile.com/',
+      // Fuente: web oficial del restaurante (restaurant-emile.com) — abierto
+      // en los años 40, especialidad cassoulet, dirección confirmada en
+      // Place Saint-Georges (junto al Capitole).
+      mapsUrl: mapsUrl('Restaurant Emile, 13 Place Saint-Georges, Toulouse'),
+    },
+    movilidad: {
+      // Mismo lugar que `puntoPartida` de esta ruta en js/catalogo.js.
+      nombre: 'Place du Capitole',
+      texto: 'Metro Capitole (Línea A), sale directamente a la plaza.',
+      mapsUrl: mapsUrl('Place du Capitole, Toulouse'),
+    },
+  },
 };
 
 /**
@@ -116,6 +144,17 @@ export const PASES_POR_CIUDAD = {
       nombre: 'Barcelona Card',
       texto: 'Transporte ilimitado + entrada a más de 25 museos y monumentos + descuentos, emitida por Turisme de Barcelona (el consorcio oficial del ayuntamiento).',
       url: 'https://thisisbarcelona.com/tickets/barcelona-card',
+    },
+  ],
+
+  toulouse: [
+    {
+      nombre: 'Pass Tourisme',
+      texto: 'Entrada a 13 museos y monumentos (Museo de Historia Natural, Museo de Bellas Artes, Convento de los Jacobinos...), una visita guiada gratis a elegir y un billete de 10 viajes con tarifa reducida en metro, tranvía y bus. Válido 24h, 48h o 72h, emitido por la Oficina de Turismo de Toulouse.',
+      url: 'https://www.toulouse-tourisme.com/en/what-to-see-and-do/pass-tourisme/',
+      // Fuente: web oficial de Toulouse Tourisme (toulouse-tourisme.com),
+      // el organismo oficial de turismo de la ciudad — mismo criterio que
+      // Barcelona Card (consorcio oficial, no revendedor).
     },
   ],
 };
