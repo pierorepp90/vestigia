@@ -427,7 +427,9 @@ footer {
 }
 
 .tarjeta-ciudad {
-  display: block;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   text-decoration: none;
   color: inherit;
   background: var(--paper-2);
@@ -462,6 +464,7 @@ footer {
 
 .tarjeta-ciudad__marco {
   position: relative;
+  flex-shrink: 0;
   aspect-ratio: 4 / 3;
   overflow: hidden;
   /* Esquina dada la vuelta, como una postal usada */
@@ -542,6 +545,9 @@ footer {
 }
 
 .tarjeta-ciudad__cuerpo {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
   padding: 20px 22px 24px;
 }
 
@@ -569,6 +575,14 @@ footer {
 }
 
 .tarjeta-ciudad__meta {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: auto;
+  padding-top: 14px;
+}
+
+.tarjeta-ciudad__meta-fila {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 14px;

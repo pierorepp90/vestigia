@@ -56,9 +56,11 @@ export function tarjetaCiudad(ciudad, indice, lang) {
       .map((d) => `<span class="badge-dificultad badge-dificultad--${d}">${t(lang, 'dificultad_' + d)}</span>`)
       .join('');
     metaHtml = `<div class="tarjeta-ciudad__meta">
-         <span class="meta-item">${ICONO_RELOJ} ${tf(lang, 'meta_duracion', { h: Math.round(primera.duracionMin / 60) })}</span>
-         <span class="meta-item">${ICONO_PERSONAS} ${tf(lang, 'meta_jugadores', { min: jugadoresMin, max: jugadoresMax })}</span>
-         <span class="tarjeta-ciudad__dificultades">${badgesHtml}</span>
+         <div class="tarjeta-ciudad__meta-fila">
+           <span class="meta-item">${ICONO_RELOJ} ${tf(lang, 'meta_duracion', { h: Math.round(primera.duracionMin / 60) })}</span>
+           <span class="meta-item">${ICONO_PERSONAS} ${tf(lang, 'meta_jugadores', { min: jugadoresMin, max: jugadoresMax })}</span>
+         </div>
+         <div class="tarjeta-ciudad__dificultades">${badgesHtml}</div>
        </div>`;
   }
 
