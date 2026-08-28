@@ -944,10 +944,23 @@ const FIGURAS = {
 </svg>`,
 };
 
+// Chromium, al imprimir a PDF, colapsa a altura 0 los <svg> que solo llevan
+// `viewBox` y se dimensionan por CSS con `height: auto` — la figura
+// desaparece justo en el PDF aunque se vea en pantalla. Copiar el tamaño del
+// viewBox a atributos `width`/`height` le da la proporción intrínseca que le
+// falta; son atributos de presentación (la prioridad más baja), así que el
+// `width: 100%` de css/juego.css y css/print.css sigue mandando en pantalla.
+function conTamañoIntrinseco(svg) {
+  const vb = svg.match(/viewBox="0 0 ([\d.]+) ([\d.]+)"/);
+  if (!vb || /<svg[^>]*\swidth=/.test(svg)) return svg;
+  return svg.replace('<svg ', `<svg width="${vb[1]}" height="${vb[2]}" `);
+}
+
 /** Devuelve el SVG de una figura, o cadena vacía si la parada no tiene. */
 export function figuraSvg(figuraId) {
   if (!figuraId) return '';
-  return FIGURAS[figuraId] || '';
+  const svg = FIGURAS[figuraId];
+  return svg ? conTamañoIntrinseco(svg) : '';
 }
 
 export function existeFigura(figuraId) {

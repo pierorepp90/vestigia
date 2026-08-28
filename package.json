@@ -3,6 +3,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "imprimibles": "node scripts/generar-imprimibles.mjs"
+  },
+  "devDependencies": {
+    "playwright": "^1.62.1"
   }
 }
