@@ -3,7 +3,7 @@
 // (una URL por ciudad), pero delega el renderizado al mismo módulo: lee
 // `data-ciudad` del <body>, busca los datos en el catálogo y pinta el banner
 // y la lista de rutas disponibles.
-import { ciudadPorSlug, ciudadesRelacionadas, localizar, rutasPorCiudad } from './catalogo.js';
+import { ciudadPorSlug, ciudadesRelacionadas, historiaPorSlug, localizar, rutasPorCiudad } from './catalogo.js';
 import { aplicarI18n, detectarIdioma, escaparHtml, poblarSelectorIdioma, t, tf, urlRecurso } from './i18n.js';
 
 export const ICONO_RELOJ =
@@ -81,6 +81,14 @@ function init() {
         ${otras.map((c) => `<a class="btn btn-fantasma" href="${c.slug}.html">${escaparHtml(localizar(c.nombre, lang))}</a>`).join('')}
       </div>`;
   }
+
+  // Cierre de la página: mismo patrón que la ficha de ruta (js/ruta.js).
+  // Siempre se puede volver a todas las ciudades; el enlace a las
+  // curiosidades del blog solo aparece si esta ciudad ya tiene una historia.
+  const historia = historiaPorSlug(ciudad.slug);
+  document.getElementById('ciudad-enlaces-finales').innerHTML = `
+    <p><a class="btn btn-fantasma" href="../index.html">${t(lang, 'ruta_todas_ciudades')}</a></p>
+    ${historia ? `<p><a class="enlace-editorial" href="../historias/${historia.id}.html">${escaparHtml(tf(lang, 'ruta_leer_historia', { ciudad: nombre }))}</a></p>` : ''}`;
 }
 
 // Solo se ejecuta en el navegador — este módulo también se importa desde

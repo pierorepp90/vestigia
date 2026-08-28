@@ -236,6 +236,16 @@ function generarCiudad(ciudad, lang) {
     html = conHTML(html, 'ciudades-relacionadas', `<h2 class="seccion-relacionadas__titulo">${escaparTexto(t(lang, 'ciudad_otras_titulo'))}</h2><div class="seccion-relacionadas__lista">${enlaces}</div>`);
   }
 
+  const historiaCiudad = historiaPorSlug(ciudad.slug);
+  const enlaceHistoriaCiudad = historiaCiudad
+    ? `<p><a class="enlace-editorial" href="../historias/${historiaCiudad.id}.html">${escaparTexto(tf(lang, 'ruta_leer_historia', { ciudad: nombre }))}</a></p>`
+    : '';
+  html = conHTML(
+    html,
+    'ciudad-enlaces-finales',
+    `<p><a class="btn btn-fantasma" href="../index.html">${escaparTexto(t(lang, 'ruta_todas_ciudades'))}</a></p>${enlaceHistoriaCiudad}`,
+  );
+
   html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
   html = quitarScriptPieDerechos(html);
   html = absolutizarRecursosCompartidos(html);
