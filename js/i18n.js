@@ -53,7 +53,7 @@ export const DICT = {
 
     // Portada — sección ciudades
     ciudades_title: 'Destinos por descubrir',
-    ciudades_subtitle: 'Explora nuevos escenarios y descubre lo que esconde a tu paso.',
+    ciudades_subtitle: 'Explora nuevos escenarios y descubre lo que esconden a tu paso.',
     badge_proximamente: 'Próximamente',
     ciudad_ver_rutas: 'Ver ruta',
 
