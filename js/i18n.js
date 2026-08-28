@@ -52,8 +52,8 @@ export const DICT = {
     como_4_texto: 'Cada acierto desbloquea un fragmento de historia real y más información sobre tu entorno.',
 
     // Portada — sección ciudades
-    ciudades_title: 'Ciudades disponibles',
-    ciudades_subtitle: 'Cada ciudad, una ruta distinta por su centro histórico.',
+    ciudades_title: 'Destinos por descubrir',
+    ciudades_subtitle: 'Explora nuevos escenarios y descubre lo que esconde a tu paso.',
     badge_proximamente: 'Próximamente',
     ciudad_ver_rutas: 'Ver ruta',
 
@@ -198,8 +198,8 @@ export const DICT = {
     como_4_texto: "Every right answer unlocks a piece of real history and more about the place you're standing in.",
 
     // Homepage — cities section
-    ciudades_title: 'Available cities',
-    ciudades_subtitle: 'One city, one distinct trail through its historic centre.',
+    ciudades_title: 'Destinations to discover',
+    ciudades_subtitle: 'Explore new settings and discover what they hide as you go.',
     badge_proximamente: 'Coming soon',
     ciudad_ver_rutas: 'See trail',
 
@@ -344,8 +344,8 @@ export const DICT = {
     como_4_texto: "Chaque bonne réponse débloque un fragment d'histoire réelle et plus d'informations sur le lieu où vous êtes.",
 
     // Accueil — section villes
-    ciudades_title: 'Villes disponibles',
-    ciudades_subtitle: 'Une ville, un parcours différent dans son centre historique.',
+    ciudades_title: 'Destinations à découvrir',
+    ciudades_subtitle: "Explorez de nouveaux décors et découvrez ce qu'ils cachent en chemin.",
     badge_proximamente: 'Bientôt disponible',
     ciudad_ver_rutas: 'Voir le parcours',
 
@@ -490,8 +490,8 @@ export const DICT = {
     como_4_texto: 'Ogni risposta giusta sblocca un frammento di storia reale e altre informazioni sul luogo in cui ti trovi.',
 
     // Homepage — sezione città
-    ciudades_title: 'Città disponibili',
-    ciudades_subtitle: 'Una città, un percorso diverso nel suo centro storico.',
+    ciudades_title: 'Destinazioni da scoprire',
+    ciudades_subtitle: 'Esplorate nuovi scenari e scoprite cosa nascondono lungo il cammino.',
     badge_proximamente: 'Prossimamente',
     ciudad_ver_rutas: 'Vedi il percorso',
 
