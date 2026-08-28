@@ -43,13 +43,13 @@ export const DICT = {
     // Portada — cómo funciona
     como_funciona_title: 'Cómo funciona',
     como_1_title: 'Elige ciudad y ruta',
-    como_1_texto: 'Cada ciudad tiene una ruta jugable por su centro histórico, pensada para 2-6 jugadores.',
+    como_1_texto: 'Selecciona la ciudad en la que quieres jugar y elige entre los recorridos disponibles.',
     como_2_title: 'Reserva tu partida',
-    como_2_texto: 'Pago único por equipo. Recibes el acceso al instante por email, sin límite de fecha.',
-    como_3_title: 'Sal a la calle',
-    como_3_texto: 'Ocho paradas, ocho enigmas que se resuelven observando el entorno real, no una pantalla.',
+    como_2_texto: 'Prueba nuestras rutas gratuitas o compra el acceso permanente para todo el equipo con un pago único.',
+    como_3_title: 'Camina, juega y aprende',
+    como_3_texto: 'Prepárate para salir a la calle a observar, pensar y resolver enigmas.',
     como_4_title: 'Descubre la historia',
-    como_4_texto: 'Cada acierto desbloquea el fragmento de historia real del lugar donde estás parado.',
+    como_4_texto: 'Cada acierto desbloquea un fragmento de historia real y más información sobre tu entorno.',
 
     // Portada — sección ciudades
     ciudades_title: 'Ciudades disponibles',
@@ -189,13 +189,13 @@ export const DICT = {
     // Homepage — how it works
     como_funciona_title: 'How it works',
     como_1_title: 'Choose a city and trail',
-    como_1_texto: 'Each city has one playable trail through its historic centre, built for 2-6 players.',
+    como_1_texto: 'Pick the city you want to play in and choose from the available trails.',
     como_2_title: 'Book your game',
-    como_2_texto: 'One payment per team. You get instant access by email, with no expiry date.',
-    como_3_title: 'Hit the streets',
-    como_3_texto: 'Eight stops, eight puzzles solved by observing the real world around you — not a screen.',
+    como_2_texto: 'Try our free trails, or buy permanent access for your whole team with a single payment.',
+    como_3_title: 'Walk, play, learn',
+    como_3_texto: "Get ready to hit the streets to observe, think, and solve puzzles.",
     como_4_title: 'Uncover the history',
-    como_4_texto: 'Every right answer unlocks the real story behind the spot you are standing on.',
+    como_4_texto: "Every right answer unlocks a piece of real history and more about the place you're standing in.",
 
     // Homepage — cities section
     ciudades_title: 'Available cities',
@@ -335,13 +335,13 @@ export const DICT = {
     // Accueil — comment ça marche
     como_funciona_title: 'Comment ça marche',
     como_1_title: 'Choisissez ville et parcours',
-    como_1_texto: 'Chaque ville propose un parcours jouable dans son centre historique, pensé pour 2 à 6 joueurs.',
+    como_1_texto: 'Choisissez la ville où vous voulez jouer et sélectionnez parmi les parcours disponibles.',
     como_2_title: 'Réservez votre partie',
-    como_2_texto: "Paiement unique par équipe. Accès immédiat par email, sans date limite.",
-    como_3_title: 'Descendez dans la rue',
-    como_3_texto: "Huit étapes, huit énigmes qui se résolvent en observant les lieux réels — pas un écran.",
+    como_2_texto: "Essayez nos parcours gratuits, ou achetez l'accès permanent pour toute l'équipe avec un paiement unique.",
+    como_3_title: 'Marchez, jouez, apprenez',
+    como_3_texto: "Préparez-vous à descendre dans la rue pour observer, réfléchir et résoudre des énigmes.",
     como_4_title: "Découvrez l'histoire",
-    como_4_texto: 'Chaque bonne réponse débloque le vrai récit du lieu où vous vous trouvez.',
+    como_4_texto: "Chaque bonne réponse débloque un fragment d'histoire réelle et plus d'informations sur le lieu où vous êtes.",
 
     // Accueil — section villes
     ciudades_title: 'Villes disponibles',
@@ -481,13 +481,13 @@ export const DICT = {
     // Homepage — come funziona
     como_funciona_title: 'Come funziona',
     como_1_title: 'Scegli città e percorso',
-    como_1_texto: 'Ogni città ha un percorso giocabile nel suo centro storico, pensato per 2-6 giocatori.',
+    como_1_texto: 'Scegli la città in cui vuoi giocare e seleziona tra i percorsi disponibili.',
     como_2_title: 'Prenota la tua partita',
-    como_2_texto: "Pagamento unico a squadra. Ricevi l'accesso via email all'istante, senza scadenza.",
-    como_3_title: 'Uscite per strada',
-    como_3_texto: 'Otto tappe, otto enigmi che si risolvono osservando ciò che vi circonda — non uno schermo.',
+    como_2_texto: "Prova i nostri percorsi gratuiti, oppure acquista l'accesso permanente per tutta la squadra con un pagamento unico.",
+    como_3_title: 'Cammina, gioca, impara',
+    como_3_texto: 'Preparati a uscire per strada per osservare, riflettere e risolvere enigmi.',
     como_4_title: 'Scopri la storia',
-    como_4_texto: 'Ogni risposta giusta sblocca il racconto vero del luogo in cui vi trovate.',
+    como_4_texto: 'Ogni risposta giusta sblocca un frammento di storia reale e altre informazioni sul luogo in cui ti trovi.',
 
     // Homepage — sezione città
     ciudades_title: 'Città disponibili',
