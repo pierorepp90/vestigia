@@ -8,6 +8,100 @@ import { rutaPorId } from '../../js/catalogo.js';
 
 const FROM_ADDRESS = 'Vestigia <hola@vestigia.fun>';
 
+/** Idiomas soportados por catalogo.js / recomendaciones.js. Cualquier otro
+ * valor de `idioma` (o su ausencia) cae en español. */
+const IDIOMAS_SOPORTADOS = ['es', 'en', 'fr', 'it'];
+
+function idiomaValido(idioma) {
+  return IDIOMAS_SOPORTADOS.includes(idioma) ? idioma : 'es';
+}
+
+/** Extrae el campo del idioma pedido de un objeto `{ es, en, fr, it }`,
+ * con fallback a español. Si `campo` ya es un string plano (contenido
+ * todavía sin traducir), lo devuelve tal cual — así conviven entradas
+ * traducidas y sin traducir mientras se migra recomendaciones.js. */
+function loc(campo, idioma) {
+  if (campo == null) return campo;
+  if (typeof campo === 'string') return campo;
+  return campo[idioma] || campo.es;
+}
+
+/** Textos fijos del email de confirmación, en los 4 idiomas del catálogo. */
+const UI = {
+  es: {
+    subject: (titulo) => `Vuestro acceso a "${titulo}" — Vestigia`,
+    heading: '¡Ya tenéis acceso a vuestra ruta!',
+    orderRef: 'Referencia del pedido:',
+    playButton: 'Empezar a jugar →',
+    keepEmail:
+      'Guardad este email: el enlace de arriba es vuestra llave de acceso durante un año. Funciona incluso sin cobertura una vez lo hayáis abierto una primera vez.',
+    printButton: '🖨️ Descargar la versión imprimible',
+    beforeYouGo: 'Antes de ir: unas recomendaciones gratis de la zona',
+    howToGetThere: 'Cómo llegar',
+    freeView: 'Mirador gratis',
+    whereToEat: 'Para comer',
+    officialPasses: 'Pases oficiales',
+    disclaimer:
+      'Esto no es publicidad pagada: son sitios que nos gustan de verdad. Comprobad horarios antes de ir, que a veces cambian.',
+    closing: '¡Que disfrutéis la ruta!',
+  },
+  en: {
+    subject: (titulo) => `Your access to "${titulo}" — Vestigia`,
+    heading: 'You now have access to your route!',
+    orderRef: 'Order reference:',
+    playButton: 'Start playing →',
+    keepEmail:
+      "Keep this email: the link above is your access key for a year. It works even without signal once you've opened it for the first time.",
+    printButton: '🖨️ Download the printable version',
+    beforeYouGo: 'Before you go: free recommendations for the area',
+    howToGetThere: 'Getting there',
+    freeView: 'Free viewpoint',
+    whereToEat: 'Where to eat',
+    officialPasses: 'Official passes',
+    disclaimer:
+      "This isn't paid advertising: these are places we genuinely like. Check opening hours before you go, as they sometimes change.",
+    closing: 'Enjoy the route!',
+  },
+  fr: {
+    subject: (titulo) => `Votre accès à « ${titulo} » — Vestigia`,
+    heading: 'Vous avez maintenant accès à votre parcours !',
+    orderRef: 'Référence de commande :',
+    playButton: 'Commencer à jouer →',
+    keepEmail:
+      "Conservez cet email : le lien ci-dessus est votre clé d'accès pendant un an. Il fonctionne même sans réseau une fois ouvert une première fois.",
+    printButton: '🖨️ Télécharger la version imprimable',
+    beforeYouGo: 'Avant de partir : quelques recommandations gratuites du quartier',
+    howToGetThere: 'Comment y aller',
+    freeView: 'Point de vue gratuit',
+    whereToEat: 'Où manger',
+    officialPasses: 'Pass officiels',
+    disclaimer:
+      "Ce n'est pas de la publicité payante : ce sont des adresses que nous aimons vraiment. Vérifiez les horaires avant d'y aller, ils changent parfois.",
+    closing: 'Bon parcours !',
+  },
+  it: {
+    subject: (titulo) => `Il vostro accesso a "${titulo}" — Vestigia`,
+    heading: 'Ora avete accesso al vostro percorso!',
+    orderRef: 'Riferimento ordine:',
+    playButton: 'Inizia a giocare →',
+    keepEmail:
+      'Conservate questa email: il link qui sopra è la vostra chiave di accesso per un anno. Funziona anche senza connessione una volta apertolo la prima volta.',
+    printButton: '🖨️ Scarica la versione stampabile',
+    beforeYouGo: 'Prima di partire: alcuni consigli gratuiti sulla zona',
+    howToGetThere: 'Come arrivare',
+    freeView: 'Punto panoramico gratuito',
+    whereToEat: 'Dove mangiare',
+    officialPasses: 'Pass ufficiali',
+    disclaimer:
+      'Non è pubblicità a pagamento: sono posti che ci piacciono davvero. Controllate gli orari prima di andare, a volte cambiano.',
+    closing: 'Buon percorso!',
+  },
+};
+
+function t(idioma) {
+  return UI[idiomaValido(idioma)];
+}
+
 function escapeHtml(value) {
   return String(value).replace(/[&<>"']/g, (char) => ({
     '&': '&amp;',
@@ -62,37 +156,38 @@ export function buildOwnerEmail({ rutaId, orderId, email, importe }, ownerEmail)
  * los tres. Si `item.mapsUrl` existe, el nombre se convierte en enlace a
  * Google Maps con un pin al lado — para "Cómo llegar" apunta al punto de
  * partida de la ruta; para mirador/comida, al propio sitio. */
-function bloqueRecomendacion(emoji, etiqueta, item) {
+function bloqueRecomendacion(emoji, etiqueta, item, idioma) {
   if (!item) return '';
   const enlace = item.url
     ? ` — <a href="${escapeHtml(item.url)}" style="color:#9c2b1f;">${item.url.replace(/^https?:\/\//, '')}</a>`
     : '';
-  const nombre = item.nombre
+  const nombreTexto = loc(item.nombre, idioma);
+  const nombre = nombreTexto
     ? item.mapsUrl
-      ? `<p style="margin:0; font-weight:600;"><a href="${escapeHtml(item.mapsUrl)}" style="color:#241a10; text-decoration:none;">📍 ${escapeHtml(item.nombre)}</a></p>`
-      : `<p style="margin:0; font-weight:600;">${escapeHtml(item.nombre)}</p>`
+      ? `<p style="margin:0; font-weight:600;"><a href="${escapeHtml(item.mapsUrl)}" style="color:#241a10; text-decoration:none;">📍 ${escapeHtml(nombreTexto)}</a></p>`
+      : `<p style="margin:0; font-weight:600;">${escapeHtml(nombreTexto)}</p>`
     : '';
   return `
     <tr>
       <td style="padding:10px 0; border-bottom:1px solid #e6ddc8;">
         <p style="margin:0 0 2px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">${escapeHtml(etiqueta)} ${emoji}</p>
         ${nombre}
-        <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(item.texto)}${enlace}</p>
+        <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(loc(item.texto, idioma))}${enlace}</p>
       </td>
     </tr>`;
 }
 
 /** Los pases oficiales de la ciudad, unificados bajo una sola cabecera
  * "Pases oficiales 🎫" en vez de repetir la etiqueta por cada pase. */
-function bloquePases(pases) {
+function bloquePases(pases, etiqueta, idioma) {
   if (!pases || pases.length === 0) return '';
   const filas = pases
     .map(
       (pase) => `
         <tr>
           <td style="padding:8px 0 8px 16px; border-bottom:1px solid #e6ddc8;">
-            <p style="margin:0; font-weight:600;">${escapeHtml(pase.nombre)}</p>
-            <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(pase.texto)} — <a href="${escapeHtml(pase.url)}" style="color:#9c2b1f;">${pase.url.replace(/^https?:\/\//, '')}</a></p>
+            <p style="margin:0; font-weight:600;">${escapeHtml(loc(pase.nombre, idioma))}</p>
+            <p style="margin:4px 0 0; color:#4d3f2c;">${escapeHtml(loc(pase.texto, idioma))} — <a href="${escapeHtml(pase.url)}" style="color:#9c2b1f;">${pase.url.replace(/^https?:\/\//, '')}</a></p>
           </td>
         </tr>`,
     )
@@ -100,7 +195,7 @@ function bloquePases(pases) {
   return `
     <tr>
       <td style="padding:10px 0 4px;">
-        <p style="margin:0 0 4px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">Pases oficiales 🎫</p>
+        <p style="margin:0 0 4px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:#83714f;">${escapeHtml(etiqueta)} 🎫</p>
         <table role="presentation" width="100%" style="border-collapse:collapse;">${filas}</table>
       </td>
     </tr>`;
@@ -109,51 +204,53 @@ function bloquePases(pases) {
 /** Sección "recomendaciones gratis de la zona" del email — vacía (string
  * vacío) si la ruta no tiene datos en js/recomendaciones.js, para que las
  * ciudades sin este contenido todavía reciban el email de siempre. */
-function seccionRecomendaciones(rutaId) {
+function seccionRecomendaciones(rutaId, idioma) {
   const ruta = rutaPorId(rutaId);
   const recomendaciones = recomendacionesDeRuta(rutaId, ruta?.ciudadSlug);
   if (!recomendaciones) return '';
 
+  const ui = t(idioma);
+
   const filasZona = recomendaciones.zona
     ? [
-        bloqueRecomendacion('🗺️', 'Cómo llegar', recomendaciones.zona.movilidad),
-        bloqueRecomendacion('🔭', 'Mirador gratis', recomendaciones.zona.mirador),
-        bloqueRecomendacion('🍽️', 'Para comer', recomendaciones.zona.comida),
+        bloqueRecomendacion('🗺️', ui.howToGetThere, recomendaciones.zona.movilidad, idioma),
+        bloqueRecomendacion('🔭', ui.freeView, recomendaciones.zona.mirador, idioma),
+        bloqueRecomendacion('🍽️', ui.whereToEat, recomendaciones.zona.comida, idioma),
       ].join('')
     : '';
 
-  const filasPases = bloquePases(recomendaciones.pases);
+  const filasPases = bloquePases(recomendaciones.pases, ui.officialPasses, idioma);
 
   return `
-    <h3 style="margin-top:28px;">Antes de ir: unas recomendaciones gratis de la zona</h3>
+    <h3 style="margin-top:28px;">${escapeHtml(ui.beforeYouGo)}</h3>
     <table role="presentation" width="100%" style="border-collapse:collapse;">
       ${filasZona}${filasPases}
     </table>
-    <p style="font-size:12px; color:#83714f;">Esto no es publicidad pagada: son sitios que nos gustan de verdad. Comprobad horarios antes de ir, que a veces cambian.</p>
+    <p style="font-size:12px; color:#83714f;">${escapeHtml(ui.disclaimer)}</p>
   `;
 }
 
 export function buildCustomerEmail({ rutaId, orderId, idioma, email, token, tituloRuta }, siteUrl) {
   const jugarUrl = enlaceJuego(siteUrl, rutaId, token, idioma);
   const imprimirUrl = enlaceImprimir(siteUrl, rutaId, token, idioma);
+  const ui = t(idioma);
 
   return {
     from: FROM_ADDRESS,
     to: [email],
-    subject: `Vuestro acceso a "${tituloRuta || rutaId}" — Vestigia`,
+    subject: ui.subject(tituloRuta || rutaId),
     html: `
-      <h2>¡Ya tenéis acceso a vuestra ruta!</h2>
-      <p>Referencia del pedido: <strong>${escapeHtml(orderId)}</strong></p>
+      <h2>${escapeHtml(ui.heading)}</h2>
+      <p>${escapeHtml(ui.orderRef)} <strong>${escapeHtml(orderId)}</strong></p>
       <p style="margin:24px 0;">
-        <a href="${jugarUrl}" style="display:inline-block; background:#9c2b1f; color:#fbe9df; font-family:Arial, 'Segoe UI', sans-serif; font-weight:700; font-size:16px; text-decoration:none; padding:14px 28px; border-radius:999px;">Empezar a jugar →</a>
+        <a href="${jugarUrl}" style="display:inline-block; background:#9c2b1f; color:#fbe9df; font-family:Arial, 'Segoe UI', sans-serif; font-weight:700; font-size:16px; text-decoration:none; padding:14px 28px; border-radius:999px;">${escapeHtml(ui.playButton)}</a>
       </p>
-      <p>Guardad este email: el enlace de arriba es vuestra llave de acceso durante un año.
-         Funciona incluso sin cobertura una vez lo hayáis abierto una primera vez.</p>
+      <p>${escapeHtml(ui.keepEmail)}</p>
       <p style="margin:16px 0 24px;">
-        <a href="${imprimirUrl}" style="display:inline-block; background:transparent; color:#241a10; font-family:Arial, 'Segoe UI', sans-serif; font-weight:700; font-size:14px; text-decoration:none; padding:10px 22px; border-radius:999px; border:1px solid #241a10;">🖨️ Descargar la versión imprimible</a>
+        <a href="${imprimirUrl}" style="display:inline-block; background:transparent; color:#241a10; font-family:Arial, 'Segoe UI', sans-serif; font-weight:700; font-size:14px; text-decoration:none; padding:10px 22px; border-radius:999px; border:1px solid #241a10;">${escapeHtml(ui.printButton)}</a>
       </p>
-      ${seccionRecomendaciones(rutaId)}
-      <p>¡Que disfrutéis la ruta!</p>
+      ${seccionRecomendaciones(rutaId, idioma)}
+      <p>${escapeHtml(ui.closing)}</p>
     `,
   };
 }
