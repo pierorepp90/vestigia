@@ -25,7 +25,7 @@
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { CIUDADES, RUTAS, HISTORIAS, ciudadPorSlug, ciudadesRelacionadas, historiaPorSlug, localizar, rutaPorId, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
+import { CIUDADES, RUTAS, HISTORIAS, ciudadPorSlug, historiaPorSlug, localizar, rutaPorId, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
 import { LANGS, LANG_NAMES, DEFAULT_LANG, t, tf } from '../js/i18n.js';
 import { tarjetaCiudad } from '../js/portada.js';
 import { tarjetaRuta } from '../js/ciudad.js';
@@ -229,12 +229,6 @@ function generarCiudad(ciudad, lang) {
   const rutas = rutasPorCiudad(ciudad.slug);
   const gridRutas = rutas.map((r) => absolutizarImagenesDeTarjetas(tarjetaRuta(r, lang))).join('');
   html = conHTML(html, 'grid-rutas', gridRutas);
-
-  const otrasCiudades = ciudadesRelacionadas(ciudad.slug);
-  if (otrasCiudades.length > 0) {
-    const enlaces = otrasCiudades.map((c) => `<a class="btn btn-fantasma" href="${c.slug}.html">${escaparTexto(localizar(c.nombre, lang))}</a>`).join('');
-    html = conHTML(html, 'ciudades-relacionadas', `<h2 class="seccion-relacionadas__titulo">${escaparTexto(t(lang, 'ciudad_otras_titulo'))}</h2><div class="seccion-relacionadas__lista">${enlaces}</div>`);
-  }
 
   const historiaCiudad = historiaPorSlug(ciudad.slug);
   const enlaceHistoriaCiudad = historiaCiudad
