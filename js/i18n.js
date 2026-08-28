@@ -37,7 +37,7 @@ export const DICT = {
     hero_eyebrow: 'Escape rooms urbanos al aire libre',
     hero_title: 'Sigue los vestigios.',
     hero_subtitle:
-      'Rutas de enigmas por el centro histórico de grandes ciudades. Cada pista está escondida en algo que ya tienes delante: una fecha, una talla, una marca en la piedra.',
+      'Cada ciudad esconde una historia. Cada historia, un misterio. Recorre sus calles y rincones, descubre pistas ocultas a plena vista y resuelve los enigmas que lo destapan.',
     hero_cta: 'Elige tu ciudad',
 
     // Portada — cómo funciona
@@ -183,7 +183,7 @@ export const DICT = {
     hero_eyebrow: 'Outdoor urban escape rooms',
     hero_title: 'Follow the vestiges.',
     hero_subtitle:
-      "Puzzle trails through the historic centre of great cities. Every clue is hidden in something already in front of you: a date, a carving, a mark in the stone.",
+      'Every city hides a story. Every story, a mystery. Walk its streets and corners, find clues hidden in plain sight, and solve the puzzles that uncover it.',
     hero_cta: 'Choose your city',
 
     // Homepage — how it works
@@ -329,7 +329,7 @@ export const DICT = {
     hero_eyebrow: 'Escape games urbains en plein air',
     hero_title: 'Suivez les vestiges.',
     hero_subtitle:
-      "Des parcours d'énigmes dans le centre historique des grandes villes. Chaque indice se cache dans ce que vous avez déjà sous les yeux : une date, une sculpture, une marque dans la pierre.",
+      "Chaque ville cache une histoire. Chaque histoire, un mystère. Parcourez ses rues et ses recoins, trouvez des indices cachés à la vue de tous et résolvez les énigmes qui le révèlent.",
     hero_cta: 'Choisissez votre ville',
 
     // Accueil — comment ça marche
@@ -475,7 +475,7 @@ export const DICT = {
     hero_eyebrow: 'Escape room urbani all’aperto',
     hero_title: 'Seguite i vestigi.',
     hero_subtitle:
-      "Percorsi di enigmi nel centro storico delle grandi città. Ogni indizio è nascosto in qualcosa che avete già davanti: una data, un rilievo, un segno nella pietra.",
+      'Ogni città nasconde una storia. Ogni storia, un mistero. Percorrete le sue strade e i suoi angoli, trovate indizi nascosti in bella vista e risolvete gli enigmi che lo svelano.',
     hero_cta: 'Scegli la tua città',
 
     // Homepage — come funziona
