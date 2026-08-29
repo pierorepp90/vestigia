@@ -3,9 +3,9 @@
 // casilla de respuesta e historia seguidos, para leer la recompensa nada
 // más resolver sin saltar de página. Las pistas y "sobre este lugar" —lo
 // único que sí sería spoiler ver "sin querer" antes de intentarlo— viven en
-// una sección final agrupada por parada, que css/print.css gira 180° al
-// imprimir. Comparte token, caché y patrón de carga con js/jugar.js, pero
-// no hay estado de partida que guardar — esto es solo lectura.
+// una sección final agrupada por parada, que css/print.css arranca en su
+// propia página al imprimir. Comparte token, caché y patrón de carga con
+// js/jugar.js, pero no hay estado de partida que guardar — esto es solo lectura.
 import { obtenerRuta } from './api.js';
 import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
 import { figuraSvg } from './juego/figuras.js';

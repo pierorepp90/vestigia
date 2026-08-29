@@ -3,8 +3,8 @@
  * respuesta e historia seguidos, para leer la recompensa nada más resolver
  * sin saltar de página. Las pistas y "sobre este lugar" —lo único que sí
  * sería spoiler ver "sin querer" antes de intentarlo— viven en una sección
- * final agrupada por parada, que se imprime boca abajo (@media print): el
- * truco clásico de los libros de acertijos.
+ * final agrupada por parada, que empieza en su propia página (@media print)
+ * y va precedida de un aviso para no leerla antes de tiempo.
  */
 
 .hoja-imprimir {
@@ -169,7 +169,7 @@
   margin-bottom: 12px;
 }
 
-/* ---------- Sección de respuestas (boca abajo al imprimir) ---------- */
+/* ---------- Sección de respuestas (nueva página al imprimir) ---------- */
 .seccion-respuestas {
   margin-top: 50px;
   padding-top: 30px;
@@ -249,7 +249,6 @@
 
   .seccion-respuestas {
     break-before: page;
-    transform: rotate(180deg);
   }
 
   a {
