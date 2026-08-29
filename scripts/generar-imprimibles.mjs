@@ -6,7 +6,9 @@
 // página real —mismo HTML, mismo js/imprimir.js, mismo css/print.css— servida
 // por un servidor estático de usar y tirar; lo único que se sustituye es la
 // llamada al Worker (/api/ruta), que se responde con el JSON de contenido
-// leído de disco. Así el PDF sale idéntico al que vería un comprador.
+// leído de disco. El PDF sale como el que vería un comprador, salvo que a
+// estas copias de propietario se les añade la dificultad de la ruta entre
+// paréntesis —en el título y en el nombre de archivo— para identificarlas.
 //
 // El contenido de pago (worker/src/contenido/) no está en git: este script
 // solo funciona en la máquina que tiene esos JSON, y su salida (dist/) está
@@ -24,6 +26,8 @@ import { createReadStream } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
+import { rutaPorId } from '../js/catalogo.js';
+import { t } from '../js/i18n.js';
 
 const RAIZ = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIR_CONTENIDO = path.join(RAIZ, 'worker', 'src', 'contenido');
@@ -94,12 +98,19 @@ async function main() {
         await readFile(path.join(DIR_CONTENIDO, `${rutaId}.${IDIOMA}.json`), 'utf8'),
       );
 
+      // Copias para el propietario: la dificultad va entre paréntesis en el
+      // título y en el nombre de archivo, para localizarlas de un vistazo. La
+      // versión que descarga el comprador (jugar/imprimir.html) no lo lleva.
+      const dificultad = rutaPorId(rutaId)?.dificultad;
+      const sufijo = dificultad ? ` (${t(IDIOMA, `dificultad_${dificultad}`)})` : '';
+      const ruta = { ...contenido, titulo: `${contenido.titulo}${sufijo}` };
+
       const pagina = await navegador.newPage({ viewport: { width: 1024, height: 1400 } });
       await pagina.route('**/api/ruta*', (route) =>
         route.fulfill({
           status: 200,
           contentType: 'application/json',
-          body: JSON.stringify({ rutaId, orderId: 'preview', idiomaServido: IDIOMA, ruta: contenido }),
+          body: JSON.stringify({ rutaId, orderId: 'preview', idiomaServido: IDIOMA, ruta }),
         }),
       );
 
@@ -111,13 +122,13 @@ async function main() {
       await pagina.evaluate(() => document.fonts.ready);
 
       const figuras = await pagina.locator('#lista-paradas svg').count();
-      const salida = path.join(DIR_SALIDA, `${rutaId}.${IDIOMA}.pdf`);
+      const salida = path.join(DIR_SALIDA, `${rutaId}${sufijo}.${IDIOMA}.pdf`);
       // A4 (no US Letter) y márgenes de css/print.css (@page { margin: 18mm 16mm }).
       await pagina.pdf({ path: salida, format: 'A4', printBackground: true, preferCSSPageSize: true });
       await pagina.close();
 
       ok += 1;
-      console.log(`  ✓ ${rutaId}.${IDIOMA}.pdf  (${contenido.paradas.length} paradas, ${figuras} figuras)`);
+      console.log(`  ✓ ${path.basename(salida)}  (${ruta.paradas.length} paradas, ${figuras} figuras)`);
     }
   } finally {
     await navegador.close();
