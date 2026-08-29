@@ -342,7 +342,7 @@ export const RUTAS = [
     jugadoresMin: 1,
     jugadoresMax: 6,
     dificultad: /** @type {Dificultad} */ ('facil'),
-    numParadas: 10,
+    numParadas: 11,
     moneda: 'EUR',
     idiomas: ['es', 'en', 'fr', 'it'],
     imgHero: 'assets/img/ciudades/barcelona-born-hero.webp',
