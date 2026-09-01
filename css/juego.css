@@ -262,7 +262,10 @@
 }
 
 .input-respuesta::placeholder {
-  color: var(--j-texto-tenue);
+  /* Se juega a pleno sol: el placeholder es la única guía cuando el campo está
+     vacío, así que va casi al contraste del texto real (pero no idéntico). */
+  color: var(--j-texto);
+  opacity: 0.75;
 }
 
 .input-respuesta:focus-visible {

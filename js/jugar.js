@@ -46,6 +46,10 @@ function mostrarVista(nombre) {
   const vistas = ['vista-cargando', 'vista-error', 'vista-jugando', 'vista-revelando', 'vista-completada'];
   for (const v of vistas) els[v].hidden = v !== nombre;
   els['barra-superior'].hidden = nombre === 'vista-cargando' || nombre === 'vista-error';
+  // Cada cambio de vista trae material nuevo (enigma, "¡Correcto!", historia):
+  // se lee desde arriba, no desde donde dejó el scroll la vista anterior. Salto
+  // instantáneo porque styles.css pone scroll-behavior: smooth en <html>.
+  window.scrollTo({ top: 0, behavior: 'instant' });
 }
 
 function mostrarError(lang, mensaje) {
@@ -171,7 +175,11 @@ function renderJugando() {
   renderBarraSuperior();
   mostrarVista('vista-jugando');
   iniciarCronometro();
-  els['campos-respuesta'].querySelector('input')?.focus({ preventScroll: true });
+  // Solo con puntero real (escritorio): en móvil el foco automático abre el
+  // teclado nada más aparecer el enigma y tapa la pregunta antes de leerla.
+  if (window.matchMedia('(pointer: fine)').matches) {
+    els['campos-respuesta'].querySelector('input')?.focus({ preventScroll: true });
+  }
 }
 
 function renderRevelando(paradaCompletada) {
