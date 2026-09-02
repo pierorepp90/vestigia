@@ -1567,3 +1567,7 @@ footer {
 .votar-propuesta__form input, .votar-propuesta__form textarea {
   font: inherit; padding: .6rem .7rem; border: 1px solid #d8ccb2; border-radius: 8px; }
 .votar__gracias { font-weight: 600; color: #2e7d32; }
+
+/* Bloque de enlace a la votación (portada) */
+.bloque-votar { text-align: center; padding-block: 3rem; }
+.bloque-votar p { color: #5b4c36; margin-bottom: 1.25rem; }
