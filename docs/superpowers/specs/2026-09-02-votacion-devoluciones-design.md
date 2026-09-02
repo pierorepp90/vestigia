@@ -97,12 +97,26 @@ Opciones visibles y votables = `estado IN ('oficial','aprobada')`.
 
 ### Semilla de candidatas oficiales
 
-La migración inicial hace `INSERT` de las opciones `oficial` que decida el
-propietario (Praga ya figura en el catálogo como "próximamente" con
-`activa:false`; el resto se listan en el plan de implementación tras
-confirmarlas). Editar la lista oficial más adelante = nueva migración o
-`UPDATE`/`INSERT` manual con `wrangler d1 execute`. No lleva UI: es una
-operación rara y del propietario.
+La migración inicial hace `INSERT` de 6 opciones `oficial`:
+
+| `id` | `etiqueta` (es) |
+|---|---|
+| `praga` | Praga |
+| `amsterdam` | Ámsterdam |
+| `viena` | Viena |
+| `atenas` | Atenas |
+| `budapest` | Budapest |
+| `dublin` | Dublín |
+
+`etiqueta` guarda el JSON con los 4 idiomas (los nombres de ciudad varían
+poco: Praga/Prague/Prague/Praga, etc. — se rellenan en la propia
+migración). Praga ya figura en `js/catalogo.js` como "próximamente"
+(`activa:false`); las otras cinco son nuevas y solo existen como opción de
+voto hasta que una gane y se le prepare ruta.
+
+Editar la lista oficial más adelante = nueva migración o `UPDATE`/`INSERT`
+manual con `wrangler d1 execute`. No lleva UI: es una operación rara y del
+propietario.
 
 ## 2. Votación
 
