@@ -79,3 +79,50 @@ export async function crearAccesoGratuito(rutaId, idioma, email) {
   }
   return cuerpo; // { ok, rutaId, idioma, orderId, token }
 }
+
+/** Estado de la votación para un votante. Devuelve
+ *  { opciones:[{id,etiqueta,votos?}], estadoVotante, miVoto }. */
+export async function obtenerVotacion(votante) {
+  const url = new URL('/api/votacion', API_BASE_URL);
+  url.searchParams.set('votante', votante);
+  const respuesta = await fetch(url);
+  const cuerpo = await respuesta.json().catch(() => ({}));
+  if (!respuesta.ok) throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+  return cuerpo;
+}
+
+export async function emitirVoto(opcionId, votante) {
+  const respuesta = await fetch(new URL('/api/votacion/voto', API_BASE_URL), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ opcionId, votante }),
+  });
+  const cuerpo = await respuesta.json().catch(() => ({}));
+  if (!respuesta.ok) throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+  return cuerpo;
+}
+
+export async function enviarPropuesta({ ciudad, nota, email, votante }) {
+  const respuesta = await fetch(new URL('/api/votacion/propuesta', API_BASE_URL), {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ciudad, nota, email, votante }),
+  });
+  const cuerpo = await respuesta.json().catch(() => ({}));
+  if (!respuesta.ok) throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+  return cuerpo;
+}
+
+/** Envía una devolución. Requiere el token de acceso de la partida. */
+export async function enviarDevolucion(token, { rutaId, valoracion, categoria, texto, email }) {
+  const url = new URL('/api/devolucion', API_BASE_URL);
+  url.searchParams.set('t', token);
+  const respuesta = await fetch(url, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ rutaId, valoracion, categoria, texto, email }),
+  });
+  const cuerpo = await respuesta.json().catch(() => ({}));
+  if (!respuesta.ok) throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+  return cuerpo;
+}
