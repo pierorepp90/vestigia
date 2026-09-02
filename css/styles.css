@@ -1548,3 +1548,22 @@ footer {
     grid-template-columns: 1fr;
   }
 }
+
+/* Página de votación (/votar) */
+.votar { max-width: 640px; padding-block: 2.5rem 4rem; }
+.votar__subtitulo { color: var(--tinta-suave, #5b4c36); margin-bottom: 2rem; }
+.votar__cargando { display: flex; align-items: center; gap: .75rem; }
+.votar__error { color: #9c2b1f; }
+.votar-lista { list-style: none; padding: 0; margin: 0 0 2.5rem; display: grid; gap: .6rem; }
+.votar-opcion { display: flex; align-items: center; gap: 1rem; padding: .85rem 1rem;
+  border: 1px solid #e0d5bd; border-radius: 10px; background: #fffdf7; }
+.votar-opcion__nombre { font-weight: 600; flex: 1; }
+.votar-opcion__barra { position: relative; height: 8px; border-radius: 999px; background: #ece1c8; overflow: hidden; }
+.votar-opcion__relleno { position: absolute; inset: 0 auto 0 0; background: #9c2b1f; }
+.votar-opcion__votos { font-variant-numeric: tabular-nums; color: #5b4c36; min-width: 3ch; text-align: right; }
+.votar-opcion--mio { border-color: #9c2b1f; box-shadow: 0 0 0 1px #9c2b1f inset; }
+.votar-propuesta__form { display: grid; gap: 1rem; margin-top: 1rem; }
+.votar-propuesta__form label { display: grid; gap: .3rem; font-size: .9rem; }
+.votar-propuesta__form input, .votar-propuesta__form textarea {
+  font: inherit; padding: .6rem .7rem; border: 1px solid #d8ccb2; border-radius: 8px; }
+.votar__gracias { font-weight: 600; color: #2e7d32; }

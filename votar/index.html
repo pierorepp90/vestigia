@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vota la próxima ciudad — Vestigia</title>
+<meta name="description" content="Vota qué ciudad tendrá el próximo recorrido de Vestigia, o propón una nueva.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f4ead0' stroke='%239c2b1f' stroke-width='5'/%3E%3Cpath d='M50 14 L60 45 L50 86 L40 45 Z' fill='%239c2b1f'/%3E%3Cpath d='M14 50 L45 40 L86 50 L45 60 Z' fill='%23241a10' opacity='0.65'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+
+<header class="cabecera">
+  <div class="contenedor">
+    <a class="marca" href="../index.html" aria-label="Vestigia — inicio">
+      <svg class="marca__icono" viewBox="0 0 100 100" aria-hidden="true">
+        <circle cx="50" cy="50" r="44" fill="none" stroke="currentColor" stroke-width="2.5"/>
+        <circle cx="50" cy="50" r="3" fill="currentColor"/>
+        <path d="M50 10 L58 42 L50 50 L42 42 Z" fill="currentColor"/>
+        <path d="M50 90 L58 58 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M10 50 L42 42 L50 50 L42 58 Z" fill="currentColor" opacity="0.35"/>
+        <path d="M90 50 L58 58 L50 50 L58 42 Z" fill="currentColor" opacity="0.35"/>
+      </svg>
+      <span class="marca__texto"><span class="marca__nombre">Vestigia</span></span>
+    </a>
+  </div>
+</header>
+
+<main class="contenedor votar">
+  <h1 class="votar__titulo" data-i18n="votar_titulo">Vota la próxima ciudad</h1>
+  <p class="votar__subtitulo" data-i18n="votar_subtitulo"></p>
+
+  <section id="votar-cargando" class="votar__cargando">
+    <div class="girando" role="status" aria-label="Cargando"></div>
+    <p data-i18n="votar_cargando"></p>
+  </section>
+
+  <p id="votar-error" class="votar__error" hidden></p>
+
+  <ul id="votar-lista" class="votar-lista" hidden></ul>
+
+  <p id="votar-gracias" class="votar__gracias" data-i18n="votar_gracias" hidden></p>
+
+  <section id="votar-propuesta" class="votar-propuesta" hidden>
+    <h2 data-i18n="votar_propuesta_titulo"></h2>
+    <p data-i18n="votar_propuesta_texto"></p>
+    <form id="form-propuesta" class="votar-propuesta__form">
+      <label>
+        <span data-i18n="votar_propuesta_ciudad_label"></span>
+        <input name="ciudad" type="text" maxlength="120" required
+               data-i18n-attr="placeholder:votar_propuesta_ciudad_ph">
+      </label>
+      <label>
+        <span data-i18n="votar_propuesta_nota_label"></span>
+        <textarea name="nota" maxlength="500" rows="2"
+                  data-i18n-attr="placeholder:votar_propuesta_nota_ph"></textarea>
+      </label>
+      <label>
+        <span data-i18n="votar_propuesta_email_label"></span>
+        <input name="email" type="email" maxlength="254"
+               data-i18n-attr="placeholder:votar_propuesta_email_ph">
+      </label>
+      <button type="submit" class="btn btn-lacre" data-i18n="votar_propuesta_btn"></button>
+    </form>
+  </section>
+
+  <p id="votar-propuesta-ok" class="votar__gracias" data-i18n="votar_propuesta_enviada" hidden></p>
+</main>
+
+<script type="module" src="../js/votar.js"></script>
+</body>
+</html>
