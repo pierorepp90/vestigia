@@ -1,7 +1,15 @@
 // worker/tests/resend.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildOwnerEmail, buildCustomerEmail, sendEmail, emailValidoBasico } from '../src/resend.js';
+import { buildOwnerEmail, buildCustomerEmail, sendEmail, emailValidoBasico, buildAvisoOwner } from '../src/resend.js';
+
+test('buildAvisoOwner arma un email al owner con el texto escapado', () => {
+  const email = buildAvisoOwner('Sesión cs_test_1 con importe <raro>', 'owner@example.com');
+  assert.deepEqual(email.to, ['owner@example.com']);
+  assert.match(email.subject, /Vestigia/);
+  assert.ok(!email.html.includes('<raro>'));
+  assert.match(email.html, /&lt;raro&gt;/);
+});
 
 test('buildOwnerEmail incluye ruta, pedido, email del cliente e importe', () => {
   const email = buildOwnerEmail(

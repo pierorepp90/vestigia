@@ -3,8 +3,8 @@ import { buildCorsHeaders } from './cors.js';
 import { firmarToken, verificarToken } from './acceso.js';
 import { cargarContenido } from './contenido.js';
 import { precioDeRuta } from './precios.js';
-import { buildCheckoutSessionParams, createStripeSession, parseSessionPaymentStatus, pedidoDesdeSession, retrieveStripeSession } from './stripe.js';
-import { buildCustomerEmail, buildOwnerEmail, emailValidoBasico, sendEmail } from './resend.js';
+import { buildCheckoutSessionParams, createStripeSession, parseSessionPaymentStatus, pedidoDesdeSession, retrieveStripeSession, validarSesionPagada, sesionReembolsada } from './stripe.js';
+import { buildAvisoOwner, buildCustomerEmail, buildOwnerEmail, emailValidoBasico, sendEmail } from './resend.js';
 import { consumirCupo } from './throttle.js';
 import { entradaValida, leerJsonAcotado } from './entrada.js';
 import { debeEnviarEmails, marcarCumplido } from './cumplimiento.js';
@@ -116,6 +116,22 @@ async function handleConfirmarPago(url, env, cors, ip) {
 
   const pedido = pedidoDesdeSession(session);
   const precio = precioDeRuta(pedido.rutaId);
+
+  if (!validarSesionPagada(session, precio)) {
+    console.error('pago_incoherente', sessionId, session.amount_total, session.currency, pedido.rutaId);
+    try {
+      await sendEmail(buildAvisoOwner(`Sesión ${sessionId} pagada con importe/moneda/ruta inesperados`, env.OWNER_EMAIL), env.RESEND_API_KEY);
+    } catch (e) {
+      console.error('aviso_owner_fallo', String(e));
+    }
+    return Response.json({ error: 'La sesión de pago no es válida' }, { status: 500, headers: cors });
+  }
+  if (sesionReembolsada(session)) {
+    console.log(JSON.stringify({ evento: 'acceso_denegado_reembolso', orderId: pedido.orderId }));
+    return Response.json({ error: 'Este pedido ha sido reembolsado' }, { status: 403, headers: cors });
+  }
+  console.log(JSON.stringify({ evento: 'pago_validado', orderId: pedido.orderId, rutaId: pedido.rutaId }));
+
   const token = await firmarToken({ rutaId: pedido.rutaId, orderId: pedido.orderId }, env.TOKEN_SECRET);
   const tituloRuta = localizar(rutaPorId(pedido.rutaId)?.titulo, pedido.idioma);
 

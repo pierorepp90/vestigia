@@ -135,6 +135,17 @@ function enlaceImprimir(siteUrl, rutaId, token, idioma) {
   return url.toString();
 }
 
+/** Email de aviso al owner para incidencias que requieren revisión manual
+ *  (p. ej. una sesión pagada con un importe inesperado). */
+export function buildAvisoOwner(texto, ownerEmail) {
+  return {
+    from: FROM_ADDRESS,
+    to: [ownerEmail],
+    subject: 'Vestigia: revisión manual',
+    html: `<p>${escapeHtml(texto)}</p>`,
+  };
+}
+
 export function buildOwnerEmail({ rutaId, orderId, email, importe }, ownerEmail) {
   return {
     from: FROM_ADDRESS,
