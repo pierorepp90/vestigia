@@ -139,6 +139,9 @@ export async function handleEnviarPropuesta(request, env, cors, ip, db = dbPorDe
   }
 
   const ipHash = await hashIp(ip, env.IP_SALT);
+  if ((await db.propuestasPendientesDeIp(env, ipHash)) >= 1) {
+    return jsonRes({ error: 'Ya tienes una propuesta en revisión' }, cors, 429);
+  }
 
   await db.crearPropuestaConVoto(env, {
     opcionId: slugPropuesta(ciudadLimpia),

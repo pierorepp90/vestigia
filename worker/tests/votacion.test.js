@@ -158,6 +158,17 @@ test('POST propuesta: ciudad vacía o demasiado larga → 400', async () => {
   assert.equal(res2.status, 400);
 });
 
+test('POST propuesta: 2ª propuesta pendiente desde la misma IP → 429', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const ipHash = await hashIp('7.7.7.7', 'sal');
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'previa', etiquetaJson: '{"es":"Previa"}', email: null, nota: null, votante: 'otro', ipHash, ahora: 1 });
+  const res = await handleEnviarPropuesta(
+    req('/api/votacion/propuesta', { body: { ciudad: 'Oporto', votante: 'nuevo' } }),
+    ENV2(DB, []), CORS, '7.7.7.7', dbReal,
+  );
+  assert.equal(res.status, 429);
+});
+
 test('POST propuesta: si falla el envío de email, la propuesta ya guardada no se pierde y responde ok', async () => {
   const DB = crearD1Falsa(SEMILLA);
   const erroresOrig = console.error;

@@ -85,6 +85,17 @@ export async function propuestaPendienteDeVotante({ DB }, votante) {
   ).bind(votante).first();
 }
 
+/** Nº de propuestas todavía en revisión (voto `en_espera`) de este hash de IP.
+ *  Defensa extra frente a email-bombing que sobrevive a una caída del throttle
+ *  de KV. */
+export async function propuestasPendientesDeIp({ DB }, ipHash) {
+  const fila = await DB.prepare(
+    `/* tag:propuestas_pendientes_de_ip */
+     SELECT COUNT(*) AS n FROM votos WHERE ip_hash = ? AND estado = 'en_espera'`,
+  ).bind(ipHash).first();
+  return Number(fila?.n || 0);
+}
+
 export async function listarPropuestasPendientes({ DB }) {
   const { results } = await DB.prepare(
     `/* tag:propuestas_pendientes */

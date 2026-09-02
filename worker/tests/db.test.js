@@ -5,6 +5,7 @@ import { crearD1Falsa } from './helpers/fake-d1.js';
 import {
   listarOpcionesVotables, recuentoVotos, votoDeVotante, opcionPorId, votosConMismaIp,
   registrarVoto, crearPropuestaConVoto, listarPropuestasPendientes, aprobarPropuesta, rechazarPropuesta,
+  propuestasPendientesDeIp,
 } from '../src/db.js';
 
 const SEMILLA = {
@@ -92,4 +93,13 @@ test('listarPropuestasPendientes devuelve las pendientes con sus metadatos', asy
   assert.equal(pend.length, 1);
   assert.equal(pend[0].id, 'oporto');
   assert.equal(pend[0].propuesta_email, 'a@b.com');
+});
+
+test('propuestasPendientesDeIp cuenta los votos en espera de esa ip', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await crearPropuestaConVoto({ DB }, { opcionId: 'a', etiquetaJson: '{"es":"A"}', email: null, nota: null, votante: 'u1', ipHash: 'ip-x', ahora: 1 });
+  assert.equal(await propuestasPendientesDeIp({ DB }, 'ip-x'), 1);
+  assert.equal(await propuestasPendientesDeIp({ DB }, 'ip-otra'), 0);
+  await aprobarPropuesta({ DB }, 'a');
+  assert.equal(await propuestasPendientesDeIp({ DB }, 'ip-x'), 0);
 });

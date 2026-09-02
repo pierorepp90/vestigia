@@ -66,6 +66,14 @@ export function crearD1Falsa(inicial = {}) {
             .filter((o) => o.estado === 'pendiente')
             .map((o) => ({ id: o.id, etiqueta: o.etiqueta, propuesta_email: o.propuesta_email, nota: o.nota, creada_en: o.creada_en })),
         };
+      case 'propuestas_pendientes_de_ip':
+        return {
+          first: {
+            n: tablas.votos.filter(
+              (v) => v.ip_hash === args[0] && v.estado === 'en_espera',
+            ).length,
+          },
+        };
       case 'actualizar_estado_opcion': {
         const o = tablas.voto_opciones.find((x) => x.id === args[1]);
         if (o) o.estado = args[0];
