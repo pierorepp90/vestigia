@@ -13,6 +13,14 @@ SITE_URL = "https://vestigia.fun"
 ALLOWED_ORIGIN = "https://vestigia.fun"
 OWNER_EMAIL = "pierorepp90@gmail.com"
 
+# Rate limiting: cubo por IP+acción (worker/src/throttle.js) y marca de
+# "pedido cumplido" para no reenviar emails (worker/src/cumplimiento.js).
+# Falla en abierto: si el binding no está, el Worker sigue funcionando.
+[[kv_namespaces]]
+binding = "KV"
+id = "210551e0eede45ed9b80c1cc358c85ad"
+preview_id = "818a61a4540e42a7be4919380625fdd7"
+
 # Secretos (NUNCA en este archivo — se versiona en git). Configurar con:
 #   wrangler secret put TOKEN_SECRET
 #   wrangler secret put STRIPE_SECRET_KEY
