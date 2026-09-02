@@ -19,6 +19,23 @@
 - Todo el trabajo va a `master` (el proyecto no usa ramas para esto — ver historial de `docs/superpowers/`).
 - No tocar `worker/src/contenido/*.json` (contenido de pago, gitignore).
 
+### Coordinación con el endurecimiento de seguridad
+
+Existe un plan paralelo aprobado el mismo día
+(`docs/superpowers/plans/2026-09-02-vestigia-endurecimiento-seguridad.md`)
+que adopta Workers **KV** (`worker/src/throttle.js` para rate limit por
+IP+acción; idempotencia) y añade `v: 1` al token de acceso.
+
+- Si ese plan **ya está implementado** cuando empieces este: en Task B3 y
+  Task D3, envuelve `/api/votacion/propuesta` y `/api/devolucion` con el
+  `throttle.js` existente (propuesta 2/hora por IP, devolución 5/hora por
+  IP) en lugar de —o además de— el guard por `ip_hash` de Task B3b.
+- Si **no** está implementado: sigue este plan tal cual (el guard por
+  `ip_hash` de Task B3b cubre el vector de email-bombing de la propuesta).
+- En ambos casos, al enrutar en Task B6 revisa que no pisas rutas ni
+  cambias `cors.js` de forma incompatible con lo que haya hecho el otro
+  plan; reconcilia a mano el router de `worker/src/index.js` si hace falta.
+
 ## Mapa de archivos
 
 ### Worker — nuevos
@@ -1062,6 +1079,102 @@ Expected: PASS — resend con los 2 tests nuevos; votacion con 11 tests.
 ```bash
 git add worker/src/votacion.js worker/src/resend.js worker/tests/votacion.test.js worker/tests/resend.test.js
 git commit -m "$(printf 'Votacion: handleEnviarPropuesta + email de propuesta al propietario\n\nCola moderada: la propuesta entra como opcion pendiente + voto en\nespera; se avisa por Resend con enlace al panel de moderacion.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>')"
+```
+
+---
+
+### Task B3b: Guard por IP en las propuestas (vector de email-bombing)
+
+**Files:**
+- Modify: `worker/src/db.js`
+- Modify: `worker/src/votacion.js`
+- Modify: `worker/tests/helpers/fake-d1.js`
+- Modify: `worker/tests/db.test.js`, `worker/tests/votacion.test.js`
+
+> Si el plan de endurecimiento de seguridad ya está implementado, **omite
+> esta task** y en su lugar envuelve `handleEnviarPropuesta` con
+> `worker/src/throttle.js` (2/hora por IP). Ver "Coordinación" arriba.
+
+- [ ] **Step 1: Test de `db.js`**
+
+Añadir a `worker/tests/db.test.js` (import `propuestasPendientesDeIp`):
+```js
+test('propuestasPendientesDeIp cuenta opciones pendientes cuyo voto en espera es de esa ip', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await crearPropuestaConVoto({ DB }, { opcionId: 'a', etiquetaJson: '{"es":"A"}', email: null, nota: null, votante: 'u1', ipHash: 'ip-x', ahora: 1 });
+  assert.equal(await propuestasPendientesDeIp({ DB }, 'ip-x'), 1);
+  assert.equal(await propuestasPendientesDeIp({ DB }, 'ip-otra'), 0);
+});
+```
+
+- [ ] **Step 2: Añadir la etiqueta al fake-d1**
+
+En `worker/tests/helpers/fake-d1.js`, añadir un `case` en `ejecutar`:
+```js
+      case 'propuestas_pendientes_de_ip':
+        return {
+          first: {
+            n: tablas.votos.filter(
+              (v) => v.ip_hash === args[0] && v.estado === 'en_espera',
+            ).length,
+          },
+        };
+```
+
+- [ ] **Step 3: Ejecutar y ver fallar**
+
+Run: `node --test worker/tests/db.test.js`
+Expected: FAIL — `propuestasPendientesDeIp` no exportado.
+
+- [ ] **Step 4: Implementar en `db.js`**
+
+```js
+export async function propuestasPendientesDeIp({ DB }, ipHash) {
+  const fila = await DB.prepare(
+    `/* tag:propuestas_pendientes_de_ip */
+     SELECT COUNT(*) AS n FROM votos WHERE ip_hash = ? AND estado = 'en_espera'`,
+  ).bind(ipHash).first();
+  return Number(fila?.n || 0);
+}
+```
+
+- [ ] **Step 5: Test del handler**
+
+Añadir a `worker/tests/votacion.test.js`:
+```js
+test('POST propuesta: 2ª propuesta pendiente desde la misma IP → 429', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const { hashIp } = await import('../src/hash.js');
+  const ipHash = await hashIp('7.7.7.7', 'sal');
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'previa', etiquetaJson: '{"es":"Previa"}', email: null, nota: null, votante: 'otro', ipHash, ahora: 1 });
+  const res = await handleEnviarPropuesta(
+    req('/api/votacion/propuesta', { body: { ciudad: 'Oporto', votante: 'nuevo' }, headers: { 'cf-connecting-ip': '7.7.7.7' } }),
+    ENV2(DB, []), CORS, dbReal,
+  );
+  assert.equal(res.status, 429);
+});
+```
+
+- [ ] **Step 6: Añadir el guard en `handleEnviarPropuesta`**
+
+En `worker/src/votacion.js`, en `handleEnviarPropuesta`, tras calcular `ipHash` y antes de `db.crearPropuestaConVoto`:
+```js
+  if ((await db.propuestasPendientesDeIp(env, ipHash)) >= 1) {
+    return jsonRes({ error: 'Ya tienes una propuesta en revisión' }, cors, 429);
+  }
+```
+(Mover el cálculo de `const ipHash = await hashIp(...)` por encima de este check si hace falta.)
+
+- [ ] **Step 7: Ejecutar y ver pasar**
+
+Run: `node --test worker/tests/db.test.js worker/tests/votacion.test.js`
+Expected: PASS.
+
+- [ ] **Step 8: Commit**
+
+```bash
+git add worker/src/db.js worker/src/votacion.js worker/tests/
+git commit -m "$(printf 'Votacion: maximo 1 propuesta pendiente por IP (anti email-bombing)\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>')"
 ```
 
 ---
@@ -2835,7 +2948,8 @@ git commit -m "$(printf 'Docs: README cubre D1, migraciones y secretos de votaci
 - §2 página `/votar` runtime i18n, 3 estados, identidad UUID, reconciliación → C3, C4. ✓ (la reconciliación la da el servidor devolviendo `sin_voto` cuando ya no hay fila `en_espera` tras un rechazo — cubierto por `estadoDesdeVoto` + `rechazarPropuesta` que borra el voto).
 - §2 endpoints (recuentos solo tras votar; voto con dedup+IP; propuesta) → B1, B2, B3. ✓
 - §3 moderación `/admin/votos.html` + bearer + endpoints → B5, C6. ✓
-- §3 anti-abuso: una propuesta pendiente por votante → B3 (`votoDeVotante` bloquea si ya hay voto o propuesta). ✓ Límites de longitud → B3. ✓
+- §3 anti-abuso: una propuesta pendiente por votante → B3 (`votoDeVotante` bloquea si ya hay voto o propuesta); una por IP → B3b. ✓ Límites de longitud → B3. ✓
+- §8 coordinación con el endurecimiento de seguridad (throttle KV, token `v:1`, email-bombing de propuesta/devolución) → nota "Coordinación" + B3b + avisos en B6/D3. ✓
 - §4 devolución en `vista-completada`, estrellas+categoría+texto+email, marca en progreso → D4, D5, D6. ✓
 - §4 endpoint exige token, saca orderId, valida, guarda + email → D3. ✓
 - §5 archivos nuevos/tocados → cubiertos en sus fases. ✓

@@ -295,6 +295,27 @@ ADMIN_SECRET` e `IP_SALT` → `wrangler deploy` → publicar el sitio estático
 con las páginas nuevas. Documentar en el README junto al resto de la
 puesta en marcha del Worker.
 
+## 8. Coordinación con el endurecimiento de seguridad del Worker
+
+El mismo día se aprobó
+`docs/superpowers/specs/2026-09-02-vestigia-endurecimiento-seguridad-design.md`,
+que adopta Workers **KV** para un cubo de rate limit por IP+acción
+(`worker/src/throttle.js`) e idempotencia, y añade `v: 1` al token de
+acceso. Puntos de contacto:
+
+- **`/api/votacion/propuesta` y `/api/devolucion` envían email al
+  propietario** → son el mismo vector de email-bombing que motivó aquella
+  revisión. Cuando `worker/src/throttle.js` exista, estos dos endpoints
+  deben pasar por él (p. ej. `propuesta` 2/hora por IP, `devolucion`
+  5/hora por IP). Hasta entonces, `/api/votacion/propuesta` lleva un guard
+  propio: máximo 1 propuesta `pendiente` por `ip_hash` (además del límite
+  por `votante`).
+- **`/api/devolucion` usa `verificarToken`**: compatible con el token
+  `v: 1` mientras `verificarToken` siga devolviendo `{ rutaId, orderId }`.
+- Si ambos trabajos se implementan en paralelo, hacer primero el de
+  seguridad o reconciliar a mano el router de `worker/src/index.js` y el
+  `Access-Control-Allow-Headers` de `cors.js`.
+
 ## Alternativas consideradas
 
 - **Workers KV** en vez de D1: contar votos con concurrencia y listar
