@@ -19,22 +19,49 @@
 - Todo el trabajo va a `master` (el proyecto no usa ramas para esto — ver historial de `docs/superpowers/`).
 - No tocar `worker/src/contenido/*.json` (contenido de pago, gitignore).
 
-### Coordinación con el endurecimiento de seguridad
+### Infraestructura de seguridad YA presente en `master` (leer antes de la Fase B)
 
-Existe un plan paralelo aprobado el mismo día
-(`docs/superpowers/plans/2026-09-02-vestigia-endurecimiento-seguridad.md`)
-que adopta Workers **KV** (`worker/src/throttle.js` para rate limit por
-IP+acción; idempotencia) y añade `v: 1` al token de acceso.
+El plan de endurecimiento de seguridad **ya está implementado y desplegado**
+(commits `eac8c39`…`47a8c6f`). El Worker actual trae:
 
-- Si ese plan **ya está implementado** cuando empieces este: en Task B3 y
-  Task D3, envuelve `/api/votacion/propuesta` y `/api/devolucion` con el
-  `throttle.js` existente (propuesta 2/hora por IP, devolución 5/hora por
-  IP) en lugar de —o además de— el guard por `ip_hash` de Task B3b.
-- Si **no** está implementado: sigue este plan tal cual (el guard por
-  `ip_hash` de Task B3b cubre el vector de email-bombing de la propuesta).
-- En ambos casos, al enrutar en Task B6 revisa que no pisas rutas ni
-  cambias `cors.js` de forma incompatible con lo que haya hecho el otro
-  plan; reconcilia a mano el router de `worker/src/index.js` si hace falta.
+- **`worker/src/throttle.js`** → `consumirCupo(kv, { ip, accion, limite, ventanaSegundos })`
+  → `{ permitido, reintentarEn }`. **Falla en abierto**: sin `kv` o sin `ip`
+  devuelve `{ permitido: true }`, así los tests que no pasan `env.KV` lo
+  ignoran sin más.
+- **`worker/src/entrada.js`** → `leerJsonAcotado(request, maxBytes=2048)`
+  → `{ datos }` o `{ error, status }`; y `entradaValida({ rutaId, idioma })`.
+- **`wrangler.toml`** ya tiene el binding `[[kv_namespaces]]` `KV` (además
+  del `[[d1_databases]]` `DB` que añadió la Task A1).
+- El router de `index.js` calcula `const ip = request.headers.get('CF-Connecting-IP') || '';`
+  **una vez** en `fetch` y lo pasa como argumento a cada handler POST.
+- Los handlers existentes llaman a `leerJsonAcotado` y `consumirCupo`
+  **dentro** del propio handler; las respuestas 429 llevan
+  `Retry-After: String(cupo.reintentarEn)`.
+- El token de acceso lleva `v: 1`; `verificarToken` sigue devolviendo
+  `{ v, rutaId, orderId, exp }` — el código de devoluciones que lee
+  `payload.rutaId` / `payload.orderId` no cambia.
+- `resend.js` exporta `emailValidoBasico`, `sendEmail`, `buildAvisoOwner`,
+  `buildOwnerEmail`, `buildCustomerEmail`; `escapeHtml` y `FROM_ADDRESS`
+  son internos del módulo (las funciones nuevas de B4/D2 los usan desde
+  dentro del mismo archivo).
+
+**Consecuencias para este plan** (ya incorporadas a las tasks de abajo):
+
+1. Los handlers nuevos siguen el mismo patrón: firma
+   `handleX(request, env, cors, ip, db = dbPorDefecto)` (los GET sin `ip`),
+   leen el body con `leerJsonAcotado`, y los que mandan email pasan por
+   `consumirCupo`.
+2. `/api/votacion/voto` → `consumirCupo` `accion: 'voto'`, `limite: 20`.
+   `/api/votacion/propuesta` → `accion: 'propuesta'`, `limite: 3`.
+   `/api/devolucion` → `accion: 'devolucion'`, `limite: 5`. Ventana 900 s
+   (`const VENTANA_THROTTLE = 900` ya existe en `index.js`).
+3. La Task **B3b** (guard por IP en D1) se mantiene como defensa extra que
+   sobrevive a una caída de KV, pero simplificada.
+4. Al enrutar (Task B6) **NO** reescribas los handlers existentes ni el
+   cálculo de `ip`; solo añade los `if` de las rutas nuevas y el header
+   `Authorization` en `cors.js`.
+5. Task A4 (nueva) recoge los "follow-ups" de la revisión de calidad de la
+   Fase A antes de que los handlers dependan de `db.js`.
 
 ## Mapa de archivos
 
@@ -614,7 +641,274 @@ git commit -m "$(printf 'Worker: hashIp — hash SHA-256 de IP+sal para deduplic
 
 ---
 
+### Task A4: Follow-ups de la revisión de calidad de la Fase A
+
+La revisión de calidad de la Fase A pidió, antes de que los handlers dependan
+de `db.js`: (1) `CHECK` en las columnas enum; (2) mutaciones compuestas
+atómicas con `env.DB.batch()`; (3) un smoke test con SQL real; (4)
+`rechazarPropuesta` que no deje votos huérfanos; (5) `hashIp` que falle si
+falta la sal. La migración `0001` **nunca se ha aplicado en remoto**, así que
+se puede editar y recrear la D1 local.
+
+**Files:**
+- Modify: `worker/migrations/0001_votacion_devoluciones.sql`
+- Modify: `worker/src/db.js`, `worker/src/hash.js`
+- Modify: `worker/tests/helpers/fake-d1.js`, `worker/tests/hash.test.js`, `worker/tests/db.test.js`
+- Create: `worker/tests/db-sqlite.test.js`
+- Modify: `worker/package.json` (script `test:sqlite` si hace falta el flag)
+
+- [ ] **Step 1: `CHECK` y comentarios en `0001`**
+
+En `worker/migrations/0001_votacion_devoluciones.sql`:
+- `voto_opciones.estado` → `TEXT NOT NULL CHECK (estado IN ('oficial','aprobada','pendiente','rechazada'))`
+- `voto_opciones.creada_en` → añadir `-- epoch ms` al comentario
+- `votos.estado` → `TEXT NOT NULL CHECK (estado IN ('activo','en_espera'))`
+- `votos.creado_en` → `-- epoch ms`
+- `devoluciones.valoracion` → `INTEGER NOT NULL CHECK (valoracion BETWEEN 1 AND 5)`
+- `devoluciones.categoria` → `TEXT NOT NULL CHECK (categoria IN ('enigmas','dificultad','recorrido','error','precio','otro'))`
+- `devoluciones.creado_en` → `-- epoch ms`
+
+- [ ] **Step 2: `db.js` — `batch()` en las mutaciones compuestas**
+
+Reescribir estas tres funciones para usar `DB.batch([...])` (una sola
+transacción implícita en D1). `rechazarPropuesta` borra **todos** los votos
+de la opción, no solo los `en_espera`, para no dejar un voto `activo`
+huérfano si la opción se aprobó y luego se rechaza:
+
+```js
+export async function crearPropuestaConVoto({ DB }, { opcionId, etiquetaJson, email, nota, votante, ipHash, ahora }) {
+  await DB.batch([
+    DB.prepare(
+      `/* tag:insertar_opcion */
+       INSERT INTO voto_opciones (id, etiqueta, estado, propuesta_email, nota, creada_en)
+       VALUES (?, ?, ?, ?, ?, ?)`,
+    ).bind(opcionId, etiquetaJson, 'pendiente', email, nota, ahora),
+    DB.prepare(
+      `/* tag:insertar_voto */
+       INSERT INTO votos (opcion_id, votante, ip_hash, estado, creado_en)
+       VALUES (?, ?, ?, ?, ?)`,
+    ).bind(opcionId, votante, ipHash, 'en_espera', ahora),
+  ]);
+}
+
+export async function aprobarPropuesta({ DB }, opcionId) {
+  await DB.batch([
+    DB.prepare(
+      `/* tag:actualizar_estado_opcion */
+       UPDATE voto_opciones SET estado = ? WHERE id = ?`,
+    ).bind('aprobada', opcionId),
+    DB.prepare(
+      `/* tag:activar_voto_en_espera */
+       UPDATE votos SET estado = 'activo' WHERE opcion_id = ? AND estado = 'en_espera'`,
+    ).bind(opcionId),
+  ]);
+}
+
+export async function rechazarPropuesta({ DB }, opcionId) {
+  await DB.batch([
+    DB.prepare(
+      `/* tag:actualizar_estado_opcion */
+       UPDATE voto_opciones SET estado = ? WHERE id = ?`,
+    ).bind('rechazada', opcionId),
+    DB.prepare(
+      `/* tag:borrar_votos_de_opcion */
+       DELETE FROM votos WHERE opcion_id = ?`,
+    ).bind(opcionId),
+  ]);
+}
+```
+
+(La etiqueta `borrar_voto_en_espera` pasa a `borrar_votos_de_opcion`.)
+
+- [ ] **Step 3: `fake-d1.js` — soportar `batch()` y la etiqueta nueva**
+
+En `crearD1Falsa`, añadir al objeto `DB`:
+```js
+    async batch(stmts) {
+      const salida = [];
+      for (const s of stmts) salida.push(await s.run());
+      return salida;
+    },
+```
+Y en `ejecutar`, renombrar el `case 'borrar_voto_en_espera'` a
+`case 'borrar_votos_de_opcion'` cambiando el filtro a
+`tablas.votos = tablas.votos.filter((v) => v.opcion_id !== args[0]);`.
+(El `case 'activar_voto_en_espera'` y `'insertar_opcion'`/`'insertar_voto'`
+no cambian: `batch` los invoca vía `s.run()`.)
+
+- [ ] **Step 4: `hashIp` — exigir sal**
+
+En `worker/src/hash.js`:
+```js
+export async function hashIp(ip, sal) {
+  if (!sal) throw new Error('hashIp requiere una sal (env.IP_SALT)');
+  const datos = new TextEncoder().encode(`${sal}:${ip || ''}`);
+  const buffer = await crypto.subtle.digest('SHA-256', datos);
+  return [...new Uint8Array(buffer)].map((b) => b.toString(16).padStart(2, '0')).join('');
+}
+```
+Añadir a `worker/tests/hash.test.js`:
+```js
+test('hashIp lanza si falta la sal', async () => {
+  await assert.rejects(() => hashIp('1.2.3.4', ''));
+  await assert.rejects(() => hashIp('1.2.3.4', undefined));
+});
+```
+
+- [ ] **Step 5: Smoke test con SQL real (`worker/tests/db-sqlite.test.js`)**
+
+Corre la migración `0001` real en una BD `node:sqlite` en memoria y ejecuta
+las funciones reales de `db.js` a través de un adaptador que expone la misma
+API que D1 (`prepare().bind().first()/all()/run()` + `batch()`). Si
+`node:sqlite` no está disponible en el runtime, el test se **salta** (no
+rompe la suite).
+
+```js
+// worker/tests/db-sqlite.test.js
+//
+// Comprobación de que las consultas de db.js son SQL válido contra el
+// esquema real de la migración (no solo contra el doble de fake-d1.js).
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
+import * as db from '../src/db.js';
+
+let DatabaseSync;
+try { ({ DatabaseSync } = await import('node:sqlite')); } catch { /* runtime sin node:sqlite */ }
+
+const AQUI = path.dirname(fileURLToPath(import.meta.url));
+const SQL = readFileSync(path.join(AQUI, '../migrations/0001_votacion_devoluciones.sql'), 'utf8');
+
+/** Adaptador node:sqlite → API de D1 usada por db.js. */
+function d1(sdb) {
+  const mk = (sql) => {
+    let params = [];
+    const s = {
+      bind(...p) { params = p; return s; },
+      async first(col) {
+        const row = sdb.prepare(sql).get(...params) ?? null;
+        return col && row ? row[col] : row;
+      },
+      async all() { return { results: sdb.prepare(sql).all(...params), success: true }; },
+      async run() {
+        const r = sdb.prepare(sql).run(...params);
+        return { success: true, meta: { changes: r.changes, last_row_id: Number(r.lastInsertRowid) } };
+      },
+    };
+    return s;
+  };
+  return {
+    prepare: mk,
+    async batch(stmts) {
+      sdb.exec('BEGIN');
+      try {
+        const out = [];
+        for (const st of stmts) out.push(await st.run());
+        sdb.exec('COMMIT');
+        return out;
+      } catch (e) { sdb.exec('ROLLBACK'); throw e; }
+    },
+  };
+}
+
+function nuevaDB() {
+  const sdb = new DatabaseSync(':memory:');
+  sdb.exec(SQL);
+  return { DB: d1(sdb) };
+}
+
+test('la migración 0001 crea el esquema y siembra 6 opciones oficiales', { skip: !DatabaseSync }, () => {
+  const env = nuevaDB();
+  // acceso directo para contar
+  const sdb = new DatabaseSync(':memory:');
+  sdb.exec(SQL);
+  assert.equal(sdb.prepare("SELECT COUNT(*) AS n FROM voto_opciones WHERE estado='oficial'").get().n, 6);
+});
+
+test('flujo completo contra SQL real: proponer → aprobar → contar', { skip: !DatabaseSync }, async () => {
+  const env = nuevaDB();
+  await db.crearPropuestaConVoto(env, { opcionId: 'oporto', etiquetaJson: '{"es":"Oporto"}', email: 'a@b.com', nota: 'n', votante: 'u1', ipHash: 'h1', ahora: 10 });
+  assert.equal((await db.listarOpcionesVotables(env)).some((o) => o.id === 'oporto'), false);
+  await db.aprobarPropuesta(env, 'oporto');
+  assert.equal((await db.listarOpcionesVotables(env)).some((o) => o.id === 'oporto'), true);
+  assert.deepEqual(await db.recuentoVotos(env), { oporto: 1 });
+});
+
+test('flujo contra SQL real: proponer → rechazar borra la opción y sus votos', { skip: !DatabaseSync }, async () => {
+  const env = nuevaDB();
+  await db.crearPropuestaConVoto(env, { opcionId: 'lyon', etiquetaJson: '{"es":"Lyon"}', email: null, nota: null, votante: 'u2', ipHash: 'h2', ahora: 11 });
+  await db.rechazarPropuesta(env, 'lyon');
+  assert.equal(await db.votoDeVotante(env, 'u2'), null);
+  assert.deepEqual(await db.listarPropuestasPendientes(env), []);
+});
+
+test('registrarVoto respeta UNIQUE(votante) del esquema real', { skip: !DatabaseSync }, async () => {
+  const env = nuevaDB();
+  await db.registrarVoto(env, { opcionId: 'praga', votante: 'u3', ipHash: 'h', ahora: 1 });
+  await assert.rejects(() => db.registrarVoto(env, { opcionId: 'viena', votante: 'u3', ipHash: 'h', ahora: 2 }));
+});
+
+test('guardarDevolucion respeta los CHECK de valoración y categoría', { skip: !DatabaseSync }, async () => {
+  const env = nuevaDB();
+  await assert.rejects(() => db.guardarDevolucion(env, { rutaId: 'r', orderId: 'o', idioma: 'es', valoracion: 9, categoria: 'enigmas', texto: 'x', email: null, ahora: 1 }));
+  await assert.rejects(() => db.guardarDevolucion(env, { rutaId: 'r', orderId: 'o', idioma: 'es', valoracion: 3, categoria: 'inventada', texto: 'x', email: null, ahora: 1 }));
+});
+```
+
+Nota: la última prueba (`guardarDevolucion`) depende de que exista esa
+función — se añade en Task D1. Si ejecutas A4 antes que D1, **omite ese
+único `test`** y añádelo al hacer D1.
+
+- [ ] **Step 6: Verificar `node:sqlite` y ejecutar**
+
+Run: `node -e "require('node:sqlite')"` (desde `worker/`).
+- Si no da error: `node --test` (raíz) corre el smoke test como uno más.
+- Si pide `--experimental-sqlite`: añade a `worker/package.json` un script
+  `"test:sqlite": "node --experimental-sqlite --test worker/tests/db-sqlite.test.js"`,
+  y deja el `import('node:sqlite')` en try/catch para que `node --test`
+  normal lo salte sin ruido.
+
+- [ ] **Step 7: Recrear la D1 local y aplicar la migración editada**
+
+```bash
+cd worker
+rm -rf .wrangler/state/v3/d1
+npx wrangler d1 migrations apply vestigia-db --local
+npx wrangler d1 execute vestigia-db --local --command "SELECT count(*) AS n FROM voto_opciones"
+```
+Expected: aplica `0001` (ya con los `CHECK`); `n = 6`.
+
+- [ ] **Step 8: Suite completa + commit**
+
+Run: `node --test` (raíz) → PASS. Si añadiste `test:sqlite`, córrelo también.
+
+```bash
+git add worker/migrations/0001_votacion_devoluciones.sql worker/src/db.js worker/src/hash.js worker/tests/
+git commit -m "$(printf 'D1: CHECK en el esquema, mutaciones atomicas con batch(), smoke test SQL real\n\nFollow-ups de la revision de calidad de la Fase A.\n\nCo-Authored-By: Claude Sonnet 5 <noreply@anthropic.com>')"
+```
+
+---
+
 ## FASE B — API de votación
+
+> **IMPORTANTE — leer "Infraestructura de seguridad YA presente en `master`"
+> antes de esta fase.** El código de ejemplo de B1–B6 se escribió contra un
+> `index.js` anterior. Al implementar, aplica estos deltas sobre los ejemplos:
+>
+> | Ejemplo del plan | Forma real |
+> |---|---|
+> | `handleX(request, env, cors, db = dbPorDefecto)` (POST) | `handleX(request, env, cors, ip, db = dbPorDefecto)` |
+> | `const { ... } = await request.json();` | `const leido = await leerJsonAcotado(request); if (leido.error) return jsonRes({ error: leido.error }, cors, leido.status); const { ... } = leido.datos || {};` (import de `./entrada.js`) |
+> | `ipDe(request)` helper local | usar el parámetro `ip` (ya es `CF-Connecting-IP`); borrar `ipDe` |
+> | (voto) sin throttle | `consumirCupo(env.KV, { ip, accion: 'voto', limite: 20, ventanaSegundos: 900 })` → 429 con `Retry-After` si `!permitido` |
+> | (propuesta) sin throttle | `consumirCupo(env.KV, { ip, accion: 'propuesta', limite: 3, ventanaSegundos: 900 })` |
+> | `handleObtenerVotacion(req, env, cors, db)` (GET) | **sin cambios** (los GET no llevan `ip` ni throttle) |
+> | tests: `handleX(req(...), { DB }, CORS, dbReal)` | añadir el `ip` posicional: `handleX(req(...), { DB, IP_SALT:'sal' }, CORS, '1.1.1.1', dbReal)` |
+>
+> `consumirCupo` falla en abierto: los tests que no pasan `env.KV` lo
+> ignoran, así que solo los tests de 429 por throttle necesitan un KV falso.
 
 ### Task B1: `handleObtenerVotacion` — leer estado (oculta recuentos antes de votar)
 
@@ -1091,9 +1385,14 @@ git commit -m "$(printf 'Votacion: handleEnviarPropuesta + email de propuesta al
 - Modify: `worker/tests/helpers/fake-d1.js`
 - Modify: `worker/tests/db.test.js`, `worker/tests/votacion.test.js`
 
-> Si el plan de endurecimiento de seguridad ya está implementado, **omite
-> esta task** y en su lugar envuelve `handleEnviarPropuesta` con
-> `worker/src/throttle.js` (2/hora por IP). Ver "Coordinación" arriba.
+> El endurecimiento de seguridad **ya está en `master`**, así que
+> `handleEnviarPropuesta` (Task B3) ya lleva `consumirCupo` con
+> `accion: 'propuesta'`, `limite: 3`. **Esta task sigue siendo útil**: el
+> guard en D1 impide que se acumulen varias propuestas *pendientes* de la
+> misma IP aunque el throttle de KV se reinicie o falle en abierto. Se
+> mantiene, tal cual. El check en `handleEnviarPropuesta` va **después** de
+> `consumirCupo` y del guard por `votante`, usando el `ipHash` que ya se
+> calcula en ese handler.
 
 - [ ] **Step 1: Test de `db.js`**
 
@@ -1314,12 +1613,14 @@ git commit -m "$(printf 'Votacion: endpoints admin de moderacion con Authorizati
 
 - [ ] **Step 1: Test del router para las rutas nuevas**
 
-Añadir a `worker/tests/index.test.js`:
+Añadir a `worker/tests/index.test.js` (ya usa dobles de request a mano; añade el helper `Request` solo si no existe uno equivalente):
 ```js
 import worker from '../src/index.js';
 import { crearD1Falsa } from './helpers/fake-d1.js';
 
 function entorno(DB) {
+  // sin KV → throttle.js falla en abierto; sin RESEND_API_KEY los envíos de
+  // email lanzan pero los handlers los envuelven en try/catch.
   return { DB, IP_SALT: 'sal', ADMIN_SECRET: 'sec', ALLOWED_ORIGIN: 'https://vestigia.fun' };
 }
 function peticion(metodo, ruta, { body, origin } = {}) {
@@ -1363,22 +1664,24 @@ En `worker/src/cors.js`, cambiar la línea de `Access-Control-Allow-Headers`:
 
 - [ ] **Step 4: Enrutar en `index.js`**
 
-En `worker/src/index.js`, añadir imports:
+En `worker/src/index.js`, junto a los `import` existentes:
 ```js
 import { handleObtenerVotacion, handleEmitirVoto, handleEnviarPropuesta, handleListarPropuestas, handleModerarPropuesta } from './votacion.js';
 import { handleEnviarDevolucion } from './devoluciones.js';
 ```
 
-Dentro de `try { ... }` en `fetch`, antes del `catch`, añadir (respetando el estilo de los `if` existentes):
+`fetch` ya calcula `const ip = request.headers.get('CF-Connecting-IP') || '';`.
+Dentro del `try { ... }`, tras el `if` de `/api/confirm-payment` y antes del
+`catch`, añadir (mismo estilo que los `if` existentes):
 ```js
       if (request.method === 'GET' && url.pathname === '/api/votacion') {
         return await handleObtenerVotacion(request, env, cors);
       }
       if (request.method === 'POST' && url.pathname === '/api/votacion/voto') {
-        return await handleEmitirVoto(request, env, cors);
+        return await handleEmitirVoto(request, env, cors, ip);
       }
       if (request.method === 'POST' && url.pathname === '/api/votacion/propuesta') {
-        return await handleEnviarPropuesta(request, env, cors);
+        return await handleEnviarPropuesta(request, env, cors, ip);
       }
       if (request.method === 'GET' && url.pathname === '/api/admin/propuestas') {
         return await handleListarPropuestas(request, env, cors);
@@ -1388,11 +1691,17 @@ Dentro de `try { ... }` en `fetch`, antes del `catch`, añadir (respetando el es
         return await handleModerarPropuesta(request, env, cors, undefined, modera[1]);
       }
       if (request.method === 'POST' && url.pathname === '/api/devolucion') {
-        return await handleEnviarDevolucion(request, url, env, cors);
+        return await handleEnviarDevolucion(request, url, env, cors, ip);
       }
 ```
 
-Nota: `handleModerarPropuesta` recibe `db` por defecto cuando se le pasa `undefined` como 4º argumento (el parámetro tiene `= dbPorDefecto`); pasar `undefined` explícito activa ese valor por defecto.
+Notas:
+- `handleEmitirVoto` / `handleEnviarPropuesta` / `handleEnviarDevolucion`
+  reciben `ip` como último argumento posicional antes de `db` (que va por
+  defecto). Ver los deltas del recuadro al inicio de la Fase B.
+- `handleModerarPropuesta` recibe `db` por defecto cuando se le pasa
+  `undefined` como 4º argumento; el `opcionId` va detrás. Los endpoints
+  admin NO llevan `ip` ni throttle (van tras el bearer).
 
 - [ ] **Step 5: Crear un stub temporal de devoluciones para no romper el import**
 
@@ -2244,7 +2553,15 @@ function url(t) {
   return u;
 }
 function env(DB, envios) {
+  // sin KV → throttle abierto. `_enviar` intercepta el email en tests.
   return { DB, TOKEN_SECRET: SECRET, RESEND_API_KEY: 'k', OWNER_EMAIL: 'o@t', _enviar: async (p) => envios.push(p) };
+}
+const IP = '1.1.1.1';
+/** doble de request con body JSON y Content-Length coherente (leerJsonAcotado
+ *  lee la cabecera). */
+function req(body) {
+  const s = JSON.stringify(body ?? {});
+  return { headers: { get: (h) => (h.toLowerCase() === 'content-length' ? String(s.length) : null) }, json: async () => body };
 }
 
 test('devolución válida: guarda en D1 y envía email', async () => {
@@ -2253,7 +2570,7 @@ test('devolución válida: guarda en D1 y envía email', async () => {
   const token = await firmarToken({ rutaId: 'roma-centro', orderId: 'ord_1' }, SECRET);
   const res = await handleEnviarDevolucion(
     req({ rutaId: 'roma-centro', valoracion: 4, categoria: 'enigmas', texto: 'gran ruta', email: 'x@y.com', idioma: 'es' }),
-    url(token), env(DB, envios), CORS, dbReal,
+    url(token), env(DB, envios), CORS, IP, dbReal,
   );
   assert.equal((await res.json()).ok, true);
   assert.equal(DB._tablas.devoluciones.length, 1);
@@ -2265,7 +2582,7 @@ test('sin token válido → 401 y no toca D1', async () => {
   const DB = crearD1Falsa();
   const res = await handleEnviarDevolucion(
     req({ rutaId: 'roma-centro', valoracion: 4, categoria: 'enigmas', texto: 'x' }),
-    url('token-basura'), env(DB, []), CORS, dbReal,
+    url('token-basura'), env(DB, []), CORS, IP, dbReal,
   );
   assert.equal(res.status, 401);
   assert.equal(DB._tablas.devoluciones.length, 0);
@@ -2276,7 +2593,7 @@ test('rutaId del cuerpo que no coincide con el del token → 400', async () => {
   const token = await firmarToken({ rutaId: 'roma-centro', orderId: 'ord_1' }, SECRET);
   const res = await handleEnviarDevolucion(
     req({ rutaId: 'paris-marais', valoracion: 4, categoria: 'enigmas', texto: 'x' }),
-    url(token), env(DB, []), CORS, dbReal,
+    url(token), env(DB, []), CORS, IP, dbReal,
   );
   assert.equal(res.status, 400);
 });
@@ -2290,7 +2607,7 @@ test('valoración fuera de 1..5 / categoría desconocida / texto vacío → 400'
     { rutaId: 'roma-centro', valoracion: 3, categoria: 'inventada', texto: 'x' },
     { rutaId: 'roma-centro', valoracion: 3, categoria: 'enigmas', texto: '   ' },
   ]) {
-    const res = await handleEnviarDevolucion(req(cuerpo), url(token), env(DB, []), CORS, dbReal);
+    const res = await handleEnviarDevolucion(req(cuerpo), url(token), env(DB, []), CORS, IP, dbReal);
     assert.equal(res.status, 400, JSON.stringify(cuerpo));
   }
   assert.equal(DB._tablas.devoluciones.length, 0);
@@ -2301,7 +2618,7 @@ test('email con formato inválido → 400', async () => {
   const token = await firmarToken({ rutaId: 'roma-centro', orderId: 'ord_1' }, SECRET);
   const res = await handleEnviarDevolucion(
     req({ rutaId: 'roma-centro', valoracion: 3, categoria: 'otro', texto: 'ok', email: 'no-es-email' }),
-    url(token), env(DB, []), CORS, dbReal,
+    url(token), env(DB, []), CORS, IP, dbReal,
   );
   assert.equal(res.status, 400);
 });
@@ -2324,6 +2641,8 @@ Reemplazar `worker/src/devoluciones.js` completo:
 import * as dbPorDefecto from './db.js';
 import { verificarToken } from './acceso.js';
 import { buildDevolucionEmail, sendEmail, emailValidoBasico } from './resend.js';
+import { leerJsonAcotado } from './entrada.js';
+import { consumirCupo } from './throttle.js';
 
 const CATEGORIAS = new Set(['enigmas', 'dificultad', 'recorrido', 'error', 'precio', 'otro']);
 const MAX_TEXTO = 2000;
@@ -2332,12 +2651,22 @@ function jsonRes(cuerpo, cors, status = 200) {
   return Response.json(cuerpo, { status, headers: cors });
 }
 
-export async function handleEnviarDevolucion(request, url, env, cors, db = dbPorDefecto) {
+export async function handleEnviarDevolucion(request, url, env, cors, ip, db = dbPorDefecto) {
   const token = url.searchParams.get('t');
   const payload = await verificarToken(token, env.TOKEN_SECRET);
   if (!payload) return jsonRes({ error: 'Token inválido o caducado' }, cors, 401);
 
-  const { rutaId, valoracion, categoria, texto, email, idioma } = await request.json();
+  const cupo = await consumirCupo(env.KV, { ip, accion: 'devolucion', limite: 5, ventanaSegundos: 900 });
+  if (!cupo.permitido) {
+    return Response.json(
+      { error: 'Demasiadas solicitudes, prueba de nuevo en unos minutos' },
+      { status: 429, headers: { ...cors, 'Retry-After': String(cupo.reintentarEn) } },
+    );
+  }
+
+  const leido = await leerJsonAcotado(request);
+  if (leido.error) return jsonRes({ error: leido.error }, cors, leido.status);
+  const { rutaId, valoracion, categoria, texto, email, idioma } = leido.datos || {};
 
   if (rutaId && rutaId !== payload.rutaId) {
     return jsonRes({ error: 'La ruta no coincide con el acceso' }, cors, 400);
@@ -2358,10 +2687,11 @@ export async function handleEnviarDevolucion(request, url, env, cors, db = dbPor
     return jsonRes({ error: 'Email no válido' }, cors, 400);
   }
 
+  const idiomaLimpio = ['es', 'en', 'fr', 'it'].includes(idioma) ? idioma : 'es';
   await db.guardarDevolucion(env, {
     rutaId: payload.rutaId,
     orderId: payload.orderId,
-    idioma: typeof idioma === 'string' ? idioma.slice(0, 5) : 'es',
+    idioma: idiomaLimpio,
     valoracion: val,
     categoria,
     texto: textoLimpio,
@@ -2385,15 +2715,15 @@ export async function handleEnviarDevolucion(request, url, env, cors, db = dbPor
 Run: `node --test worker/tests/devoluciones.test.js`
 Expected: PASS — 5 tests.
 
-- [ ] **Step 5: Actualizar el enrutado en index.js**
+- [ ] **Step 5: Verificar el enrutado en index.js**
 
-En `worker/src/index.js`, la llamada añadida en B6 ya es:
+La llamada añadida en B6 ya es:
 ```js
       if (request.method === 'POST' && url.pathname === '/api/devolucion') {
-        return await handleEnviarDevolucion(request, url, env, cors);
+        return await handleEnviarDevolucion(request, url, env, cors, ip);
       }
 ```
-Verificar que `url` (el `new URL(request.url)`) está en scope ahí — lo está (se declara al principio de `fetch`). Sin cambios si ya coincide.
+`url` e `ip` están en scope (se declaran al principio de `fetch`). Sin cambios si ya coincide.
 
 - [ ] **Step 6: Suite completa**
 
