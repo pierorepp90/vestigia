@@ -29,7 +29,7 @@ Decidido en sesión de brainstorming el 2026-09-02.
 | Visibilidad de resultados | Se revelan **una vez que votas** (patrón encuesta): antes de votar no se ven recuentos |
 | Voto de quien propone | Al proponer se guarda su voto "en espera"; si se aprueba la ciudad entra con ese voto ya contado; si se rechaza, se descarta |
 | Anti-duplicados | Ligero: UUID en `localStorage` + dedupe por hash de IP en D1 (sin IP en claro). Sin captcha, sin verificación por email |
-| Dónde vive la votación | Página propia `/votar` (con versión por idioma), enlazada desde la portada |
+| Dónde vive la votación | Página propia `/votar`, enlazada desde la portada. Idioma resuelto en runtime (como `jugar/*`), no SSG por idioma: la página no necesita SEO y así no toca `scripts/generar-i18n.mjs` |
 | Moderación | Página de admin mínima `/admin/votos.html` protegida por frase secreta (no enlaces de acción en email) |
 | Cuándo se pide la devolución | En la pantalla final del juego (`vista-completada`), nada más terminar |
 | Qué recoge la devolución | Valoración (1-5) + categoría + texto libre + email opcional ("si quieres que te respondamos") |
@@ -108,8 +108,11 @@ operación rara y del propietario.
 
 ### Página `/votar/`
 
-- `votar/index.html` + `en/votar/index.html` estáticas; FR/IT se resuelven
-  en runtime con `js/i18n.js`, igual que el resto del sitio. Sin build.
+- `votar/index.html` única; los 4 idiomas se resuelven en runtime con
+  `js/i18n.js` y `aplicarI18n(document, lang)`, igual que `jugar/*` y
+  `gracias.html`. No entra en `scripts/generar-i18n.mjs` ni en el sitemap
+  (las arañas la alcanzan por el enlace desde la portada). `noindex` no;
+  es contenido legítimo, solo que sin versión estática por idioma.
 - Enlazada desde la portada, en el bloque de ciudades / "próximamente".
 - Lógica en `js/votar.js` (nuevo). Identidad del votante: UUID guardado en
   `localStorage` como `vestigia_voto_id`, creado la primera vez que se
@@ -225,8 +228,8 @@ obligatoria, texto no vacío.
 
 ### Front
 
-**Nuevos:** `votar/index.html`, `en/votar/index.html`, `js/votar.js`,
-`admin/votos.html`, `js/admin-votos.js`.
+**Nuevos:** `votar/index.html`, `js/votar.js`, `admin/votos.html`,
+`js/admin-votos.js`.
 
 **Tocados:**
 - `js/api.js`: `obtenerVotacion`, `emitirVoto`, `enviarPropuesta`,
@@ -236,13 +239,13 @@ obligatoria, texto no vacío.
   persistente.
 - `js/i18n.js`: claves nuevas (página de votación + bloque de devolución)
   en ES/EN/FR/IT.
-- Portada (`index.html` y su generación SSG en `en/`): enlace a `/votar`
-  en el bloque de ciudades / "próximamente". Revisar si `scripts/`
-  necesita regenerar `en/`.
+- Portada (`index.html`): enlace a `/votar` en el bloque de ciudades /
+  "próximamente", con `data-i18n` para que el SSG de `en/` lo traduzca al
+  reprocesar la portada (basta volver a correr
+  `node scripts/generar-seo.mjs && node scripts/generar-i18n.mjs`; no hay
+  que tocar los scripts). El texto del enlace, clave nueva en `js/i18n.js`.
 - `legal/privacidad.html`: renglón sobre datos de votos (UUID de
   navegador, hash de IP) y devoluciones (email opcional).
-- `sitemap.xml` / generador: incluir `/votar` (y `/en/votar`), **no**
-  `/admin/votos.html`.
 
 ## 5. Tests
 
