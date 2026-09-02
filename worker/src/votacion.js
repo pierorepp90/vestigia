@@ -205,3 +205,55 @@ export async function handleEnviarPropuesta(request, env, cors, ip, db = dbPorDe
 
   return jsonRes({ ok: true }, cors);
 }
+
+// --- Moderación (admin) ---
+
+/** Comparación en tiempo (casi) constante para el secreto de admin. */
+function secretoOk(recibido, esperado) {
+  if (typeof recibido !== 'string' || typeof esperado !== 'string' || recibido.length !== esperado.length) return false;
+  let dif = 0;
+  for (let i = 0; i < recibido.length; i += 1) dif |= recibido.charCodeAt(i) ^ esperado.charCodeAt(i);
+  return dif === 0;
+}
+
+function autorizadoAdmin(request, env) {
+  const cabecera = request.headers.get('Authorization') || '';
+  const token = cabecera.startsWith('Bearer ') ? cabecera.slice(7) : '';
+  return secretoOk(token, env.ADMIN_SECRET || '');
+}
+
+export async function handleListarPropuestas(request, env, cors, db = dbPorDefecto) {
+  if (!autorizadoAdmin(request, env)) return jsonRes({ error: 'No autorizado' }, cors, 401);
+  const filas = await db.listarPropuestasPendientes(env);
+  const propuestas = filas.map((f) => ({
+    id: f.id,
+    etiqueta: parseEtiqueta(f.etiqueta),
+    email: f.propuesta_email,
+    nota: f.nota,
+    creada_en: f.creada_en,
+  }));
+  return jsonRes({ propuestas }, cors);
+}
+
+export async function handleModerarPropuesta(request, env, cors, opcionId, db = dbPorDefecto) {
+  if (!autorizadoAdmin(request, env)) return jsonRes({ error: 'No autorizado' }, cors, 401);
+  const leido = await leerJsonAcotado(request);
+  if (leido.error) return jsonRes({ error: leido.error }, cors, leido.status);
+  const { accion } = leido.datos || {};
+  if (accion !== 'aprobar' && accion !== 'rechazar') {
+    return jsonRes({ error: 'Acción no válida' }, cors, 400);
+  }
+
+  const opcion = await db.opcionPorId(env, opcionId);
+  if (!opcion) return jsonRes({ error: 'Propuesta no encontrada' }, cors, 404);
+  if (opcion.estado !== 'pendiente') {
+    return jsonRes({ error: 'Esa propuesta ya se ha moderado' }, cors, 409);
+  }
+
+  if (accion === 'aprobar') {
+    await db.aprobarPropuesta(env, opcionId);
+  } else {
+    await db.rechazarPropuesta(env, opcionId);
+  }
+  return jsonRes({ ok: true }, cors);
+}

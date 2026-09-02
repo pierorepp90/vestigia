@@ -3,7 +3,10 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { crearD1Falsa } from './helpers/fake-d1.js';
 import * as dbReal from '../src/db.js';
-import { handleObtenerVotacion, handleEmitirVoto, handleEnviarPropuesta, parseEtiqueta, slugPropuesta } from '../src/votacion.js';
+import {
+  handleObtenerVotacion, handleEmitirVoto, handleEnviarPropuesta,
+  handleListarPropuestas, handleModerarPropuesta, parseEtiqueta, slugPropuesta,
+} from '../src/votacion.js';
 import { hashIp } from '../src/hash.js';
 
 const CORS = { 'Access-Control-Allow-Origin': '*' };
@@ -279,6 +282,72 @@ test('POST propuesta: si falla el envío de email, la propuesta ya guardada no s
   } finally {
     console.error = erroresOrig;
   }
+});
+
+// --- Task B5: endpoints de moderación (admin) ---
+const ADMIN_ENV = (DB) => ({ DB, ADMIN_SECRET: 'secreto-largo' });
+const bearer = (t) => ({ authorization: `Bearer ${t}` });
+
+test('admin: sin bearer correcto → 401 en listar y moderar', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const r1 = await handleListarPropuestas(req('/api/admin/propuestas', { headers: bearer('malo') }), ADMIN_ENV(DB), CORS, dbReal);
+  assert.equal(r1.status, 401);
+  const r2 = await handleModerarPropuesta(
+    req('/api/admin/propuestas/oporto', { body: { accion: 'aprobar' }, headers: bearer('malo') }),
+    ADMIN_ENV(DB), CORS, 'oporto', dbReal,
+  );
+  assert.equal(r2.status, 401);
+});
+
+test('admin: listar devuelve las pendientes', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto-a1b2c3', etiquetaJson: '{"es":"Oporto"}', email: 'a@b', nota: 'n', votante: 'u', ipHash: 'h', ahora: 3 });
+  const res = await handleListarPropuestas(req('/api/admin/propuestas', { headers: bearer('secreto-largo') }), ADMIN_ENV(DB), CORS, dbReal);
+  const cuerpo = await res.json();
+  assert.equal(cuerpo.propuestas.length, 1);
+  assert.equal(cuerpo.propuestas[0].id, 'oporto-a1b2c3');
+  assert.deepEqual(cuerpo.propuestas[0].etiqueta, { es: 'Oporto' });
+});
+
+test('admin: aprobar vuelve la opción votable; rechazar la descarta', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto-a1b2c3', etiquetaJson: '{"es":"Oporto"}', email: null, nota: null, votante: 'u', ipHash: 'h', ahora: 3 });
+  await handleModerarPropuesta(
+    req('/api/admin/propuestas/oporto-a1b2c3', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'oporto-a1b2c3', dbReal,
+  );
+  assert.ok((await dbReal.listarOpcionesVotables({ DB })).some((o) => o.id === 'oporto-a1b2c3'));
+
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'lyon-d4e5f6', etiquetaJson: '{"es":"Lyon"}', email: null, nota: null, votante: 'u2', ipHash: 'h2', ahora: 4 });
+  await handleModerarPropuesta(
+    req('/api/admin/propuestas/lyon-d4e5f6', { body: { accion: 'rechazar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'lyon-d4e5f6', dbReal,
+  );
+  assert.equal(await dbReal.votoDeVotante({ DB }, 'u2'), null);
+});
+
+test('admin: acción desconocida → 400', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'x-000000', etiquetaJson: '{"es":"X"}', email: null, nota: null, votante: 'ux', ipHash: 'hx', ahora: 1 });
+  const res = await handleModerarPropuesta(
+    req('/api/admin/propuestas/x-000000', { body: { accion: 'explotar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'x-000000', dbReal,
+  );
+  assert.equal(res.status, 400);
+});
+
+test('admin: moderar una opción inexistente → 404; una ya oficial → 409', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const noExiste = await handleModerarPropuesta(
+    req('/api/admin/propuestas/nada-000000', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'nada-000000', dbReal,
+  );
+  assert.equal(noExiste.status, 404);
+  const yaOficial = await handleModerarPropuesta(
+    req('/api/admin/propuestas/praga', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'praga', dbReal,
+  );
+  assert.equal(yaOficial.status, 409);
 });
 
 // --- Helpers exportados ---
