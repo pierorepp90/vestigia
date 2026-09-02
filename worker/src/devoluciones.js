@@ -35,7 +35,11 @@ export async function handleEnviarDevolucion(request, url, env, cors, ip, db = d
     );
   }
 
-  const leido = await leerJsonAcotado(request);
+  // 8192 B: el texto libre admite hasta MAX_TEXTO (2000) caracteres, que en
+  // ES/FR/IT son casi todos acentuados (~2 B/carácter en UTF-8) → ~4 KB, más
+  // el sobre JSON (email ≤254, rutaId, idioma). Con el tope por defecto (2048)
+  // un comentario largo se perdería con un 413 antes de llegar aquí.
+  const leido = await leerJsonAcotado(request, 8192);
   if (leido.error) return jsonRes({ error: leido.error }, cors, leido.status);
   const { rutaId, valoracion, categoria, texto, email, idioma } = leido.datos || {};
 
@@ -50,8 +54,11 @@ export async function handleEnviarDevolucion(request, url, env, cors, ip, db = d
     return jsonRes({ error: 'Categoría no válida' }, cors, 400);
   }
   const textoLimpio = typeof texto === 'string' ? texto.trim() : '';
-  if (!textoLimpio || textoLimpio.length > MAX_TEXTO) {
+  if (!textoLimpio) {
     return jsonRes({ error: 'El comentario no puede estar vacío' }, cors, 400);
+  }
+  if (textoLimpio.length > MAX_TEXTO) {
+    return jsonRes({ error: 'El comentario es demasiado largo' }, cors, 400);
   }
   const emailLimpio = typeof email === 'string' && email.trim() ? email.trim() : null;
   if (emailLimpio && !emailValidoBasico(emailLimpio)) {
