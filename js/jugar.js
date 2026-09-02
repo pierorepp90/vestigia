@@ -4,7 +4,7 @@
 // partir de un único objeto de estado. La lógica de verdad (evaluar
 // respuestas, avanzar de parada, calcular el progreso) vive en js/juego/*;
 // este archivo es solo el pegamento con el DOM.
-import { obtenerRuta } from './api.js';
+import { obtenerRuta, enviarDevolucion } from './api.js';
 import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, escaparHtml, t, tf } from './i18n.js';
 import { obtenerParada, responder, progresoPorcentaje } from './juego/motor.js';
 import { tieneSubpreguntas } from './juego/respuestas.js';
@@ -25,6 +25,7 @@ function refEls() {
     'figura-enigma', 'feedback', 'form-respuesta', 'campos-respuesta', 'lista-pistas', 'btn-pista',
     'vista-revelando', 'txt-historia', 'txt-fuente', 'bloque-sabermas', 'txt-sabermas', 'btn-siguiente',
     'vista-completada', 'txt-final-titulo', 'txt-final-texto', 'txt-final-tiempo', 'link-imprimir',
+    'form-devolucion', 'btn-devolucion', 'devolucion-msg',
   ];
   for (const id of ids) els[id] = document.getElementById(id);
 }
@@ -198,6 +199,45 @@ function renderRevelando(paradaCompletada) {
   mostrarVista('vista-revelando');
 }
 
+function mostrarMsgDevolucion(clave, tipo) {
+  const el = els['devolucion-msg'];
+  el.textContent = t(app.lang, clave);
+  el.className = `devolucion__msg devolucion__msg--${tipo}`;
+  el.hidden = false;
+}
+
+async function manejarEnvioDevolucion(evento) {
+  evento.preventDefault();
+  const form = els['form-devolucion'];
+  const datos = new FormData(form);
+  const valoracion = Number(datos.get('valoracion'));
+  if (!valoracion) { mostrarMsgDevolucion('devol_error', 'error'); return; }
+  const categoria = datos.get('categoria') || '';
+  if (!categoria) { mostrarMsgDevolucion('devol_error', 'error'); return; }
+  const texto = (datos.get('texto') || '').trim();
+  if (!texto) { mostrarMsgDevolucion('devol_error', 'error'); return; }
+
+  els['btn-devolucion'].disabled = true;
+  els['btn-devolucion'].textContent = t(app.lang, 'devol_enviando');
+  try {
+    await enviarDevolucion(app.tokenActual, {
+      rutaId: app.rutaId,
+      valoracion,
+      categoria,
+      texto,
+      email: (datos.get('email') || '').trim() || null,
+    });
+    app.estado = { ...app.estado, devolucionEnviada: true };
+    guardar();
+    form.hidden = true;
+    mostrarMsgDevolucion('devol_gracias', 'ok');
+  } catch (e) {
+    els['btn-devolucion'].disabled = false;
+    els['btn-devolucion'].textContent = t(app.lang, 'devol_btn_enviar');
+    mostrarMsgDevolucion('devol_error', 'error');
+  }
+}
+
 function renderCompletada() {
   detenerCronometro();
   actualizarCronometro(); // sincroniza la barra superior con el tiempo final exacto antes de congelarla
@@ -207,6 +247,20 @@ function renderCompletada() {
     tiempo: formatearDuracion(tiempoTranscurridoMs(app.estado)),
   });
   els['link-imprimir'].href = `imprimir.html?ruta=${app.rutaId}&t=${encodeURIComponent(app.tokenActual)}`;
+
+  const form = els['form-devolucion'];
+  if (app.estado.devolucionEnviada) {
+    form.hidden = true;
+    els['devolucion-msg'].textContent = t(app.lang, 'devol_gracias');
+    els['devolucion-msg'].className = 'devolucion__msg devolucion__msg--ok';
+    els['devolucion-msg'].hidden = false;
+  } else {
+    form.hidden = false;
+    els['devolucion-msg'].hidden = true;
+    aplicarI18n(form, app.lang);
+    form.onsubmit = manejarEnvioDevolucion;
+  }
+
   mostrarVista('vista-completada');
 }
 
