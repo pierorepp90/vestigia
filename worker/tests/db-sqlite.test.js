@@ -84,7 +84,8 @@ test('registrarVoto respeta UNIQUE(votante) del esquema real', { skip: !Database
   await assert.rejects(() => db.registrarVoto(env, { opcionId: 'viena', votante: 'u3', ipHash: 'h', ahora: 2 }));
 });
 
-// TODO(D1): añadir aquí el test
-//   'guardarDevolucion respeta los CHECK de valoración y categoría'
-// cuando Task D1 implemente db.guardarDevolucion. Debe rechazar valoración
-// fuera de 1..5 y categoría fuera de la lista blanca del esquema real.
+test('guardarDevolucion respeta los CHECK de valoración y categoría', { skip: !DatabaseSync }, async () => {
+  const env = nuevaDB();
+  await assert.rejects(() => db.guardarDevolucion(env, { rutaId: 'r', orderId: 'o', idioma: 'es', valoracion: 9, categoria: 'enigmas', texto: 'x', email: null, ahora: 1 }));
+  await assert.rejects(() => db.guardarDevolucion(env, { rutaId: 'r', orderId: 'o', idioma: 'es', valoracion: 3, categoria: 'inventada', texto: 'x', email: null, ahora: 1 }));
+});

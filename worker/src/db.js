@@ -130,3 +130,16 @@ export async function rechazarPropuesta({ DB }, opcionId) {
     ).bind(opcionId),
   ]);
 }
+
+// --- Devoluciones ---
+
+/** Guarda la devolución del jugador tras terminar una ruta. INSERT único: no
+ *  hace falta batch(). El esquema real aplica CHECK sobre `valoracion` y
+ *  `categoria`, así que un valor fuera de rango hace lanzar a D1. */
+export async function guardarDevolucion({ DB }, { rutaId, orderId, idioma, valoracion, categoria, texto, email, ahora }) {
+  await DB.prepare(
+    `/* tag:insertar_devolucion */
+     INSERT INTO devoluciones (ruta_id, order_id, idioma, valoracion, categoria, texto, email, creado_en)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+  ).bind(rutaId, orderId, idioma, valoracion, categoria, texto, email, ahora).run();
+}

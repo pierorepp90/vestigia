@@ -5,7 +5,7 @@ import { crearD1Falsa } from './helpers/fake-d1.js';
 import {
   listarOpcionesVotables, recuentoVotos, votoDeVotante, opcionPorId, votosConMismaIp,
   registrarVoto, crearPropuestaConVoto, listarPropuestasPendientes, aprobarPropuesta, rechazarPropuesta,
-  propuestasPendientesDeIp,
+  propuestasPendientesDeIp, guardarDevolucion,
 } from '../src/db.js';
 
 const SEMILLA = {
@@ -102,4 +102,17 @@ test('propuestasPendientesDeIp cuenta los votos en espera de esa ip', async () =
   assert.equal(await propuestasPendientesDeIp({ DB }, 'ip-otra'), 0);
   await aprobarPropuesta({ DB }, 'a');
   assert.equal(await propuestasPendientesDeIp({ DB }, 'ip-x'), 0);
+});
+
+test('guardarDevolucion inserta una fila con todos los campos', async () => {
+  const DB = crearD1Falsa();
+  await guardarDevolucion({ DB }, {
+    rutaId: 'roma-centro', orderId: 'ord_9', idioma: 'es',
+    valoracion: 4, categoria: 'enigmas', texto: 'muy bien', email: 'x@y.com', ahora: 123,
+  });
+  assert.equal(DB._tablas.devoluciones.length, 1);
+  assert.deepEqual(DB._tablas.devoluciones[0], {
+    id: 1, ruta_id: 'roma-centro', order_id: 'ord_9', idioma: 'es',
+    valoracion: 4, categoria: 'enigmas', texto: 'muy bien', email: 'x@y.com', creado_en: 123,
+  });
 });
