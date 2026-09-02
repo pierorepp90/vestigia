@@ -495,6 +495,7 @@
 .devolucion__estrellas label { cursor: pointer; font-size: 1.5rem; color: #6b5c44; line-height: 1; }
 .devolucion__estrellas label:has(input:checked),
 .devolucion__estrellas label:hover { color: #d4483a; }
+.devolucion__estrellas label:has(input:focus-visible) { outline: 2px solid currentColor; outline-offset: 2px; }
 .devolucion__estrellas input { position: absolute; opacity: 0; width: 1px; height: 1px; }
 .devolucion__campo { display: grid; gap: .3rem; font-size: .9rem; }
 .devolucion__campo select, .devolucion__campo textarea, .devolucion__campo input {
