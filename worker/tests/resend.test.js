@@ -1,7 +1,7 @@
 // worker/tests/resend.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildOwnerEmail, buildCustomerEmail, sendEmail, emailValidoBasico, buildAvisoOwner, buildPropuestaEmail } from '../src/resend.js';
+import { buildOwnerEmail, buildCustomerEmail, sendEmail, emailValidoBasico, buildAvisoOwner, buildPropuestaEmail, buildDevolucionEmail } from '../src/resend.js';
 
 test('buildAvisoOwner arma un email al owner con el texto escapado', () => {
   const email = buildAvisoOwner('Sesión cs_test_1 con importe <raro>', 'owner@example.com');
@@ -136,4 +136,26 @@ test('buildPropuestaEmail funciona sin nota ni email', () => {
   const email = buildPropuestaEmail({ ciudad: 'Oporto', nota: null, email: null }, 'owner@example.com', 'https://vestigia.fun');
   assert.match(email.html, /Oporto/);
   assert.ok(!email.html.includes('null'));
+});
+
+test('buildDevolucionEmail: asunto con estrellas y ruta, cuerpo con categoría/texto/email', () => {
+  const email = buildDevolucionEmail(
+    { rutaId: 'napoles-spaccanapoli', valoracion: 2, categoria: 'recorrido', texto: 'el mapa <no> ayudaba', email: 'cli@ente.com' },
+    'owner@example.com',
+  );
+  assert.deepEqual(email.to, ['owner@example.com']);
+  assert.match(email.subject, /napoles-spaccanapoli/);
+  assert.match(email.subject, /★★☆☆☆/);
+  assert.match(email.html, /recorrido/);
+  assert.match(email.html, /el mapa &lt;no&gt; ayudaba/);
+  assert.match(email.html, /cli@ente\.com/);
+});
+
+test('buildDevolucionEmail sin email del cliente no imprime "null"', () => {
+  const email = buildDevolucionEmail(
+    { rutaId: 'roma-centro', valoracion: 5, categoria: 'otro', texto: 'genial', email: null },
+    'owner@example.com',
+  );
+  assert.ok(!email.html.includes('null'));
+  assert.match(email.subject, /★★★★★/);
 });

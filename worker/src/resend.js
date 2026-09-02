@@ -285,6 +285,34 @@ export function buildPropuestaEmail({ ciudad, nota, email }, ownerEmail, siteUrl
   };
 }
 
+/** Barra de 5 estrellas (llenas + huecas) para representar la valoración en el
+ *  asunto y el cuerpo del aviso de devolución. */
+function estrellas(n) {
+  const llenas = Math.max(0, Math.min(5, Math.round(n)));
+  return '★'.repeat(llenas) + '☆'.repeat(5 - llenas);
+}
+
+/** Aviso al propietario de que ha entrado una devolución nueva al terminar
+ *  una ruta. El asunto lleva la valoración en estrellas + el rutaId para
+ *  poder triar de un vistazo desde la bandeja. */
+export function buildDevolucionEmail({ rutaId, valoracion, categoria, texto, email }, ownerEmail) {
+  return {
+    from: FROM_ADDRESS,
+    to: [ownerEmail],
+    subject: `${estrellas(valoracion)} ${rutaId} — nueva devolución`,
+    html: `
+      <h2>Nueva devolución</h2>
+      <ul>
+        <li>Ruta: ${escapeHtml(rutaId)}</li>
+        <li>Valoración: ${estrellas(valoracion)} (${escapeHtml(String(valoracion))}/5)</li>
+        <li>Categoría: ${escapeHtml(categoria)}</li>
+        <li>Email del cliente: ${email ? escapeHtml(email) : '(no proporcionado)'}</li>
+      </ul>
+      <p style="white-space:pre-wrap;">${escapeHtml(texto)}</p>
+    `,
+  };
+}
+
 export async function sendEmail(payload, apiKey, fetchFn = fetch) {
   const response = await fetchFn('https://api.resend.com/emails', {
     method: 'POST',
