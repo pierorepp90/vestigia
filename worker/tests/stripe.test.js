@@ -7,7 +7,31 @@ import {
   pedidoDesdeSession,
   createStripeSession,
   retrieveStripeSession,
+  validarSesionPagada,
+  sesionReembolsada,
 } from '../src/stripe.js';
+
+const PRECIO_MEDIA = { importe: 4.99, moneda: 'eur' };
+
+test('validarSesionPagada acepta una sesión coherente', () => {
+  const session = { payment_status: 'paid', amount_total: 499, currency: 'eur', metadata: { ruta_id: 'barcelona-gotic' } };
+  assert.equal(validarSesionPagada(session, PRECIO_MEDIA), true);
+});
+
+test('validarSesionPagada rechaza importe, moneda o ruta manipulados o ausentes', () => {
+  assert.equal(validarSesionPagada({ payment_status: 'paid', amount_total: 100, currency: 'eur', metadata: { ruta_id: 'barcelona-gotic' } }, PRECIO_MEDIA), false);
+  assert.equal(validarSesionPagada({ payment_status: 'paid', amount_total: 499, currency: 'usd', metadata: { ruta_id: 'barcelona-gotic' } }, PRECIO_MEDIA), false);
+  assert.equal(validarSesionPagada({ payment_status: 'paid', amount_total: 499, currency: 'eur', metadata: {} }, PRECIO_MEDIA), false);
+  assert.equal(validarSesionPagada({ payment_status: 'unpaid', amount_total: 499, currency: 'eur', metadata: { ruta_id: 'barcelona-gotic' } }, PRECIO_MEDIA), false);
+  assert.equal(validarSesionPagada({ payment_status: 'paid', amount_total: 499, currency: 'eur', metadata: { ruta_id: 'barcelona-gotic' } }, null), false);
+});
+
+test('sesionReembolsada detecta un cargo reembolsado', () => {
+  assert.equal(sesionReembolsada({ payment_intent: { latest_charge: { refunded: true, amount_refunded: 499 } } }), true);
+  assert.equal(sesionReembolsada({ payment_intent: { latest_charge: { refunded: false, amount_refunded: 0 } } }), false);
+  assert.equal(sesionReembolsada({ payment_intent: null }), false);
+  assert.equal(sesionReembolsada({}), false);
+});
 
 test('buildCheckoutSessionParams toma el precio de precios.js, no permite inventarlo', () => {
   const params = buildCheckoutSessionParams(
@@ -109,5 +133,7 @@ test('retrieveStripeSession pide el session_id correcto con autenticación', asy
   };
   const resultado = await retrieveStripeSession('cs_test_abc', 'sk_test_falsa', fetchFalso);
   assert.ok(urlCapturada.includes('cs_test_abc'));
+  assert.ok(urlCapturada.includes('expand[]=payment_intent.latest_charge')
+    || urlCapturada.includes('expand%5B%5D=payment_intent.latest_charge'));
   assert.equal(resultado.payment_status, 'paid');
 });

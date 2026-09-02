@@ -39,6 +39,30 @@ export function parseSessionPaymentStatus(session) {
   return session != null && session.payment_status === 'paid';
 }
 
+/**
+ * Defensa en profundidad: aunque la sesión la crea este Worker con el precio
+ * de precios.js, se vuelve a comprobar al confirmar que el importe, la moneda
+ * y la ruta pagados son los esperados. `precioEsperado` = salida de
+ * precioDeRuta (importe en euros, moneda en minúsculas).
+ */
+export function validarSesionPagada(session, precioEsperado) {
+  if (!session || session.payment_status !== 'paid') return false;
+  if (!precioEsperado) return false;
+  if (session.amount_total !== Math.round(precioEsperado.importe * 100)) return false;
+  if (session.currency !== precioEsperado.moneda) return false;
+  if (!session.metadata || typeof session.metadata.ruta_id !== 'string') return false;
+  return true;
+}
+
+/** true si el cargo asociado a la sesión ha sido reembolsado (total o
+ *  parcialmente). Requiere haber recuperado la sesión con
+ *  `expand[]=payment_intent.latest_charge`. */
+export function sesionReembolsada(session) {
+  const cargo = session?.payment_intent?.latest_charge;
+  if (!cargo) return false;
+  return cargo.refunded === true || (typeof cargo.amount_refunded === 'number' && cargo.amount_refunded > 0);
+}
+
 /** Extrae {rutaId, idioma, orderId, email} de una sesión ya confirmada como pagada. */
 export function pedidoDesdeSession(session) {
   const m = session.metadata || {};
@@ -73,7 +97,10 @@ export async function createStripeSession(params, secretKey, fetchFn = fetch) {
 }
 
 export async function retrieveStripeSession(sessionId, secretKey, fetchFn = fetch) {
-  const response = await fetchFn(`https://api.stripe.com/v1/checkout/sessions/${sessionId}`, {
+  // `expand[]=payment_intent.latest_charge` trae el cargo en la misma llamada,
+  // para poder comprobar si el pedido fue reembolsado (ver sesionReembolsada).
+  const url = `https://api.stripe.com/v1/checkout/sessions/${sessionId}?expand[]=payment_intent.latest_charge`;
+  const response = await fetchFn(url, {
     method: 'GET',
     headers: { Authorization: `Bearer ${secretKey}` },
   });
