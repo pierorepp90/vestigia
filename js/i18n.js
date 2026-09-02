@@ -159,6 +159,7 @@ export const DICT = {
     ruta_enviando_acceso: 'Enviando el acceso a tu email…',
     ruta_error_reserva: 'No hemos podido iniciar el pago. Inténtalo de nuevo en unos segundos.',
     ruta_error_acceso_gratuito: 'No hemos podido enviarte el acceso. Inténtalo de nuevo en unos segundos.',
+    ruta_error_rate_limit: 'Has hecho demasiadas solicitudes. Espera unos minutos e inténtalo de nuevo.',
 
     // Footer
     footer_creditos: 'Créditos de imágenes',
@@ -305,6 +306,7 @@ export const DICT = {
     ruta_enviando_acceso: 'Sending access to your email…',
     ruta_error_reserva: "We couldn't start the payment. Please try again in a few seconds.",
     ruta_error_acceso_gratuito: "We couldn't send you access. Please try again in a few seconds.",
+    ruta_error_rate_limit: "You've made too many requests. Wait a few minutes and try again.",
 
     // Footer
     footer_creditos: 'Photo credits',
@@ -451,6 +453,7 @@ export const DICT = {
     ruta_enviando_acceso: "Envoi de l'accès à votre email…",
     ruta_error_reserva: "Nous n'avons pas pu lancer le paiement. Réessayez dans quelques secondes.",
     ruta_error_acceso_gratuito: "Nous n'avons pas pu vous envoyer l'accès. Réessayez dans quelques secondes.",
+    ruta_error_rate_limit: 'Vous avez fait trop de demandes. Attendez quelques minutes et réessayez.',
 
     // Pied de page
     footer_creditos: 'Crédits photo',
@@ -597,6 +600,7 @@ export const DICT = {
     ruta_enviando_acceso: "Invio dell'accesso alla tua email…",
     ruta_error_reserva: 'Non siamo riusciti ad avviare il pagamento. Riprova tra qualche secondo.',
     ruta_error_acceso_gratuito: "Non siamo riusciti a inviarti l'accesso. Riprova tra qualche secondo.",
+    ruta_error_rate_limit: 'Hai effettuato troppe richieste. Attendi qualche minuto e riprova.',
 
     // Footer
     footer_creditos: 'Crediti fotografici',

@@ -1,6 +1,14 @@
 // js/api.js
 import { API_BASE_URL } from './config.js';
 
+/** Error listo para mostrar a partir de una respuesta no-OK del Worker. Marca
+ *  `.rateLimited` en los 429 para que la UI muestre un mensaje específico. */
+function errorDeRespuesta(respuesta, cuerpo) {
+  const err = new Error(cuerpo.error || `Error ${respuesta.status}`);
+  if (respuesta.status === 429) err.rateLimited = true;
+  return err;
+}
+
 /**
  * Pide el contenido completo de una ruta al Worker. Lanza un Error con un
  * mensaje ya listo para mostrar al jugador si el token no es válido, ha
@@ -26,7 +34,7 @@ export async function obtenerRuta(token, idioma) {
   }
 
   if (!respuesta.ok) {
-    throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+    throw errorDeRespuesta(respuesta, cuerpo);
   }
   return cuerpo; // { rutaId, orderId, idiomaServido, ruta }
 }
@@ -40,7 +48,7 @@ export async function crearCheckoutSession(rutaId, idioma) {
   });
   const cuerpo = await respuesta.json().catch(() => ({}));
   if (!respuesta.ok) {
-    throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+    throw errorDeRespuesta(respuesta, cuerpo);
   }
   return cuerpo.url;
 }
@@ -52,7 +60,7 @@ export async function confirmarPago(sessionId) {
   const respuesta = await fetch(url);
   const cuerpo = await respuesta.json().catch(() => ({}));
   if (!respuesta.ok) {
-    throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+    throw errorDeRespuesta(respuesta, cuerpo);
   }
   return cuerpo; // { ok, paid, rutaId, idioma, orderId, token }
 }
@@ -67,7 +75,7 @@ export async function crearAccesoGratuito(rutaId, idioma, email) {
   });
   const cuerpo = await respuesta.json().catch(() => ({}));
   if (!respuesta.ok) {
-    throw new Error(cuerpo.error || `Error ${respuesta.status}`);
+    throw errorDeRespuesta(respuesta, cuerpo);
   }
   return cuerpo; // { ok, rutaId, idioma, orderId, token }
 }

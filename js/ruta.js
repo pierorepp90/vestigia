@@ -94,12 +94,15 @@ function init() {
         const url = await crearCheckoutSession(ruta.id, lang);
         location.href = url;
       }
-    } catch {
+    } catch (error) {
       cta.removeAttribute('aria-busy');
-      cta.textContent = t(lang, esGratis ? 'ruta_error_acceso_gratuito' : 'ruta_error_reserva');
+      const claveError = error?.rateLimited
+        ? 'ruta_error_rate_limit'
+        : (esGratis ? 'ruta_error_acceso_gratuito' : 'ruta_error_reserva');
+      cta.textContent = t(lang, claveError);
       setTimeout(() => {
         cta.textContent = textoOriginal;
-      }, 3000);
+      }, 4000);
     }
   });
 
