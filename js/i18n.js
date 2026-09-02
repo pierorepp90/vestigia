@@ -322,26 +322,26 @@ export const DICT = {
 
     // Homepage vote link
     votar_portada_titulo: 'Which city should we build next?',
-    votar_portada_texto: 'Vote for the next Vestigia city — or suggest one that isn’t listed.',
+    votar_portada_texto: "Vote for the next Vestigia city — or suggest one that isn't listed.",
     votar_portada_cta: 'Go to the vote',
 
     // Vote page (/votar)
     votar_titulo: 'Vote for the next city',
-    votar_subtitulo: 'Pick the city you’d most like to explore. You’ll see the results as soon as you vote.',
+    votar_subtitulo: "Pick the city you'd most like to explore. You'll see the results as soon as you vote.",
     votar_btn_votar: 'Vote',
     votar_tu_voto: 'Your vote',
     votar_resultados_titulo: 'How the vote is going',
     votar_gracias: 'Thanks for voting!',
     votar_propuesta_titulo: 'Is a city missing?',
-    votar_propuesta_texto: 'Suggest a city or a specific neighbourhood. We’ll review it, and if it makes the list your vote already counts for it.',
+    votar_propuesta_texto: "Suggest a city or a specific neighbourhood. We'll review it, and if it makes the list your vote already counts for it.",
     votar_propuesta_ciudad_label: 'City or neighbourhood',
-    votar_propuesta_ciudad_ph: 'e.g. Porto, or “Seville — Santa Cruz”',
+    votar_propuesta_ciudad_ph: 'e.g. Porto, or "Seville — Santa Cruz"',
     votar_propuesta_nota_label: 'Why (optional)',
-    votar_propuesta_nota_ph: 'Tell us what would make it a good route',
+    votar_propuesta_nota_ph: 'Tell us what would make it a good trail',
     votar_propuesta_email_label: 'Your email (optional)',
     votar_propuesta_email_ph: 'name@example.com',
     votar_propuesta_btn: 'Send suggestion',
-    votar_propuesta_enviada: 'Suggestion received. We’ll review it; your vote is reserved for that city.',
+    votar_propuesta_enviada: "Suggestion received. We'll review it; your vote is reserved for that city.",
     votar_error_generico: 'Something went wrong. Please try again in a moment.',
     votar_cargando: 'Loading the vote…',
 
@@ -356,13 +356,13 @@ export const DICT = {
     devol_cat_precio: 'The price',
     devol_cat_otro: 'Something else',
     devol_texto_label: 'Tell us',
-    devol_texto_ph: 'What went wrong, what you’d improve, what you liked…',
-    devol_email_label: 'Your email (if you’d like a reply)',
+    devol_texto_ph: "What went wrong, what you'd improve, what you liked…",
+    devol_email_label: "Your email (if you'd like a reply)",
     devol_email_ph: 'name@example.com',
     devol_btn_enviar: 'Send',
     devol_enviando: 'Sending…',
     devol_gracias: 'Thank you! We read every one.',
-    devol_error: 'Couldn’t send it. Please try again.',
+    devol_error: "Couldn't send it. Please try again.",
 
     // Printable version (jugar/imprimir.html)
     imprimir_marca: 'Printable version',
@@ -512,8 +512,8 @@ export const DICT = {
     juego_offline_aviso: 'Hors ligne : vous continuez avec le parcours déjà téléchargé.',
 
     // Lien vers le vote (accueil)
-    votar_portada_titulo: 'Quelle ville préparer ensuite  ?',
-    votar_portada_texto: 'Votez pour la prochaine ville de Vestigia — ou proposez-en une qui n’est pas listée.',
+    votar_portada_titulo: 'Quelle ville préparer ensuite ?',
+    votar_portada_texto: "Votez pour la prochaine ville de Vestigia — ou proposez-en une qui n'est pas listée.",
     votar_portada_cta: 'Aller au vote',
 
     // Page de vote (/votar)
@@ -522,17 +522,17 @@ export const DICT = {
     votar_btn_votar: 'Voter',
     votar_tu_voto: 'Votre vote',
     votar_resultados_titulo: 'Où en est le vote',
-    votar_gracias: 'Merci d’avoir voté !',
+    votar_gracias: "Merci d'avoir voté !",
     votar_propuesta_titulo: 'Une ville manque ?',
-    votar_propuesta_texto: 'Proposez une ville ou un quartier précis. Nous l’examinons, et si elle est retenue votre vote compte déjà pour elle.',
+    votar_propuesta_texto: "Proposez une ville ou un quartier précis. Nous l'examinons, et si elle est retenue votre vote compte déjà pour elle.",
     votar_propuesta_ciudad_label: 'Ville ou quartier',
     votar_propuesta_ciudad_ph: 'ex. : Porto, ou « Séville — Santa Cruz »',
     votar_propuesta_nota_label: 'Pourquoi (facultatif)',
     votar_propuesta_nota_ph: 'Dites-nous ce qui en ferait un bon parcours',
-    votar_propuesta_email_label: 'Votre e-mail (facultatif)',
+    votar_propuesta_email_label: 'Votre email (facultatif)',
     votar_propuesta_email_ph: 'nom@exemple.com',
     votar_propuesta_btn: 'Envoyer la proposition',
-    votar_propuesta_enviada: 'Proposition reçue. Nous l’examinerons ; votre vote est réservé pour cette ville.',
+    votar_propuesta_enviada: "Proposition reçue. Nous l'examinerons ; votre vote est réservé pour cette ville.",
     votar_error_generico: 'Une erreur est survenue. Réessayez dans un instant.',
     votar_cargando: 'Chargement du vote…',
 
@@ -547,8 +547,8 @@ export const DICT = {
     devol_cat_precio: 'Le prix',
     devol_cat_otro: 'Autre chose',
     devol_texto_label: 'Dites-nous',
-    devol_texto_ph: 'Ce qui n’a pas marché, ce que vous amélioreriez, ce qui vous a plu…',
-    devol_email_label: 'Votre e-mail (si vous souhaitez une réponse)',
+    devol_texto_ph: "Ce qui n'a pas marché, ce que vous amélioreriez, ce qui vous a plu…",
+    devol_email_label: 'Votre email (si vous souhaitez une réponse)',
     devol_email_ph: 'nom@exemple.com',
     devol_btn_enviar: 'Envoyer',
     devol_enviando: 'Envoi…',
@@ -704,7 +704,7 @@ export const DICT = {
 
     // Link al voto (homepage)
     votar_portada_titulo: 'Quale città prepariamo dopo?',
-    votar_portada_texto: 'Vota la prossima città di Vestigia — o proponine una che non c’è.',
+    votar_portada_texto: "Vota la prossima città di Vestigia — o proponine una che non c'è.",
     votar_portada_cta: 'Vai al voto',
 
     // Pagina di voto (/votar)
@@ -728,7 +728,7 @@ export const DICT = {
     votar_cargando: 'Caricamento del voto…',
 
     // Feedback dopo il percorso (jugar/index.html)
-    devol_titulo: 'Com’è andata?',
+    devol_titulo: "Com'è andata?",
     devol_valoracion_label: 'La tua valutazione',
     devol_categoria_label: 'Riguardo a cosa?',
     devol_cat_enigmas: 'Gli enigmi',
