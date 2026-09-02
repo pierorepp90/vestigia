@@ -45,6 +45,32 @@ test('devolución válida: guarda en D1 y envía email', async () => {
   assert.equal(envios.length, 1);
 });
 
+test('idioma del cuerpo se guarda tal cual si está en la allowlist (en)', async () => {
+  const DB = crearD1Falsa();
+  const envios = [];
+  const token = await firmarToken({ rutaId: 'roma-centro', orderId: 'ord_1' }, SECRET);
+  const res = await handleEnviarDevolucion(
+    req({ rutaId: 'roma-centro', valoracion: 4, categoria: 'enigmas', texto: 'great trail', idioma: 'en' }),
+    url(token), env(DB, envios), CORS, IP, dbReal,
+  );
+  assert.equal((await res.json()).ok, true);
+  assert.equal(DB._tablas.devoluciones.length, 1);
+  assert.equal(DB._tablas.devoluciones[0].idioma, 'en');
+});
+
+test('idioma del cuerpo fuera de la allowlist cae a es', async () => {
+  const DB = crearD1Falsa();
+  const envios = [];
+  const token = await firmarToken({ rutaId: 'roma-centro', orderId: 'ord_1' }, SECRET);
+  const res = await handleEnviarDevolucion(
+    req({ rutaId: 'roma-centro', valoracion: 4, categoria: 'enigmas', texto: 'gran ruta', idioma: 'xx' }),
+    url(token), env(DB, envios), CORS, IP, dbReal,
+  );
+  assert.equal((await res.json()).ok, true);
+  assert.equal(DB._tablas.devoluciones.length, 1);
+  assert.equal(DB._tablas.devoluciones[0].idioma, 'es');
+});
+
 test('sin token válido → 401 y no toca D1', async () => {
   const DB = crearD1Falsa();
   const res = await handleEnviarDevolucion(

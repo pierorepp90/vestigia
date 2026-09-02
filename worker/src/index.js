@@ -213,7 +213,7 @@ export default {
         return await handleConfirmarPago(url, env, cors, ip);
       }
       if (request.method === 'GET' && url.pathname === '/api/votacion') {
-        return await handleObtenerVotacion(request, env, cors);
+        return await handleObtenerVotacion(request, env, cors, ip);
       }
       if (request.method === 'POST' && url.pathname === '/api/votacion/voto') {
         return await handleEmitirVoto(request, env, cors, ip);

@@ -29,7 +29,7 @@ const SEMILLA = {
 
 test('GET votación sin voto previo: opciones sin recuentos, estadoVotante sin_voto', async () => {
   const DB = crearD1Falsa(SEMILLA);
-  const res = await handleObtenerVotacion(req('/api/votacion?votante=votante-01'), { DB }, CORS, dbReal);
+  const res = await handleObtenerVotacion(req('/api/votacion?votante=votante-01'), { DB }, CORS, '1.1.1.1', dbReal);
   const cuerpo = await res.json();
   assert.equal(cuerpo.estadoVotante, 'sin_voto');
   assert.equal(cuerpo.miVoto, null);
@@ -40,7 +40,7 @@ test('GET votación sin voto previo: opciones sin recuentos, estadoVotante sin_v
 test('GET votación con voto activo: incluye recuentos y miVoto', async () => {
   const DB = crearD1Falsa(SEMILLA);
   await dbReal.registrarVoto({ DB }, { opcionId: 'praga', votante: 'votante-01', ipHash: 'h', ahora: 1 });
-  const res = await handleObtenerVotacion(req('/api/votacion?votante=votante-01'), { DB }, CORS, dbReal);
+  const res = await handleObtenerVotacion(req('/api/votacion?votante=votante-01'), { DB }, CORS, '1.1.1.1', dbReal);
   const cuerpo = await res.json();
   assert.equal(cuerpo.estadoVotante, 'voto_activo');
   assert.equal(cuerpo.miVoto, 'praga');
@@ -53,7 +53,7 @@ test('GET votación con propuesta pendiente: estadoVotante propuesta_pendiente, 
   await dbReal.crearPropuestaConVoto({ DB }, {
     opcionId: 'oporto', etiquetaJson: '{"es":"Oporto"}', email: null, nota: null, votante: 'votante-01', ipHash: 'h', ahora: 1,
   });
-  const res = await handleObtenerVotacion(req('/api/votacion?votante=votante-01'), { DB }, CORS, dbReal);
+  const res = await handleObtenerVotacion(req('/api/votacion?votante=votante-01'), { DB }, CORS, '1.1.1.1', dbReal);
   const cuerpo = await res.json();
   assert.equal(cuerpo.estadoVotante, 'propuesta_pendiente');
   assert.ok(cuerpo.opciones.every((o) => !('votos' in o)));
@@ -61,15 +61,26 @@ test('GET votación con propuesta pendiente: estadoVotante propuesta_pendiente, 
 
 test('GET votación sin parámetro votante: 400', async () => {
   const DB = crearD1Falsa(SEMILLA);
-  const res = await handleObtenerVotacion(req('/api/votacion'), { DB }, CORS, dbReal);
+  const res = await handleObtenerVotacion(req('/api/votacion'), { DB }, CORS, '1.1.1.1', dbReal);
   assert.equal(res.status, 400);
 });
 
 test('GET votación con votante mal formado (corto): 400 Identificador de votante no válido', async () => {
   const DB = crearD1Falsa(SEMILLA);
-  const res = await handleObtenerVotacion(req('/api/votacion?votante=u1'), { DB }, CORS, dbReal);
+  const res = await handleObtenerVotacion(req('/api/votacion?votante=u1'), { DB }, CORS, '1.1.1.1', dbReal);
   assert.equal(res.status, 400);
   assert.equal((await res.json()).error, 'Identificador de votante no válido');
+});
+
+test('GET votación: throttle de KV agotado → 429 con Retry-After', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const ahora = Math.floor(Date.now() / 1000);
+  const KV = { get: async () => ({ n: 60, reset: ahora + 300 }), put: async () => {} };
+  const res = await handleObtenerVotacion(
+    req('/api/votacion?votante=votante-01'), { DB, KV }, CORS, '1.1.1.1', dbReal,
+  );
+  assert.equal(res.status, 429);
+  assert.match(res.headers.get('Retry-After') || '', /^\d+$/);
 });
 
 // --- Task B2: handleEmitirVoto ---

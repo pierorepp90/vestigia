@@ -22,18 +22,21 @@ function jsonRes(cuerpo, cors, status = 200) {
   return Response.json(cuerpo, { status, headers: cors });
 }
 
+function respuesta429(cors, cupo) {
+  return jsonRes(
+    { error: 'Demasiadas solicitudes, prueba de nuevo en unos minutos' },
+    { ...cors, 'Retry-After': String(cupo.reintentarEn) },
+    429,
+  );
+}
+
 export async function handleEnviarDevolucion(request, url, env, cors, ip, db = dbPorDefecto) {
   const token = url.searchParams.get('t');
   const payload = await verificarToken(token, env.TOKEN_SECRET);
   if (!payload) return jsonRes({ error: 'Token inválido o caducado' }, cors, 401);
 
   const cupo = await consumirCupo(env.KV, { ip, accion: 'devolucion', limite: 5, ventanaSegundos: VENTANA_THROTTLE });
-  if (!cupo.permitido) {
-    return Response.json(
-      { error: 'Demasiadas solicitudes, prueba de nuevo en unos minutos' },
-      { status: 429, headers: { ...cors, 'Retry-After': String(cupo.reintentarEn) } },
-    );
-  }
+  if (!cupo.permitido) return respuesta429(cors, cupo);
 
   // 8192 B: el texto libre admite hasta MAX_TEXTO (2000) caracteres, que en
   // ES/FR/IT son casi todos acentuados (~2 B/carácter en UTF-8) → ~4 KB, más

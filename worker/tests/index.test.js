@@ -161,6 +161,19 @@ test('router: GET /api/votacion responde 200 con opciones', async () => {
   assert.equal(cuerpo.opciones.length, 1);
 });
 
+test('router: GET /api/votacion con el cupo de la IP agotado → 429 con Retry-After', async () => {
+  const DB = crearD1Falsa({ voto_opciones: [{ id: 'praga', etiqueta: '{"es":"Praga"}', estado: 'oficial', creada_en: 0 }] });
+  const reset = Math.floor(Date.now() / 1000) + 300;
+  const kv = crearKvFalso({ 'rl:votacion-get:9.9.9.9': JSON.stringify({ n: 60, reset }) });
+  const req = new Request('https://api.test/api/votacion?votante=votante-01', {
+    method: 'GET',
+    headers: { Origin: 'https://vestigia.fun', 'CF-Connecting-IP': '9.9.9.9' },
+  });
+  const res = await worker.fetch(req, { ...entorno(DB), KV: kv });
+  assert.equal(res.status, 429);
+  assert.ok(res.headers.get('Retry-After'));
+});
+
 test('router: OPTIONS incluye Authorization en Access-Control-Allow-Headers', async () => {
   const res = await worker.fetch(peticion('OPTIONS', '/api/admin/propuestas'), entorno(crearD1Falsa()));
   assert.match(res.headers.get('Access-Control-Allow-Headers') || '', /Authorization/i);

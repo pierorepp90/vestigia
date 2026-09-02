@@ -62,12 +62,15 @@ export function parseEtiqueta(raw) {
   }
 }
 
-export async function handleObtenerVotacion(request, env, cors, db = dbPorDefecto) {
+export async function handleObtenerVotacion(request, env, cors, ip, db = dbPorDefecto) {
   const url = new URL(request.url);
   const votante = url.searchParams.get('votante');
   if (!votanteValido(votante)) {
     return jsonRes({ error: 'Identificador de votante no válido' }, cors, 400);
   }
+
+  const cupo = await consumirCupo(env.KV, { ip, accion: 'votacion-get', limite: 60, ventanaSegundos: VENTANA_THROTTLE });
+  if (!cupo.permitido) return respuesta429(cors, cupo);
 
   const [opciones, voto] = await Promise.all([
     db.listarOpcionesVotables(env),

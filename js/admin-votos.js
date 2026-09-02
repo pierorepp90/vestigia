@@ -20,14 +20,21 @@ function fecha(ms) {
   return Number.isNaN(d.getTime()) ? '' : d.toLocaleDateString('es-ES');
 }
 
+/** Borra el secreto guardado y vuelve a mostrar el formulario de la frase
+ *  secreta: se usa tanto en el primer intento fallido como cuando la sesión
+ *  caduca a mitad de uso. */
+function pedirClaveDeNuevo(texto = 'Frase secreta incorrecta.') {
+  sessionStorage.removeItem(CLAVE_SESION);
+  els['form-clave'].hidden = false;
+  els.lista.hidden = true;
+  msg(texto, true);
+}
+
 async function cargar() {
   try {
     const res = await fetch(new URL('/api/admin/propuestas', API_BASE_URL), { headers: auth() });
     if (res.status === 401) {
-      sessionStorage.removeItem(CLAVE_SESION);
-      els['form-clave'].hidden = false;
-      els.lista.hidden = true;
-      msg('Frase secreta incorrecta.', true);
+      pedirClaveDeNuevo();
       return;
     }
     if (!res.ok) {
@@ -64,6 +71,10 @@ async function moderar(id, accion) {
     headers: { 'Content-Type': 'application/json', ...auth() },
     body: JSON.stringify({ accion }),
   });
+  if (res.status === 401) {
+    pedirClaveDeNuevo('La sesión ha caducado. Vuelve a introducir la frase secreta.');
+    return;
+  }
   if (!res.ok) { msg(`Error ${res.status}`, true); return; }
   cargar();
 }

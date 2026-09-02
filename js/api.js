@@ -114,13 +114,13 @@ export async function enviarPropuesta({ ciudad, nota, email, votante }) {
 }
 
 /** Envía una devolución. Requiere el token de acceso de la partida. */
-export async function enviarDevolucion(token, { rutaId, valoracion, categoria, texto, email }) {
+export async function enviarDevolucion(token, { rutaId, valoracion, categoria, texto, email, idioma }) {
   const url = new URL('/api/devolucion', API_BASE_URL);
   url.searchParams.set('t', token);
   const respuesta = await fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ rutaId, valoracion, categoria, texto, email }),
+    body: JSON.stringify({ rutaId, valoracion, categoria, texto, email, idioma }),
   });
   const cuerpo = await respuesta.json().catch(() => ({}));
   if (!respuesta.ok) throw new Error(cuerpo.error || `Error ${respuesta.status}`);

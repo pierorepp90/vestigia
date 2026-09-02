@@ -226,6 +226,7 @@ async function manejarEnvioDevolucion(evento) {
       categoria,
       texto,
       email: (datos.get('email') || '').trim() || null,
+      idioma: app.lang,
     });
     app.estado = { ...app.estado, devolucionEnviada: true };
     guardar();
