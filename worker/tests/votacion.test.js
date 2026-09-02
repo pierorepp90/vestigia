@@ -3,7 +3,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { crearD1Falsa } from './helpers/fake-d1.js';
 import * as dbReal from '../src/db.js';
-import { handleObtenerVotacion, handleEmitirVoto } from '../src/votacion.js';
+import { handleObtenerVotacion, handleEmitirVoto, handleEnviarPropuesta } from '../src/votacion.js';
 import { hashIp } from '../src/hash.js';
 
 const CORS = { 'Access-Control-Allow-Origin': '*' };
@@ -108,4 +108,76 @@ test('POST voto: 4º voto desde la misma IP → 429', async () => {
     ENV(DB), CORS, '9.9.9.9', dbReal,
   );
   assert.equal(res.status, 429);
+});
+
+// --- Task B3: handleEnviarPropuesta ---
+const ENV2 = (DB, envios) => ({
+  DB, IP_SALT: 'sal', RESEND_API_KEY: 'k', OWNER_EMAIL: 'owner@test', SITE_URL: 'https://vestigia.fun',
+  _enviar: async (payload) => { envios.push(payload); },
+});
+
+test('POST propuesta válida: crea pendiente + voto en espera + email al propietario', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const envios = [];
+  const res = await handleEnviarPropuesta(
+    req('/api/votacion/propuesta', {
+      body: { ciudad: 'Oporto, Ribeira', nota: 'la Ribeira es perfecta', email: 'x@y.com', votante: 'u5' },
+    }),
+    ENV2(DB, envios), CORS, '2.2.2.2', dbReal,
+  );
+  const cuerpo = await res.json();
+  assert.equal(cuerpo.ok, true);
+  assert.equal(envios.length, 1);
+  assert.match(envios[0].subject, /propuesta/i);
+  assert.match(envios[0].html, /Oporto, Ribeira/);
+  const voto = await dbReal.votoDeVotante({ DB }, 'u5');
+  assert.equal(voto.estado, 'en_espera');
+});
+
+test('POST propuesta: votante que ya tiene voto → 409', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await dbReal.registrarVoto({ DB }, { opcionId: 'praga', votante: 'u5', ipHash: 'x', ahora: 1 });
+  const res = await handleEnviarPropuesta(
+    req('/api/votacion/propuesta', { body: { ciudad: 'Oporto', votante: 'u5' } }),
+    ENV2(DB, []), CORS, '2.2.2.2', dbReal,
+  );
+  assert.equal(res.status, 409);
+});
+
+test('POST propuesta: ciudad vacía o demasiado larga → 400', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const res1 = await handleEnviarPropuesta(
+    req('/api/votacion/propuesta', { body: { ciudad: '   ', votante: 'u6' } }),
+    ENV2(DB, []), CORS, '2.2.2.2', dbReal,
+  );
+  assert.equal(res1.status, 400);
+  const res2 = await handleEnviarPropuesta(
+    req('/api/votacion/propuesta', { body: { ciudad: 'x'.repeat(121), votante: 'u6' } }),
+    ENV2(DB, []), CORS, '2.2.2.2', dbReal,
+  );
+  assert.equal(res2.status, 400);
+});
+
+test('POST propuesta: si falla el envío de email, la propuesta ya guardada no se pierde y responde ok', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const erroresOrig = console.error;
+  const errores = [];
+  console.error = (...a) => errores.push(a);
+  try {
+    const env = {
+      DB, IP_SALT: 'sal', OWNER_EMAIL: 'owner@test', SITE_URL: 'https://vestigia.fun',
+      _enviar: async () => { throw new Error('Resend caído'); },
+    };
+    const res = await handleEnviarPropuesta(
+      req('/api/votacion/propuesta', { body: { ciudad: 'Oporto', votante: 'u7' } }),
+      env, CORS, '3.3.3.3', dbReal,
+    );
+    const cuerpo = await res.json();
+    assert.equal(res.status, 200);
+    assert.equal(cuerpo.ok, true);
+    assert.equal((await dbReal.votoDeVotante({ DB }, 'u7')).estado, 'en_espera');
+    assert.equal(errores.length, 1);
+  } finally {
+    console.error = erroresOrig;
+  }
 });
