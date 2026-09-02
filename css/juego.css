@@ -485,3 +485,21 @@
     justify-content: center;
   }
 }
+
+/* Devolución (feedback post-ruta) en la pantalla final */
+.devolucion { text-align: left; display: grid; gap: 1rem; margin: 2rem auto 1.5rem;
+  max-width: 30rem; padding: 1.25rem; border: 1px solid rgba(241,230,207,.25); border-radius: 12px; }
+.devolucion__titulo { font-size: 1.1rem; margin: 0; }
+.devolucion__estrellas { border: 0; padding: 0; margin: 0; display: flex; gap: .25rem; }
+.devolucion__estrellas legend { float: left; width: 100%; margin-bottom: .35rem; font-size: .9rem; }
+.devolucion__estrellas label { cursor: pointer; font-size: 1.5rem; color: #6b5c44; line-height: 1; }
+.devolucion__estrellas label:has(input:checked),
+.devolucion__estrellas label:hover { color: #d4483a; }
+.devolucion__estrellas input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.devolucion__campo { display: grid; gap: .3rem; font-size: .9rem; }
+.devolucion__campo select, .devolucion__campo textarea, .devolucion__campo input {
+  font: inherit; padding: .55rem .65rem; border-radius: 8px; border: 1px solid rgba(241,230,207,.3);
+  background: rgba(0,0,0,.15); color: inherit; }
+.devolucion__msg { margin: 0; font-size: .9rem; }
+.devolucion__msg--ok { color: #7bc47f; }
+.devolucion__msg--error { color: #e88; }

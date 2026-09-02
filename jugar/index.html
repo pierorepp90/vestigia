@@ -103,6 +103,47 @@
     <h1 class="pantalla-centrada__titulo" id="txt-final-titulo"></h1>
     <p class="pantalla-centrada__texto" id="txt-final-texto"></p>
     <p class="pantalla-centrada__texto" id="txt-final-tiempo"></p>
+
+    <form id="form-devolucion" class="devolucion" hidden>
+      <h2 class="devolucion__titulo" data-i18n="devol_titulo">¿Qué te ha parecido?</h2>
+
+      <fieldset class="devolucion__estrellas">
+        <legend data-i18n="devol_valoracion_label">Tu valoración</legend>
+        <label><input type="radio" name="valoracion" value="1"><span aria-hidden="true">★</span><span class="sr-only">1</span></label>
+        <label><input type="radio" name="valoracion" value="2"><span aria-hidden="true">★</span><span class="sr-only">2</span></label>
+        <label><input type="radio" name="valoracion" value="3"><span aria-hidden="true">★</span><span class="sr-only">3</span></label>
+        <label><input type="radio" name="valoracion" value="4"><span aria-hidden="true">★</span><span class="sr-only">4</span></label>
+        <label><input type="radio" name="valoracion" value="5"><span aria-hidden="true">★</span><span class="sr-only">5</span></label>
+      </fieldset>
+
+      <label class="devolucion__campo">
+        <span data-i18n="devol_categoria_label">¿Sobre qué?</span>
+        <select name="categoria" required>
+          <option value="enigmas" data-i18n="devol_cat_enigmas"></option>
+          <option value="dificultad" data-i18n="devol_cat_dificultad"></option>
+          <option value="recorrido" data-i18n="devol_cat_recorrido"></option>
+          <option value="error" data-i18n="devol_cat_error"></option>
+          <option value="precio" data-i18n="devol_cat_precio"></option>
+          <option value="otro" data-i18n="devol_cat_otro"></option>
+        </select>
+      </label>
+
+      <label class="devolucion__campo">
+        <span data-i18n="devol_texto_label">Cuéntanos</span>
+        <textarea name="texto" rows="4" maxlength="2000" required
+                  data-i18n-attr="placeholder:devol_texto_ph"></textarea>
+      </label>
+
+      <label class="devolucion__campo">
+        <span data-i18n="devol_email_label">Tu email (si quieres que te respondamos)</span>
+        <input type="email" name="email" maxlength="254"
+               data-i18n-attr="placeholder:devol_email_ph">
+      </label>
+
+      <button type="submit" class="btn btn-lacre" id="btn-devolucion" data-i18n="devol_btn_enviar">Enviar</button>
+    </form>
+    <p id="devolucion-msg" class="devolucion__msg" hidden></p>
+
     <div class="pantalla-final__acciones">
       <a class="btn btn-lacre" id="link-imprimir" href="imprimir.html" data-i18n="juego_final_btn_imprimir">Descargar versión imprimible</a>
       <a class="btn btn-fantasma" href="../index.html" data-i18n="juego_final_btn_inicio">Volver a Vestigia</a>
