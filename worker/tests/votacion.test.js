@@ -299,6 +299,22 @@ test('admin: sin bearer correcto → 401 en listar y moderar', async () => {
   assert.equal(r2.status, 401);
 });
 
+test('admin: sin ADMIN_SECRET configurado → 401 (falla en cerrado, no en abierto)', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto-a1b2c3', etiquetaJson: '{"es":"Oporto"}', email: 'secreto@proponente', nota: null, votante: 'u', ipHash: 'h', ahora: 3 });
+  const envSinSecreto = { DB }; // sin ADMIN_SECRET
+
+  const r1 = await handleListarPropuestas(req('/api/admin/propuestas'), envSinSecreto, CORS, dbReal);
+  assert.equal(r1.status, 401);
+  const r2 = await handleModerarPropuesta(
+    req('/api/admin/propuestas/oporto-a1b2c3', { body: { accion: 'aprobar' } }),
+    envSinSecreto, CORS, 'oporto-a1b2c3', dbReal,
+  );
+  assert.equal(r2.status, 401);
+  // La propuesta sigue pendiente: la petición no autorizada no la moderó.
+  assert.equal((await dbReal.opcionPorId({ DB }, 'oporto-a1b2c3')).estado, 'pendiente');
+});
+
 test('admin: listar devuelve las pendientes', async () => {
   const DB = crearD1Falsa(SEMILLA);
   await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto-a1b2c3', etiquetaJson: '{"es":"Oporto"}', email: 'a@b', nota: 'n', votante: 'u', ipHash: 'h', ahora: 3 });
@@ -307,15 +323,20 @@ test('admin: listar devuelve las pendientes', async () => {
   assert.equal(cuerpo.propuestas.length, 1);
   assert.equal(cuerpo.propuestas[0].id, 'oporto-a1b2c3');
   assert.deepEqual(cuerpo.propuestas[0].etiqueta, { es: 'Oporto' });
+  // El campo se expone como `email` (renombrado de `propuesta_email`).
+  assert.equal(cuerpo.propuestas[0].email, 'a@b');
+  assert.equal(cuerpo.propuestas[0].nota, 'n');
 });
 
 test('admin: aprobar vuelve la opción votable; rechazar la descarta', async () => {
   const DB = crearD1Falsa(SEMILLA);
   await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto-a1b2c3', etiquetaJson: '{"es":"Oporto"}', email: null, nota: null, votante: 'u', ipHash: 'h', ahora: 3 });
-  await handleModerarPropuesta(
+  const resAprobar = await handleModerarPropuesta(
     req('/api/admin/propuestas/oporto-a1b2c3', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
     ADMIN_ENV(DB), CORS, 'oporto-a1b2c3', dbReal,
   );
+  assert.equal(resAprobar.status, 200);
+  assert.deepEqual(await resAprobar.json(), { ok: true });
   assert.ok((await dbReal.listarOpcionesVotables({ DB })).some((o) => o.id === 'oporto-a1b2c3'));
 
   await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'lyon-d4e5f6', etiquetaJson: '{"es":"Lyon"}', email: null, nota: null, votante: 'u2', ipHash: 'h2', ahora: 4 });

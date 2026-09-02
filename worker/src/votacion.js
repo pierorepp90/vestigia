@@ -217,9 +217,13 @@ function secretoOk(recibido, esperado) {
 }
 
 function autorizadoAdmin(request, env) {
+  // Sin secreto configurado NO se autoriza a nadie: `secretoOk('', '')` daría
+  // `true` (mismo largo, cero iteraciones) y dejaría los endpoints admin
+  // abiertos. Fallar en cerrado.
+  if (!env.ADMIN_SECRET) return false;
   const cabecera = request.headers.get('Authorization') || '';
   const token = cabecera.startsWith('Bearer ') ? cabecera.slice(7) : '';
-  return secretoOk(token, env.ADMIN_SECRET || '');
+  return secretoOk(token, env.ADMIN_SECRET);
 }
 
 export async function handleListarPropuestas(request, env, cors, db = dbPorDefecto) {
