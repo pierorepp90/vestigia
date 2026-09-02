@@ -42,6 +42,7 @@ async function importarClave(secreto) {
 export async function firmarToken({ rutaId, orderId }, secreto, duracionSegundos = UN_ANIO_EN_SEGUNDOS) {
   if (!rutaId || !orderId) throw new Error('firmarToken requiere rutaId y orderId');
   const payload = {
+    v: 1,
     rutaId,
     orderId,
     exp: Math.floor(Date.now() / 1000) + duracionSegundos,
@@ -77,6 +78,7 @@ export async function verificarToken(token, secreto) {
 
     const payload = JSON.parse(new TextDecoder().decode(deBase64Url(payloadB64)));
     if (!payload || typeof payload.exp !== 'number') return null;
+    if (payload.v !== 1) return null; // versión del formato: permite invalidar en bloque sin rotar el secreto
     if (Math.floor(Date.now() / 1000) > payload.exp) return null;
     if (typeof payload.rutaId !== 'string' || typeof payload.orderId !== 'string') return null;
 

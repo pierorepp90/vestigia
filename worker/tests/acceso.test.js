@@ -57,6 +57,21 @@ test('entradas degeneradas nunca lanzan, siempre devuelven null', async () => {
   assert.equal(await verificarToken('%%%no-es-base64%%%.abc', SECRETO), null);
 });
 
+test('el payload del token lleva v: 1', async () => {
+  const token = await firmarToken({ rutaId: 'barcelona-gotic', orderId: 'ord_1' }, SECRETO);
+  const payload = await verificarToken(token, SECRETO);
+  assert.equal(payload.v, 1);
+});
+
+test('un token con v ausente se rechaza aunque la firma sea válida', async () => {
+  const { subtle } = globalThis.crypto;
+  const b64url = (bytes) => btoa(String.fromCharCode(...bytes)).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+  const payloadB64 = b64url(new TextEncoder().encode(JSON.stringify({ rutaId: 'x', orderId: 'y', exp: Math.floor(Date.now() / 1000) + 1000 })));
+  const key = await subtle.importKey('raw', new TextEncoder().encode(SECRETO), { name: 'HMAC', hash: 'SHA-256' }, false, ['sign']);
+  const firma = new Uint8Array(await subtle.sign('HMAC', key, new TextEncoder().encode(payloadB64)));
+  assert.equal(await verificarToken(`${payloadB64}.${b64url(firma)}`, SECRETO), null);
+});
+
 test('firmarToken exige rutaId y orderId', async () => {
   await assert.rejects(() => firmarToken({ rutaId: 'barcelona-gotic' }, SECRETO));
   await assert.rejects(() => firmarToken({ orderId: 'ord_1' }, SECRETO));
