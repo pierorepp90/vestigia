@@ -2,14 +2,19 @@
 //
 // Handlers de la votación de próxima ciudad. Reciben `db` (el módulo
 // worker/src/db.js) como último argumento para poder inyectar un doble en
-// los tests — mismo patrón que sendEmail(fetchFn) en resend.js.
+// los tests.
+//
+// `env._enviar` (en handleEnviarPropuesta) es una costura SOLO para tests:
+// intercepta el payload de email completo antes de que llegue a sendEmail().
+// En producción `env._enviar` no existe y se llama a sendEmail directamente.
 import * as dbPorDefecto from './db.js';
 import { hashIp } from './hash.js';
 import { leerJsonAcotado } from './entrada.js';
 import { consumirCupo } from './throttle.js';
-import { buildPropuestaEmail, sendEmail } from './resend.js';
+import { buildPropuestaEmail, sendEmail, emailValidoBasico } from './resend.js';
 
 const RE_ID = /^[a-z0-9-]{1,40}$/;
+const RE_VOTANTE = /^[a-z0-9-]{8,64}$/i;
 const VENTANA_THROTTLE = 900; // 15 min
 const MAX_VOTOS_POR_IP = 3;
 const MAX_CIUDAD = 120;
@@ -20,6 +25,17 @@ function jsonRes(cuerpo, cors, status = 200) {
   return Response.json(cuerpo, { status, headers: cors });
 }
 
+/** Identificador de votante: token opaco generado por el cliente. */
+function votanteValido(v) {
+  return typeof v === 'string' && RE_VOTANTE.test(v);
+}
+
+/** true si el error viene de violar un UNIQUE / CHECK del esquema (D1 real o
+ *  el doble de fake-d1.js), no de otro fallo. */
+function esViolacionRestriccion(err) {
+  return /unique|constraint/i.test(String((err && err.message) || err));
+}
+
 function respuesta429(cors, cupo) {
   return jsonRes(
     { error: 'Demasiadas solicitudes, prueba de nuevo en unos minutos' },
@@ -28,18 +44,19 @@ function respuesta429(cors, cupo) {
   );
 }
 
-/** Estado del votante a partir de su fila en `votos`. */
+/** Estado del votante a partir de su fila en `votos`. Coincide con el predicado
+ *  de `miVoto` (`estado === 'activo'`). */
 function estadoDesdeVoto(voto) {
   if (!voto) return 'sin_voto';
-  return voto.estado === 'en_espera' ? 'propuesta_pendiente' : 'voto_activo';
+  return voto.estado === 'activo' ? 'voto_activo' : 'propuesta_pendiente';
 }
 
-/** La etiqueta se guarda como JSON `{es,en,...}`; si viene mal formada, se
- *  devuelve como `{es: <texto>}` para no romper la página. */
+/** La etiqueta se guarda como JSON `{es,en,...}`; si viene mal formada o no es
+ *  un objeto plano, se devuelve como `{es: <texto>}` para no romper la página. */
 export function parseEtiqueta(raw) {
   try {
     const o = JSON.parse(raw);
-    return o && typeof o === 'object' ? o : { es: String(raw) };
+    return o && typeof o === 'object' && !Array.isArray(o) ? o : { es: String(raw) };
   } catch {
     return { es: String(raw) };
   }
@@ -48,8 +65,8 @@ export function parseEtiqueta(raw) {
 export async function handleObtenerVotacion(request, env, cors, db = dbPorDefecto) {
   const url = new URL(request.url);
   const votante = url.searchParams.get('votante');
-  if (!votante || !RE_ID.test(votante.replace(/-/g, ''))) {
-    return jsonRes({ error: 'Falta el identificador de votante' }, cors, 400);
+  if (!votanteValido(votante)) {
+    return jsonRes({ error: 'Identificador de votante no válido' }, cors, 400);
   }
 
   const [opciones, voto] = await Promise.all([
@@ -71,8 +88,11 @@ export async function handleEmitirVoto(request, env, cors, ip, db = dbPorDefecto
   const leido = await leerJsonAcotado(request);
   if (leido.error) return jsonRes({ error: leido.error }, cors, leido.status);
   const { opcionId, votante } = leido.datos || {};
-  if (!opcionId || !RE_ID.test(opcionId) || !votante) {
+  if (!opcionId || !RE_ID.test(opcionId)) {
     return jsonRes({ error: 'Datos de voto incompletos' }, cors, 400);
+  }
+  if (!votanteValido(votante)) {
+    return jsonRes({ error: 'Identificador de votante no válido' }, cors, 400);
   }
 
   const cupo = await consumirCupo(env.KV, { ip, accion: 'voto', limite: 20, ventanaSegundos: VENTANA_THROTTLE });
@@ -87,11 +107,19 @@ export async function handleEmitirVoto(request, env, cors, ip, db = dbPorDefecto
   }
 
   const ipHash = await hashIp(ip, env.IP_SALT);
+  // Tope por red doméstica: no se limpia esperando — es 403, no 429.
   if ((await db.votosConMismaIp(env, ipHash)) >= MAX_VOTOS_POR_IP) {
-    return jsonRes({ error: 'Demasiados votos desde esta red' }, cors, 429);
+    return jsonRes({ error: 'Demasiados votos desde esta red' }, cors, 403);
   }
 
-  await db.registrarVoto(env, { opcionId, votante, ipHash, ahora: Date.now() });
+  try {
+    await db.registrarVoto(env, { opcionId, votante, ipHash, ahora: Date.now() });
+  } catch (err) {
+    // Carrera con otra petición del mismo votante: el UNIQUE(votante) es la
+    // garantía real; devolvemos el mismo 409 que el pre-check.
+    if (esViolacionRestriccion(err)) return jsonRes({ error: 'Ya has votado' }, cors, 409);
+    throw err;
+  }
 
   const [opciones, rec] = await Promise.all([db.listarOpcionesVotables(env), db.recuentoVotos(env)]);
   const salida = opciones.map((o) => ({ id: o.id, etiqueta: parseEtiqueta(o.etiqueta), votos: rec[o.id] || 0 }));
@@ -100,8 +128,8 @@ export async function handleEmitirVoto(request, env, cors, ip, db = dbPorDefecto
 
 /** slug estable a partir del texto de la ciudad, con sufijo aleatorio para no
  *  colisionar si dos personas proponen lo mismo escrito distinto. Siempre
- *  cumple RE_ID (a-z 0-9 -, <= 40). */
-function slugPropuesta(ciudad) {
+ *  cumple RE_ID (a-z 0-9 -, <= 40); nombres no latinos caen a `propuesta-…`. */
+export function slugPropuesta(ciudad) {
   const base = ciudad
     .toLowerCase()
     .normalize('NFD')
@@ -122,14 +150,20 @@ export async function handleEnviarPropuesta(request, env, cors, ip, db = dbPorDe
   if (leido.error) return jsonRes({ error: leido.error }, cors, leido.status);
   const { ciudad, nota, email, votante } = leido.datos || {};
 
-  if (!votante) return jsonRes({ error: 'Falta el identificador de votante' }, cors, 400);
+  if (!votanteValido(votante)) {
+    return jsonRes({ error: 'Identificador de votante no válido' }, cors, 400);
+  }
 
   const ciudadLimpia = typeof ciudad === 'string' ? ciudad.trim() : '';
   if (!ciudadLimpia || ciudadLimpia.length > MAX_CIUDAD) {
     return jsonRes({ error: 'Escribe el nombre de la ciudad (máx. 120 caracteres)' }, cors, 400);
   }
   const notaLimpia = typeof nota === 'string' && nota.trim() ? nota.trim().slice(0, MAX_NOTA) : null;
-  const emailLimpio = typeof email === 'string' && email.trim() ? email.trim().slice(0, MAX_EMAIL) : null;
+  const emailBruto = typeof email === 'string' ? email.trim() : '';
+  if (emailBruto && !emailValidoBasico(emailBruto)) {
+    return jsonRes({ error: 'Email no válido' }, cors, 400);
+  }
+  const emailLimpio = emailBruto ? emailBruto.slice(0, MAX_EMAIL) : null;
 
   const cupo = await consumirCupo(env.KV, { ip, accion: 'propuesta', limite: 3, ventanaSegundos: VENTANA_THROTTLE });
   if (!cupo.permitido) return respuesta429(cors, cupo);
@@ -139,19 +173,27 @@ export async function handleEnviarPropuesta(request, env, cors, ip, db = dbPorDe
   }
 
   const ipHash = await hashIp(ip, env.IP_SALT);
+  // Ya hay una propuesta suya en revisión: no se despeja con el tiempo, es 409.
   if ((await db.propuestasPendientesDeIp(env, ipHash)) >= 1) {
-    return jsonRes({ error: 'Ya tienes una propuesta en revisión' }, cors, 429);
+    return jsonRes({ error: 'Ya tienes una propuesta en revisión' }, cors, 409);
   }
 
-  await db.crearPropuestaConVoto(env, {
-    opcionId: slugPropuesta(ciudadLimpia),
-    etiquetaJson: JSON.stringify({ es: ciudadLimpia }),
-    email: emailLimpio,
-    nota: notaLimpia,
-    votante,
-    ipHash,
-    ahora: Date.now(),
-  });
+  try {
+    await db.crearPropuestaConVoto(env, {
+      opcionId: slugPropuesta(ciudadLimpia),
+      etiquetaJson: JSON.stringify({ es: ciudadLimpia }),
+      email: emailLimpio,
+      nota: notaLimpia,
+      votante,
+      ipHash,
+      ahora: Date.now(),
+    });
+  } catch (err) {
+    // Carrera con otra petición del mismo votante: el UNIQUE(votante) es la
+    // garantía real; devolvemos el mismo 409 que el pre-check.
+    if (esViolacionRestriccion(err)) return jsonRes({ error: 'Ya has participado' }, cors, 409);
+    throw err;
+  }
 
   const enviar = env._enviar || ((p) => sendEmail(p, env.RESEND_API_KEY));
   try {

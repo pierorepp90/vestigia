@@ -44,6 +44,11 @@ export function crearD1Falsa(inicial = {}) {
           first: { n: tablas.votos.filter((v) => v.ip_hash === args[0] && v.estado === 'activo').length },
         };
       case 'insertar_voto':
+        // votos.votante es UNIQUE en el esquema real: D1 lanza aquí y este
+        // doble debe hacer lo mismo para cubrir la ruta de carrera.
+        if (tablas.votos.some((v) => v.votante === args[1])) {
+          throw new Error('UNIQUE constraint failed: votos.votante');
+        }
         tablas.votos.push({
           id: autoId++, opcion_id: args[0], votante: args[1], ip_hash: args[2], estado: args[3], creado_en: args[4],
         });
