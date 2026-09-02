@@ -266,6 +266,25 @@ export function buildCustomerEmail({ rutaId, orderId, idioma, email, token, titu
   };
 }
 
+/** Aviso al propietario de que ha entrado una propuesta de ciudad nueva a la
+ *  cola de moderación. Enlaza directo al panel `/admin/votos.html`. */
+export function buildPropuestaEmail({ ciudad, nota, email }, ownerEmail, siteUrl) {
+  return {
+    from: FROM_ADDRESS,
+    to: [ownerEmail],
+    subject: `Nueva propuesta de ciudad: ${ciudad}`,
+    html: `
+      <h2>Nueva propuesta de ciudad</h2>
+      <ul>
+        <li>Ciudad / barrio: <strong>${escapeHtml(ciudad)}</strong></li>
+        <li>Nota: ${nota ? escapeHtml(nota) : '(sin nota)'}</li>
+        <li>Email de quien propone: ${email ? escapeHtml(email) : '(no proporcionado)'}</li>
+      </ul>
+      <p>Modérala (aprobar / rechazar) en <a href="${escapeHtml(siteUrl)}/admin/votos.html">${escapeHtml(siteUrl)}/admin/votos.html</a></p>
+    `,
+  };
+}
+
 export async function sendEmail(payload, apiKey, fetchFn = fetch) {
   const response = await fetchFn('https://api.resend.com/emails', {
     method: 'POST',

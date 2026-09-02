@@ -1,7 +1,7 @@
 // worker/tests/resend.test.js
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { buildOwnerEmail, buildCustomerEmail, sendEmail, emailValidoBasico, buildAvisoOwner } from '../src/resend.js';
+import { buildOwnerEmail, buildCustomerEmail, sendEmail, emailValidoBasico, buildAvisoOwner, buildPropuestaEmail } from '../src/resend.js';
 
 test('buildAvisoOwner arma un email al owner con el texto escapado', () => {
   const email = buildAvisoOwner('Sesión cs_test_1 con importe <raro>', 'owner@example.com');
@@ -116,4 +116,24 @@ test('emailValidoBasico rechaza direcciones excesivamente largas', () => {
 test('emailValidoBasico rechaza bytes de control (p. ej. byte nulo)', () => {
   assert.equal(emailValidoBasico('a@b.com '), false);
   assert.equal(emailValidoBasico('a@b.com\n'), false);
+});
+
+test('buildPropuestaEmail va al propietario, incluye ciudad, nota y email, y escapa HTML', () => {
+  const email = buildPropuestaEmail(
+    { ciudad: 'Oporto <b>', nota: 'la Ribeira', email: 'fan@ejemplo.com' },
+    'owner@example.com',
+    'https://vestigia.fun',
+  );
+  assert.deepEqual(email.to, ['owner@example.com']);
+  assert.match(email.subject, /propuesta/i);
+  assert.match(email.html, /Oporto &lt;b&gt;/);
+  assert.match(email.html, /la Ribeira/);
+  assert.match(email.html, /fan@ejemplo\.com/);
+  assert.match(email.html, /\/admin\/votos\.html/);
+});
+
+test('buildPropuestaEmail funciona sin nota ni email', () => {
+  const email = buildPropuestaEmail({ ciudad: 'Oporto', nota: null, email: null }, 'owner@example.com', 'https://vestigia.fun');
+  assert.match(email.html, /Oporto/);
+  assert.ok(!email.html.includes('null'));
 });
