@@ -47,6 +47,14 @@ export const API_BASE_URL = 'http://127.0.0.1:8787';
 **Recuerda revertirlo a la URL de producción antes de desplegar.**
 
 `worker/.dev.vars` (no se commitea) trae ya un `TOKEN_SECRET` de pruebas.
+Para la votación y las devoluciones añade también `IP_SALT` y `ADMIN_SECRET`
+de pruebas, y crea la base D1 local:
+```
+cd worker
+printf 'IP_SALT = "sal-local"\nADMIN_SECRET = "admin-local"\n' >> .dev.vars
+npx wrangler d1 migrations apply vestigia-db --local
+```
+
 Para probar el flujo de juego sin pasar por Stripe, mina un token a mano:
 ```
 cd worker
@@ -59,12 +67,14 @@ El comando imprime una URL de `jugar/` lista para abrir.
 ```
 npm test
 ```
-Corre `node --test` sobre `tests/` y `worker/tests/` a la vez (99 tests):
+Corre `node --test` sobre `tests/` y `worker/tests/` a la vez (218 tests):
 motor de juego, tokens de acceso, integridad de contenido (16 rutas × 4
 idiomas = 64 archivos, cada uno con sus 8 paradas), coherencia de precios,
-Stripe y Resend con `fetch` simulado, y paridad de traducciones en
-`js/i18n.js` y `js/catalogo.js` — ningún idioma puede quedarse con una
-clave a medias sin que un test lo detecte.
+Stripe y Resend con `fetch` simulado, rate limit, votación y devoluciones
+(D1 con un doble en memoria + un smoke test contra el esquema real vía
+`node:sqlite`), y paridad de traducciones en `js/i18n.js` y `js/catalogo.js`
+— ningún idioma puede quedarse con una clave a medias sin que un test lo
+detecte.
 
 ## Poner en marcha el pago de verdad
 
@@ -85,19 +95,53 @@ clave a medias sin que un test lo detecte.
 5. Probar con tarjetas de test de Stripe (`4242 4242 4242 4242`) antes de
    pasar a modo live.
 
+## Base de datos: votación y devoluciones (Cloudflare D1)
+
+La votación de próxima ciudad (`/votar/`, moderada desde
+`/admin/votos.html`) y las devoluciones post-ruta se guardan en
+**Cloudflare D1** (`vestigia-db`, plan gratuito). Binding `DB` en
+[worker/wrangler.toml](worker/wrangler.toml); todo el SQL vive en
+[worker/src/db.js](worker/src/db.js).
+
+1. Crear la base (una sola vez; el `database_id` ya está en `wrangler.toml`):
+   ```
+   cd worker
+   npx wrangler d1 create vestigia-db
+   ```
+2. Dos secretos nuevos del Worker:
+   ```
+   npx wrangler secret put IP_SALT        # openssl rand -hex 16 — sal del hash de IP para deduplicar votos
+   npx wrangler secret put ADMIN_SECRET   # frase larga y única para el panel /admin/votos.html
+   ```
+3. Aplicar las migraciones (`worker/migrations/`):
+   ```
+   npx wrangler d1 migrations apply vestigia-db --local     # desarrollo
+   npx wrangler d1 migrations apply vestigia-db --remote     # producción
+   ```
+
 ## Desplegar
 
-- **Worker**: `cd worker && npx wrangler deploy`
-- **Sitio estático**: GitHub Pages (u otro hosting estático) apuntando a
-  la raíz del repo. Falta el `CNAME` — se añade cuando se confirme el
-  dominio (ver más abajo).
+**Orden importante** — la migración remota y los dos secretos nuevos van
+**antes** del `wrangler deploy`: si se despliega el Worker sin `IP_SALT`,
+cada voto y cada propuesta devuelven 500; sin las tablas de D1,
+`/api/votacion` y `/api/devolucion` fallan.
+
+1. `cd worker && npx wrangler d1 migrations apply vestigia-db --remote`
+2. `npx wrangler secret put IP_SALT` y `npx wrangler secret put ADMIN_SECRET` (si no están ya)
+3. **Worker**: `npx wrangler deploy`
+4. **Sitio estático**: GitHub Pages (u otro hosting estático) apuntando a
+   la raíz del repo. Falta el `CNAME` — se añade cuando se confirme el
+   dominio (ver más abajo).
 
 ## Estado del proyecto
 
 Hecho y probado en local end-to-end: portada, páginas de ciudad, fichas de
 ruta, motor de juego completo (respuestas con tolerancia a erratas,
 pistas, cronómetro, progreso persistente y offline), versión imprimible,
-checkout de Stripe + emails de Resend + token de acceso, páginas legales.
+checkout de Stripe + emails de Resend + token de acceso, páginas legales,
+votación de próxima ciudad (`/votar/`, con propuestas moderadas desde
+`/admin/votos.html`) y devolución post-ruta en la pantalla final —
+ambas sobre Cloudflare D1.
 
 **16 rutas jugables en 11 ciudades** (Barcelona tiene tres: Barri Gòtic, El
 Born y El Raval; Roma, Florencia y París tienen dos cada una — cada segunda
