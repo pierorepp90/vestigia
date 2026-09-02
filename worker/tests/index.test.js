@@ -1,28 +1,49 @@
 // worker/tests/index.test.js
 //
-// Solo cubre las dos barreras de seguridad de index.js que el resto de la
-// interfaz nunca puede ejercitar por sí sola (la UI siempre llama al
-// endpoint correcto para cada ruta): que /api/create-checkout-session
-// rechace una ruta gratis y que /api/acceso-gratuito rechace una ruta de
-// pago, ambas ANTES de tocar Stripe, acuñar un token o enviar un email. El
-// resto de los handlers de este router se sigue verificando a mano — esto
-// es la excepción, no la norma, justificada porque el cruce ruta-de-pago /
-// endpoint-gratis es imposible de alcanzar navegando la interfaz.
+// Cubre las barreras de seguridad de index.js que la interfaz nunca ejercita
+// por sí sola: el cruce ruta-de-pago / endpoint-gratis, el rate limit por IP y
+// la validación de entrada. El resto de los handlers se verifica a mano contra
+// `wrangler dev` / `wrangler tail` — esto es la excepción, no la norma.
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
-import { handleAccesoGratuito, handleCrearCheckoutSession } from '../src/index.js';
+import { firmarToken } from '../src/acceso.js';
+import { handleAccesoGratuito, handleCrearCheckoutSession, handleObtenerRuta } from '../src/index.js';
 
 const CORS_FALSO = { 'Access-Control-Allow-Origin': '*' };
 
-function requestFalso(cuerpo) {
-  return { json: async () => cuerpo };
+function requestFalso(cuerpo, headers = {}) {
+  const norm = {};
+  for (const k of Object.keys(headers)) norm[k.toLowerCase()] = headers[k];
+  return {
+    headers: { get: (k) => norm[String(k).toLowerCase()] ?? null },
+    json: async () => cuerpo,
+  };
 }
+
+function crearKvFalso(inicial = {}) {
+  const mapa = new Map(Object.entries(inicial));
+  return {
+    async get(clave, tipo) {
+      const v = mapa.get(clave);
+      if (v == null) return null;
+      return tipo === 'json' ? JSON.parse(v) : v;
+    },
+    async put(clave, valor) { mapa.set(clave, valor); },
+    _mapa: mapa,
+  };
+}
+
+const ENV_BASE = {
+  TOKEN_SECRET: 's', RESEND_API_KEY: 'k', STRIPE_SECRET_KEY: 'sk',
+  OWNER_EMAIL: 'o@e.com', SITE_URL: 'https://vestigia.fun',
+};
 
 test('handleCrearCheckoutSession rechaza una ruta gratuita antes de llamar a Stripe', async () => {
   const respuesta = await handleCrearCheckoutSession(
-    requestFalso({ rutaId: 'barcelona-born', idioma: 'es' }), // ruta gratis real del catálogo
-    { STRIPE_SECRET_KEY: 'no-deberia-usarse', SITE_URL: 'https://vestigia.es' },
+    requestFalso({ rutaId: 'barcelona-born', idioma: 'es' }),
+    { ...ENV_BASE, KV: crearKvFalso() },
     CORS_FALSO,
+    '1.1.1.1',
   );
   assert.equal(respuesta.status, 400);
   const cuerpo = await respuesta.json();
@@ -31,9 +52,10 @@ test('handleCrearCheckoutSession rechaza una ruta gratuita antes de llamar a Str
 
 test('handleAccesoGratuito rechaza una ruta de pago antes de acuñar token o enviar email', async () => {
   const respuesta = await handleAccesoGratuito(
-    requestFalso({ rutaId: 'barcelona-gotic', idioma: 'es', email: 'cliente@example.com' }), // ruta de pago real
-    { TOKEN_SECRET: 'no-deberia-usarse', RESEND_API_KEY: 'no-deberia-usarse', OWNER_EMAIL: 'owner@example.com', SITE_URL: 'https://vestigia.es' },
+    requestFalso({ rutaId: 'barcelona-gotic', idioma: 'es', email: 'cliente@example.com' }),
+    { ...ENV_BASE, KV: crearKvFalso() },
     CORS_FALSO,
+    '1.1.1.1',
   );
   assert.equal(respuesta.status, 400);
   const cuerpo = await respuesta.json();
@@ -43,10 +65,74 @@ test('handleAccesoGratuito rechaza una ruta de pago antes de acuñar token o env
 test('handleAccesoGratuito rechaza un email con formato inválido para una ruta gratis real', async () => {
   const respuesta = await handleAccesoGratuito(
     requestFalso({ rutaId: 'barcelona-born', idioma: 'es', email: 'esto-no-es-un-email' }),
-    { TOKEN_SECRET: 'no-deberia-usarse', RESEND_API_KEY: 'no-deberia-usarse', OWNER_EMAIL: 'owner@example.com', SITE_URL: 'https://vestigia.es' },
+    { ...ENV_BASE, KV: crearKvFalso() },
     CORS_FALSO,
+    '1.1.1.1',
   );
   assert.equal(respuesta.status, 400);
   const cuerpo = await respuesta.json();
   assert.match(cuerpo.error, /[Ee]mail/);
+});
+
+test('create-checkout-session responde 429 cuando el cupo de la IP está agotado', async () => {
+  const reset = Math.floor(Date.now() / 1000) + 800;
+  const kv = crearKvFalso({ 'rl:checkout:5.5.5.5': JSON.stringify({ n: 10, reset }) });
+  const r = await handleCrearCheckoutSession(
+    requestFalso({ rutaId: 'barcelona-gotic', idioma: 'es' }),
+    { ...ENV_BASE, KV: kv },
+    CORS_FALSO,
+    '5.5.5.5',
+  );
+  assert.equal(r.status, 429);
+  assert.ok(r.headers.get('Retry-After'));
+});
+
+test('create-checkout-session rechaza rutaId con forma inválida antes de tocar Stripe', async () => {
+  const r = await handleCrearCheckoutSession(
+    requestFalso({ rutaId: '__proto__', idioma: 'es' }),
+    { ...ENV_BASE, KV: crearKvFalso() },
+    CORS_FALSO,
+    '1.1.1.1',
+  );
+  assert.equal(r.status, 400);
+});
+
+test('acceso-gratuito con cupo agotado devuelve token y emailEnviado:false sin llamar a Resend', async () => {
+  const reset = Math.floor(Date.now() / 1000) + 800;
+  const kv = crearKvFalso({ 'rl:acceso-gratuito:2.2.2.2': JSON.stringify({ n: 1, reset }) });
+  const fetchOriginal = globalThis.fetch;
+  let resendLlamado = false;
+  globalThis.fetch = async () => { resendLlamado = true; return { ok: true, json: async () => ({}) }; };
+  try {
+    const r = await handleAccesoGratuito(
+      requestFalso({ rutaId: 'barcelona-born', idioma: 'es', email: 'v@example.com' }),
+      { ...ENV_BASE, KV: kv },
+      CORS_FALSO,
+      '2.2.2.2',
+    );
+    assert.equal(r.status, 200);
+    const cuerpo = await r.json();
+    assert.equal(cuerpo.ok, true);
+    assert.ok(cuerpo.token);
+    assert.equal(cuerpo.emailEnviado, false);
+    assert.equal(resendLlamado, false);
+  } finally {
+    globalThis.fetch = fetchOriginal;
+  }
+});
+
+test('handleObtenerRuta ignora un idioma no soportado y sirve es', async () => {
+  const token = await firmarToken({ rutaId: 'barcelona-gotic', orderId: 'ord_1' }, 's');
+  const url = new URL(`https://x/api/ruta?t=${encodeURIComponent(token)}&idioma=zz`);
+  const r = await handleObtenerRuta(url, { TOKEN_SECRET: 's' }, CORS_FALSO);
+  assert.equal(r.status, 200);
+  const cuerpo = await r.json();
+  assert.equal(cuerpo.idiomaServido, 'es');
+});
+
+test('la respuesta de /api/ruta no es cacheable', async () => {
+  const token = await firmarToken({ rutaId: 'barcelona-gotic', orderId: 'ord_1' }, 's');
+  const url = new URL(`https://x/api/ruta?t=${encodeURIComponent(token)}`);
+  const r = await handleObtenerRuta(url, { TOKEN_SECRET: 's' }, CORS_FALSO);
+  assert.equal(r.headers.get('Cache-Control'), 'no-store');
 });
