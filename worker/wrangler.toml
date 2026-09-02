@@ -25,5 +25,13 @@ preview_id = "818a61a4540e42a7be4919380625fdd7"
 #   wrangler secret put TOKEN_SECRET
 #   wrangler secret put STRIPE_SECRET_KEY
 #   wrangler secret put RESEND_API_KEY
+#   wrangler secret put ADMIN_SECRET   # frase larga para el panel /admin/votos.html
+#   wrangler secret put IP_SALT        # openssl rand -hex 16 — sal para el hash de IP de los votos
 # TOKEN_SECRET: cualquier cadena aleatoria larga (p. ej. `openssl rand -hex 32`).
 # STRIPE_SECRET_KEY / RESEND_API_KEY: se añaden en el paso 5 del plan (Pago y acceso).
+
+[[d1_databases]]
+binding = "DB"
+database_name = "vestigia-db"
+database_id = "620687ad-e060-44ef-b3b8-b6dcc53e5449"
+migrations_dir = "migrations"
