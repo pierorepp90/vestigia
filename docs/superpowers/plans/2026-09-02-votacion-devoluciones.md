@@ -1484,6 +1484,10 @@ git commit -m "$(printf 'Votacion: maximo 1 propuesta pendiente por IP (anti ema
 - Modify: `worker/src/votacion.js`
 - Modify: `worker/tests/votacion.test.js`
 
+**Firma:** `handleModerarPropuesta(request, env, cors, opcionId, db = dbPorDefecto)`
+— el `opcionId` (obligatorio) va **antes** de `db` (con valor por defecto),
+no después. `handleListarPropuestas(request, env, cors, db = dbPorDefecto)`.
+
 - [ ] **Step 1: Añadir tests**
 
 Añadir a `worker/tests/votacion.test.js` (import `handleListarPropuestas`, `handleModerarPropuesta`):
@@ -1497,45 +1501,60 @@ test('admin: sin bearer correcto → 401 en listar y moderar', async () => {
   assert.equal(r1.status, 401);
   const r2 = await handleModerarPropuesta(
     req('/api/admin/propuestas/oporto', { body: { accion: 'aprobar' }, headers: bearer('malo') }),
-    ADMIN_ENV(DB), CORS, dbReal, 'oporto',
+    ADMIN_ENV(DB), CORS, 'oporto', dbReal,
   );
   assert.equal(r2.status, 401);
 });
 
 test('admin: listar devuelve las pendientes', async () => {
   const DB = crearD1Falsa(SEMILLA);
-  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto', etiquetaJson: '{"es":"Oporto"}', email: 'a@b', nota: 'n', votante: 'u', ipHash: 'h', ahora: 3 });
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto-a1b2c3', etiquetaJson: '{"es":"Oporto"}', email: 'a@b', nota: 'n', votante: 'u', ipHash: 'h', ahora: 3 });
   const res = await handleListarPropuestas(req('/api/admin/propuestas', { headers: bearer('secreto-largo') }), ADMIN_ENV(DB), CORS, dbReal);
   const cuerpo = await res.json();
   assert.equal(cuerpo.propuestas.length, 1);
-  assert.equal(cuerpo.propuestas[0].id, 'oporto');
+  assert.equal(cuerpo.propuestas[0].id, 'oporto-a1b2c3');
   assert.deepEqual(cuerpo.propuestas[0].etiqueta, { es: 'Oporto' });
 });
 
 test('admin: aprobar vuelve la opción votable; rechazar la descarta', async () => {
   const DB = crearD1Falsa(SEMILLA);
-  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto', etiquetaJson: '{"es":"Oporto"}', email: null, nota: null, votante: 'u', ipHash: 'h', ahora: 3 });
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'oporto-a1b2c3', etiquetaJson: '{"es":"Oporto"}', email: null, nota: null, votante: 'u', ipHash: 'h', ahora: 3 });
   await handleModerarPropuesta(
-    req('/api/admin/propuestas/oporto', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
-    ADMIN_ENV(DB), CORS, dbReal, 'oporto',
+    req('/api/admin/propuestas/oporto-a1b2c3', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'oporto-a1b2c3', dbReal,
   );
-  assert.ok((await dbReal.listarOpcionesVotables({ DB })).some((o) => o.id === 'oporto'));
+  assert.ok((await dbReal.listarOpcionesVotables({ DB })).some((o) => o.id === 'oporto-a1b2c3'));
 
-  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'lyon', etiquetaJson: '{"es":"Lyon"}', email: null, nota: null, votante: 'u2', ipHash: 'h2', ahora: 4 });
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'lyon-d4e5f6', etiquetaJson: '{"es":"Lyon"}', email: null, nota: null, votante: 'u2', ipHash: 'h2', ahora: 4 });
   await handleModerarPropuesta(
-    req('/api/admin/propuestas/lyon', { body: { accion: 'rechazar' }, headers: bearer('secreto-largo') }),
-    ADMIN_ENV(DB), CORS, dbReal, 'lyon',
+    req('/api/admin/propuestas/lyon-d4e5f6', { body: { accion: 'rechazar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'lyon-d4e5f6', dbReal,
   );
   assert.equal(await dbReal.votoDeVotante({ DB }, 'u2'), null);
 });
 
 test('admin: acción desconocida → 400', async () => {
   const DB = crearD1Falsa(SEMILLA);
+  await dbReal.crearPropuestaConVoto({ DB }, { opcionId: 'x-000000', etiquetaJson: '{"es":"X"}', email: null, nota: null, votante: 'ux', ipHash: 'hx', ahora: 1 });
   const res = await handleModerarPropuesta(
-    req('/api/admin/propuestas/x', { body: { accion: 'explotar' }, headers: bearer('secreto-largo') }),
-    ADMIN_ENV(DB), CORS, dbReal, 'x',
+    req('/api/admin/propuestas/x-000000', { body: { accion: 'explotar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'x-000000', dbReal,
   );
   assert.equal(res.status, 400);
+});
+
+test('admin: moderar una opción inexistente → 404; una ya oficial → 409', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  const noExiste = await handleModerarPropuesta(
+    req('/api/admin/propuestas/nada-000000', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'nada-000000', dbReal,
+  );
+  assert.equal(noExiste.status, 404);
+  const yaOficial = await handleModerarPropuesta(
+    req('/api/admin/propuestas/praga', { body: { accion: 'aprobar' }, headers: bearer('secreto-largo') }),
+    ADMIN_ENV(DB), CORS, 'praga', dbReal,
+  );
+  assert.equal(yaOficial.status, 409);
 });
 ```
 
@@ -1575,24 +1594,38 @@ export async function handleListarPropuestas(request, env, cors, db = dbPorDefec
   return jsonRes({ propuestas }, cors);
 }
 
-export async function handleModerarPropuesta(request, env, cors, db = dbPorDefecto, opcionId) {
+export async function handleModerarPropuesta(request, env, cors, opcionId, db = dbPorDefecto) {
   if (!autorizadoAdmin(request, env)) return jsonRes({ error: 'No autorizado' }, cors, 401);
-  const { accion } = await request.json();
+  const leido = await leerJsonAcotado(request);
+  if (leido.error) return jsonRes({ error: leido.error }, cors, leido.status);
+  const { accion } = leido.datos || {};
+  if (accion !== 'aprobar' && accion !== 'rechazar') {
+    return jsonRes({ error: 'Acción no válida' }, cors, 400);
+  }
+
+  const opcion = await db.opcionPorId(env, opcionId);
+  if (!opcion) return jsonRes({ error: 'Propuesta no encontrada' }, cors, 404);
+  if (opcion.estado !== 'pendiente') {
+    return jsonRes({ error: 'Esa propuesta ya se ha moderado' }, cors, 409);
+  }
+
   if (accion === 'aprobar') {
     await db.aprobarPropuesta(env, opcionId);
-  } else if (accion === 'rechazar') {
-    await db.rechazarPropuesta(env, opcionId);
   } else {
-    return jsonRes({ error: 'Acción no válida' }, cors, 400);
+    await db.rechazarPropuesta(env, opcionId);
   }
   return jsonRes({ ok: true }, cors);
 }
 ```
 
+Nota: el `400 "Acción no válida"` va **antes** de tocar D1, así el test de
+acción desconocida no necesita que la opción exista — pero el ejemplo de
+arriba la crea igualmente para dejar claro el orden esperado.
+
 - [ ] **Step 4: Ejecutar y ver pasar**
 
 Run: `node --test worker/tests/votacion.test.js`
-Expected: PASS — 15 tests.
+Expected: PASS.
 
 - [ ] **Step 5: Commit**
 
@@ -1688,7 +1721,7 @@ Dentro del `try { ... }`, tras el `if` de `/api/confirm-payment` y antes del
       }
       const modera = url.pathname.match(/^\/api\/admin\/propuestas\/([a-z0-9-]{1,40})$/);
       if (request.method === 'POST' && modera) {
-        return await handleModerarPropuesta(request, env, cors, undefined, modera[1]);
+        return await handleModerarPropuesta(request, env, cors, modera[1]);
       }
       if (request.method === 'POST' && url.pathname === '/api/devolucion') {
         return await handleEnviarDevolucion(request, url, env, cors, ip);
@@ -1697,11 +1730,11 @@ Dentro del `try { ... }`, tras el `if` de `/api/confirm-payment` y antes del
 
 Notas:
 - `handleEmitirVoto` / `handleEnviarPropuesta` / `handleEnviarDevolucion`
-  reciben `ip` como último argumento posicional antes de `db` (que va por
+  reciben `ip` como argumento posicional antes de `db` (que va por
   defecto). Ver los deltas del recuadro al inicio de la Fase B.
-- `handleModerarPropuesta` recibe `db` por defecto cuando se le pasa
-  `undefined` como 4º argumento; el `opcionId` va detrás. Los endpoints
-  admin NO llevan `ip` ni throttle (van tras el bearer).
+- `handleModerarPropuesta(request, env, cors, opcionId, db = dbPorDefecto)`:
+  el `opcionId` va como 4º argumento, `db` por defecto al final. Los
+  endpoints admin NO llevan `ip` ni throttle (van tras el bearer).
 
 - [ ] **Step 5: Crear un stub temporal de devoluciones para no romper el import**
 
