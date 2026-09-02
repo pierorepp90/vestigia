@@ -7,7 +7,7 @@
 // propia página al imprimir. Comparte token, caché y patrón de carga con
 // js/jugar.js, pero no hay estado de partida que guardar — esto es solo lectura.
 import { obtenerRuta } from './api.js';
-import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
+import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, escaparHtml, t, tf } from './i18n.js';
 import { figuraSvg } from './juego/figuras.js';
 import { tieneSubpreguntas } from './juego/respuestas.js';
 
@@ -30,36 +30,39 @@ function renderCasillas(parada, lang) {
     .map(
       (sub) => `
       <div class="parada-impresa__casilla parada-impresa__casilla--etiquetada">
-        <span class="parada-impresa__casilla-texto">${sub.texto}</span>
+        <span class="parada-impresa__casilla-texto">${escaparHtml(sub.texto)}</span>
       </div>`,
     )
     .join('');
 }
 
-function renderParadas(ruta, lang) {
-  els['lista-paradas'].innerHTML = ruta.paradas
-    .map(
-      (p) => `
+/** HTML de una parada en la hoja imprimible. Todo el contenido de la ruta
+ *  (titulo, llegada, enigma, historia) viene del Worker y se escapa antes de
+ *  entrar en el innerHTML; la figura SVG es de confianza (js/juego/figuras.js). */
+export function bloqueParada(p, ruta, lang) {
+  return `
     <div class="parada-impresa">
       <span class="parada-impresa__numero">Parada ${p.n} / ${ruta.paradas.length}</span>
-      <h2 class="parada-impresa__titulo">${p.titulo}</h2>
+      <h2 class="parada-impresa__titulo">${escaparHtml(p.titulo)}</h2>
       <div class="parada-impresa__bloque">
         <span class="parada-impresa__etiqueta">${t(lang, 'imprimir_llegada_label')}</span>
-        <p class="parada-impresa__texto">${p.llegada}</p>
+        <p class="parada-impresa__texto">${escaparHtml(p.llegada)}</p>
       </div>
       <div class="parada-impresa__bloque">
         <span class="parada-impresa__etiqueta">${t(lang, 'imprimir_enigma_label')}</span>
-        <p class="parada-impresa__texto">${p.enigma}</p>
+        <p class="parada-impresa__texto">${escaparHtml(p.enigma)}</p>
         ${p.figuraId ? `<figure class="figura-impresa">${figuraSvg(p.figuraId)}</figure>` : ''}
       </div>
       ${renderCasillas(p, lang)}
       <div class="parada-impresa__bloque parada-impresa__bloque--historia">
         <span class="parada-impresa__etiqueta">${t(lang, 'imprimir_historia_label')}</span>
-        <p class="parada-impresa__texto">${p.historia}</p>
+        <p class="parada-impresa__texto">${escaparHtml(p.historia)}</p>
       </div>
-    </div>`,
-    )
-    .join('');
+    </div>`;
+}
+
+function renderParadas(ruta, lang) {
+  els['lista-paradas'].innerHTML = ruta.paradas.map((p) => bloqueParada(p, ruta, lang)).join('');
 }
 
 /**
@@ -76,7 +79,7 @@ function renderPistasImpresas(parada, lang) {
       return `
       <div class="${clase}">
         <span class="parada-impresa__etiqueta">${etiqueta}</span>
-        <p class="parada-impresa__texto">${pista}</p>
+        <p class="parada-impresa__texto">${escaparHtml(pista)}</p>
       </div>`;
     })
     .join('');
@@ -87,8 +90,8 @@ function renderRespuestas(ruta, lang) {
     .map(
       (p) => `
     <div class="respuesta-impresa">
-      <h3 class="respuesta-impresa__titulo">${p.n}. ${p.titulo}</h3>
-      ${p.saberMas ? `<p class="respuesta-impresa__sabermas"><strong>${t(lang, 'imprimir_sabermas_label')}:</strong> ${p.saberMas}</p>` : ''}
+      <h3 class="respuesta-impresa__titulo">${p.n}. ${escaparHtml(p.titulo)}</h3>
+      ${p.saberMas ? `<p class="respuesta-impresa__sabermas"><strong>${t(lang, 'imprimir_sabermas_label')}:</strong> ${escaparHtml(p.saberMas)}</p>` : ''}
       ${renderPistasImpresas(p, lang)}
     </div>`,
     )
@@ -145,8 +148,10 @@ async function init() {
   mostrar('hoja');
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 }
