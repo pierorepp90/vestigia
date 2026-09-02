@@ -76,8 +76,8 @@ export function crearD1Falsa(inicial = {}) {
         if (v) v.estado = 'activo';
         return { success: true };
       }
-      case 'borrar_voto_en_espera':
-        tablas.votos = tablas.votos.filter((v) => !(v.opcion_id === args[0] && v.estado === 'en_espera'));
+      case 'borrar_votos_de_opcion':
+        tablas.votos = tablas.votos.filter((v) => v.opcion_id !== args[0]);
         return { success: true };
       case 'insertar_devolucion':
         tablas.devoluciones.push({
@@ -92,6 +92,11 @@ export function crearD1Falsa(inicial = {}) {
 
   const DB = {
     _tablas: tablas,
+    async batch(stmts) {
+      const salida = [];
+      for (const s of stmts) salida.push(await s.run());
+      return salida;
+    },
     prepare(sql) {
       const etiqueta = tag(sql);
       let bound = [];

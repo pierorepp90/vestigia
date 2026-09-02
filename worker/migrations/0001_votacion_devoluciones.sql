@@ -4,10 +4,10 @@
 CREATE TABLE voto_opciones (
   id              TEXT PRIMARY KEY,
   etiqueta        TEXT NOT NULL,          -- JSON {"es":...,"en":...,"fr":...,"it":...}
-  estado          TEXT NOT NULL,          -- oficial | aprobada | pendiente | rechazada
+  estado          TEXT NOT NULL CHECK (estado IN ('oficial','aprobada','pendiente','rechazada')),
   propuesta_email TEXT,
   nota            TEXT,
-  creada_en       INTEGER NOT NULL
+  creada_en       INTEGER NOT NULL        -- epoch ms
 );
 
 CREATE TABLE votos (
@@ -15,8 +15,8 @@ CREATE TABLE votos (
   opcion_id TEXT NOT NULL REFERENCES voto_opciones(id),
   votante   TEXT NOT NULL,
   ip_hash   TEXT NOT NULL,
-  estado    TEXT NOT NULL,                -- activo | en_espera
-  creado_en INTEGER NOT NULL
+  estado    TEXT NOT NULL CHECK (estado IN ('activo','en_espera')),
+  creado_en INTEGER NOT NULL              -- epoch ms
 );
 CREATE UNIQUE INDEX idx_votos_votante ON votos(votante);
 CREATE INDEX idx_votos_ip_hash ON votos(ip_hash);
@@ -27,11 +27,11 @@ CREATE TABLE devoluciones (
   ruta_id    TEXT NOT NULL,
   order_id   TEXT NOT NULL,
   idioma     TEXT NOT NULL,
-  valoracion INTEGER NOT NULL,
-  categoria  TEXT NOT NULL,
+  valoracion INTEGER NOT NULL CHECK (valoracion BETWEEN 1 AND 5),
+  categoria  TEXT NOT NULL CHECK (categoria IN ('enigmas','dificultad','recorrido','error','precio','otro')),
   texto      TEXT NOT NULL,
   email      TEXT,
-  creado_en  INTEGER NOT NULL
+  creado_en  INTEGER NOT NULL             -- epoch ms
 );
 CREATE INDEX idx_devoluciones_ruta ON devoluciones(ruta_id);
 

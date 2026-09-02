@@ -19,3 +19,8 @@ test('hashIp cambia con la sal y con la ip', async () => {
 test('hashIp con ip vacía o desconocida no lanza', async () => {
   assert.match(await hashIp('', 'sal'), /^[0-9a-f]{64}$/);
 });
+
+test('hashIp lanza si falta la sal', async () => {
+  await assert.rejects(() => hashIp('1.2.3.4', ''));
+  await assert.rejects(() => hashIp('1.2.3.4', undefined));
+});

@@ -66,13 +66,23 @@ test('aprobarPropuesta la vuelve votable y activa su voto en espera', async () =
   assert.deepEqual(await recuentoVotos({ DB }), { oporto: 1 });
 });
 
-test('rechazarPropuesta la marca rechazada y borra el voto en espera', async () => {
+test('rechazarPropuesta la marca rechazada y borra todos los votos de la opción', async () => {
   const DB = crearD1Falsa(SEMILLA);
   await crearPropuestaConVoto({ DB }, { opcionId: 'oporto', etiquetaJson: '{"es":"Oporto"}', email: null, nota: null, votante: 'u9', ipHash: 'h9', ahora: 5 });
   await rechazarPropuesta({ DB }, 'oporto');
   assert.equal(await votoDeVotante({ DB }, 'u9'), null);
   const pend = await listarPropuestasPendientes({ DB });
   assert.deepEqual(pend, []);
+});
+
+test('rechazarPropuesta tras aprobarla no deja un voto activo huérfano', async () => {
+  const DB = crearD1Falsa(SEMILLA);
+  await crearPropuestaConVoto({ DB }, { opcionId: 'oporto', etiquetaJson: '{"es":"Oporto"}', email: null, nota: null, votante: 'u9', ipHash: 'h9', ahora: 5 });
+  await aprobarPropuesta({ DB }, 'oporto');
+  assert.deepEqual(await recuentoVotos({ DB }), { oporto: 1 });
+  await rechazarPropuesta({ DB }, 'oporto');
+  assert.equal(await votoDeVotante({ DB }, 'u9'), null);
+  assert.deepEqual(await recuentoVotos({ DB }), {});
 });
 
 test('listarPropuestasPendientes devuelve las pendientes con sus metadatos', async () => {
