@@ -5,7 +5,7 @@
 // respuestas, avanzar de parada, calcular el progreso) vive en js/juego/*;
 // este archivo es solo el pegamento con el DOM.
 import { obtenerRuta } from './api.js';
-import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, t, tf } from './i18n.js';
+import { DEFAULT_LANG, LANGS, aplicarI18n, detectarIdioma, guardarIdioma, escaparHtml, t, tf } from './i18n.js';
 import { obtenerParada, responder, progresoPorcentaje } from './juego/motor.js';
 import { tieneSubpreguntas } from './juego/respuestas.js';
 import { figuraSvg } from './juego/figuras.js';
@@ -71,12 +71,16 @@ function guardar() {
   guardarProgreso(app.rutaId, app.orderId, app.estado);
 }
 
+/** Fila de una pista revelada. El texto viene del contenido de la ruta
+ *  (servido por el Worker) y se escapa antes de entrar en el innerHTML. */
+export function filaPista(texto, i) {
+  return `<div class="pista"><span class="pista__numero">#${i + 1}</span><span>${escaparHtml(texto)}</span></div>`;
+}
+
 function renderPistas() {
   const parada = obtenerParada(app.ruta, app.estado);
   const reveladas = pistasReveladas(parada, app.estado);
-  els['lista-pistas'].innerHTML = reveladas
-    .map((texto, i) => `<div class="pista"><span class="pista__numero">#${i + 1}</span><span>${texto}</span></div>`)
-    .join('');
+  els['lista-pistas'].innerHTML = reveladas.map((texto, i) => filaPista(texto, i)).join('');
 
   const quedan = quedanPistas(parada, app.estado);
   els['btn-pista'].disabled = !quedan;
@@ -103,10 +107,10 @@ function renderCampos(parada) {
 
   if (!multiple) {
     contenedor.innerHTML = `
-      <label class="sr-only" for="respuesta-0">${t(app.lang, 'juego_input_placeholder')}</label>
+      <label class="sr-only" for="respuesta-0">${escaparHtml(t(app.lang, 'juego_input_placeholder'))}</label>
       <input id="respuesta-0" class="input-respuesta" type="text" autocomplete="off"
              autocapitalize="off" spellcheck="false"
-             placeholder="${t(app.lang, 'juego_input_placeholder')}">`;
+             placeholder="${escaparHtml(t(app.lang, 'juego_input_placeholder'))}">`;
     return;
   }
 
@@ -114,10 +118,10 @@ function renderCampos(parada) {
     .map(
       (sub, i) => `
       <div class="campo-multiple" data-indice="${i}">
-        <label class="campo-multiple__etiqueta" for="respuesta-${i}">${sub.texto}</label>
+        <label class="campo-multiple__etiqueta" for="respuesta-${i}">${escaparHtml(sub.texto)}</label>
         <input id="respuesta-${i}" class="input-respuesta input-respuesta--corta" type="text"
                autocomplete="off" autocapitalize="off" spellcheck="false"
-               placeholder="${t(app.lang, 'juego_input_placeholder_corto')}">
+               placeholder="${escaparHtml(t(app.lang, 'juego_input_placeholder_corto'))}">
       </div>`,
     )
     .join('');
@@ -364,8 +368,10 @@ async function init() {
   render();
 }
 
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', init);
-} else {
-  init();
+if (typeof document !== 'undefined') {
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
 }
