@@ -7,7 +7,8 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { firmarToken } from '../src/acceso.js';
-import { handleAccesoGratuito, handleCrearCheckoutSession, handleObtenerRuta } from '../src/index.js';
+import worker, { handleAccesoGratuito, handleCrearCheckoutSession, handleObtenerRuta } from '../src/index.js';
+import { crearD1Falsa } from './helpers/fake-d1.js';
 
 const CORS_FALSO = { 'Access-Control-Allow-Origin': '*' };
 
@@ -135,4 +136,37 @@ test('la respuesta de /api/ruta no es cacheable', async () => {
   const url = new URL(`https://x/api/ruta?t=${encodeURIComponent(token)}`);
   const r = await handleObtenerRuta(url, { TOKEN_SECRET: 's' }, CORS_FALSO);
   assert.equal(r.headers.get('Cache-Control'), 'no-store');
+});
+
+// --- Task B6: enrutado de la votación + CORS del header Authorization ---
+
+function entorno(DB) {
+  // sin KV → throttle.js falla en abierto; sin RESEND_API_KEY los envíos de
+  // email lanzan pero los handlers los envuelven en try/catch.
+  return { DB, IP_SALT: 'sal', ADMIN_SECRET: 'sec', ALLOWED_ORIGIN: 'https://vestigia.fun' };
+}
+function peticion(metodo, ruta, { body, origin } = {}) {
+  return new Request(`https://api.test${ruta}`, {
+    method: metodo,
+    headers: { 'Content-Type': 'application/json', Origin: origin || 'https://vestigia.fun' },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+}
+
+test('router: GET /api/votacion responde 200 con opciones', async () => {
+  const DB = crearD1Falsa({ voto_opciones: [{ id: 'praga', etiqueta: '{"es":"Praga"}', estado: 'oficial', creada_en: 0 }] });
+  const res = await worker.fetch(peticion('GET', '/api/votacion?votante=votante-01'), entorno(DB));
+  assert.equal(res.status, 200);
+  const cuerpo = await res.json();
+  assert.equal(cuerpo.opciones.length, 1);
+});
+
+test('router: OPTIONS incluye Authorization en Access-Control-Allow-Headers', async () => {
+  const res = await worker.fetch(peticion('OPTIONS', '/api/admin/propuestas'), entorno(crearD1Falsa()));
+  assert.match(res.headers.get('Access-Control-Allow-Headers') || '', /Authorization/i);
+});
+
+test('router: POST /api/admin/propuestas/:id sin bearer → 401', async () => {
+  const res = await worker.fetch(peticion('POST', '/api/admin/propuestas/oporto', { body: { accion: 'aprobar' } }), entorno(crearD1Falsa()));
+  assert.equal(res.status, 401);
 });

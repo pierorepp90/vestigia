@@ -8,6 +8,8 @@ import { buildAvisoOwner, buildCustomerEmail, buildOwnerEmail, emailValidoBasico
 import { consumirCupo } from './throttle.js';
 import { entradaValida, leerJsonAcotado } from './entrada.js';
 import { debeEnviarEmails, marcarCumplido } from './cumplimiento.js';
+import { handleObtenerVotacion, handleEmitirVoto, handleEnviarPropuesta, handleListarPropuestas, handleModerarPropuesta } from './votacion.js';
+import { handleEnviarDevolucion } from './devoluciones.js';
 // Título de la ruta para el checkout y los emails: no es un dato sensible
 // (a diferencia del precio) así que se reutiliza directamente del catálogo
 // público en vez de duplicarlo aquí.
@@ -209,6 +211,25 @@ export default {
       }
       if (request.method === 'GET' && url.pathname === '/api/confirm-payment') {
         return await handleConfirmarPago(url, env, cors, ip);
+      }
+      if (request.method === 'GET' && url.pathname === '/api/votacion') {
+        return await handleObtenerVotacion(request, env, cors);
+      }
+      if (request.method === 'POST' && url.pathname === '/api/votacion/voto') {
+        return await handleEmitirVoto(request, env, cors, ip);
+      }
+      if (request.method === 'POST' && url.pathname === '/api/votacion/propuesta') {
+        return await handleEnviarPropuesta(request, env, cors, ip);
+      }
+      if (request.method === 'GET' && url.pathname === '/api/admin/propuestas') {
+        return await handleListarPropuestas(request, env, cors);
+      }
+      const modera = url.pathname.match(/^\/api\/admin\/propuestas\/([a-z0-9-]{1,40})$/);
+      if (request.method === 'POST' && modera) {
+        return await handleModerarPropuesta(request, env, cors, modera[1]);
+      }
+      if (request.method === 'POST' && url.pathname === '/api/devolucion') {
+        return await handleEnviarDevolucion(request, url, env, cors, ip);
       }
     } catch (error) {
       console.error('error_no_controlado', String((error && error.stack) || error));

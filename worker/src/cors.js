@@ -7,7 +7,7 @@
 export function buildCorsHeaders(requestOrigin, allowedOrigin) {
   const headers = {
     'Access-Control-Allow-Methods': 'POST, GET, OPTIONS',
-    'Access-Control-Allow-Headers': 'Content-Type',
+    'Access-Control-Allow-Headers': 'Content-Type, Authorization',
     'X-Content-Type-Options': 'nosniff',
   };
   if (requestOrigin === allowedOrigin) {
