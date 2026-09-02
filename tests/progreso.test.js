@@ -89,3 +89,13 @@ test('estadoInicial trae paradaActual 1 y completada false', () => {
   assert.deepEqual(estado.pistasUsadas, {});
   assert.ok(estado.iniciadoEn > 0);
 });
+
+test('estadoInicial trae devolucionEnviada en false', () => {
+  assert.equal(estadoInicial().devolucionEnviada, false);
+});
+
+test('cargarProgreso conserva devolucionEnviada guardado', () => {
+  globalThis.localStorage = new LocalStorageDeMentira();
+  guardarProgreso('roma-centro', 'ord_7', { ...estadoInicial(), completada: true, devolucionEnviada: true });
+  assert.equal(cargarProgreso('roma-centro', 'ord_7').devolucionEnviada, true);
+});

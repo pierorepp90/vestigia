@@ -19,6 +19,7 @@ export function estadoInicial() {
     completada: false,
     iniciadoEn: Date.now(),
     completadoEn: null,
+    devolucionEnviada: false,
   };
 }
 
