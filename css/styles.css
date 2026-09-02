@@ -1554,6 +1554,7 @@ footer {
 .votar__subtitulo { color: var(--tinta-suave, #5b4c36); margin-bottom: 2rem; }
 .votar__cargando { display: flex; align-items: center; gap: .75rem; }
 .votar__error { color: #9c2b1f; }
+.votar__resultados-titulo { font-size: 1.15rem; margin: 0 0 1rem; }
 .votar-lista { list-style: none; padding: 0; margin: 0 0 2.5rem; display: grid; gap: .6rem; }
 .votar-opcion { display: flex; align-items: center; gap: 1rem; padding: .85rem 1rem;
   border: 1px solid #e0d5bd; border-radius: 10px; background: #fffdf7; }
