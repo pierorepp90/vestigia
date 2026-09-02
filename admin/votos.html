@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moderación de propuestas — Vestigia</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<main class="contenedor" style="max-width:720px; padding-block:2.5rem;">
+  <h1>Propuestas de ciudad</h1>
+
+  <form id="form-clave">
+    <label>Frase secreta
+      <input id="clave" type="password" autocomplete="off" style="font:inherit;padding:.5rem;">
+    </label>
+    <button class="btn btn-lacre" type="submit">Entrar</button>
+  </form>
+
+  <p id="msg" hidden></p>
+  <ul id="lista" class="votar-lista" hidden></ul>
+</main>
+<script type="module" src="../js/admin-votos.js"></script>
+</body>
+</html>
