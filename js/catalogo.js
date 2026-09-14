@@ -484,10 +484,10 @@ export const RUTAS = [
       it: 'Da una cupola costruita senza impalcature a una porta soprannominata da Michelangelo, da un David che è solo una copia a un ponte che cambiò mestiere per decreto ducale.',
     },
     acertijoMuestra: {
-      es: 'La fachada de la catedral parece medieval, pero es del siglo XIX. Contad los colores de mármol distintos que forman su patrón geométrico.',
-      en: "The cathedral's façade looks medieval, but it's actually from the 19th century. Count the different marble colours that make up its geometric pattern.",
-      fr: "La façade de la cathédrale semble médiévale, mais elle date en réalité du XIXe siècle. Comptez les différentes couleurs de marbre qui composent son motif géométrique.",
-      it: "La facciata della cattedrale sembra medievale, ma è in realtà dell'Ottocento. Contate i diversi colori di marmo che formano il suo motivo geometrico.",
+      es: 'El Ponte Vecchio estuvo lleno de carnicerías durante siglos, hasta que en 1593 un gran duque, harto del olor, las cambió por otro oficio que sigue hoy en casi todas sus tiendas. ¿Cuál?',
+      en: 'The Ponte Vecchio was full of butcher shops for centuries, until in 1593 a grand duke, fed up with the smell, replaced them with another trade almost every shop still practises today. Which one?',
+      fr: "Le Ponte Vecchio fut rempli de boucheries pendant des siècles, jusqu'à ce qu'en 1593 un grand-duc, excédé par l'odeur, les remplace par un autre métier que presque toutes les boutiques exercent encore aujourd'hui. Lequel ?",
+      it: 'Il Ponte Vecchio fu pieno di macellerie per secoli, finché nel 1593 un granduca, stufo del cattivo odore, le sostituì con un altro mestiere che quasi tutte le botteghe esercitano ancora oggi. Quale?',
     },
   },
   {
