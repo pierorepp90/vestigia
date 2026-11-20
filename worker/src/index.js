@@ -2,7 +2,7 @@
 import { buildCorsHeaders } from './cors.js';
 import { firmarToken, verificarToken } from './acceso.js';
 import { cargarContenido } from './contenido.js';
-import { precioDeRuta } from './precios.js';
+import { precioDeRuta, rutaEsGratis } from './precios.js';
 import { buildCheckoutSessionParams, createStripeSession, parseSessionPaymentStatus, pedidoDesdeSession, retrieveStripeSession, validarSesionPagada, sesionReembolsada } from './stripe.js';
 import { buildAvisoOwner, buildCustomerEmail, buildOwnerEmail, emailValidoBasico, sendEmail } from './resend.js';
 import { consumirCupo } from './throttle.js';
@@ -35,8 +35,7 @@ export async function handleCrearCheckoutSession(request, env, cors, ip) {
     );
   }
 
-  const precio = precioDeRuta(rutaId);
-  if (precio.importe === 0) {
+  if (rutaEsGratis(rutaId)) {
     return Response.json({ error: `"${rutaId}" es una ruta gratuita: usa /api/acceso-gratuito` }, { status: 400, headers: cors });
   }
 
@@ -61,8 +60,7 @@ export async function handleAccesoGratuito(request, env, cors, ip) {
   if (!entradaValida({ rutaId, idioma })) {
     return Response.json({ error: 'Ruta o idioma no válidos' }, { status: 400, headers: cors });
   }
-  const precio = precioDeRuta(rutaId);
-  if (!precio || precio.importe !== 0) {
+  if (!rutaEsGratis(rutaId)) {
     return Response.json({ error: `"${rutaId}" no es una ruta gratuita` }, { status: 400, headers: cors });
   }
   if (!emailValidoBasico(email)) {

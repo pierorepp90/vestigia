@@ -10,6 +10,7 @@
 // se rellenan en el paso 7 del plan (Traducciones); hasta entonces t() cae a
 // español para cualquier clave que falte, así que nada se rompe si una página
 // nueva usa una clave que aún no se ha traducido.
+import { TODAS_GRATIS } from './promocion.js';
 
 export const LANGS = ['es', 'en', 'fr', 'it'];
 export const DEFAULT_LANG = 'es';
@@ -44,8 +45,10 @@ export const DICT = {
     como_funciona_title: 'Cómo funciona',
     como_1_title: 'Elige ciudad y ruta',
     como_1_texto: 'Selecciona la ciudad en la que quieres jugar y elige entre los recorridos disponibles.',
-    como_2_title: 'Reserva tu partida',
-    como_2_texto: 'Prueba nuestras rutas gratuitas o compra el acceso permanente para todo el equipo con un pago único.',
+    como_2_title: TODAS_GRATIS ? 'Pide tu acceso' : 'Reserva tu partida',
+    como_2_texto: TODAS_GRATIS
+      ? 'Ahora mismo todas las rutas son gratis: deja tu email y recibe el acceso para todo el equipo.'
+      : 'Prueba nuestras rutas gratuitas o compra el acceso permanente para todo el equipo con un pago único.',
     como_3_title: 'Camina, juega y aprende',
     como_3_texto: 'Prepárate para salir a la calle a observar, pensar y resolver enigmas.',
     como_4_title: 'Descubre la historia',
@@ -236,8 +239,10 @@ export const DICT = {
     como_funciona_title: 'How it works',
     como_1_title: 'Choose a city and trail',
     como_1_texto: 'Pick the city you want to play in and choose from the available trails.',
-    como_2_title: 'Book your game',
-    como_2_texto: 'Try our free trails, or buy permanent access for your whole team with a single payment.',
+    como_2_title: TODAS_GRATIS ? 'Get your access' : 'Book your game',
+    como_2_texto: TODAS_GRATIS
+      ? 'Right now every trail is free: leave your email and get access for your whole team.'
+      : 'Try our free trails, or buy permanent access for your whole team with a single payment.',
     como_3_title: 'Walk, play, learn',
     como_3_texto: "Get ready to hit the streets to observe, think, and solve puzzles.",
     como_4_title: 'Uncover the history',
@@ -428,8 +433,10 @@ export const DICT = {
     como_funciona_title: 'Comment ça marche',
     como_1_title: 'Choisissez ville et parcours',
     como_1_texto: 'Choisissez la ville où vous voulez jouer et sélectionnez parmi les parcours disponibles.',
-    como_2_title: 'Réservez votre partie',
-    como_2_texto: "Essayez nos parcours gratuits, ou achetez l'accès permanent pour toute l'équipe avec un paiement unique.",
+    como_2_title: TODAS_GRATIS ? 'Demandez votre accès' : 'Réservez votre partie',
+    como_2_texto: TODAS_GRATIS
+      ? "En ce moment, tous les parcours sont gratuits : laissez votre email et recevez l'accès pour toute l'équipe."
+      : "Essayez nos parcours gratuits, ou achetez l'accès permanent pour toute l'équipe avec un paiement unique.",
     como_3_title: 'Marchez, jouez, apprenez',
     como_3_texto: "Préparez-vous à descendre dans la rue pour observer, réfléchir et résoudre des énigmes.",
     como_4_title: "Découvrez l'histoire",
@@ -620,8 +627,10 @@ export const DICT = {
     como_funciona_title: 'Come funziona',
     como_1_title: 'Scegli città e percorso',
     como_1_texto: 'Scegli la città in cui vuoi giocare e seleziona tra i percorsi disponibili.',
-    como_2_title: 'Prenota la tua partita',
-    como_2_texto: "Prova i nostri percorsi gratuiti, oppure acquista l'accesso permanente per tutta la squadra con un pagamento unico.",
+    como_2_title: TODAS_GRATIS ? 'Richiedi il tuo accesso' : 'Prenota la tua partita',
+    como_2_texto: TODAS_GRATIS
+      ? "In questo momento tutti i percorsi sono gratuiti: lascia la tua email e ricevi l'accesso per tutta la squadra."
+      : "Prova i nostri percorsi gratuiti, oppure acquista l'accesso permanente per tutta la squadra con un pagamento unico.",
     como_3_title: 'Cammina, gioca, impara',
     como_3_texto: 'Preparati a uscire per strada per osservare, riflettere e risolvere enigmi.',
     como_4_title: 'Scopri la storia',

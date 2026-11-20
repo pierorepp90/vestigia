@@ -9,6 +9,7 @@ import assert from 'node:assert/strict';
 import { firmarToken } from '../src/acceso.js';
 import worker, { handleAccesoGratuito, handleCrearCheckoutSession, handleObtenerRuta } from '../src/index.js';
 import { crearD1Falsa } from './helpers/fake-d1.js';
+import { TODAS_GRATIS } from '../../js/catalogo.js';
 
 const CORS_FALSO = { 'Access-Control-Allow-Origin': '*' };
 
@@ -51,7 +52,41 @@ test('handleCrearCheckoutSession rechaza una ruta gratuita antes de llamar a Str
   assert.match(cuerpo.error, /gratuita/);
 });
 
-test('handleAccesoGratuito rechaza una ruta de pago antes de acuñar token o enviar email', async () => {
+test('con TODAS_GRATIS, una ruta de tarifa de pago se rechaza en Checkout sin tocar Stripe', { skip: !TODAS_GRATIS }, async () => {
+  const fetchOriginal = globalThis.fetch;
+  let stripeLlamado = false;
+  globalThis.fetch = async () => { stripeLlamado = true; return { ok: true, json: async () => ({}) }; };
+  try {
+    const respuesta = await handleCrearCheckoutSession(
+      requestFalso({ rutaId: 'barcelona-gotic', idioma: 'es' }),
+      { ...ENV_BASE, KV: crearKvFalso() },
+      CORS_FALSO,
+      '1.1.1.1',
+    );
+    assert.equal(respuesta.status, 400);
+    assert.match((await respuesta.json()).error, /gratuita/);
+    assert.equal(stripeLlamado, false);
+  } finally {
+    globalThis.fetch = fetchOriginal;
+  }
+});
+
+test('con TODAS_GRATIS, una ruta de tarifa de pago se entrega por acceso-gratuito', { skip: !TODAS_GRATIS }, async () => {
+  const reset = Math.floor(Date.now() / 1000) + 800;
+  const kv = crearKvFalso({ 'rl:acceso-gratuito:3.3.3.3': JSON.stringify({ n: 1, reset }) });
+  const respuesta = await handleAccesoGratuito(
+    requestFalso({ rutaId: 'barcelona-gotic', idioma: 'es', email: 'cliente@example.com' }),
+    { ...ENV_BASE, KV: kv },
+    CORS_FALSO,
+    '3.3.3.3',
+  );
+  assert.equal(respuesta.status, 200);
+  const cuerpo = await respuesta.json();
+  assert.equal(cuerpo.rutaId, 'barcelona-gotic');
+  assert.ok(cuerpo.token);
+});
+
+test('handleAccesoGratuito rechaza una ruta de pago antes de acuñar token o enviar email', { skip: TODAS_GRATIS && 'promoción TODAS_GRATIS activa: no hay rutas de pago' }, async () => {
   const respuesta = await handleAccesoGratuito(
     requestFalso({ rutaId: 'barcelona-gotic', idioma: 'es', email: 'cliente@example.com' }),
     { ...ENV_BASE, KV: crearKvFalso() },

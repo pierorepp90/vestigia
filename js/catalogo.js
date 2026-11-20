@@ -17,6 +17,10 @@
 
 /** @typedef {'facil'|'media'|'dificil'} Dificultad */
 
+import { TODAS_GRATIS } from './promocion.js';
+
+export { TODAS_GRATIS };
+
 export const DIFICULTADES = /** @type {const} */ (['facil', 'media', 'dificil']);
 
 /** Precio de escaparate por nivel de dificultad — la única tabla que decide
@@ -28,6 +32,12 @@ export const PRECIOS_POR_DIFICULTAD = {
   media: { importe: 4.99, moneda: 'EUR' },
   dificil: { importe: 7.99, moneda: 'EUR' },
 };
+
+/** true si `ruta` se juega gratis ahora mismo: por la promoción global o
+ * porque su nivel de dificultad ya cuesta 0 €. */
+export function esRutaGratis(ruta) {
+  return TODAS_GRATIS || PRECIOS_POR_DIFICULTAD[ruta.dificultad].importe === 0;
+}
 
 /** Devuelve `campo[lang]`, cayendo a español si falta esa traducción. */
 export function localizar(campo, lang) {
@@ -844,9 +854,10 @@ export const RUTAS = [
 ];
 
 // El precio se deriva de dificultad automáticamente: así es estructuralmente
-// imposible que un precio se desincronice de su nivel.
+// imposible que un precio se desincronice de su nivel. Con TODAS_GRATIS el
+// precio de escaparate es 0 y el cliente va por el circuito gratuito.
 for (const ruta of RUTAS) {
-  ruta.precio = PRECIOS_POR_DIFICULTAD[ruta.dificultad].importe;
+  ruta.precio = esRutaGratis(ruta) ? 0 : PRECIOS_POR_DIFICULTAD[ruta.dificultad].importe;
 }
 
 export function ciudadPorSlug(slug) {
