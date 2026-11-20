@@ -29,9 +29,9 @@ function init() {
   const tituloRuta = localizar(ruta.titulo, lang);
   const nombreCiudad = localizar(ciudad.nombre, lang);
 
-  document.title = `${tituloRuta} — Vestigia`;
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.setAttribute('content', localizar(ruta.resumen, lang));
+  // El <title> y la descripción ya vienen escritos en el HTML (los genera
+  // scripts/generar-i18n.mjs con las fórmulas de scripts/seo.mjs). No se
+  // tocan aquí: Googlebot ejecuta este script y se quedaría con otros.
 
   // Migas de pan
   document.getElementById('migas-ciudad').textContent = nombreCiudad;

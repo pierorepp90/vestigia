@@ -1,55 +1,66 @@
 #!/usr/bin/env node
 // scripts/generar-i18n.mjs
 //
-// Genera las versiones estáticas en inglés, francés e italiano de las
-// páginas de marketing (portada, ciudad/*, ruta/*): contenido real ya
-// traducido en el HTML, no solo metadatos, para que cualquier buscador
-// indexe cada idioma sin depender de que ejecute JS. Español sigue siendo
-// la raíz del sitio, sin prefijo; en/fr/it viven bajo /en/ /fr/ /it/, con
-// la misma estructura de carpetas que el español. Las pantallas de juego
-// y pago (jugar/*) no entran aquí — no necesitan SEO y siguen resolviendo
-// el idioma en tiempo de ejecución (ver js/i18n.js).
+// Genera las páginas de marketing estáticas (portada, historias, ciudad/*,
+// ruta/*, historias/*) en los CUATRO idiomas, con el contenido real ya
+// escrito en el HTML. Bing, los bots de los asistentes de IA (GPTBot,
+// ClaudeBot, PerplexityBot…) y las vistas previas de WhatsApp no ejecutan
+// JavaScript: lo que no esté en el HTML que sirve GitHub Pages, para ellos
+// no existe.
 //
-// También añade canonical/hreflang a las páginas en español existentes
-// (index.html, ciudad/*.html — ruta/*.html ya las lleva, las pone
-// generar-seo.mjs) y regenera sitemap.xml con las 4 versiones de cada
-// página.
+// Español sigue siendo la raíz del sitio, sin prefijo; en/fr/it viven bajo
+// /en/ /fr/ /it/ con la misma estructura de carpetas. Los archivos en
+// español hacen de plantilla Y de resultado: el script los lee, rellena por
+// `id` cada zona dinámica y los vuelve a escribir. Por eso el relleno tiene
+// que ser idempotente (ver reemplazarInterior): correr el script dos veces
+// seguidas no cambia nada.
 //
-// Requiere haber corrido antes generar-seo.mjs (título/descripción/JSON-LD
-// de las rutas en español, que este script reutiliza como referencia de
-// contenido). Es idempotente: se puede volver a correr cada vez que se
-// añade una ciudad o ruta.
+// Cada página lleva `<html data-idioma-pagina="xx">`: el JS del navegador
+// (js/i18n.js → detectarIdioma) respeta ese idioma fijo y nunca vuelve a
+// pintar una URL en otro idioma. Sin eso, Googlebot —que renderiza con el
+// navegador en inglés— veía las URLs en español traducidas al inglés.
 //
-// Uso:
-//   node scripts/generar-seo.mjs && node scripts/generar-i18n.mjs
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+// También regenera sitemap.xml (con <lastmod> real, ver
+// scripts/sitemap-fechas.json) con las 4 versiones de cada página.
+//
+// Uso (idempotente; correrlo cada vez que cambie js/catalogo.js o js/i18n.js):
+//   node scripts/generar-i18n.mjs
+// generar-seo.mjs y generar-historias.mjs se mantienen como alias de este.
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
+import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
-import { CIUDADES, RUTAS, HISTORIAS, ciudadPorSlug, historiaPorSlug, localizar, rutaPorId, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
+import { CIUDADES, RUTAS, HISTORIAS, ciudadPorSlug, historiaPorSlug, localizar, rutasHermanas, rutasPorCiudad } from '../js/catalogo.js';
 import { LANGS, LANG_NAMES, DEFAULT_LANG, t, tf } from '../js/i18n.js';
 import { tarjetaCiudad } from '../js/portada.js';
 import { tarjetaRuta } from '../js/ciudad.js';
-import { tarjetaHistoria } from '../js/historias.js';
-import { cierreConEnlaces } from '../js/historia.js';
-import { BASE_URL, urlPagina, bloqueCanonicalYHreflang } from './sitio-i18n.mjs';
+import { tarjetaHistoria, historiaDestacadaHTML } from '../js/historias.js';
+import { cierreConEnlaces, seccionHTML } from '../js/historia.js';
+import { BASE_URL, archivoPagina, urlPagina } from './sitio-i18n.mjs';
+import {
+  aplicarCabecera,
+  escaparAtributo,
+  escaparTexto,
+  ldArticulo,
+  ldListaRutas,
+  ldMigas,
+  ldOrganizacion,
+  ldProductoRuta,
+  ldWeb,
+  reemplazarInterior,
+  seoCiudad,
+  seoHistoria,
+  seoHistoriasIndice,
+  seoPortada,
+  seoRuta,
+  textoFecha,
+} from './seo.mjs';
 
 const AQUI = path.dirname(fileURLToPath(import.meta.url));
 const RAIZ = path.join(AQUI, '..');
-const IDIOMAS_NUEVOS = LANGS.filter((l) => l !== DEFAULT_LANG);
 const CIUDADES_ACTIVAS = CIUDADES.filter((c) => c.activa);
-
-function escaparTexto(s) {
-  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;');
-}
-function escaparAtributo(s) {
-  return escaparTexto(s).replace(/"/g, '&quot;');
-}
-function truncar(texto, maxLen) {
-  if (texto.length <= maxLen) return texto;
-  const cortado = texto.slice(0, maxLen);
-  const i = cortado.lastIndexOf(' ');
-  return `${cortado.slice(0, i)}…`;
-}
+const OG = 'assets/img/og';
 
 // ---- Traduce el HTML fijo marcado con data-i18n / data-i18n-attr --------
 // Mismo contrato que aplicarI18n() en js/i18n.js, pero sobre un string en
@@ -76,24 +87,17 @@ function aplicarI18nAtributos(html, lang) {
   });
 }
 
-// ---- Rellenar un elemento por id -----------------------------------------
+// ---- Rellenar un elemento por id (ver reemplazarInterior en seo.mjs) ------
 
-function conTexto(html, id, texto) {
-  const re = new RegExp(`(<([a-zA-Z0-9]+)([^>]*\\bid="${id}"[^>]*)>)([\\s\\S]*?)(<\\/\\2>)`);
-  return html.replace(re, (_m, apertura, _tag, _attrs, _viejo, cierre) => `${apertura}${escaparTexto(texto)}${cierre}`);
-}
-
-function conHTML(html, id, htmlInterno) {
-  const re = new RegExp(`(<([a-zA-Z0-9]+)([^>]*\\bid="${id}"[^>]*)>)([\\s\\S]*?)(<\\/\\2>)`);
-  return html.replace(re, (_m, apertura, _tag, _attrs, _viejo, cierre) => `${apertura}${htmlInterno}${cierre}`);
-}
+const conTexto = (html, id, texto) => reemplazarInterior(html, id, escaparTexto(texto));
+const conHTML = (html, id, interior) => reemplazarInterior(html, id, interior);
 
 function conAtributo(html, id, atributo, valor) {
   const reEtiqueta = new RegExp(`<([a-zA-Z0-9]+)([^>]*\\bid="${id}"[^>]*)>`);
   return html.replace(reEtiqueta, (_m, tag, attrs) => {
     const valorEscapado = escaparAtributo(valor);
-    const reAttr = new RegExp(`${atributo}="[^"]*"`);
-    const nuevos = reAttr.test(attrs) ? attrs.replace(reAttr, `${atributo}="${valorEscapado}"`) : `${attrs} ${atributo}="${valorEscapado}"`;
+    const reAttr = new RegExp(`\\s${atributo}="[^"]*"`);
+    const nuevos = reAttr.test(attrs) ? attrs.replace(reAttr, ` ${atributo}="${valorEscapado}"`) : `${attrs} ${atributo}="${valorEscapado}"`;
     return `<${tag}${nuevos}>`;
   });
 }
@@ -105,41 +109,23 @@ function sinAtributo(html, id, atributo) {
 
 // ---- Reescritura de rutas para las variantes de idioma -------------------
 //
-// Los enlaces entre páginas del mismo tipo de relación (tarjeta de ciudad
-// → ficha de ruta, ficha → volver a ciudad) no necesitan tocarse: al
-// espejar la MISMA estructura de carpetas bajo /en/ /fr/ /it/, un href
-// relativo como "../ruta/x.html" resuelve igual de bien un nivel más
-// adentro. Lo que sí hay que arreglar son las referencias a recursos que
-// NO se duplican por idioma (css, js, assets, legal) y los enlaces de
-// vuelta a portada, que deben apuntar a la portada de ESE idioma.
+// Los enlaces entre páginas del mismo tipo (tarjeta de ciudad → ficha de
+// ruta, ficha → volver a ciudad) no necesitan tocarse: al espejar la MISMA
+// estructura de carpetas bajo /en/ /fr/ /it/, un href relativo como
+// "../ruta/x.html" resuelve igual de bien un nivel más adentro. Lo que sí
+// hay que arreglar son las referencias a recursos que NO se duplican por
+// idioma (css, js, assets, legal) y los enlaces de vuelta a la portada, que
+// deben apuntar a la portada de ESE idioma. Nada de esto se aplica al
+// español, que vive en la raíz y conserva sus rutas relativas.
 
 function absolutizarRecursosCompartidos(html) {
-  return html
-    .replace(/href="\.\.\/css\//g, `href="${BASE_URL}/css/`)
-    .replace(/href="css\//g, `href="${BASE_URL}/css/`)
-    .replace(/src="\.\.\/js\//g, `src="${BASE_URL}/js/`)
-    .replace(/src="js\//g, `src="${BASE_URL}/js/`)
-    .replace(/href="\.\.\/legal\//g, `href="${BASE_URL}/legal/`)
-    .replace(/href="legal\//g, `href="${BASE_URL}/legal/`)
-    .replace(/href="\.\.\/assets\//g, `href="${BASE_URL}/assets/`)
-    .replace(/href="assets\//g, `href="${BASE_URL}/assets/`);
-}
-
-function absolutizarImagenesDeTarjetas(html) {
-  return html.replace(/src="\.\.\/assets\//g, `src="${BASE_URL}/assets/`).replace(/src="assets\//g, `src="${BASE_URL}/assets/`);
+  return html.replace(/(href|src)="(?:\.\.\/)?(css|js|legal|assets)\//g, `$1="${BASE_URL}/$2/`);
 }
 
 function reescribirEnlacesInicio(html, lang) {
-  // Solo "../index.html" (subir a la raíz) se reescribe aquí. Un
-  // "index.html" a secas es un enlace relativo DENTRO de la misma familia
-  // de páginas (p. ej. historias/<slug>.html → historias/index.html, o
-  // historias/index.html consigo misma): al espejar la misma estructura de
-  // carpetas por idioma, ya resuelve bien sin tocarlo — igual que
-  // "${id}.html" entre rutas hermanas. Antes esta función también
-  // reescribía ese caso a secas, pero nada lo necesitaba (ciudad/ruta no
-  // tienen ningún "index.html" a secas en sus plantillas) y, al añadir
-  // historias/, sí rompía el enlace "Historias" / "Todas las historias":
-  // pasaban a apuntar a la portada del sitio en vez de al índice del blog.
+  // Solo "../index.html" (subir a la raíz) se reescribe. Un "index.html" a
+  // secas es un enlace DENTRO de la misma familia de páginas (historias/x →
+  // historias/index.html) y ya resuelve bien en cada idioma.
   const inicio = urlPagina(lang, 'index', {});
   return html.replace(/href="\.\.\/index\.html(#[\w-]+)?"/g, (_m, hash) => `href="${inicio}${hash || ''}"`);
 }
@@ -148,187 +134,122 @@ function quitarScriptPieDerechos(html) {
   return html.replace(/<script type="module">\s*import \{ tf, detectarIdioma \}[\s\S]*?<\/script>\s*/, '');
 }
 
-// Las plantillas en español ya pueden llevar su propio bloque de
-// canonical/hreflang (lo añade agregarHreflangIndiceEs/Ciudad más abajo, o
-// generar-seo.mjs en el caso de las rutas) — hay que quitarlo antes de
-// insertar el de este idioma, o se acumulan dos bloques.
-const ID_MARCADOR = 'canonical-hreflang';
-const marcadorRe = new RegExp(`\\s*<!-- ${ID_MARCADOR} -->[\\s\\S]*?<!-- /${ID_MARCADOR} -->`);
-
-function quitarBloqueCanonicalExistente(html) {
-  return html.replace(marcadorRe, '');
+/** Pasos comunes a todas las páginas, después de rellenar su contenido. */
+function finalizar(html, lang) {
+  html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
+  if (lang === DEFAULT_LANG) return html;
+  return absolutizarRecursosCompartidos(reescribirEnlacesInicio(quitarScriptPieDerechos(html), lang));
 }
 
-function insertarCabecera(html, lang, tipo, params) {
-  html = html.replace(/<html lang="es">/, `<html lang="${lang}" data-idioma-pagina="${lang}">`);
-  html = quitarBloqueCanonicalExistente(html);
-  const bloque = bloqueCanonicalYHreflang(lang, tipo, params);
-  return html.replace('<link rel="stylesheet" href="../css/styles.css">', `<link rel="stylesheet" href="${BASE_URL}/css/styles.css">\n${bloque}`);
-}
+const generadas = [];
 
-// ---- Página de índice -----------------------------------------------------
-
-function generarIndice(lang) {
-  const plantilla = readFileSync(path.join(RAIZ, 'index.html'), 'utf8');
-  let html = plantilla.replace(/<html lang="es">/, `<html lang="${lang}" data-idioma-pagina="${lang}">`);
-
-  const titulo = `Vestigia — ${t(lang, 'hero_eyebrow')}`;
-  html = html.replace(/<title>.*?<\/title>/, `<title>${escaparTexto(titulo)}</title>`);
-  const descripcion = truncar(t(lang, 'hero_subtitle'), 155);
-  html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${escaparAtributo(descripcion)}">`);
-  html = html.replace(/<meta property="og:title" content=".*?">/, `<meta property="og:title" content="${escaparAtributo(`Vestigia — ${t(lang, 'brand_tagline')}`)}">`);
-  html = html.replace(/<meta property="og:description" content=".*?">/, `<meta property="og:description" content="${escaparAtributo(t(lang, 'hero_eyebrow'))}">`);
-
-  html = quitarBloqueCanonicalExistente(html);
-  const bloque = bloqueCanonicalYHreflang(lang, 'index', {});
-  html = html.replace('<link rel="stylesheet" href="css/styles.css">', `<link rel="stylesheet" href="${BASE_URL}/css/styles.css">\n${bloque}`);
-
-  html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
-
-  const gridCiudades = CIUDADES.map((c, i) => absolutizarImagenesDeTarjetas(tarjetaCiudad(c, i, lang))).join('');
-  html = conHTML(html, 'grid-ciudades', gridCiudades);
-
-  const derechos = tf(lang, 'footer_rights', { year: new Date().getFullYear() });
-  html = conTexto(html, 'pie-derechos', derechos);
-  html = quitarScriptPieDerechos(html);
-
-  html = html.replace(/href="legal\//g, `href="${BASE_URL}/legal/`).replace(/href="assets\//g, `href="${BASE_URL}/assets/`).replace(/src="js\//g, `src="${BASE_URL}/js/`);
-
-  const destino = path.join(RAIZ, lang, 'index.html');
+function escribir(lang, tipo, params, html) {
+  const destino = path.join(RAIZ, archivoPagina(lang, tipo, params));
   mkdirSync(path.dirname(destino), { recursive: true });
   writeFileSync(destino, html, 'utf8');
+  generadas.push({ url: urlPagina(lang, tipo, params), html });
+}
+
+function leerPlantilla(tipo, params) {
+  return readFileSync(path.join(RAIZ, archivoPagina(DEFAULT_LANG, tipo, params)), 'utf8');
+}
+
+const migaInicio = (lang) => ({ nombre: 'Vestigia', url: urlPagina(lang, 'index', {}) });
+
+// ---- Portada ----------------------------------------------------------
+
+function generarIndice(lang) {
+  let html = aplicarCabecera(leerPlantilla('index', {}), lang, 'index', {}, {
+    ...seoPortada(lang),
+    imagenOg: `${OG}/portada.jpg`,
+    ld: [ldOrganizacion(lang), ldWeb(lang)],
+  });
+  html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
+  html = conHTML(html, 'grid-ciudades', CIUDADES.map((c, i) => tarjetaCiudad(c, i, lang)).join(''));
+  escribir(lang, 'index', {}, finalizar(html, lang));
 }
 
 // ---- Páginas de ciudad ------------------------------------------------
 
 function generarCiudad(ciudad, lang) {
-  const plantilla = readFileSync(path.join(RAIZ, 'ciudad', `${ciudad.slug}.html`), 'utf8');
-  let html = insertarCabecera(plantilla, lang, 'ciudad', { slug: ciudad.slug });
-
+  const params = { slug: ciudad.slug };
   const nombre = localizar(ciudad.nombre, lang);
   const resumen = localizar(ciudad.resumen, lang);
-  html = html.replace(/<title>.*?<\/title>/, `<title>${escaparTexto(`${nombre} — Vestigia`)}</title>`);
-  html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${escaparAtributo(truncar(resumen, 155))}">`);
 
+  let html = aplicarCabecera(leerPlantilla('ciudad', params), lang, 'ciudad', params, {
+    ...seoCiudad(ciudad, lang),
+    imagenOg: `${OG}/ciudad-${ciudad.slug}.jpg`,
+    ld: [ldListaRutas(ciudad, lang), ldMigas(lang, [migaInicio(lang), { nombre, url: urlPagina(lang, 'ciudad', params) }])],
+  });
   html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
-  html = reescribirEnlacesInicio(html, lang);
 
-  const heroHTML = `
-    <img class="ciudad-hero__foto" src="${BASE_URL}/${ciudad.imgHero}" alt="${escaparAtributo(nombre)}">
+  html = conHTML(html, 'ciudad-hero', `
+    <img class="ciudad-hero__foto" src="../${ciudad.imgHero}" alt="${escaparAtributo(nombre)}">
     <div class="ciudad-hero__velo" aria-hidden="true"></div>
     <div class="ciudad-hero__contenido">
       <p class="eyebrow">${escaparTexto(t(lang, 'hero_eyebrow'))}</p>
       <p class="ciudad-hero__pais">${escaparTexto(localizar(ciudad.pais, lang))}</p>
       <h1 class="ciudad-hero__nombre">${escaparTexto(nombre)}</h1>
       <p class="ciudad-hero__resumen">${escaparTexto(resumen)}</p>
-    </div>`;
-  html = conHTML(html, 'ciudad-hero', heroHTML);
-
+    </div>`);
   html = conTexto(html, 'rutas-titulo', tf(lang, 'ciudad_rutas_disponibles', { ciudad: nombre }));
+  html = conHTML(html, 'grid-rutas', rutasPorCiudad(ciudad.slug).map((r) => tarjetaRuta(r, lang)).join(''));
 
-  const rutas = rutasPorCiudad(ciudad.slug);
-  const gridRutas = rutas.map((r) => absolutizarImagenesDeTarjetas(tarjetaRuta(r, lang))).join('');
-  html = conHTML(html, 'grid-rutas', gridRutas);
-
-  const historiaCiudad = historiaPorSlug(ciudad.slug);
-  const enlaceHistoriaCiudad = historiaCiudad
-    ? `<p><a class="enlace-editorial" href="../historias/${historiaCiudad.id}.html">${escaparTexto(tf(lang, 'ruta_leer_historia', { ciudad: nombre }))}</a></p>`
+  const historia = historiaPorSlug(ciudad.slug);
+  const enlaceHistoria = historia
+    ? `<p><a class="enlace-editorial" href="../historias/${historia.id}.html">${escaparTexto(tf(lang, 'ruta_leer_historia', { ciudad: nombre }))}</a></p>`
     : '';
-  html = conHTML(
-    html,
-    'ciudad-enlaces-finales',
-    `<p><a class="btn btn-fantasma" href="../index.html">${escaparTexto(t(lang, 'ruta_todas_ciudades'))}</a></p>${enlaceHistoriaCiudad}`,
-  );
+  html = conHTML(html, 'ciudad-enlaces-finales', `<p><a class="btn btn-fantasma" href="../index.html">${escaparTexto(t(lang, 'ruta_todas_ciudades'))}</a></p>${enlaceHistoria}`);
 
-  html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
-  html = quitarScriptPieDerechos(html);
-  html = absolutizarRecursosCompartidos(html);
-
-  const destino = path.join(RAIZ, lang, 'ciudad', `${ciudad.slug}.html`);
-  mkdirSync(path.dirname(destino), { recursive: true });
-  writeFileSync(destino, html, 'utf8');
+  escribir(lang, 'ciudad', params, finalizar(html, lang));
 }
 
 // ---- Páginas de ruta --------------------------------------------------
 
-function jsonLdRuta(ruta, lang) {
-  const datos = {
-    '@context': 'https://schema.org',
-    '@type': 'Product',
-    name: localizar(ruta.titulo, lang),
-    description: localizar(ruta.resumen, lang),
-    image: `${BASE_URL}/${ruta.imgHero}`,
-    brand: { '@type': 'Brand', name: 'Vestigia' },
-    offers: {
-      '@type': 'Offer',
-      url: urlPagina(lang, 'ruta', { id: ruta.id }),
-      priceCurrency: ruta.moneda,
-      price: ruta.precio.toFixed(2),
-      availability: 'https://schema.org/InStock',
-    },
-  };
-  // Mismo arreglo que generarHistoria() más abajo y que generar-seo.mjs/
-  // generar-historias.mjs (commit aa37e36): JSON.stringify no escapa '<',
-  // y un texto real que contuviera el cierre de <script> rompería la
-  // página y el reemplazo idempotente de la próxima ejecución.
-  const json = JSON.stringify(datos, null, 2).replace(/</g, '\\u003c');
-  return `<script type="application/ld+json" id="ld-producto">\n${json}\n</script>`;
-}
-
 function generarRuta(ruta, lang) {
-  const plantilla = readFileSync(path.join(RAIZ, 'ruta', `${ruta.id}.html`), 'utf8');
+  const params = { id: ruta.id };
   const ciudad = ciudadPorSlug(ruta.ciudadSlug);
-
-  let html = plantilla.replace(/<html lang="es">/, `<html lang="${lang}" data-idioma-pagina="${lang}">`);
-
   const tituloRuta = localizar(ruta.titulo, lang);
-  const nombreCiudad = localizar(ciudad.nombre, lang);
-  const resumen = localizar(ruta.resumen, lang);
+  const nombre = localizar(ciudad.nombre, lang);
 
-  html = html.replace(/<title>.*?<\/title>/, `<title>${escaparTexto(`${tituloRuta} — Vestigia`)}</title>`);
-  html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${escaparAtributo(truncar(resumen, 155))}">`);
-
-  html = quitarBloqueCanonicalExistente(html);
-  const bloque = bloqueCanonicalYHreflang(lang, 'ruta', { id: ruta.id });
-  html = html.replace('<link rel="stylesheet" href="../css/styles.css">', `<link rel="stylesheet" href="${BASE_URL}/css/styles.css">\n${bloque}`);
-  html = html.replace(/<script type="application\/ld\+json" id="ld-producto">[\s\S]*?<\/script>/, jsonLdRuta(ruta, lang));
-
+  let html = aplicarCabecera(leerPlantilla('ruta', params), lang, 'ruta', params, {
+    ...seoRuta(ruta, lang),
+    imagenOg: `${OG}/ruta-${ruta.id}.jpg`,
+    ld: [
+      ldProductoRuta(ruta, lang),
+      ldMigas(lang, [migaInicio(lang), { nombre, url: urlPagina(lang, 'ciudad', { slug: ciudad.slug }) }, { nombre: tituloRuta, url: urlPagina(lang, 'ruta', params) }]),
+    ],
+  });
   html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
-  html = reescribirEnlacesInicio(html, lang);
 
-  html = conAtributo(html, 'ruta-foto', 'src', `${BASE_URL}/${ruta.imgHero}`);
+  html = conAtributo(html, 'ruta-foto', 'src', `../${ruta.imgHero}`);
   html = conAtributo(html, 'ruta-foto', 'alt', tituloRuta);
   html = conTexto(html, 'ruta-zona-eyebrow', ruta.zona);
   html = conTexto(html, 'ruta-titulo', tituloRuta);
-  html = conTexto(html, 'ruta-resumen', resumen);
+  html = conTexto(html, 'ruta-resumen', localizar(ruta.resumen, lang));
   html = conTexto(html, 'adelanto-texto', `“${localizar(ruta.acertijoMuestra, lang)}”`);
-  html = conAtributo(html, 'mapa-zona-img', 'src', `${BASE_URL}/${ruta.imgMapa}`);
+  html = conAtributo(html, 'mapa-zona-img', 'src', `../${ruta.imgMapa}`);
   html = conAtributo(html, 'mapa-zona-img', 'alt', tf(lang, 'ruta_mapa_alt', { zona: ruta.zona }));
   html = conTexto(html, 'mapa-zona-caption', ruta.zona);
 
   html = conAtributo(html, 'migas-ciudad', 'href', `../ciudad/${ciudad.slug}.html`);
-  html = conTexto(html, 'migas-ciudad', nombreCiudad);
+  html = conTexto(html, 'migas-ciudad', nombre);
   html = conTexto(html, 'migas-ruta', tituloRuta);
-
   html = conAtributo(html, 'ruta-volver', 'href', `../ciudad/${ciudad.slug}.html`);
-  html = conTexto(html, 'ruta-volver', tf(lang, 'ruta_volver', { ciudad: nombreCiudad }));
+  html = conTexto(html, 'ruta-volver', tf(lang, 'ruta_volver', { ciudad: nombre }));
 
   const hermanas = rutasHermanas(ruta.id);
   if (hermanas.length > 0) {
     const enlaces = hermanas.map((r) => `<a class="btn btn-fantasma" href="${r.id}.html">${escaparTexto(localizar(r.titulo, lang))}</a>`).join('');
-    const titulo = escaparTexto(tf(lang, 'ruta_otras_titulo', { ciudad: nombreCiudad }));
+    const titulo = escaparTexto(tf(lang, 'ruta_otras_titulo', { ciudad: nombre }));
     html = conHTML(html, 'rutas-relacionadas', `<h2 class="seccion-relacionadas__titulo">${titulo}</h2><div class="seccion-relacionadas__lista">${enlaces}</div>`);
   }
 
   const historia = historiaPorSlug(ciudad.slug);
   const enlaceHistoria = historia
-    ? `<p><a class="enlace-editorial" href="../historias/${historia.id}.html">${escaparTexto(tf(lang, 'ruta_leer_historia', { ciudad: nombreCiudad }))}</a></p>`
+    ? `<p><a class="enlace-editorial" href="../historias/${historia.id}.html">${escaparTexto(tf(lang, 'ruta_leer_historia', { ciudad: nombre }))}</a></p>`
     : '';
-  html = conHTML(
-    html,
-    'ruta-enlaces-finales',
-    `<p><a class="btn btn-fantasma" href="../index.html">${escaparTexto(t(lang, 'ruta_todas_ciudades'))}</a></p>${enlaceHistoria}`,
-  );
+  html = conHTML(html, 'ruta-enlaces-finales', `<p><a class="btn btn-fantasma" href="../index.html">${escaparTexto(t(lang, 'ruta_todas_ciudades'))}</a></p>${enlaceHistoria}`);
 
   html = conTexto(html, 'panel-duracion', tf(lang, 'meta_duracion', { h: Math.round(ruta.duracionMin / 60) }));
   html = conTexto(html, 'panel-jugadores', tf(lang, 'meta_jugadores', { min: ruta.jugadoresMin, max: ruta.jugadoresMax }));
@@ -341,181 +262,146 @@ function generarRuta(ruta, lang) {
   const precioHTML = esGratis ? escaparTexto(t(lang, 'precio_gratis')) : `${ruta.precio} €<small>${escaparTexto(t(lang, 'precio_por_equipo'))}</small>`;
   html = conHTML(html, 'panel-precio', precioHTML);
   if (esGratis) html = sinAtributo(html, 'panel-email', 'hidden');
+  html = conTexto(html, 'cta-reservar', esGratis ? t(lang, 'ruta_jugar_gratis_cta') : tf(lang, 'ruta_reservar_cta', { precio: ruta.precio }));
 
-  const ctaTexto = esGratis ? t(lang, 'ruta_jugar_gratis_cta') : tf(lang, 'ruta_reservar_cta', { precio: ruta.precio });
-  html = conTexto(html, 'cta-reservar', ctaTexto);
-
-  html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
-  html = quitarScriptPieDerechos(html);
-  html = absolutizarRecursosCompartidos(html);
-
-  const destino = path.join(RAIZ, lang, 'ruta', `${ruta.id}.html`);
-  mkdirSync(path.dirname(destino), { recursive: true });
-  writeFileSync(destino, html, 'utf8');
+  escribir(lang, 'ruta', params, finalizar(html, lang));
 }
 
-// ---- Páginas de historias ----------------------------------------------
+// ---- Historias ----------------------------------------------------------
 
 function generarHistoriasIndice(lang) {
-  const plantilla = readFileSync(path.join(RAIZ, 'historias', 'index.html'), 'utf8');
-  let html = quitarBloqueCanonicalExistente(plantilla.replace(/<html lang="es">/, `<html lang="${lang}" data-idioma-pagina="${lang}">`));
-
-  html = html.replace(/<title>.*?<\/title>/, `<title>${escaparTexto(t(lang, 'historias_titulo'))} — Vestigia</title>`);
-  html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${escaparAtributo(truncar(t(lang, 'historias_subtitulo'), 155))}">`);
-
-  const bloque = bloqueCanonicalYHreflang(lang, 'historia-indice', {});
-  html = html.replace('<link rel="stylesheet" href="../css/styles.css">', `<link rel="stylesheet" href="${BASE_URL}/css/styles.css">\n${bloque}`);
-
+  const seo = seoHistoriasIndice(lang);
+  let html = aplicarCabecera(leerPlantilla('historia-indice', {}), lang, 'historia-indice', {}, {
+    ...seo,
+    imagenOg: `${OG}/portada.jpg`,
+    ld: [
+      {
+        '@type': 'CollectionPage',
+        name: seo.titulo,
+        url: urlPagina(lang, 'historia-indice', {}),
+        inLanguage: lang,
+        hasPart: HISTORIAS.map((h) => ({ '@type': 'Article', headline: localizar(h.titulo, lang), url: urlPagina(lang, 'historia', { id: h.id }) })),
+      },
+      ldMigas(lang, [migaInicio(lang), { nombre: t(lang, 'historias_titulo'), url: urlPagina(lang, 'historia-indice', {}) }]),
+    ],
+  });
   html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
-  html = reescribirEnlacesInicio(html, lang);
 
   if (HISTORIAS.length > 0) {
     const [destacada, ...resto] = HISTORIAS;
-    const destacadaHTML = absolutizarImagenesDeTarjetas(`
-      <a class="historia-destacada" href="${destacada.id}.html">
-        <img class="historia-destacada__foto" src="../${destacada.imgHero}" alt="${escaparAtributo(localizar(destacada.titulo, lang))}">
-        <div>
-          <p class="eyebrow">${escaparTexto(localizar(ciudadPorSlug(destacada.ciudadSlug).nombre, lang))}</p>
-          <h2 class="historia-destacada__titulo">${escaparTexto(localizar(destacada.titulo, lang))}</h2>
-          <p class="historia-destacada__resumen">${escaparTexto(localizar(destacada.resumen, lang))}</p>
-        </div>
-      </a>`);
-    html = conHTML(html, 'historia-destacada', destacadaHTML);
-
-    const gridHTML = resto.map((h) => absolutizarImagenesDeTarjetas(tarjetaHistoria(h, lang))).join('');
-    html = conHTML(html, 'grid-historias', gridHTML);
+    html = conHTML(html, 'historia-destacada', historiaDestacadaHTML(destacada, lang));
+    html = conHTML(html, 'grid-historias', resto.map((h) => tarjetaHistoria(h, lang)).join(''));
   }
+  escribir(lang, 'historia-indice', {}, finalizar(html, lang));
+}
 
-  html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
-  html = quitarScriptPieDerechos(html);
-  html = absolutizarRecursosCompartidos(html);
-
-  const destino = path.join(RAIZ, lang, 'historias', 'index.html');
-  mkdirSync(path.dirname(destino), { recursive: true });
-  writeFileSync(destino, html, 'utf8');
+// Fecha de publicación de cada historia: la del commit que creó su página
+// (git), o `publicada` en js/catalogo.js si se quiere fijar a mano. Cuando
+// se revise el texto de una historia, se pone `actualizada: 'AAAA-MM-DD'`
+// en su entrada del catálogo: sale en la página y en el JSON-LD, y es lo que
+// los asistentes de IA miran para decidir si una fuente está al día.
+const cacheFechas = new Map();
+function fechasHistoria(historia) {
+  if (cacheFechas.has(historia.id)) return cacheFechas.get(historia.id);
+  let publicada = historia.publicada || null;
+  if (!publicada) {
+    try {
+      const salida = execFileSync('git', ['log', '--diff-filter=A', '--follow', '--format=%cs', '--', `historias/${historia.id}.html`], { cwd: RAIZ, encoding: 'utf8' });
+      publicada = salida.trim().split('\n').filter(Boolean).pop() || null;
+    } catch {
+      publicada = null;
+    }
+  }
+  // Una historia nueva todavía sin commit: se publica hoy.
+  if (!publicada) publicada = new Date().toISOString().slice(0, 10);
+  const fechas = { publicada, actualizada: historia.actualizada || null };
+  cacheFechas.set(historia.id, fechas);
+  return fechas;
 }
 
 function generarHistoria(historia, lang) {
-  const plantilla = readFileSync(path.join(RAIZ, 'historias', `${historia.id}.html`), 'utf8');
-  const ciudad = ciudadPorSlug(historia.ciudadSlug);
-
-  let html = quitarBloqueCanonicalExistente(plantilla.replace(/<html lang="es">/, `<html lang="${lang}" data-idioma-pagina="${lang}">`));
-
+  const params = { id: historia.id };
   const titulo = localizar(historia.titulo, lang);
-  const nombreCiudad = localizar(ciudad.nombre, lang);
+  const nombre = localizar(ciudadPorSlug(historia.ciudadSlug).nombre, lang);
+  const fechas = fechasHistoria(historia);
 
-  html = html.replace(/<title>.*?<\/title>/, `<title>${escaparTexto(`${titulo} — Vestigia`)}</title>`);
-  html = html.replace(/<meta name="description" content=".*?">/, `<meta name="description" content="${escaparAtributo(truncar(localizar(historia.resumen, lang), 155))}">`);
-
-  const bloque = bloqueCanonicalYHreflang(lang, 'historia', { id: historia.id });
-  html = html.replace('<link rel="stylesheet" href="../css/styles.css">', `<link rel="stylesheet" href="${BASE_URL}/css/styles.css">\n${bloque}`);
-
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: titulo,
-    description: localizar(historia.resumen, lang),
-    image: `${BASE_URL}/${historia.imgHero}`,
-    author: { '@type': 'Organization', name: 'Vestigia' },
-    publisher: { '@type': 'Organization', name: 'Vestigia' },
-  };
-  // Mismo arreglo que jsonLdHistoria() en generar-historias.mjs (ver commit
-  // aa37e36): JSON.stringify no escapa '<', y un texto real que contuviera
-  // "</script>" cerraría la etiqueta antes de tiempo.
-  const json = JSON.stringify(jsonLd, null, 2).replace(/</g, '\\u003c');
-  const ldTag = `<script type="application/ld+json" id="ld-articulo">\n${json}\n</script>`;
-  const idLd = /<script type="application\/ld\+json" id="ld-articulo">[\s\S]*?<\/script>/;
-  html = idLd.test(html) ? html.replace(idLd, ldTag) : html.replace('</head>', `${ldTag}\n</head>`);
-
+  let html = aplicarCabecera(leerPlantilla('historia', params), lang, 'historia', params, {
+    ...seoHistoria(historia, lang),
+    tipoOg: 'article',
+    imagenOg: `${OG}/ciudad-${historia.ciudadSlug}.jpg`,
+    ld: [
+      ldArticulo(historia, lang, fechas),
+      ldMigas(lang, [
+        migaInicio(lang),
+        { nombre: t(lang, 'historias_titulo'), url: urlPagina(lang, 'historia-indice', {}) },
+        { nombre: titulo, url: urlPagina(lang, 'historia', params) },
+      ]),
+    ],
+  });
   html = aplicarI18nAtributos(aplicarI18nTexto(html, lang), lang);
-  html = reescribirEnlacesInicio(html, lang);
 
-  html = conTexto(html, 'migas-ciudad', nombreCiudad);
+  // La línea de fecha llegó después que las primeras historias: si la
+  // plantilla aún no la tiene, se inserta tras el resumen.
+  if (!/id="historia-fecha"/.test(html)) {
+    html = html.replace(/(<p[^>]*id="historia-resumen"[^>]*>[\s\S]*?<\/p>)/, '$1\n    <p class="historia-fecha" id="historia-fecha"></p>');
+  }
+  const fechaVisible = fechas.actualizada || fechas.publicada;
+  html = conHTML(html, 'historia-fecha', `<time datetime="${fechaVisible}">${escaparTexto(textoFecha(fechas.publicada, fechas.actualizada, lang))}</time>`);
+
+  html = conTexto(html, 'migas-ciudad', nombre);
   html = conTexto(html, 'migas-historia', titulo);
-  html = conAtributo(html, 'historia-foto', 'src', `${BASE_URL}/${historia.imgHero}`);
+  html = conAtributo(html, 'historia-foto', 'src', `../${historia.imgHero}`);
   html = conAtributo(html, 'historia-foto', 'alt', titulo);
-  html = conTexto(html, 'historia-eyebrow', nombreCiudad);
+  html = conTexto(html, 'historia-eyebrow', nombre);
   html = conTexto(html, 'historia-titulo', titulo);
   html = conTexto(html, 'historia-resumen', localizar(historia.resumen, lang));
-
-  const seccionesHTML = historia.secciones
-    .map((s) => `<div class="seccion-relato"><p class="seccion-relato__titulo">${escaparTexto(localizar(s.titulo, lang))}</p><p class="seccion-relato__texto">${escaparTexto(localizar(s.texto, lang))}</p></div>`)
-    .join('');
-  html = conHTML(html, 'historia-secciones', seccionesHTML);
+  html = conHTML(html, 'historia-secciones', historia.secciones.map((s) => seccionHTML(s, lang)).join(''));
   html = conHTML(html, 'historia-cierre', cierreConEnlaces(historia, lang));
 
-  html = conTexto(html, 'pie-derechos', tf(lang, 'footer_rights', { year: new Date().getFullYear() }));
-  html = quitarScriptPieDerechos(html);
-  html = absolutizarRecursosCompartidos(html);
-
-  const destino = path.join(RAIZ, lang, 'historias', `${historia.id}.html`);
-  mkdirSync(path.dirname(destino), { recursive: true });
-  writeFileSync(destino, html, 'utf8');
+  escribir(lang, 'historia', params, finalizar(html, lang));
 }
 
-// ---- Canonical/hreflang en las páginas en español existentes ----------
-// (ruta/*.html ya las lleva — las pone generar-seo.mjs)
+// ---- sitemap.xml ------------------------------------------------------
+//
+// <lastmod> solo sirve si es fiable: Google y Bing lo ignoran en un sitio
+// que lo pone siempre a "hoy". Se guarda en scripts/sitemap-fechas.json un
+// hash del HTML de cada URL; la fecha cambia solo cuando el HTML cambia.
 
-function insertarBloqueIdempotente(html, hojaEstilo, bloqueInterno) {
-  const limpio = quitarBloqueCanonicalExistente(html);
-  const bloque = `<!-- ${ID_MARCADOR} -->\n${bloqueInterno}\n<!-- /${ID_MARCADOR} -->`;
-  return limpio.replace(hojaEstilo, `${hojaEstilo}\n${bloque}`);
-}
-
-function agregarHreflangIndiceEs() {
-  const destino = path.join(RAIZ, 'index.html');
-  let html = readFileSync(destino, 'utf8');
-  html = insertarBloqueIdempotente(html, '<link rel="stylesheet" href="css/styles.css">', bloqueCanonicalYHreflang(DEFAULT_LANG, 'index', {}));
-  writeFileSync(destino, html, 'utf8');
-}
-
-function agregarHreflangCiudadEs(ciudad) {
-  const destino = path.join(RAIZ, 'ciudad', `${ciudad.slug}.html`);
-  let html = readFileSync(destino, 'utf8');
-  html = insertarBloqueIdempotente(html, '<link rel="stylesheet" href="../css/styles.css">', bloqueCanonicalYHreflang(DEFAULT_LANG, 'ciudad', { slug: ciudad.slug }));
-  writeFileSync(destino, html, 'utf8');
-}
-
-function agregarHreflangHistoriasIndiceEs() {
-  const destino = path.join(RAIZ, 'historias', 'index.html');
-  let html = readFileSync(destino, 'utf8');
-  html = insertarBloqueIdempotente(html, '<link rel="stylesheet" href="../css/styles.css">', bloqueCanonicalYHreflang(DEFAULT_LANG, 'historia-indice', {}));
-  writeFileSync(destino, html, 'utf8');
-}
-
-// ---- sitemap.xml (todas las páginas × los 4 idiomas) --------------------
+const ARCHIVO_FECHAS = path.join(AQUI, 'sitemap-fechas.json');
 
 function generarSitemap() {
-  const paginas = [{ tipo: 'index', params: {} }, { tipo: 'historia-indice', params: {} }];
-  for (const c of CIUDADES_ACTIVAS) paginas.push({ tipo: 'ciudad', params: { slug: c.slug } });
-  for (const r of RUTAS) paginas.push({ tipo: 'ruta', params: { id: r.id } });
-  for (const h of HISTORIAS) paginas.push({ tipo: 'historia', params: { id: h.id } });
+  const hoy = new Date().toISOString().slice(0, 10);
+  const previas = existsSync(ARCHIVO_FECHAS) ? JSON.parse(readFileSync(ARCHIVO_FECHAS, 'utf8')) : {};
+  const fechas = {};
+  for (const { url, html } of generadas) {
+    // El año del pie cambia cada enero en todas las páginas a la vez sin que
+    // cambie el contenido: no cuenta como modificación.
+    const sha = createHash('sha256').update(html.replace(/©\s*\d{4}/g, '©')).digest('hex').slice(0, 16);
+    fechas[url] = previas[url]?.sha === sha ? previas[url] : { sha, fecha: hoy };
+  }
+  const ordenadas = Object.fromEntries(Object.keys(fechas).sort().map((u) => [u, fechas[u]]));
+  writeFileSync(ARCHIVO_FECHAS, `${JSON.stringify(ordenadas, null, 2)}\n`, 'utf8');
 
-  const urls = paginas.flatMap(({ tipo, params }) => LANGS.map((lang) => urlPagina(lang, tipo, params)));
-  const cuerpo = urls.map((url) => `  <url>\n    <loc>${escaparTexto(url)}</loc>\n  </url>`).join('\n');
+  const cuerpo = generadas
+    .map(({ url }) => `  <url>\n    <loc>${escaparTexto(url)}</loc>\n    <lastmod>${fechas[url].fecha}</lastmod>\n  </url>`)
+    .join('\n');
   const xml = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${cuerpo}\n</urlset>\n`;
-
   writeFileSync(path.join(RAIZ, 'sitemap.xml'), xml, 'utf8');
-  console.log(`sitemap.xml: ${urls.length} URLs (${paginas.length} páginas × ${LANGS.length} idiomas)`);
+  console.log(`sitemap.xml: ${generadas.length} URLs`);
 }
 
 // ---- Ejecución --------------------------------------------------------
+// Español primero: es la plantilla de los otros tres idiomas, así que tiene
+// que estar al día antes de que ellos la lean.
 
-agregarHreflangIndiceEs();
-agregarHreflangHistoriasIndiceEs();
-console.log('index.html + historias/index.html (es): canonical/hreflang añadidos');
-for (const ciudad of CIUDADES_ACTIVAS) {
-  agregarHreflangCiudadEs(ciudad);
-}
-console.log(`ciudad/*.html (es): canonical/hreflang añadidos en ${CIUDADES_ACTIVAS.length} páginas`);
-
-for (const lang of IDIOMAS_NUEVOS) {
+const ORDEN = [DEFAULT_LANG, ...LANGS.filter((l) => l !== DEFAULT_LANG)];
+for (const lang of ORDEN) {
   generarIndice(lang);
   generarHistoriasIndice(lang);
   for (const ciudad of CIUDADES_ACTIVAS) generarCiudad(ciudad, lang);
   for (const ruta of RUTAS) generarRuta(ruta, lang);
   for (const historia of HISTORIAS) generarHistoria(historia, lang);
-  console.log(`${lang}/: portada + historias + ${CIUDADES_ACTIVAS.length} ciudades + ${RUTAS.length} rutas + ${HISTORIAS.length} historias generadas`);
+  console.log(`${lang}: portada + historias + ${CIUDADES_ACTIVAS.length} ciudades + ${RUTAS.length} rutas + ${HISTORIAS.length} historias`);
 }
 
 generarSitemap();

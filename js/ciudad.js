@@ -54,9 +54,9 @@ function init() {
   const nombre = localizar(ciudad.nombre, lang);
   const resumen = localizar(ciudad.resumen, lang);
 
-  document.title = `${nombre} — Vestigia`;
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.setAttribute('content', resumen);
+  // El <title> y la descripción ya vienen escritos en el HTML (los genera
+  // scripts/generar-i18n.mjs con las fórmulas de scripts/seo.mjs). No se
+  // tocan aquí: Googlebot ejecuta este script y se quedaría con otros.
 
   const hero = document.getElementById('ciudad-hero');
   hero.innerHTML = `

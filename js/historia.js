@@ -20,10 +20,12 @@ export function cierreConEnlaces(historia, lang) {
   return texto;
 }
 
-function seccionHTML(seccion, lang) {
+/** Un apartado del relato. El título es un <h2>: da estructura al artículo
+ * para buscadores y lectores de pantalla (el estilo lo pone la clase). */
+export function seccionHTML(seccion, lang) {
   return `
     <div class="seccion-relato">
-      <p class="seccion-relato__titulo">${escaparHtml(localizar(seccion.titulo, lang))}</p>
+      <h2 class="seccion-relato__titulo">${escaparHtml(localizar(seccion.titulo, lang))}</h2>
       <p class="seccion-relato__texto">${escaparHtml(localizar(seccion.texto, lang))}</p>
     </div>`;
 }
@@ -46,9 +48,9 @@ function init() {
   const titulo = localizar(historia.titulo, lang);
   const nombreCiudad = localizar(ciudad.nombre, lang);
 
-  document.title = `${titulo} — Vestigia`;
-  const metaDesc = document.querySelector('meta[name="description"]');
-  if (metaDesc) metaDesc.setAttribute('content', localizar(historia.resumen, lang));
+  // El <title> y la descripción ya vienen escritos en el HTML (los genera
+  // scripts/generar-i18n.mjs con las fórmulas de scripts/seo.mjs). No se
+  // tocan aquí: Googlebot ejecuta este script y se quedaría con otros.
 
   document.getElementById('migas-ciudad').textContent = nombreCiudad;
   document.getElementById('migas-historia').textContent = titulo;

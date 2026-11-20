@@ -67,14 +67,36 @@ El comando imprime una URL de `jugar/` lista para abrir.
 ```
 npm test
 ```
-Corre `node --test` sobre `tests/` y `worker/tests/` a la vez (218 tests):
+Corre `node --test` sobre `tests/` y `worker/tests/` a la vez (226 tests):
 motor de juego, tokens de acceso, integridad de contenido (16 rutas × 4
 idiomas = 64 archivos, cada uno con sus 8 paradas), coherencia de precios,
 Stripe y Resend con `fetch` simulado, rate limit, votación y devoluciones
 (D1 con un doble en memoria + un smoke test contra el esquema real vía
 `node:sqlite`), y paridad de traducciones en `js/i18n.js` y `js/catalogo.js`
 — ningún idioma puede quedarse con una clave a medias sin que un test lo
-detecte.
+detecte — y las invariantes SEO de las 160 páginas generadas
+([tests/seo.test.js](tests/seo.test.js)).
+
+## Páginas estáticas y SEO
+
+Las páginas de marketing (portada, ciudades, rutas, historias) se generan
+como HTML estático **en los cuatro idiomas**, con todo el contenido escrito
+en el HTML: Bing, los bots de los asistentes de IA y las vistas previas de
+WhatsApp no ejecutan JavaScript. Después de tocar `js/catalogo.js` o
+`js/i18n.js`:
+
+```
+node scripts/generar-i18n.mjs
+```
+
+Es idempotente (`generar-seo.mjs` y `generar-historias.mjs` son alias).
+Los archivos en español son a la vez plantilla y resultado: se editan a
+mano igual que siempre (cabecera, estructura, `id` de cada zona) y el
+script rellena el contenido. Títulos, descripciones, Open Graph y JSON-LD
+salen de [scripts/seo.mjs](scripts/seo.mjs); el `lastmod` del sitemap, de
+[scripts/sitemap-fechas.json](scripts/sitemap-fechas.json) (cambia solo si
+cambia el HTML de esa página). El plan de crecimiento orgánico está en
+[docs/crecimiento/plan-trafico-organico.md](docs/crecimiento/plan-trafico-organico.md).
 
 ## Poner en marcha el pago de verdad
 
@@ -164,7 +186,6 @@ la compra manda siempre sobre el detectado por el navegador.
 | Qué falta | Por qué no se ha hecho ya |
 |---|---|
 | Verificar las 16 rutas caminándolas, **en los 4 idiomas** | Ningún enigma se debe vender sin comprobar en persona que el detalle físico sigue donde el texto dice — y hay que revisar también que cada traducción tenga sentido estando allí delante. Ver la nota de riesgo en la spec. |
-| SSG de las páginas de marketing por idioma (`/en/`, `/fr/`, `/it/`) | Mejora de SEO opcional: ahora mismo el idioma se resuelve en tiempo de ejecución (funciona bien para el visitante) en vez de generarse como HTML estático por URL (mejor para buscadores). No bloquea vender. |
 | Dominio definitivo | `vestigia.es` es un placeholder en `wrangler.toml`, `worker/.dev.vars` y `worker/src/resend.js` — falta comprobar disponibilidad y decidir. |
 | Cuentas Stripe / Resend reales | Necesarias para cobrar y enviar email de verdad; ver sección anterior. |
 | Revisión legal de `legal/*.html` | Son plantillas con los apartados habituales pero con placeholders (NIF, domicilio) y sin revisión profesional. |

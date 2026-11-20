@@ -1510,7 +1510,24 @@ footer {
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--lacre);
+  font-weight: 400;
   margin-bottom: 10px;
+}
+
+/* El índice de historias usa el "eyebrow" como <h1> (la página necesita un
+   encabezado principal): conserva el aspecto que tenía como párrafo. */
+h1.eyebrow {
+  font-weight: 400;
+  margin-bottom: 1em;
+}
+
+.historia-fecha {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  opacity: 0.8;
+  margin-top: -0.4em;
 }
 
 .seccion-relato__texto {

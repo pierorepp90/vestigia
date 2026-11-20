@@ -1,20 +1,78 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-idioma-pagina="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Florencia — Vestigia</title>
-<meta name="description" content="Rutas de escape room urbano en Florencia.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f4ead0' stroke='%239c2b1f' stroke-width='5'/%3E%3Cpath d='M50 14 L60 45 L50 86 L40 45 Z' fill='%239c2b1f'/%3E%3Cpath d='M14 50 L45 40 L86 50 L45 60 Z' fill='%23241a10' opacity='0.65'/%3E%3C/svg%3E">
+<title>Escape room al aire libre en Florencia — Vestigia</title>
+<meta name="description" content="2 rutas de enigmas al aire libre por Duomo y Santa Croce. Se juega con el móvil y sin guía: unas 2 h, de 1 a 6 jugadores. Una es gratis.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../css/styles.css">
-<!-- canonical-hreflang -->
+<!-- seo -->
 <link rel="canonical" href="https://vestigia.fun/ciudad/florencia.html">
 <link rel="alternate" hreflang="es" href="https://vestigia.fun/ciudad/florencia.html">
 <link rel="alternate" hreflang="en" href="https://vestigia.fun/en/ciudad/florencia.html">
 <link rel="alternate" hreflang="fr" href="https://vestigia.fun/fr/ciudad/florencia.html">
 <link rel="alternate" hreflang="it" href="https://vestigia.fun/it/ciudad/florencia.html">
 <link rel="alternate" hreflang="x-default" href="https://vestigia.fun/ciudad/florencia.html">
-<!-- /canonical-hreflang -->
+<meta property="og:site_name" content="Vestigia">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Escape room al aire libre en Florencia">
+<meta property="og:description" content="2 rutas de enigmas al aire libre por Duomo y Santa Croce. Se juega con el móvil y sin guía: unas 2 h, de 1 a 6 jugadores. Una es gratis.">
+<meta property="og:url" content="https://vestigia.fun/ciudad/florencia.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:image" content="https://vestigia.fun/assets/img/og/ciudad-florencia.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Escape room al aire libre en Florencia">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "name": "Escape room al aire libre en Florencia",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://vestigia.fun/ruta/florencia-centro.html",
+          "name": "Los rivales de Florencia"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://vestigia.fun/ruta/florencia-santacroce.html",
+          "name": "Las manos que hicieron Florencia"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Vestigia",
+          "item": "https://vestigia.fun/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Florencia",
+          "item": "https://vestigia.fun/ciudad/florencia.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- /seo -->
 </head>
 <body data-ciudad="florencia">
 
@@ -38,7 +96,7 @@
       <a href="../index.html#ciudades" data-i18n="nav_ciudades">Ciudades</a>
       <a href="../index.html#como-funciona" data-i18n="nav_como_funciona">Cómo funciona</a>
       <a href="../historias/index.html" data-i18n="nav_historias">Historias</a>
-      <div class="selector-idioma" id="selector-idioma" role="group" data-i18n-attr="aria-label:nav_idioma_label"></div>
+      <div class="selector-idioma" id="selector-idioma" role="group" data-i18n-attr="aria-label:nav_idioma_label" aria-label="Idioma"></div>
     </nav>
   </div>
 </header>
@@ -49,20 +107,60 @@
   </nav>
 
   <div class="contenedor">
-    <section class="ciudad-hero" id="ciudad-hero"></section>
+    <section class="ciudad-hero" id="ciudad-hero">
+    <img class="ciudad-hero__foto" src="../assets/img/ciudades/florencia-hero.webp" alt="Florencia">
+    <div class="ciudad-hero__velo" aria-hidden="true"></div>
+    <div class="ciudad-hero__contenido">
+      <p class="eyebrow">Escape rooms urbanos al aire libre</p>
+      <p class="ciudad-hero__pais">Italia</p>
+      <h1 class="ciudad-hero__nombre">Florencia</h1>
+      <p class="ciudad-hero__resumen">Cuna del Renacimiento: cada cúpula, cada estatua y cada torre del centro es, en el fondo, la respuesta a una rivalidad entre gremios, familias y arquitectos.</p>
+    </div></section>
   </div>
 
   <section class="seccion-rutas contenedor">
-    <h2 class="seccion-rutas__titulo" id="rutas-titulo">Rutas</h2>
-    <div class="grid-rutas" id="grid-rutas"></div>
+    <h2 class="seccion-rutas__titulo" id="rutas-titulo">Rutas en Florencia</h2>
+    <div class="grid-rutas" id="grid-rutas">
+  <a class="tarjeta-ruta" href="../ruta/florencia-centro.html">
+    <div class="tarjeta-ruta__foto-envoltorio">
+      <img class="tarjeta-ruta__foto" src="../assets/img/ciudades/florencia-card.webp" alt="Los rivales de Florencia" loading="lazy" width="900" height="600">
+    </div>
+    <div class="tarjeta-ruta__cuerpo">
+      <span class="tarjeta-ruta__zona"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 14.5s5-4.6 5-8.5a5 5 0 1 0-10 0c0 3.9 5 8.5 5 8.5Z"/><circle cx="8" cy="6" r="1.8"/></svg> Duomo · Piazza della Signoria · Ponte Vecchio</span>
+      <h3 class="tarjeta-ruta__titulo">Los rivales de Florencia</h3>
+      <p class="tarjeta-ruta__resumen">De una cúpula construida sin andamios a una puerta bautizada por Miguel Ángel, del David que es solo una copia a un puente que cambió de oficio por decreto ducal.</p>
+      <div class="tarjeta-ruta__pie">
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 1–6 jugadores</span>
+        <span class="badge-dificultad badge-dificultad--facil">Fácil</span>
+        <span class="tarjeta-ruta__precio">Gratis</span>
+      </div>
+    </div>
+  </a>
+  <a class="tarjeta-ruta" href="../ruta/florencia-santacroce.html">
+    <div class="tarjeta-ruta__foto-envoltorio">
+      <img class="tarjeta-ruta__foto" src="../assets/img/ciudades/florencia-santacroce-card.webp" alt="Las manos que hicieron Florencia" loading="lazy" width="900" height="600">
+    </div>
+    <div class="tarjeta-ruta__cuerpo">
+      <span class="tarjeta-ruta__zona"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 14.5s5-4.6 5-8.5a5 5 0 1 0-10 0c0 3.9 5 8.5 5 8.5Z"/><circle cx="8" cy="6" r="1.8"/></svg> Santa Croce · Oltrarno</span>
+      <h3 class="tarjeta-ruta__titulo">Las manos que hicieron Florencia</h3>
+      <p class="tarjeta-ruta__resumen">Cruzáis el río hacia el barrio que Florencia usaba para trabajar, no para posar en las fotos. Detrás de la fachada neogótica de Santa Croce hay una estrella que nadie plantó ahí por casualidad, y en una plaza donde antes corría sangre a puñetazos hay una fecha grabada en un disco de mármol que casi nadie mira. Cruzaréis el Ponte Vecchio de paso, sin deteneros —esa historia ya la cuenta otra ruta de esta misma ciudad—, para entrar en Oltrarno, el barrio de los artesanos. Son casi 2,5 km y nueve paradas: aquí la dificultad está en fijarse en lo pequeño, no en lo monumental.</p>
+      <div class="tarjeta-ruta__pie">
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 1–6 jugadores</span>
+        <span class="badge-dificultad badge-dificultad--dificil">Difícil</span>
+        <span class="tarjeta-ruta__precio">7.99 € <small>/ equipo</small></span>
+      </div>
+    </div>
+  </a></div>
   </section>
 
-  <div class="ruta-enlaces-finales contenedor" id="ciudad-enlaces-finales"></div>
+  <div class="ruta-enlaces-finales contenedor" id="ciudad-enlaces-finales"><p><a class="btn btn-fantasma" href="../index.html">Volver a todas las ciudades</a></p><p><a class="enlace-editorial" href="../historias/florencia.html">Leer curiosidades de Florencia</a></p></div>
 </main>
 
 <footer class="pie">
   <div class="contenedor">
-    <p class="pie__derechos" id="pie-derechos"></p>
+    <p class="pie__derechos" id="pie-derechos">© 2026 Vestigia. Todos los derechos reservados.</p>
     <nav class="pie__enlaces" aria-label="Legal">
       <a href="../legal/aviso.html" data-i18n="footer_legal_aviso">Aviso legal</a>
       <a href="../legal/privacidad.html" data-i18n="footer_legal_privacidad">Privacidad</a>
