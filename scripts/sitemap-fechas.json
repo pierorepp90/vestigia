@@ -1,0 +1,642 @@
+{
+  "https://vestigia.fun/": {
+    "sha": "f9ed6df17e1103a4",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/barcelona.html": {
+    "sha": "7d4f67f49a8f4a86",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/berlin.html": {
+    "sha": "14db3af11cf160dc",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/florencia.html": {
+    "sha": "afdc1d5873221fa2",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/istanbul.html": {
+    "sha": "2abda6e80512401d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/lisboa.html": {
+    "sha": "2759d8f40f5e1df7",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/madrid.html": {
+    "sha": "0b7a0298c8acc1a5",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/napoles.html": {
+    "sha": "6f3b207e32799338",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/paris.html": {
+    "sha": "d0002f1cabc706be",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/roma.html": {
+    "sha": "ed17d12c129e46c1",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/toulouse.html": {
+    "sha": "38f4980dae13be2a",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ciudad/valencia.html": {
+    "sha": "f251972483979088",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/": {
+    "sha": "855d8ef9566d711c",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/barcelona.html": {
+    "sha": "647b34b62e39add6",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/berlin.html": {
+    "sha": "472c5ae81ea8fdf0",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/florencia.html": {
+    "sha": "cc54714606750e54",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/istanbul.html": {
+    "sha": "d937c79c8a8f8337",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/lisboa.html": {
+    "sha": "e74e210a1da508f0",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/madrid.html": {
+    "sha": "1eb104ae4c170a18",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/napoles.html": {
+    "sha": "0cb95c51d904140a",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/paris.html": {
+    "sha": "36f5a3f7bfcb36b5",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/roma.html": {
+    "sha": "7d72c03d838d3fab",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/toulouse.html": {
+    "sha": "fa92992d0f263565",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ciudad/valencia.html": {
+    "sha": "9adc2266f9b3b165",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/": {
+    "sha": "db3362c36f92d69e",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/barcelona.html": {
+    "sha": "513310026e368a00",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/berlin.html": {
+    "sha": "d3ef7fbce5c89352",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/florencia.html": {
+    "sha": "43026a5bb775ef71",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/istanbul.html": {
+    "sha": "675bb0047c9d3eb3",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/lisboa.html": {
+    "sha": "5d17dbe8cd194ddf",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/madrid.html": {
+    "sha": "7e9d38bef9e15026",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/napoles.html": {
+    "sha": "50fd0636f6a1cf81",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/paris.html": {
+    "sha": "745f473b1091a834",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/roma.html": {
+    "sha": "2ec53841ea13999e",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/toulouse.html": {
+    "sha": "0ae409f1f161a623",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/historias/valencia.html": {
+    "sha": "fbfd806e5380e5cb",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/barcelona-born.html": {
+    "sha": "dcd61df9f3c36a28",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/barcelona-gotic.html": {
+    "sha": "e5fcda8b97b926ab",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/barcelona-raval.html": {
+    "sha": "b79f824c50237dc0",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/berlin-mitte.html": {
+    "sha": "5fb63427c5e44c0d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/florencia-centro.html": {
+    "sha": "572c569644927636",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/florencia-santacroce.html": {
+    "sha": "8bf297a2c4d33c00",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/istanbul-sultanahmet.html": {
+    "sha": "a7c97ca643e3cf6f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/lisboa-alfama.html": {
+    "sha": "c612d7fcf0d63440",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/madrid-austrias.html": {
+    "sha": "cc1a021e4df99860",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/napoles-spaccanapoli.html": {
+    "sha": "5f11530da2f7ee07",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/paris-marais.html": {
+    "sha": "91337b9d409e55ac",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/paris-montmartre.html": {
+    "sha": "9b8db86d9d5d4e79",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/roma-centro.html": {
+    "sha": "263fc5aa7bcacaaf",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/roma-trastevere.html": {
+    "sha": "56a6e3263c2367bf",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/toulouse-capitole.html": {
+    "sha": "8d3e32cb4ed85b21",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/en/ruta/valencia-carmen.html": {
+    "sha": "1d8e4c598bf86158",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/": {
+    "sha": "8baa1bb567fdef0d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/barcelona.html": {
+    "sha": "2e49a0f013831843",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/berlin.html": {
+    "sha": "0898ea16e0435f03",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/florencia.html": {
+    "sha": "b59cec9a1110e81d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/istanbul.html": {
+    "sha": "93abf4de6474a873",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/lisboa.html": {
+    "sha": "9fe05ad2b48c6be3",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/madrid.html": {
+    "sha": "5bb2b00825eb551f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/napoles.html": {
+    "sha": "574544e56549704f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/paris.html": {
+    "sha": "17e336e3246cc01d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/roma.html": {
+    "sha": "6fa2e6fa82aeb076",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/toulouse.html": {
+    "sha": "ba4a815ce02512e8",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ciudad/valencia.html": {
+    "sha": "047784ad8896588a",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/": {
+    "sha": "9efd4cbce47e26a8",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/barcelona.html": {
+    "sha": "b5489c4367894fae",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/berlin.html": {
+    "sha": "68d38b92252c653e",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/florencia.html": {
+    "sha": "6526bdcde778626f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/istanbul.html": {
+    "sha": "c4b4a5c792732179",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/lisboa.html": {
+    "sha": "813996e9c404daad",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/madrid.html": {
+    "sha": "1177c06bac891c95",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/napoles.html": {
+    "sha": "a9a822ef4d8aff88",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/paris.html": {
+    "sha": "f05a8b2b7ab520dc",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/roma.html": {
+    "sha": "77821731473a2f17",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/toulouse.html": {
+    "sha": "4b0c0ce0aa2110fc",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/historias/valencia.html": {
+    "sha": "1612ea317492e22b",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/barcelona-born.html": {
+    "sha": "27715c0ebb55aec7",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/barcelona-gotic.html": {
+    "sha": "101e781e0f3b5f0b",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/barcelona-raval.html": {
+    "sha": "44645317968db75f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/berlin-mitte.html": {
+    "sha": "a739d792c5a1be7f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/florencia-centro.html": {
+    "sha": "738bd495e5cb7246",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/florencia-santacroce.html": {
+    "sha": "f38772f50b3250ed",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/istanbul-sultanahmet.html": {
+    "sha": "9a1f247d494166f7",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/lisboa-alfama.html": {
+    "sha": "4a6bc286afb89498",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/madrid-austrias.html": {
+    "sha": "2f44db37f891500d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/napoles-spaccanapoli.html": {
+    "sha": "07c989ae5f1b54bf",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/paris-marais.html": {
+    "sha": "9bcb592c5b70db06",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/paris-montmartre.html": {
+    "sha": "7b6d7006b3f1e913",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/roma-centro.html": {
+    "sha": "6e3c5917138fd19f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/roma-trastevere.html": {
+    "sha": "2b16e89717fa57b8",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/toulouse-capitole.html": {
+    "sha": "6cee9c9752b9bd96",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/fr/ruta/valencia-carmen.html": {
+    "sha": "36f121446dd5d87d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/": {
+    "sha": "442a82833cfc5eda",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/barcelona.html": {
+    "sha": "be519b844eb5b40e",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/berlin.html": {
+    "sha": "f1094383370b6783",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/florencia.html": {
+    "sha": "6b96b83c0a519f78",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/istanbul.html": {
+    "sha": "958a803a52daf5bb",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/lisboa.html": {
+    "sha": "436812f0a5e4ddd6",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/madrid.html": {
+    "sha": "8c3a3939d599e760",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/napoles.html": {
+    "sha": "2233e5707e1558e5",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/paris.html": {
+    "sha": "a177c9ed9ae2c77d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/roma.html": {
+    "sha": "aae4e07526cd91e4",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/toulouse.html": {
+    "sha": "e43cb035929c6811",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/historias/valencia.html": {
+    "sha": "aa4aed7ad064c35d",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/": {
+    "sha": "37859a827b0640c4",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/barcelona.html": {
+    "sha": "1bb5b1a0571bce80",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/berlin.html": {
+    "sha": "12292052f79d77b6",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/florencia.html": {
+    "sha": "46d0d0cc1989cb6c",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/istanbul.html": {
+    "sha": "963d9e1db39c17aa",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/lisboa.html": {
+    "sha": "596240cd0e7aef5c",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/madrid.html": {
+    "sha": "e25888321a34397e",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/napoles.html": {
+    "sha": "ac38e55ce5924c00",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/paris.html": {
+    "sha": "946e6e2078eb9ce5",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/roma.html": {
+    "sha": "03fe666f7e374214",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/toulouse.html": {
+    "sha": "fcab203ee28db742",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ciudad/valencia.html": {
+    "sha": "5e629131e1db9e20",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/": {
+    "sha": "6a54aff0ffe91548",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/barcelona.html": {
+    "sha": "8e7e3e8337ec1af9",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/berlin.html": {
+    "sha": "a03d9e2d4d40a89a",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/florencia.html": {
+    "sha": "49bab7079f5dbbb6",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/istanbul.html": {
+    "sha": "2c571f549e085a2f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/lisboa.html": {
+    "sha": "38544aeea03b43d0",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/madrid.html": {
+    "sha": "4f58fa378351ef10",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/napoles.html": {
+    "sha": "349b50aee73be61c",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/paris.html": {
+    "sha": "89ca11471e2bb9a5",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/roma.html": {
+    "sha": "b453e9afea03b309",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/toulouse.html": {
+    "sha": "99194f33a8144ccc",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/historias/valencia.html": {
+    "sha": "ae88b90aa5d93c98",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/barcelona-born.html": {
+    "sha": "24bbf1acd33bd004",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/barcelona-gotic.html": {
+    "sha": "9420ca71a7d0e52f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/barcelona-raval.html": {
+    "sha": "dc2684a36a1feae7",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/berlin-mitte.html": {
+    "sha": "30fa2938e58985f9",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/florencia-centro.html": {
+    "sha": "d973246df73f1704",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/florencia-santacroce.html": {
+    "sha": "6c0c6c5499ade9f6",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/istanbul-sultanahmet.html": {
+    "sha": "ef961626e6057ec8",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/lisboa-alfama.html": {
+    "sha": "55291e7366d6be02",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/madrid-austrias.html": {
+    "sha": "83afa39fcd1282ca",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/napoles-spaccanapoli.html": {
+    "sha": "9621fd243adb97c3",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/paris-marais.html": {
+    "sha": "0c5251437d8f3149",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/paris-montmartre.html": {
+    "sha": "1302f0dd68e8599f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/roma-centro.html": {
+    "sha": "8d01f76690baf7e0",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/roma-trastevere.html": {
+    "sha": "e53c22959bc7c6df",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/toulouse-capitole.html": {
+    "sha": "480743f5a784ec07",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/it/ruta/valencia-carmen.html": {
+    "sha": "1c7e3582214bfe53",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/barcelona-born.html": {
+    "sha": "6b3ea441227f9222",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/barcelona-gotic.html": {
+    "sha": "07efcb4b7fd4e58b",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/barcelona-raval.html": {
+    "sha": "797ee4e539412988",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/berlin-mitte.html": {
+    "sha": "d31a82ae1071f668",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/florencia-centro.html": {
+    "sha": "faa24e980f93195f",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/florencia-santacroce.html": {
+    "sha": "d8c86aa2624006a8",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/istanbul-sultanahmet.html": {
+    "sha": "aa9871f80ae68910",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/lisboa-alfama.html": {
+    "sha": "149b93b6261725f2",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/madrid-austrias.html": {
+    "sha": "b7dc737556c1004b",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/napoles-spaccanapoli.html": {
+    "sha": "fd1c88c3e51c85d0",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/paris-marais.html": {
+    "sha": "a7a50759b4bc3d56",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/paris-montmartre.html": {
+    "sha": "f2e7e8f92618cba2",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/roma-centro.html": {
+    "sha": "b885126965e046c4",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/roma-trastevere.html": {
+    "sha": "a209eb4649252b6c",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/toulouse-capitole.html": {
+    "sha": "ec529a48479bcbd9",
+    "fecha": "2026-11-20"
+  },
+  "https://vestigia.fun/ruta/valencia-carmen.html": {
+    "sha": "bfda170fc53450d6",
+    "fecha": "2026-11-20"
+  }
+}

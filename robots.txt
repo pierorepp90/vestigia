@@ -1,5 +1,10 @@
+# Todo lo público se puede rastrear, también por los buscadores de los
+# asistentes de IA (OAI-SearchBot, GPTBot, ClaudeBot, PerplexityBot…):
+# si no leen la página, no la pueden recomendar. Solo se cierran las
+# pantallas de juego y la administración, que no tienen nada que indexar.
 User-agent: *
 Allow: /
 Disallow: /jugar/
+Disallow: /admin/
 
 Sitemap: https://vestigia.fun/sitemap.xml

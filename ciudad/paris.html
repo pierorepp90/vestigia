@@ -1,20 +1,79 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" data-idioma-pagina="es">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>París — Vestigia</title>
-<meta name="description" content="Rutas de escape room urbano en París.">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23f4ead0' stroke='%239c2b1f' stroke-width='5'/%3E%3Cpath d='M50 14 L60 45 L50 86 L40 45 Z' fill='%239c2b1f'/%3E%3Cpath d='M14 50 L45 40 L86 50 L45 60 Z' fill='%23241a10' opacity='0.65'/%3E%3C/svg%3E">
+<title>Escape room al aire libre en París — Vestigia</title>
+<meta name="description" content="2 rutas de enigmas al aire libre por Le Marais y Montmartre. Se juega con el móvil y sin guía: unas 2 h, de 1 a 6 jugadores. Gratis.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="32x32 48x48">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <link rel="stylesheet" href="../css/styles.css">
-<!-- canonical-hreflang -->
+
+<!-- seo -->
 <link rel="canonical" href="https://vestigia.fun/ciudad/paris.html">
 <link rel="alternate" hreflang="es" href="https://vestigia.fun/ciudad/paris.html">
 <link rel="alternate" hreflang="en" href="https://vestigia.fun/en/ciudad/paris.html">
 <link rel="alternate" hreflang="fr" href="https://vestigia.fun/fr/ciudad/paris.html">
 <link rel="alternate" hreflang="it" href="https://vestigia.fun/it/ciudad/paris.html">
 <link rel="alternate" hreflang="x-default" href="https://vestigia.fun/ciudad/paris.html">
-<!-- /canonical-hreflang -->
+<meta property="og:site_name" content="Vestigia">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Escape room al aire libre en París">
+<meta property="og:description" content="2 rutas de enigmas al aire libre por Le Marais y Montmartre. Se juega con el móvil y sin guía: unas 2 h, de 1 a 6 jugadores. Gratis.">
+<meta property="og:url" content="https://vestigia.fun/ciudad/paris.html">
+<meta property="og:locale" content="es_ES">
+<meta property="og:locale:alternate" content="en_GB">
+<meta property="og:locale:alternate" content="fr_FR">
+<meta property="og:locale:alternate" content="it_IT">
+<meta property="og:image" content="https://vestigia.fun/assets/img/og/ciudad-paris.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Escape room al aire libre en París">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "ItemList",
+      "name": "Escape room al aire libre en París",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "url": "https://vestigia.fun/ruta/paris-marais.html",
+          "name": "Los códigos de Le Marais"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "url": "https://vestigia.fun/ruta/paris-montmartre.html",
+          "name": "La colina blanca de Montmartre"
+        }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Vestigia",
+          "item": "https://vestigia.fun/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "París",
+          "item": "https://vestigia.fun/ciudad/paris.html"
+        }
+      ]
+    }
+  ]
+}
+</script>
+<!-- /seo -->
 </head>
 <body data-ciudad="paris">
 
@@ -38,7 +97,7 @@
       <a href="../index.html#ciudades" data-i18n="nav_ciudades">Ciudades</a>
       <a href="../index.html#como-funciona" data-i18n="nav_como_funciona">Cómo funciona</a>
       <a href="../historias/index.html" data-i18n="nav_historias">Historias</a>
-      <div class="selector-idioma" id="selector-idioma" role="group" data-i18n-attr="aria-label:nav_idioma_label"></div>
+      <div class="selector-idioma" id="selector-idioma" role="group" data-i18n-attr="aria-label:nav_idioma_label" aria-label="Idioma"></div>
     </nav>
   </div>
 </header>
@@ -49,20 +108,60 @@
   </nav>
 
   <div class="contenedor">
-    <section class="ciudad-hero" id="ciudad-hero"></section>
+    <section class="ciudad-hero" id="ciudad-hero">
+    <img class="ciudad-hero__foto" src="../assets/img/ciudades/paris-hero.webp" alt="París">
+    <div class="ciudad-hero__velo" aria-hidden="true"></div>
+    <div class="ciudad-hero__contenido">
+      <p class="eyebrow">Escape rooms urbanos al aire libre</p>
+      <p class="ciudad-hero__pais">Francia</p>
+      <h1 class="ciudad-hero__nombre">París</h1>
+      <p class="ciudad-hero__resumen">Le Marais sobrevivió a Haussmann casi intacto: mansiones aristocráticas, plazas reales y un barrio judío con memoria propia.</p>
+    </div></section>
   </div>
 
   <section class="seccion-rutas contenedor">
-    <h2 class="seccion-rutas__titulo" id="rutas-titulo">Rutas</h2>
-    <div class="grid-rutas" id="grid-rutas"></div>
+    <h2 class="seccion-rutas__titulo" id="rutas-titulo">Rutas en París</h2>
+    <div class="grid-rutas" id="grid-rutas">
+  <a class="tarjeta-ruta" href="../ruta/paris-marais.html">
+    <div class="tarjeta-ruta__foto-envoltorio">
+      <img class="tarjeta-ruta__foto" src="../assets/img/ciudades/paris-card.webp" alt="Los códigos de Le Marais" loading="lazy" width="900" height="600">
+    </div>
+    <div class="tarjeta-ruta__cuerpo">
+      <span class="tarjeta-ruta__zona"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 14.5s5-4.6 5-8.5a5 5 0 1 0-10 0c0 3.9 5 8.5 5 8.5Z"/><circle cx="8" cy="6" r="1.8"/></svg> Le Marais · Place des Vosges · Île de la Cité</span>
+      <h3 class="tarjeta-ruta__titulo">Los códigos de Le Marais</h3>
+      <p class="tarjeta-ruta__resumen">De la Île de la Cité a la Place des Vosges por las callejuelas que Haussmann nunca llegó a ensanchar, entre mansiones aristocráticas, el antiguo barrio judío y las placas que recuerdan a quienes vivieron aquí.</p>
+      <div class="tarjeta-ruta__pie">
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 1–6 jugadores</span>
+        <span class="badge-dificultad badge-dificultad--media">Media</span>
+        <span class="tarjeta-ruta__precio">Gratis</span>
+      </div>
+    </div>
+  </a>
+  <a class="tarjeta-ruta" href="../ruta/paris-montmartre.html">
+    <div class="tarjeta-ruta__foto-envoltorio">
+      <img class="tarjeta-ruta__foto" src="../assets/img/ciudades/paris-montmartre-card.webp" alt="La colina blanca de Montmartre" loading="lazy" width="900" height="600">
+    </div>
+    <div class="tarjeta-ruta__cuerpo">
+      <span class="tarjeta-ruta__zona"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M8 14.5s5-4.6 5-8.5a5 5 0 1 0-10 0c0 3.9 5 8.5 5 8.5Z"/><circle cx="8" cy="6" r="1.8"/></svg> Montmartre</span>
+      <h3 class="tarjeta-ruta__titulo">La colina blanca de Montmartre</h3>
+      <p class="tarjeta-ruta__resumen">Montmartre fue un pueblo independiente, con ayuntamiento y viñedos propios, hasta que París se lo anexionó en 1860 para convertirlo en su distrito 18. Sobre esta colina, la más alta de la ciudad, se instalaron después pintores sin apenas dinero, un cabaret con un conejo por emblema y el único viñedo que todavía se cultiva dentro de París, mientras una basílica blanca crecía despacio en la cima. Son cerca de 2,5 km, con cuestas y tramos de escalera: Montmartre es, literalmente, una colina.</p>
+      <div class="tarjeta-ruta__pie">
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="8" cy="8" r="6.3"/><path d="M8 4.6V8l2.6 1.6"/></svg> ≈2 h</span>
+        <span class="meta-item"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="5.6" cy="5.2" r="2"/><path d="M1.6 13c.4-2.4 2-3.6 4-3.6s3.6 1.2 4 3.6"/><circle cx="11.2" cy="5.6" r="1.6"/><path d="M10.2 9.6c1.7.2 2.9 1.4 3.2 3.4"/></svg> 1–6 jugadores</span>
+        <span class="badge-dificultad badge-dificultad--facil">Fácil</span>
+        <span class="tarjeta-ruta__precio">Gratis</span>
+      </div>
+    </div>
+  </a></div>
   </section>
 
-  <div class="ruta-enlaces-finales contenedor" id="ciudad-enlaces-finales"></div>
+  <div class="ruta-enlaces-finales contenedor" id="ciudad-enlaces-finales"><p><a class="btn btn-fantasma" href="../index.html">Volver a todas las ciudades</a></p><p><a class="enlace-editorial" href="../historias/paris.html">Leer curiosidades de París</a></p></div>
 </main>
 
 <footer class="pie">
   <div class="contenedor">
-    <p class="pie__derechos" id="pie-derechos"></p>
+    <p class="pie__derechos" id="pie-derechos">© 2026 Vestigia. Todos los derechos reservados.</p>
     <nav class="pie__enlaces" aria-label="Legal">
       <a href="../legal/aviso.html" data-i18n="footer_legal_aviso">Aviso legal</a>
       <a href="../legal/privacidad.html" data-i18n="footer_legal_privacidad">Privacidad</a>

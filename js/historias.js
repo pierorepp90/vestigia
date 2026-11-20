@@ -20,7 +20,7 @@ export function tarjetaHistoria(historia, lang) {
   </a>`;
 }
 
-function historiaDestacadaHTML(historia, lang) {
+export function historiaDestacadaHTML(historia, lang) {
   const ciudad = ciudadPorSlug(historia.ciudadSlug);
   const titulo = escaparHtml(localizar(historia.titulo, lang));
   return `

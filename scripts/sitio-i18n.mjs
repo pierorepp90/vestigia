@@ -1,14 +1,15 @@
 // scripts/sitio-i18n.mjs
 //
-// Utilidades compartidas por generar-seo.mjs y generar-i18n.mjs: un único
-// sitio donde calcular la URL de cualquier página en cualquier idioma, para
-// que el cálculo no se desincronice entre los dos scripts.
-import { LANGS, DEFAULT_LANG } from '../js/i18n.js';
+// Utilidades compartidas por los generadores de páginas: un único sitio
+// donde calcular la URL de cualquier página en cualquier idioma, para que el
+// cálculo no se desincronice entre scripts.
+import { DEFAULT_LANG } from '../js/i18n.js';
 
 // Debe coincidir con SITE_URL/ALLOWED_ORIGIN en worker/wrangler.toml y con
 // BASE_URL_SITIO en js/i18n.js — mismo dominio, tres sitios.
 export const BASE_URL = 'https://vestigia.fun';
 
+/** Archivo de la página relativo a la raíz de SU idioma (sin prefijo /en/ …). */
 export function rutaRelativa(tipo, params = {}) {
   if (tipo === 'index') return 'index.html';
   if (tipo === 'ciudad') return `ciudad/${params.slug}.html`;
@@ -18,16 +19,19 @@ export function rutaRelativa(tipo, params = {}) {
   throw new Error(`Tipo de página desconocido: ${tipo}`);
 }
 
-/** URL absoluta de una página en un idioma concreto. Español no lleva prefijo. */
-export function urlPagina(lang, tipo, params = {}) {
+/** Archivo de la página relativo a la raíz del repo, con prefijo de idioma. */
+export function archivoPagina(lang, tipo, params = {}) {
   const relativa = rutaRelativa(tipo, params);
-  return lang === DEFAULT_LANG ? `${BASE_URL}/${relativa}` : `${BASE_URL}/${lang}/${relativa}`;
+  return lang === DEFAULT_LANG ? relativa : `${lang}/${relativa}`;
 }
 
-/** Bloque <link rel="canonical"> + hreflang (4 idiomas + x-default) para una página. */
-export function bloqueCanonicalYHreflang(lang, tipo, params = {}) {
-  const canonical = `<link rel="canonical" href="${urlPagina(lang, tipo, params)}">`;
-  const alternativas = LANGS.map((l) => `<link rel="alternate" hreflang="${l}" href="${urlPagina(l, tipo, params)}">`);
-  const xDefault = `<link rel="alternate" hreflang="x-default" href="${urlPagina(DEFAULT_LANG, tipo, params)}">`;
-  return [canonical, ...alternativas, xDefault].join('\n');
+/**
+ * URL absoluta (canónica) de una página en un idioma concreto. Español no
+ * lleva prefijo. Los índices de carpeta se publican como directorio
+ * ("/", "/en/", "/historias/") y no como ".../index.html": es la forma que
+ * enlaza la gente y la que muestran los buscadores. GitHub Pages sirve las
+ * dos con un 200, así que es la canónica la que decide cuál cuenta.
+ */
+export function urlPagina(lang, tipo, params = {}) {
+  return `${BASE_URL}/${archivoPagina(lang, tipo, params).replace(/(^|\/)index\.html$/, '$1')}`;
 }

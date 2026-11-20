@@ -870,7 +870,11 @@ const BASE_URL_SITIO = 'https://vestigia.fun';
  * y el mismo "../" ya no llega a la raíz real.
  */
 export function urlRecurso(relativo, prefijoDesdeRaiz = '') {
-  const paginaConPrefijo = typeof document !== 'undefined' && document.documentElement.getAttribute('data-idioma-pagina');
+  // Las páginas en español también llevan data-idioma-pagina="es" (para que
+  // el idioma no dependa del navegador), pero viven en la raíz: solo las de
+  // /en/ /fr/ /it/ necesitan la URL absoluta.
+  const idiomaFijo = typeof document !== 'undefined' && document.documentElement.getAttribute('data-idioma-pagina');
+  const paginaConPrefijo = Boolean(idiomaFijo) && idiomaFijo !== DEFAULT_LANG;
   return paginaConPrefijo ? `${BASE_URL_SITIO}/${relativo}` : `${prefijoDesdeRaiz}${relativo}`;
 }
 
